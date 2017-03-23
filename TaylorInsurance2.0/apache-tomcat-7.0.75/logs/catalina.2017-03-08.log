@@ -1,0 +1,110 @@
+Mar 08, 2017 9:57:22 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version:        Apache Tomcat/7.0.75
+Mar 08, 2017 9:57:22 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Jan 18 2017 20:54:42 UTC
+Mar 08, 2017 9:57:22 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server number:         7.0.75.0
+Mar 08, 2017 9:57:22 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 8.1
+Mar 08, 2017 9:57:22 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            6.3
+Mar 08, 2017 9:57:22 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Mar 08, 2017 9:57:22 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.7.0_79\jre
+Mar 08, 2017 9:57:22 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.7.0_79-b15
+Mar 08, 2017 9:57:22 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Mar 08, 2017 9:57:22 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         C:\Users\tim\Desktop\apache-tomcat-7.0.75
+Mar 08, 2017 9:57:22 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         C:\Users\tim\Desktop\apache-tomcat-7.0.75
+Mar 08, 2017 9:57:22 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=C:\Users\tim\Desktop\apache-tomcat-7.0.75\conf\logging.properties
+Mar 08, 2017 9:57:22 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Mar 08, 2017 9:57:22 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|PC
+Mar 08, 2017 9:57:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+Mar 08, 2017 9:57:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.endorsed.dirs=C:\Users\tim\Desktop\apache-tomcat-7.0.75\endorsed
+Mar 08, 2017 9:57:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=C:\Users\tim\Desktop\apache-tomcat-7.0.75
+Mar 08, 2017 9:57:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=C:\Users\tim\Desktop\apache-tomcat-7.0.75
+Mar 08, 2017 9:57:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=C:\Users\tim\Desktop\apache-tomcat-7.0.75\temp
+Mar 08, 2017 9:57:23 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Loaded APR based Apache Tomcat Native library 1.2.10 using APR version 1.5.2.
+Mar 08, 2017 9:57:23 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+Mar 08, 2017 9:57:23 PM org.apache.catalina.core.AprLifecycleListener initializeSSL
+INFO: OpenSSL successfully initialized (OpenSSL 1.0.2j  26 Sep 2016)
+Mar 08, 2017 9:57:24 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-apr-8080"]
+Mar 08, 2017 9:57:24 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-apr-8009"]
+Mar 08, 2017 9:57:24 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1664 ms
+Mar 08, 2017 9:57:24 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Mar 08, 2017 9:57:24 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.75
+Mar 08, 2017 9:57:24 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\apache-tomcat-7.0.75\webapps\docs
+Mar 08, 2017 9:57:24 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\apache-tomcat-7.0.75\webapps\docs has finished in 507 ms
+Mar 08, 2017 9:57:24 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\apache-tomcat-7.0.75\webapps\examples
+Mar 08, 2017 9:57:25 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\apache-tomcat-7.0.75\webapps\examples has finished in 328 ms
+Mar 08, 2017 9:57:25 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\apache-tomcat-7.0.75\webapps\host-manager
+Mar 08, 2017 9:57:25 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\apache-tomcat-7.0.75\webapps\host-manager has finished in 115 ms
+Mar 08, 2017 9:57:25 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\apache-tomcat-7.0.75\webapps\manager
+Mar 08, 2017 9:57:25 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\apache-tomcat-7.0.75\webapps\manager has finished in 60 ms
+Mar 08, 2017 9:57:25 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\apache-tomcat-7.0.75\webapps\ROOT
+Mar 08, 2017 9:57:25 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\apache-tomcat-7.0.75\webapps\ROOT has finished in 67 ms
+Mar 08, 2017 9:57:25 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-apr-8080"]
+Mar 08, 2017 9:57:25 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-apr-8009"]
+Mar 08, 2017 9:57:25 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1184 ms
+Mar 08, 2017 9:57:26 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\Users\tim\Desktop\apache-tomcat-7.0.75\conf\Catalina\localhost\taylor_insurance_login.xml
+Mar 08, 2017 9:57:26 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\Users\tim\Desktop\apache-tomcat-7.0.75\conf\Catalina\localhost\taylor_insurance_login.xml has finished in 75 ms
+Mar 08, 2017 9:57:26 PM org.apache.catalina.util.LifecycleBase start
+INFO: The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/taylor_insurance_login]] after start() had already been called. The second call will be ignored.
+Mar 08, 2017 10:02:21 PM org.apache.catalina.startup.HostConfig undeploy
+INFO: Undeploying context [/taylor_insurance_login]
+Mar 08, 2017 10:03:24 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\Users\tim\Desktop\apache-tomcat-7.0.75\conf\Catalina\localhost\taylor_insurance_login.xml
+Mar 08, 2017 10:03:24 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\Users\tim\Desktop\apache-tomcat-7.0.75\conf\Catalina\localhost\taylor_insurance_login.xml has finished in 48 ms
+Mar 08, 2017 10:03:24 PM org.apache.catalina.util.LifecycleBase start
+INFO: The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/taylor_insurance_login]] after start() had already been called. The second call will be ignored.
+Mar 08, 2017 11:45:09 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/taylor_insurance_login] has started
+Mar 08, 2017 11:45:09 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/taylor_insurance_login] is completed
+Mar 08, 2017 11:45:09 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/taylor_insurance_login] has started
+Mar 08, 2017 11:45:09 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/taylor_insurance_login] is completed
+Mar 08, 2017 11:53:08 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/taylor_insurance_login] has started
+Mar 08, 2017 11:53:08 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/taylor_insurance_login] is completed
+Mar 08, 2017 11:59:10 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/taylor_insurance_login] has started
+Mar 08, 2017 11:59:10 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/taylor_insurance_login] is completed
