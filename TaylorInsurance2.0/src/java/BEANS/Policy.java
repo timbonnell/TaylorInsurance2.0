@@ -8,7 +8,7 @@ package BEANS;
  * and open the template in the editor.
  */
 
-import BEANS.Client;
+import BEANS.Customer;
 import java.util.Date;
 
 /**
@@ -17,7 +17,7 @@ import java.util.Date;
  */
 public abstract class Policy {
     private int policyNumber;
-    private Client associatedCustomer;
+    private Customer associatedCustomer;
     private Date startDate;
     private Date endDate;
     private double basePremium;

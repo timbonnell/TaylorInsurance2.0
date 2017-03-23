@@ -3,7 +3,7 @@ package DAO;
 
 import SERVLETS.ConnectionManager;
 import BEANS.Address;
-import BEANS.Client;
+import BEANS.Customer;
 import java.text.*;
 import java.util.*;
 import java.sql.*;
@@ -23,7 +23,7 @@ public class clientDAO {
     static Connection connection = null;
     static ResultSet rs = null;
 
-    public static Client login(Client client) {
+    public static Customer login(Customer client) {
         //preparing some objects for connection 
         Statement stmt = null;
 
