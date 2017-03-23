@@ -23,12 +23,12 @@ public class clientDAO {
     static Connection connection = null;
     static ResultSet rs = null;
 
-    public static Customer login(Customer client) {
+    public static Customer login(Customer customer) {
         //preparing some objects for connection 
         Statement stmt = null;
 
-        String username = client.getEmail();
-        String password = client.getPassword();
+        String username = customer.getEmail();
+        String password = customer.getPassword();
 
         //Needs to be changed to an SP
         String searchQuery = "SELECT * FROM customer where customer_email = '"
@@ -51,8 +51,8 @@ public class clientDAO {
             //Checks to see if user exists and will set the isValid variable to false if it does not exist
             if (!more) {
                 System.out.println("Invalid Username or Password");
-                client.setValid(false);
-            } // If username and password are correct, set client to valid and set up the client
+                customer.setValid(false);
+            } // If username and password are correct, set customer to valid and set up the customer
             else if (more) {
 
                 // All of the gets
@@ -69,13 +69,13 @@ public class clientDAO {
                 String phoneNumber = rs.getString("customer_contact");
 
                 // All of the sets
-                client.setId(id);
-                client.setFirstName(firstName);
-                client.setLastName(lastName);
-                client.setMailingAddress(mailingAddress);
-                client.setPhoneNumber(phoneNumber);
-                // Set client to valid
-                client.setValid(true);
+                customer.setId(id);
+                customer.setFirstName(firstName);
+                customer.setLastName(lastName);
+                customer.setMailingAddress(mailingAddress);
+                customer.setPhoneNumber(phoneNumber);
+                // Set customer to valid
+                customer.setValid(true);
             }
 
         } catch (Exception ex) {
@@ -110,6 +110,6 @@ public class clientDAO {
             }
         }
 
-        return client;
+        return customer;
     }
 }
