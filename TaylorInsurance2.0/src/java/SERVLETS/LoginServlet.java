@@ -7,7 +7,7 @@ package SERVLETS;
  */
 
 import DAO.clientDAO;
-import BEANS.Client;
+import BEANS.Customer;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -60,7 +60,7 @@ public class LoginServlet extends HttpServlet {
         try
 {	    
 
-     Client client = new Client();
+     Customer client = new Customer();
      client.setEmail(request.getParameter("inputEmail"));
      client.setPassword(request.getParameter("inputPassword"));
 

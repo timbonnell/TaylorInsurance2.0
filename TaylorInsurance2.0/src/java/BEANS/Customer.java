@@ -7,7 +7,7 @@ import java.time.LocalDate;
  *
  * @author 20124135
  */
-public class Client {
+public class Customer {
 
     private String id;
     private String firstName;

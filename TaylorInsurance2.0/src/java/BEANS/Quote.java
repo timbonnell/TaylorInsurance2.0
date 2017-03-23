@@ -1,7 +1,7 @@
 package BEANS;
 
 
-import BEANS.Client;
+import BEANS.Customer;
 
 
 
@@ -20,7 +20,7 @@ import BEANS.Client;
  */
 public abstract class Quote {
     protected int id;
-    protected Client associatedClient;
+    protected Customer associatedClient;
     protected double basePremium;
 
     public int getId() {
@@ -31,11 +31,11 @@ public abstract class Quote {
         this.id = id;
     }
 
-    public Client getAssociatedClient() {
+    public Customer getAssociatedClient() {
         return associatedClient;
     }
 
-    public void setAssociatedClient(Client associatedClient) {
+    public void setAssociatedClient(Customer associatedClient) {
         this.associatedClient = associatedClient;
     }
 

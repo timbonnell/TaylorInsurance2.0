@@ -7,7 +7,7 @@ package BEANS;
  */
 
 import BEANS.Rate;
-import BEANS.Client;
+import BEANS.Customer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,16 +18,16 @@ import java.util.Map;
  * @param <Insurable>
  */
 public class PremiumCalculator<Insurable> {
-    private final Client client;
+    private final Customer client;
     private final Insurable property;
     private static final Map<String, List<Rate>> insuranceRates = new HashMap();
     
-    public PremiumCalculator(Client client, Insurable property) {
+    public PremiumCalculator(Customer client, Insurable property) {
         this.client = client;
         this.property = property;
     }
 
-    public Client getClient() {
+    public Customer getClient() {
         return client;
     }
 
