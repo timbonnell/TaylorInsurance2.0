@@ -19,6 +19,41 @@ public class House implements Insurable {
     private String year;
     private String heating;
 
+    public Address getAddress() {
+        return address;
+    }
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public String getType() {
+        return type;
+    }
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getYear() {
+        return year;
+    }
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getHeating() {
+        return heating;
+    }
+    public void setHeating(String heating) {
+        this.heating = heating;
+    }
+
+    public House(Address address, String type, String year, String heating) {
+        this.setAddress(address);
+        this.setType(type);
+        this.setYear(year);
+        this.setHeating(heating);
+    }
+    
     public List<InsurableFactor> getInsurableFactors() {
         List<InsurableFactor> factorList = new ArrayList();
         factorList.add(new InsurableFactor(InsurableFactor.SEARCH_EQUAL, "HOUSE_YEAR", this.year));
@@ -26,10 +61,7 @@ public class House implements Insurable {
         factorList.add(new InsurableFactor(InsurableFactor.SEARCH_EQUAL, "HOUSE_TYPE", this.type));
         factorList.add(new InsurableFactor(InsurableFactor.SEARCH_EQUAL, "HOUSE_CITY", this.address.getCity()));        
         factorList.add(new InsurableFactor(InsurableFactor.SEARCH_EQUAL, "HOUSE_PROVINCE", this.address.getProvince()));        
-        factorList.add(new InsurableFactor(InsurableFactor.SEARCH_EQUAL, "HOUSE_ADDRESS1", this.address.getStreetAddress1()));        
-        factorList.add(new InsurableFactor(InsurableFactor.SEARCH_EQUAL, "HOUSE_ADDRESS2", this.address.getStreetAddress2()));        
         factorList.add(new InsurableFactor(InsurableFactor.SEARCH_EQUAL, "HOUSE_COUNTRY", this.address.getCountry()));        
-        factorList.add(new InsurableFactor(InsurableFactor.SEARCH_EQUAL, "HOUSE_POSTALCODE", this.address.getPostalCode()));
         return factorList;
     }
 
