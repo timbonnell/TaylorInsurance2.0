@@ -40,7 +40,7 @@ public class clientDAO {
 
         // Try to connect to database and login
         try {
-            connection = ConnectionManager.getConnection();
+            connection = ConnectionManager.getManager().getConnection();
             stmt = connection.createStatement();
             rs = stmt.executeQuery(searchQuery);
             boolean more = rs.next();

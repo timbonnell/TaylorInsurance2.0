@@ -5,7 +5,6 @@ package SERVLETS;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import DAO.clientDAO;
 import BEANS.InfoObjects.Customer;
 import java.io.IOException;
@@ -33,7 +32,7 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-            
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -48,32 +47,25 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try
-{	    
+        try {
 
-     Customer client = new Customer();
-     client.setEmail(request.getParameter("inputEmail"));
-     client.setPassword(request.getParameter("inputPassword"));
+            Customer client = new Customer();
+            client.setEmail(request.getParameter("inputEmail"));
+            client.setPassword(request.getParameter("inputPassword"));
 
-     client = clientDAO.login(client);
-	   		    
-     if (client.isValid())
-     {
-	        
-          HttpSession session = request.getSession(true);	    
-          session.setAttribute("currentSessionClient",client); 
-          response.sendRedirect("userprofile.jsp"); //logged-in page      		
-     }
-	        
-     else 
-          response.sendRedirect("invalidLogin.jsp"); //error page 
-} 
-		
-		
-catch (Throwable theException) 	    
-{
-     System.out.println(theException); 
-}
+            client = clientDAO.login(client);
+
+            if (client.isValid()) {
+
+                HttpSession session = request.getSession(true);
+                session.setAttribute("currentSessionClient", client);
+                response.sendRedirect("userprofile.jsp"); //logged-in page      		
+            } else {
+                response.sendRedirect("invalidLogin.jsp"); //error page 
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 
     /**
@@ -86,8 +78,8 @@ catch (Throwable theException)
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException{
-        
+            throws ServletException, IOException {
+
     }
 
     /**
@@ -99,6 +91,5 @@ catch (Throwable theException)
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
-    
+
 }

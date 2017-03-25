@@ -2,7 +2,8 @@ package BEANS.PolicyObjects;
 
 import BEANS.InfoObjects.CustomerInsurable;
 import BEANS.InfoObjects.Insurable;
-import java.util.List;
+import BEANS.RiskFactorObjects.RiskFactorGenerator;
+import java.time.LocalDate;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,34 +14,54 @@ import java.util.List;
  *
  * @author 20124135
  */
-public class Quote {
+public abstract class Quote {
 
-    protected int id;
-    protected CustomerInsurable associatedClient;
-    protected Insurable associatedProperty;
+    protected String id;
+    protected LocalDate created;
+    private CustomerInsurable client;
+    private Insurable property;
+    private RiskFactorGenerator calculator;
 
-    public int getId() {
+    public Quote(String id, LocalDate created, CustomerInsurable client, Insurable property) {
+        this.id = id;
+        this.created = created;
+        this.client = client;
+        this.property = property;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public CustomerInsurable getAssociatedClient() {
-        return associatedClient;
+    public CustomerInsurable getClient() {
+        return client;
     }
 
-    public void setAssociatedClient(CustomerInsurable associatedClient) {
-        this.associatedClient = associatedClient;
+    public void setClient(CustomerInsurable client) {
+        this.client = client;
     }
 
-    public Insurable getAssociatedProperty() {
-        return associatedProperty;
+    public Insurable getProperty() {
+        return property;
     }
 
-    public void setAssociatedProperty(Insurable associatedProperty) {
-        this.associatedProperty = associatedProperty;
+    public void setProperty(Insurable property) {
+        this.property = property;
     }
 
+    public RiskFactorGenerator getCalculator() {
+        return calculator;
+    }
+
+    public void setCalculator(RiskFactorGenerator calculator) {
+        this.calculator = calculator;
+    }
+    
+    public double getTotalPremium() {
+        return getCalculator().getBasePremium() * getCalculator().getTotalRateFactor();
+    }
 }

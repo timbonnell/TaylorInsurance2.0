@@ -11,6 +11,7 @@ import BEANS.PolicyObjects.Quote;
 import BEANS.InfoObjects.Customer;
 import BEANS.InfoObjects.Vehicle;
 import BEANS.InfoObjects.Address;
+import BEANS.PolicyObjects.VehicleQuote;
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -23,7 +24,7 @@ public class Tester {
     
     public static Customer getTestClient() {
         Customer customer = new Customer();
-        customer.setId("1");
+        customer.setId("100");
         customer.setPhoneNumber("7095551234");
         customer.setFirstName("John");
         customer.setLastName("Smith");
@@ -44,6 +45,6 @@ public class Tester {
     
     public static Quote getTestVehicleQuote() {
         
-        return new Quote();
+        return new VehicleQuote("2000", LocalDate.of(2010, 8, 8), getTestClient(), getTestVehicle());
     }
 }

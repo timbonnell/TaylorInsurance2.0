@@ -2,6 +2,8 @@ package BEANS.RiskFactorObjects;
 
 import BEANS.InfoObjects.CustomerInsurable;
 import BEANS.InfoObjects.Insurable;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,11 +19,13 @@ public abstract class RiskFactorGenerator {
     
     private final CustomerInsurable customer;
     private final Insurable property;
+    private final Map<String, Map<Integer, Double>> rates;
     private double basePremium;
     
     public RiskFactorGenerator(CustomerInsurable customer, Insurable property) {
         this.customer = customer;
         this.property = property;
+        rates = new HashMap();
     }
 
     public CustomerInsurable getCustomer() {
@@ -40,5 +44,18 @@ public abstract class RiskFactorGenerator {
         this.basePremium = basePremium;
     }    
 
+    public void addRate(String group, int key, double value) {
+        if (rates.get(group) == null) {
+            rates.put(group, new HashMap());
+        }
+        rates.get(group).put(key, value);
+    }
+    
+    public Map<Integer, Double> getRatesForGroup(String group) {
+        return rates.get(group);
+    }
+    
     abstract void loadRates();
+    abstract void loadPremium();
+    public abstract double getTotalRateFactor();
 }

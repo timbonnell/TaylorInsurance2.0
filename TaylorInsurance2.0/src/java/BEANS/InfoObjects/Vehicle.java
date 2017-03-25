@@ -10,7 +10,7 @@ package BEANS.InfoObjects;
  *
  * @author SPOO
  */
-public class Vehicle implements AutoInsurable {
+public class Vehicle implements VehicleInsurable {
 
     private int year;
     private String make;
