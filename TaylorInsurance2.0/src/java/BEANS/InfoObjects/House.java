@@ -11,17 +11,20 @@ public class House implements HouseInsurable {
     private int year;
     private int heating;
 
-     public House(Address address, int type, int year, int heating) {
+    public House() {
+    }
+
+    public House(Address address, int type, int year, int heating) {
         this.setAddress(address);
         this.setType(type);
         this.setYear(year);
         this.setHeating(heating);
     }
-    
+
     public final Address getAddress() {
         return address;
     }
-    
+
     public final void setAddress(Address address) {
         this.address = address;
     }
@@ -54,5 +57,5 @@ public class House implements HouseInsurable {
     public String getIdentifier() {
         return "HOUSE";
     }
-    
+
 }
