@@ -1,4 +1,4 @@
-package BEANS;
+package BEANS.PolicyObjects;
 
 
 
@@ -8,7 +8,7 @@ package BEANS;
  * and open the template in the editor.
  */
 
-import BEANS.Customer;
+import BEANS.InfoObjects.Customer;
 import java.util.Date;
 
 /**

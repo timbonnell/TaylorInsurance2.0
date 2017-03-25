@@ -2,12 +2,9 @@ package DAO;
 
 
 import SERVLETS.ConnectionManager;
-import BEANS.Address;
-import BEANS.Customer;
-import java.text.*;
-import java.util.*;
+import BEANS.InfoObjects.Address;
+import BEANS.InfoObjects.Customer;
 import java.sql.*;
-import java.time.LocalDate;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -60,7 +57,7 @@ public class clientDAO {
                 String firstName = rs.getString("first_name");
                 String lastName = rs.getString("last_name");
                 //  LocalDate birthDate = rs.getDate(customer_birthdate);
-                Address mailingAddress = new Address(rs.getString("customer_city"),
+                Address address = new Address(rs.getString("customer_city"),
                         rs.getString("customer_province"),
                         rs.getString("customer_street"),
                         "Canada",
@@ -72,13 +69,13 @@ public class clientDAO {
                 customer.setId(id);
                 customer.setFirstName(firstName);
                 customer.setLastName(lastName);
-                customer.setMailingAddress(mailingAddress);
+                customer.setAddress(address);
                 customer.setPhoneNumber(phoneNumber);
                 // Set customer to valid
                 customer.setValid(true);
             }
 
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
         } 
         //Exception handling and closing
@@ -87,7 +84,7 @@ public class clientDAO {
             if (rs != null) {
                 try {
                     rs.close();
-                } catch (Exception e) {
+                } catch (SQLException e) {
                 }
                 rs = null;
             }
@@ -95,7 +92,7 @@ public class clientDAO {
             if (stmt != null) {
                 try {
                     stmt.close();
-                } catch (Exception e) {
+                } catch (SQLException e) {
                 }
                 stmt = null;
             }
@@ -103,7 +100,7 @@ public class clientDAO {
             if (connection != null) {
                 try {
                     connection.close();
-                } catch (Exception e) {
+                } catch (SQLException e) {
                 }
 
                 connection = null;
