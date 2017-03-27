@@ -11,6 +11,7 @@ import BEANS.InfoObjects.Customer;
 import BEANS.PolicyObjects.HouseQuote;
 import BEANS.PolicyObjects.Quote;
 import DAO.CustomerDAO;
+import DAO.HouseDAO;
 import DAO.QuoteDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -62,13 +63,15 @@ public class HomeQuoteServlet extends HttpServlet {
         client.setEmail(request.getParameter("email"));
         client.setPhoneNumber(request.getParameter("phone"));
         String enteredDateOfBirth = request.getParameter("dateofbirth");
+        
+        //Puts birthdate in correct format
         String[] splitDate = enteredDateOfBirth.split("-");
 
         int yearInt = Integer.parseInt(splitDate[0]);
         int monthInt = Integer.parseInt(splitDate[1]);
         int dayInt = Integer.parseInt(splitDate[2]);
         LocalDate localDateBirth = LocalDate.of(yearInt, monthInt, dayInt);
-        
+
         client.setBirthDate(localDateBirth);
 
         //Set up customer Address
@@ -79,8 +82,9 @@ public class HomeQuoteServlet extends HttpServlet {
                 request.getParameter("postal"));
 
         client.setAddress(address);
-
-        CustomerDAO.createInit(client);
+        
+        //Store initial customer in database
+      //  CustomerDAO.createInit(client);
 
         //Creates House Object
         House newHouse = new House();
@@ -89,27 +93,28 @@ public class HomeQuoteServlet extends HttpServlet {
         newHouse.setYear(Integer.parseInt(request.getParameter("yearBuilt")));
         newHouse.setAddress(address);
 
+        //Store house in Database
+      //  HouseDAO.createHouse(newHouse);
+
         //Create a House Quote
         HouseQuote houseQuote = new HouseQuote("0", LocalDate.now(), client, newHouse);
         
+        //Test Quote
+        System.out.println("House Premium:  $" + houseQuote.getTotalPremium());
+        
         //Set up sessions
-          HttpSession sessionClient = request.getSession(true);
-          HttpSession sessionHouse = request.getSession(true);
-          HttpSession sessionHouseQuote = request.getSession(true);	 
-         
-          sessionClient.setAttribute("currentSessionClient",client); 
-          sessionHouse.setAttribute("currentSessionHouse", newHouse);
-          sessionHouseQuote.setAttribute("currentSessionHouseQuote", houseQuote);
-          
-          QuoteDAO.createHouseQuote(client, newHouse, houseQuote);
-          
-          
-          
-        
-        
+        HttpSession sessionClient = request.getSession(true);
+        HttpSession sessionHouse = request.getSession(true);
+        HttpSession sessionHouseQuote = request.getSession(true);
+
+        sessionClient.setAttribute("currentSessionClient", client);
+        sessionHouse.setAttribute("currentSessionHouse", newHouse);
+        sessionHouseQuote.setAttribute("currentSessionHouseQuote", houseQuote);
+
+        QuoteDAO.createHouseQuote(client, newHouse, houseQuote);
+
         //Redirects to Create Customer Page
         response.sendRedirect("HomeQuoteResult.jsp");
-
 
     }
 

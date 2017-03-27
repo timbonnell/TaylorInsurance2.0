@@ -36,7 +36,6 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="btn-trial"><a href="" data-target="#login" data-toggle="modal">Login</a></li>
                     <li><a href="index.jsp">Home</a></li>
                     <li><a href="homeQuote.jsp">Get a Home Quote</a></li>
                     <li><a href="autoQuote.jsp">Get an Auto Quote</a></li>
@@ -48,9 +47,9 @@
     <!--End Nav -->
 
 <body style="padding-top: 150px;">
-     <% VehicleQuote houseQuote = (VehicleQuote)(session.getAttribute("currentSessionHouseQuote"));%>
+     <% VehicleQuote vehicleQuote = (VehicleQuote)(session.getAttribute("currentSessionVehicleQuote"));%>
       <% Customer currentClient = (Customer)(session.getAttribute("currentSessionClient"));%>
-      <% Vehicle newHouse = (Vehicle) (session.getAttribute("currentSessionHouse"));%>
+      <% Vehicle newVehicle = (Vehicle) (session.getAttribute("currentSessionVehicle"));%>
         <div class="container">
             <div class="row">
 
@@ -59,7 +58,7 @@
                 <div class="form-group">
                     <div class="row">
                         <fieldset class="for-panel">
-                            <legend>Home Quote Quote</legend>
+                            <legend>Auto Quote Results</legend>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-horizontal">               
@@ -87,25 +86,8 @@
                                 <div class="col-sm-6">
                                     <div class="form-horizontal">               
                                         <div class="form-group">
-                                            <label class="col-xs-5 control-label">Date of Birth: </label>
-                                            <input class="form-control-static" type="date" name="dateofbirth" required> 
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Make: </label>
-                                            <input class="form-control-static" name="make" type="text" required>     
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Model: </label> 
-                                            <input class="form-control-static" name="model" type="text" required>   
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Year: </label>
-                                            <input class="form-control-static" name="year" type="text" required>              
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label"><p>Number of Accidents</p> (Last 5 Years) </label>
-                                            <input class="form-control-static" name="accidents" required>   
+                                            <label class="col-xs-5 control-label">Total Premium: </label>
+                                            <p>$ <%= vehicleQuote.getTotalPremium() %></p>  
                                         </div>
 
 

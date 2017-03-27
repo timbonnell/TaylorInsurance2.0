@@ -6,8 +6,6 @@
 package DAO;
 
 import BEANS.InfoObjects.House;
-import static DAO.CustomerDAO.connection;
-import static DAO.CustomerDAO.rs;
 import SERVLETS.ConnectionManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -45,9 +43,17 @@ public class HouseDAO {
             ps = connection.prepareStatement(SPsql);
             ps.setEscapeProcessing(true);
             ps.setQueryTimeout(30);
+            //Set up params for stored procedure
             ps.setInt(1, houseType);
             ps.setInt(2, houseYear);
+            ps.setInt(3, houseHeating);
+            ps.setString(4, houseCity);
+            ps.setInt(5, 10);
+            ps.setString(6, houseStreet);
+            ps.setString(7, housePostal);
+            ps.setString(8, houseCountry);
             
+            ps.executeQuery();
             
             } catch (Exception ex) {
             System.out.println("Log In failed: An Exception has occurred! " + ex);

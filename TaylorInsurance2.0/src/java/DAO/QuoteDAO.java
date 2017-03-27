@@ -10,9 +10,11 @@ import BEANS.InfoObjects.House;
 import BEANS.InfoObjects.Vehicle;
 import BEANS.PolicyObjects.HouseQuote;
 import BEANS.PolicyObjects.VehicleQuote;
+import SERVLETS.ConnectionManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -32,5 +34,63 @@ public class QuoteDAO {
         
     }
     
-    
+    public static ArrayList<Integer> getQuoteIDbyCustomerID(Customer client){
+       
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        int CustomerID = Integer.parseInt(client.getId());
+        String SPsql = "EXEC getQuoteByCustomerId ?";
+         
+         try {
+            connection = ConnectionManager.getConnection();
+            //stmt = connection.createStatement();
+            ps = connection.prepareStatement(SPsql);
+            ps.setEscapeProcessing(true);
+            ps.setQueryTimeout(30);
+            //Set up params for stored procedure
+            ps.setInt(1, CustomerID);
+            
+            //Return sp into a result set
+            rs = ps.executeQuery();
+            boolean more = rs.next();
+           //If the customer doesnt have any quotes 
+            if (!more) {
+                System.out.println("No Quotes Found");
+            }else{
+                while(rs.next()){
+                    list.add(rs.getInt("quote_id"));
+                }
+            }
+     } catch (Exception ex) {
+            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        } //Exception handling and closing
+        finally {
+            //Result Set
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                }
+                rs = null;
+            }
+            //Statement
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception e) {
+                }
+                ps = null;
+            }
+            //Connection
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (Exception e) {
+                }
+
+                connection = null;
+            }
+        }
+         return list;
+    }
+   
 }

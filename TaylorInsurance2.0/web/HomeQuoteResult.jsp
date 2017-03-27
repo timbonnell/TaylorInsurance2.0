@@ -4,9 +4,9 @@
     Author     : tim
 --%>
 <%@page import="BEANS.PolicyObjects.HouseQuote"%>
+<%@page import="BEANS.PolicyObjects.Quote"%>
 <%@page import="BEANS.InfoObjects.Customer" %>
 <%@page import="BEANS.InfoObjects.House" %>
-<%@page import="BEANS.InfoObjects.Customer" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +37,6 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="btn-trial"><a href="" data-target="#login" data-toggle="modal">Login</a></li>
                     <li><a href="index.jsp">Home</a></li>
                     <li><a href="homeQuote.jsp">Get a Home Quote</a></li>
                     <li><a href="autoQuote.jsp">Get an Auto Quote</a></li>
@@ -49,9 +48,9 @@
     <!--End Nav -->
 
  <body style="padding-top: 150px;">
-     <% HouseQuote houseQuote = (HouseQuote)(session.getAttribute("currentSessionVehicleQuote"));%>
+     <% HouseQuote houseQuote = (HouseQuote)(session.getAttribute("currentSessionHouseQuote"));%>
       <% Customer currentClient = (Customer)(session.getAttribute("currentSessionClient"));%>
-      <% House newHouse = (House) (session.getAttribute("currentSessionVehicle"));%>
+      <% House newHouse = (House) (session.getAttribute("currentSessionHouse"));%>
         <div class="container">
             <div class="row">
 
@@ -88,27 +87,9 @@
                                 <div class="col-sm-6">
                                     <div class="form-horizontal">               
                                         <div class="form-group">
-                                            <label class="col-xs-5 control-label">Date of Birth: </label>
-                                            <input class="form-control-static" type="date" name="dateofbirth" required> 
+                                            <label class="col-xs-5 control-label">Total Premium: </label>
+                                            <p>$ <%= houseQuote.getTotalPremium() %></p>     
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Make: </label>
-                                            <input class="form-control-static" name="make" type="text" required>     
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Model: </label> 
-                                            <input class="form-control-static" name="model" type="text" required>   
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Year: </label>
-                                            <input class="form-control-static" name="year" type="text" required>              
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label"><p>Number of Accidents</p> (Last 5 Years) </label>
-                                            <input class="form-control-static" name="accidents" required>   
-                                        </div>
-
 
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label"></label>
