@@ -9,6 +9,7 @@ import BEANS.InfoObjects.Address;
 import BEANS.InfoObjects.Customer;
 import BEANS.InfoObjects.Vehicle;
 import BEANS.PolicyObjects.Quote;
+import BEANS.PolicyObjects.VehicleQuote;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
@@ -16,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -109,13 +111,23 @@ public class AutoQuoteServlet extends HttpServlet {
         String enteredAccidents = request.getParameter("accidents");
         System.out.println("Number of Accidents: " + enteredAccidents); // Where does this go? TODO
         
+        VehicleQuote vehicleQuote = new VehicleQuote("0", LocalDate.now(), quoteCustomer, quoteVehicle);
         
-        // Build a Quote Object - TODO
-       // Quote createdQuote = new Quote();
-        //createdQuote.setAssociatedClient(quoteCustomer);//Assign the customer
-        //createdQuote.setAssociatedProperty(quoteVehicle);
         
-        // Access a DAO for this object - TODO
+        
+        
+        
+        
+          //Set up sessions
+          HttpSession sessionClient = request.getSession(true);
+          HttpSession sessionVehicle = request.getSession(true);
+          HttpSession sessionVehicleQuote = request.getSession(true);
+        
+          sessionClient.setAttribute("currentSessionClient",quoteCustomer); 
+          sessionVehicle.setAttribute("currentSessionVehicle", quoteVehicle);
+          sessionVehicleQuote.setAttribute("currentSessionVehicleQuote", vehicleQuote);
+        
+       
                 
         response.sendRedirect("AutoQuoteResult.jsp"); 
     }

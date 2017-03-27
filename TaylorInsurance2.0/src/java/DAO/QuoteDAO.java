@@ -7,7 +7,9 @@ package DAO;
 
 import BEANS.InfoObjects.Customer;
 import BEANS.InfoObjects.House;
+import BEANS.InfoObjects.Vehicle;
 import BEANS.PolicyObjects.HouseQuote;
+import BEANS.PolicyObjects.VehicleQuote;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,5 +27,10 @@ public class QuoteDAO {
     public static void createHouseQuote(Customer Client, House house, HouseQuote houseQuote){
         
     }
+    
+    public static void createVehicleQuote(Customer Client, Vehicle vehicle, VehicleQuote vehicleQuote){
+        
+    }
+    
     
 }
