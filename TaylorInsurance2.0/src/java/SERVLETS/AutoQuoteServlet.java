@@ -110,7 +110,7 @@ public class AutoQuoteServlet extends HttpServlet {
           sessionVehicle.setAttribute("currentSessionVehicle", quoteVehicle);
           sessionVehicleQuote.setAttribute("currentSessionVehicleQuote", vehicleQuote);
         
-          //System.out.println("Vehicle Premium:  $" + vehicleQuote.getTotalPremium());
+          System.out.println("Vehicle Premium:  $" + vehicleQuote.getTotalPremium());
        
                 
         response.sendRedirect("AutoQuoteResult.jsp"); 

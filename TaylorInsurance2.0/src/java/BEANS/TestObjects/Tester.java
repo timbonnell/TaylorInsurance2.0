@@ -21,6 +21,10 @@ import java.time.Month;
  */
 public class Tester {
     
+    public static void main(String args[]) {
+        VehicleQuote testQuote = getTestVehicleQuote();
+        System.out.println(testQuote.getTotalPremium());
+    }
     
     public static Customer getTestClient() {
         Customer customer = new Customer();
@@ -43,8 +47,7 @@ public class Tester {
         return vehicle;
     }
     
-    public static Quote getTestVehicleQuote() {
-        
+    public static VehicleQuote getTestVehicleQuote() {
         return new VehicleQuote("2000", LocalDate.of(2010, 8, 8), getTestClient(), getTestVehicle());
     }
 }

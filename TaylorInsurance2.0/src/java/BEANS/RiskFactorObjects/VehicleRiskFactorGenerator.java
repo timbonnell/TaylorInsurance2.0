@@ -14,6 +14,8 @@ public class VehicleRiskFactorGenerator extends RiskFactorGenerator {
 
     public VehicleRiskFactorGenerator(CustomerInsurable customer, VehicleInsurable property) {
         super(customer, property);
+        loadRates();
+        loadPremium();
     }
 
     public double getVehicleAgeFactor() {
@@ -43,10 +45,10 @@ public class VehicleRiskFactorGenerator extends RiskFactorGenerator {
 
     public double getDriverAgeFactor() {
         Map ageRates = getRatesForGroup("DRIVER_AGE");
-        CustomerInsurable customer = getCustomer();
+        CustomerInsurable driver = getCustomer();
 
         // House age is calculated from current date
-        int driverAge = customer.getBirthDate().until(LocalDate.now()).getYears();
+        int driverAge = driver.getBirthDate().until(LocalDate.now()).getYears();
 
         // Store current applicable factor while looping through the rates.
         // Because the Map may be in an arbitrary order, also check to make sure only the largest applicable age is given.
@@ -68,7 +70,7 @@ public class VehicleRiskFactorGenerator extends RiskFactorGenerator {
 
     public double getDriverAccidentsFactor() {
         Map accidentRates = getRatesForGroup("VEHICLE_AGE");
-        CustomerInsurable customer = getCustomer();
+        CustomerInsurable driver = getCustomer();
 
         int accidents = getNumberOfDriverAccidents();
 

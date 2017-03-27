@@ -61,7 +61,7 @@ public class CustomerDAO {
             else if (more) {
 
                 // All of the gets
-                String id = rs.getString("customer_id");
+                String id = rs.getString("id");
                 String firstName = rs.getString("first_name");
                 String lastName = rs.getString("last_name");
                 //  LocalDate birthDate = rs.getDate(customer_birthdate);
