@@ -1,0 +1,750 @@
+Mar 24, 2017 11:36:48 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextInitialized()
+Mar 24, 2017 11:36:48 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextInitialized()
+Mar 24, 2017 11:36:48 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: attributeAdded('org.apache.jasper.compiler.TldLocationsCache', 'org.apache.jasper.compiler.TldLocationsCache@67bd951')
+Mar 24, 2017 11:37:46 AM org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Servlet.service() for servlet [jsp] in context with path [/TaylorInsurance] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\work\Catalina\localhost\TaylorInsurance\org\apache\jsp\userprofile_jsp.java]
+Only a type can be imported. BEANS.Client resolves to a package
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+Stacktrace:] with root cause
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\work\Catalina\localhost\TaylorInsurance\org\apache\jsp\userprofile_jsp.java]
+Only a type can be imported. BEANS.Client resolves to a package
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:103)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:366)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:490)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:379)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:354)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:341)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:662)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:364)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:395)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:339)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:218)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:452)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1087)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2536)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2525)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 24, 2017 11:38:14 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextDestroyed()
+Mar 24, 2017 11:38:14 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextDestroyed()
+Mar 24, 2017 11:44:09 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextInitialized()
+Mar 24, 2017 11:44:09 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextInitialized()
+Mar 24, 2017 11:44:09 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: attributeAdded('org.apache.jasper.compiler.TldLocationsCache', 'org.apache.jasper.compiler.TldLocationsCache@75043bb4')
+Mar 24, 2017 12:35:08 PM org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Servlet.service() for servlet [jsp] in context with path [/TaylorInsurance] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\work\Catalina\localhost\TaylorInsurance\org\apache\jsp\userprofile_jsp.java]
+Only a type can be imported. BEANS.Client resolves to a package
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+Stacktrace:] with root cause
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\work\Catalina\localhost\TaylorInsurance\org\apache\jsp\userprofile_jsp.java]
+Only a type can be imported. BEANS.Client resolves to a package
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:103)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:366)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:490)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:379)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:354)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:341)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:662)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:364)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:395)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:339)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:218)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:452)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1087)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2536)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2525)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 24, 2017 12:36:13 PM org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Servlet.service() for servlet [jsp] in context with path [/TaylorInsurance] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\work\Catalina\localhost\TaylorInsurance\org\apache\jsp\userprofile_jsp.java]
+Only a type can be imported. BEANS.Client resolves to a package
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+Stacktrace:] with root cause
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\work\Catalina\localhost\TaylorInsurance\org\apache\jsp\userprofile_jsp.java]
+Only a type can be imported. BEANS.Client resolves to a package
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:103)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:366)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:490)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:379)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:354)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:341)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:662)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:364)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:395)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:339)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:218)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:452)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1087)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2536)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2525)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 24, 2017 12:45:26 PM org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Servlet.service() for servlet [jsp] in context with path [/TaylorInsurance] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\work\Catalina\localhost\TaylorInsurance\org\apache\jsp\userprofile_jsp.java]
+Only a type can be imported. BEANS.Client resolves to a package
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+Stacktrace:] with root cause
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\work\Catalina\localhost\TaylorInsurance\org\apache\jsp\userprofile_jsp.java]
+Only a type can be imported. BEANS.Client resolves to a package
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:103)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:366)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:490)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:379)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:354)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:341)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:662)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:364)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:395)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:339)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:218)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:452)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1087)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2536)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2525)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 24, 2017 12:46:08 PM org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Servlet.service() for servlet [jsp] in context with path [/TaylorInsurance] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\work\Catalina\localhost\TaylorInsurance\org\apache\jsp\userprofile_jsp.java]
+Only a type can be imported. BEANS.Client resolves to a package
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+Stacktrace:] with root cause
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\work\Catalina\localhost\TaylorInsurance\org\apache\jsp\userprofile_jsp.java]
+Only a type can be imported. BEANS.Client resolves to a package
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:103)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:366)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:490)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:379)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:354)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:341)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:662)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:364)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:395)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:339)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:218)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:452)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1087)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2536)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2525)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 24, 2017 12:46:49 PM org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Servlet.service() for servlet [jsp] in context with path [/TaylorInsurance] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\work\Catalina\localhost\TaylorInsurance\org\apache\jsp\userprofile_jsp.java]
+Only a type can be imported. BEANS.Client resolves to a package
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+Stacktrace:] with root cause
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\work\Catalina\localhost\TaylorInsurance\org\apache\jsp\userprofile_jsp.java]
+Only a type can be imported. BEANS.Client resolves to a package
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:103)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:366)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:490)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:379)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:354)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:341)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:662)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:364)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:395)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:339)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:218)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:452)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1087)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2536)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2525)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 24, 2017 12:47:09 PM org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Servlet.service() for servlet [jsp] in context with path [/TaylorInsurance] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+Stacktrace:] with root cause
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+An error occurred at line: 46 in the jsp file: /userprofile.jsp
+Client cannot be resolved to a type
+43:       </div>
+44:     </nav>
+45:   <body style="padding-top: 150px;">
+46:        <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+47:     <!--/ Navigation bar-->
+48: <div class="container">
+49:   <div class="row">
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:103)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:366)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:490)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:379)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:354)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:341)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:662)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:364)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:395)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:339)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:218)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:452)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1087)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2536)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2525)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 24, 2017 1:09:51 PM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextDestroyed()
+Mar 24, 2017 1:09:51 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextDestroyed()
+Mar 24, 2017 3:06:45 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextInitialized()
+Mar 24, 2017 3:06:45 PM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextInitialized()
+Mar 24, 2017 3:06:45 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: attributeAdded('org.apache.jasper.compiler.TldLocationsCache', 'org.apache.jasper.compiler.TldLocationsCache@75043bb4')
+Mar 24, 2017 3:39:19 PM org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Servlet.service() for servlet [jsp] in context with path [/TaylorInsurance] threw exception [java.lang.NullPointerException] with root cause
+java.lang.NullPointerException
+	at org.apache.jsp.userprofile_jsp._jspService(userprofile_jsp.java:135)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:439)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:395)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:339)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:218)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:452)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1087)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2536)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2525)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 24, 2017 3:39:21 PM org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Servlet.service() for servlet [jsp] in context with path [/TaylorInsurance] threw exception [java.lang.NullPointerException] with root cause
+java.lang.NullPointerException
+	at org.apache.jsp.userprofile_jsp._jspService(userprofile_jsp.java:135)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:439)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:395)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:339)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:218)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:452)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1087)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2536)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2525)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 24, 2017 3:39:40 PM org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Servlet.service() for servlet [jsp] in context with path [/TaylorInsurance] threw exception [java.lang.NullPointerException] with root cause
+java.lang.NullPointerException
+	at org.apache.jsp.userprofile_jsp._jspService(userprofile_jsp.java:135)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:439)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:395)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:339)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:218)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:452)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1087)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2536)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2525)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 24, 2017 3:56:47 PM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextDestroyed()
+Mar 24, 2017 3:56:47 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextDestroyed()

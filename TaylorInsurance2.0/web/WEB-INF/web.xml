@@ -7,9 +7,33 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>SERVLETS.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HomeQuoteServlet</servlet-name>
+        <servlet-class>SERVLETS.HomeQuoteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AutoQuoteServlet</servlet-name>
+        <servlet-class>SERVLETS.AutoQuoteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewQuoteServlet</servlet-name>
+        <servlet-class>SERVLETS.ViewQuoteServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeQuoteServlet</servlet-name>
+        <url-pattern>/HomeQuoteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AutoQuoteServlet</servlet-name>
+        <url-pattern>/AutoQuoteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewQuoteServlet</servlet-name>
+        <url-pattern>/ViewQuoteServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

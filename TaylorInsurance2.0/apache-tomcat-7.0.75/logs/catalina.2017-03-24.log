@@ -1,0 +1,738 @@
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version:        Apache Tomcat/7.0.75
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Jan 18 2017 20:54:42 UTC
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server number:         7.0.75.0
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 10
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.0
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.8.0_101\jre
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_101-b13
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\logging.properties
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|PC
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.endorsed.dirs=C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\endorsed
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75
+Mar 24, 2017 11:36:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\temp
+Mar 24, 2017 11:36:12 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Loaded APR based Apache Tomcat Native library 1.2.10 using APR version 1.5.2.
+Mar 24, 2017 11:36:12 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+Mar 24, 2017 11:36:13 AM org.apache.catalina.core.AprLifecycleListener initializeSSL
+INFO: OpenSSL successfully initialized (OpenSSL 1.0.2j  26 Sep 2016)
+Mar 24, 2017 11:36:20 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-apr-8080"]
+Mar 24, 2017 11:36:20 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-apr-8009"]
+Mar 24, 2017 11:36:20 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 9527 ms
+Mar 24, 2017 11:36:21 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Mar 24, 2017 11:36:21 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.75
+Mar 24, 2017 11:36:21 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\ch02email.xml
+Mar 24, 2017 11:36:22 AM org.apache.catalina.deploy.WebXml setVersion
+WARNING: Unknown version string [3.1]. Default version will be used.
+Mar 24, 2017 11:36:24 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:36:26 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\ch02email.xml has finished in 4,340 ms
+Mar 24, 2017 11:36:26 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\musicStore.xml
+Mar 24, 2017 11:36:26 AM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Realm} Setting property 'debug' to '99' did not find a matching property.
+Mar 24, 2017 11:36:28 AM org.apache.catalina.deploy.WebXml setVersion
+WARNING: Unknown version string [3.1]. Default version will be used.
+Mar 24, 2017 11:36:36 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:36:36 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\musicStore.xml has finished in 10,617 ms
+Mar 24, 2017 11:36:36 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\TaylorInsurance.xml
+Mar 24, 2017 11:36:36 AM org.apache.catalina.core.StandardContext resourcesStart
+SEVERE: Error starting static Resources
+java.lang.IllegalArgumentException: Document base C:\Users\tim\Desktop\TaylorInsurance\build\web does not exist or is not a readable directory
+	at org.apache.naming.resources.FileDirContext.setDocBase(FileDirContext.java:136)
+	at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:5247)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5436)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:145)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:899)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:679)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1966)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 24, 2017 11:36:36 AM org.apache.catalina.core.ContainerBase addChildInternal
+SEVERE: ContainerBase.addChild: start: 
+org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/TaylorInsurance]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:162)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:899)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:679)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1966)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.catalina.LifecycleException: Error in resourceStart()
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5437)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:145)
+	... 10 more
+
+Mar 24, 2017 11:36:36 AM org.apache.catalina.startup.HostConfig deployDescriptor
+SEVERE: Error deploying configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\TaylorInsurance.xml
+java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/TaylorInsurance]]
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:903)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:679)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1966)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 24, 2017 11:36:36 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\TaylorInsurance.xml has finished in 205 ms
+Mar 24, 2017 11:36:36 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\taylor_insurance_login.xml
+Mar 24, 2017 11:36:36 AM org.apache.catalina.core.StandardContext resourcesStart
+SEVERE: Error starting static Resources
+java.lang.IllegalArgumentException: Document base C:\Users\tim\Documents\NetBeansProjects\taylor_insurance_login\build\web does not exist or is not a readable directory
+	at org.apache.naming.resources.FileDirContext.setDocBase(FileDirContext.java:136)
+	at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:5247)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5436)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:145)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:899)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:679)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1966)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 24, 2017 11:36:36 AM org.apache.catalina.core.ContainerBase addChildInternal
+SEVERE: ContainerBase.addChild: start: 
+org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/taylor_insurance_login]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:162)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:899)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:679)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1966)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.catalina.LifecycleException: Error in resourceStart()
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5437)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:145)
+	... 10 more
+
+Mar 24, 2017 11:36:36 AM org.apache.catalina.startup.HostConfig deployDescriptor
+SEVERE: Error deploying configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\taylor_insurance_login.xml
+java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/taylor_insurance_login]]
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:903)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:679)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1966)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 24, 2017 11:36:37 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\taylor_insurance_login.xml has finished in 108 ms
+Mar 24, 2017 11:36:37 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\docs
+Mar 24, 2017 11:36:37 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:36:37 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\docs has finished in 251 ms
+Mar 24, 2017 11:36:37 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\examples
+Mar 24, 2017 11:36:48 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:36:48 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\examples has finished in 11,200 ms
+Mar 24, 2017 11:36:48 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\host-manager
+Mar 24, 2017 11:36:48 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:36:48 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\host-manager has finished in 495 ms
+Mar 24, 2017 11:36:48 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\manager
+Mar 24, 2017 11:36:49 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:36:49 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\manager has finished in 396 ms
+Mar 24, 2017 11:36:49 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\ROOT
+Mar 24, 2017 11:36:49 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:36:49 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\ROOT has finished in 212 ms
+Mar 24, 2017 11:36:49 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-apr-8080"]
+Mar 24, 2017 11:36:49 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-apr-8009"]
+Mar 24, 2017 11:36:49 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 29201 ms
+Mar 24, 2017 11:37:02 AM org.apache.catalina.startup.HostConfig undeploy
+INFO: Undeploying context [/TaylorInsurance]
+Mar 24, 2017 11:37:02 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\TaylorInsurance.xml
+Mar 24, 2017 11:37:04 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:37:04 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\TaylorInsurance.xml has finished in 2,284 ms
+Mar 24, 2017 11:37:04 AM org.apache.catalina.util.LifecycleBase start
+INFO: The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/TaylorInsurance]] after start() had already been called. The second call will be ignored.
+Mar 24, 2017 11:38:14 AM org.apache.catalina.core.StandardServer await
+INFO: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+Mar 24, 2017 11:38:14 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-apr-8080"]
+Mar 24, 2017 11:38:14 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-apr-8009"]
+Mar 24, 2017 11:38:14 AM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Mar 24, 2017 11:38:14 AM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesJdbc
+SEVERE: The web application [/TaylorInsurance] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+Mar 24, 2017 11:38:15 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-apr-8080"]
+Mar 24, 2017 11:38:15 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-apr-8009"]
+Mar 24, 2017 11:38:15 AM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-apr-8080"]
+Mar 24, 2017 11:38:15 AM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-apr-8009"]
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version:        Apache Tomcat/7.0.75
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Jan 18 2017 20:54:42 UTC
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server number:         7.0.75.0
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 10
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.0
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.8.0_101\jre
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_101-b13
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\logging.properties
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|PC
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.endorsed.dirs=C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\endorsed
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\temp
+Mar 24, 2017 11:44:07 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Loaded APR based Apache Tomcat Native library 1.2.10 using APR version 1.5.2.
+Mar 24, 2017 11:44:07 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+Mar 24, 2017 11:44:07 AM org.apache.catalina.core.AprLifecycleListener initializeSSL
+INFO: OpenSSL successfully initialized (OpenSSL 1.0.2j  26 Sep 2016)
+Mar 24, 2017 11:44:07 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-apr-8080"]
+Mar 24, 2017 11:44:07 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-apr-8009"]
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1093 ms
+Mar 24, 2017 11:44:07 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Mar 24, 2017 11:44:07 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.75
+Mar 24, 2017 11:44:07 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\ch02email.xml
+Mar 24, 2017 11:44:08 AM org.apache.catalina.deploy.WebXml setVersion
+WARNING: Unknown version string [3.1]. Default version will be used.
+Mar 24, 2017 11:44:08 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:44:08 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\ch02email.xml has finished in 560 ms
+Mar 24, 2017 11:44:08 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\musicStore.xml
+Mar 24, 2017 11:44:08 AM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Realm} Setting property 'debug' to '99' did not find a matching property.
+Mar 24, 2017 11:44:08 AM org.apache.catalina.deploy.WebXml setVersion
+WARNING: Unknown version string [3.1]. Default version will be used.
+Mar 24, 2017 11:44:09 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:44:09 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\musicStore.xml has finished in 532 ms
+Mar 24, 2017 11:44:09 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\TaylorInsurance.xml
+Mar 24, 2017 11:44:09 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:44:09 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\TaylorInsurance.xml has finished in 214 ms
+Mar 24, 2017 11:44:09 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\taylor_insurance_login.xml
+Mar 24, 2017 11:44:09 AM org.apache.catalina.core.StandardContext resourcesStart
+SEVERE: Error starting static Resources
+java.lang.IllegalArgumentException: Document base C:\Users\tim\Documents\NetBeansProjects\taylor_insurance_login\build\web does not exist or is not a readable directory
+	at org.apache.naming.resources.FileDirContext.setDocBase(FileDirContext.java:136)
+	at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:5247)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5436)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:145)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:899)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:679)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1966)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 24, 2017 11:44:09 AM org.apache.catalina.core.ContainerBase addChildInternal
+SEVERE: ContainerBase.addChild: start: 
+org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/taylor_insurance_login]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:162)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:899)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:679)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1966)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.catalina.LifecycleException: Error in resourceStart()
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5437)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:145)
+	... 10 more
+
+Mar 24, 2017 11:44:09 AM org.apache.catalina.startup.HostConfig deployDescriptor
+SEVERE: Error deploying configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\taylor_insurance_login.xml
+java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/taylor_insurance_login]]
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:903)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:679)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1966)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 24, 2017 11:44:09 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\taylor_insurance_login.xml has finished in 39 ms
+Mar 24, 2017 11:44:09 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\docs
+Mar 24, 2017 11:44:09 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:44:09 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\docs has finished in 176 ms
+Mar 24, 2017 11:44:09 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\examples
+Mar 24, 2017 11:44:09 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:44:09 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\examples has finished in 336 ms
+Mar 24, 2017 11:44:09 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\host-manager
+Mar 24, 2017 11:44:10 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:44:10 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\host-manager has finished in 237 ms
+Mar 24, 2017 11:44:10 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\manager
+Mar 24, 2017 11:44:10 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:44:10 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\manager has finished in 161 ms
+Mar 24, 2017 11:44:10 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\ROOT
+Mar 24, 2017 11:44:10 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:44:10 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\ROOT has finished in 209 ms
+Mar 24, 2017 11:44:10 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-apr-8080"]
+Mar 24, 2017 11:44:10 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-apr-8009"]
+Mar 24, 2017 11:44:10 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 2523 ms
+Mar 24, 2017 11:44:15 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:57:27 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] has started
+Mar 24, 2017 11:57:28 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:57:28 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] is completed
+Mar 24, 2017 11:59:47 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] has started
+Mar 24, 2017 11:59:47 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 11:59:47 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] is completed
+Mar 24, 2017 12:40:49 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 12:45:15 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] has started
+Mar 24, 2017 12:45:15 PM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesJdbc
+SEVERE: The web application [/TaylorInsurance] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+Mar 24, 2017 12:45:15 PM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/TaylorInsurance] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@57abc803]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [1fd1f9cb-d74f-47ad-b835-a4fd87246d3b-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+Mar 24, 2017 12:45:15 PM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/TaylorInsurance] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@57abc803]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [8e041cbe-b0b8-4522-93f9-a0bbfdb965f9-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+Mar 24, 2017 12:45:15 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 12:45:15 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] is completed
+Mar 24, 2017 12:45:51 PM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesJdbc
+SEVERE: The web application [/TaylorInsurance] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+Mar 24, 2017 12:45:51 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 1:09:51 PM org.apache.catalina.core.StandardServer await
+INFO: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+Mar 24, 2017 1:09:51 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-apr-8080"]
+Mar 24, 2017 1:09:51 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-apr-8009"]
+Mar 24, 2017 1:09:51 PM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Mar 24, 2017 1:09:51 PM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesJdbc
+SEVERE: The web application [/TaylorInsurance] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+Mar 24, 2017 1:09:51 PM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/TaylorInsurance] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@19016b5e]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [07cad412-e1c8-4884-b6a4-97bceaf5852a-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+Mar 24, 2017 1:09:51 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-apr-8080"]
+Mar 24, 2017 1:09:51 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-apr-8009"]
+Mar 24, 2017 1:09:51 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-apr-8080"]
+Mar 24, 2017 1:09:51 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-apr-8009"]
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version:        Apache Tomcat/7.0.75
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Jan 18 2017 20:54:42 UTC
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server number:         7.0.75.0
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 10
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.0
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.8.0_101\jre
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_101-b13
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\logging.properties
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|PC
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.endorsed.dirs=C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\endorsed
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\temp
+Mar 24, 2017 3:06:42 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Loaded APR based Apache Tomcat Native library 1.2.10 using APR version 1.5.2.
+Mar 24, 2017 3:06:42 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+Mar 24, 2017 3:06:42 PM org.apache.catalina.core.AprLifecycleListener initializeSSL
+INFO: OpenSSL successfully initialized (OpenSSL 1.0.2j  26 Sep 2016)
+Mar 24, 2017 3:06:42 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-apr-8080"]
+Mar 24, 2017 3:06:42 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-apr-8009"]
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1025 ms
+Mar 24, 2017 3:06:42 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Mar 24, 2017 3:06:42 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.75
+Mar 24, 2017 3:06:42 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\ch02email.xml
+Mar 24, 2017 3:06:43 PM org.apache.catalina.deploy.WebXml setVersion
+WARNING: Unknown version string [3.1]. Default version will be used.
+Mar 24, 2017 3:06:43 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:06:43 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\ch02email.xml has finished in 683 ms
+Mar 24, 2017 3:06:43 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\musicStore.xml
+Mar 24, 2017 3:06:43 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Realm} Setting property 'debug' to '99' did not find a matching property.
+Mar 24, 2017 3:06:43 PM org.apache.catalina.deploy.WebXml setVersion
+WARNING: Unknown version string [3.1]. Default version will be used.
+Mar 24, 2017 3:06:44 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:06:44 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\musicStore.xml has finished in 651 ms
+Mar 24, 2017 3:06:44 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\TaylorInsurance.xml
+Mar 24, 2017 3:06:44 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:06:44 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\TaylorInsurance.xml has finished in 250 ms
+Mar 24, 2017 3:06:44 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\taylor_insurance_login.xml
+Mar 24, 2017 3:06:44 PM org.apache.catalina.core.StandardContext resourcesStart
+SEVERE: Error starting static Resources
+java.lang.IllegalArgumentException: Document base C:\Users\tim\Documents\NetBeansProjects\taylor_insurance_login\build\web does not exist or is not a readable directory
+	at org.apache.naming.resources.FileDirContext.setDocBase(FileDirContext.java:136)
+	at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:5247)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5436)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:145)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:899)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:679)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1966)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 24, 2017 3:06:44 PM org.apache.catalina.core.ContainerBase addChildInternal
+SEVERE: ContainerBase.addChild: start: 
+org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/taylor_insurance_login]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:162)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:899)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:679)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1966)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.catalina.LifecycleException: Error in resourceStart()
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5437)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:145)
+	... 10 more
+
+Mar 24, 2017 3:06:44 PM org.apache.catalina.startup.HostConfig deployDescriptor
+SEVERE: Error deploying configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\taylor_insurance_login.xml
+java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/taylor_insurance_login]]
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:903)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:679)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1966)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 24, 2017 3:06:44 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\conf\Catalina\localhost\taylor_insurance_login.xml has finished in 29 ms
+Mar 24, 2017 3:06:44 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\docs
+Mar 24, 2017 3:06:44 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:06:44 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\docs has finished in 192 ms
+Mar 24, 2017 3:06:44 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\examples
+Mar 24, 2017 3:06:45 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:06:45 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\examples has finished in 398 ms
+Mar 24, 2017 3:06:45 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\host-manager
+Mar 24, 2017 3:06:45 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:06:45 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\host-manager has finished in 207 ms
+Mar 24, 2017 3:06:45 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\manager
+Mar 24, 2017 3:06:45 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:06:45 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\manager has finished in 212 ms
+Mar 24, 2017 3:06:45 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\ROOT
+Mar 24, 2017 3:06:45 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:06:45 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\tim\Desktop\TaylorInsurance2.0\apache-tomcat-7.0.75\webapps\ROOT has finished in 169 ms
+Mar 24, 2017 3:06:45 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-apr-8080"]
+Mar 24, 2017 3:06:45 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-apr-8009"]
+Mar 24, 2017 3:06:45 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 2900 ms
+Mar 24, 2017 3:06:56 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:08:08 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:08:09 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] has started
+Mar 24, 2017 3:08:10 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:08:10 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] is completed
+Mar 24, 2017 3:08:15 PM org.apache.catalina.startup.HostConfig reload
+INFO: Reloading context [/TaylorInsurance]
+Mar 24, 2017 3:08:15 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] has started
+Mar 24, 2017 3:08:15 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:08:15 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] is completed
+Mar 24, 2017 3:09:31 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] has started
+Mar 24, 2017 3:09:32 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:09:32 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] is completed
+Mar 24, 2017 3:09:47 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] has started
+Mar 24, 2017 3:09:47 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:09:47 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] is completed
+Mar 24, 2017 3:10:05 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] has started
+Mar 24, 2017 3:10:06 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:10:06 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] is completed
+Mar 24, 2017 3:11:29 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] has started
+Mar 24, 2017 3:11:30 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:11:30 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] is completed
+Mar 24, 2017 3:11:42 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] has started
+Mar 24, 2017 3:11:42 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:11:42 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] is completed
+Mar 24, 2017 3:12:34 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:15:01 PM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesJdbc
+SEVERE: The web application [/TaylorInsurance] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+Mar 24, 2017 3:15:02 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:22:20 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:36:49 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:39:19 PM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesJdbc
+SEVERE: The web application [/TaylorInsurance] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+Mar 24, 2017 3:39:19 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:39:21 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] has started
+Mar 24, 2017 3:39:21 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:39:21 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] is completed
+Mar 24, 2017 3:39:26 PM org.apache.catalina.startup.HostConfig reload
+INFO: Reloading context [/TaylorInsurance]
+Mar 24, 2017 3:39:26 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] has started
+Mar 24, 2017 3:39:26 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:39:26 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] is completed
+Mar 24, 2017 3:41:43 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] has started
+Mar 24, 2017 3:41:43 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:41:43 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/TaylorInsurance] is completed
+Mar 24, 2017 3:42:13 PM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Mar 24, 2017 3:56:47 PM org.apache.catalina.core.StandardServer await
+INFO: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+Mar 24, 2017 3:56:47 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-apr-8080"]
+Mar 24, 2017 3:56:47 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-apr-8009"]
+Mar 24, 2017 3:56:47 PM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Mar 24, 2017 3:56:47 PM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesJdbc
+SEVERE: The web application [/TaylorInsurance] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+Mar 24, 2017 3:56:47 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-apr-8080"]
+Mar 24, 2017 3:56:48 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-apr-8009"]
+Mar 24, 2017 3:56:48 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-apr-8080"]
+Mar 24, 2017 3:56:48 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-apr-8009"]

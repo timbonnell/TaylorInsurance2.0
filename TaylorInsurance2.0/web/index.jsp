@@ -31,7 +31,7 @@
                         <li><a href="#feature">Our Services</a></li>
                         <li><a href="#team">Our Team</a></li>
                         <li><a href="#testimonial">Testimonials</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="ContactUs.jsp">Contact Us</a></li>
                         <li class="btn-trial"><a href="" data-target="#login" data-toggle="modal">Login</a></li>
                     </ul>
                 </div>
@@ -77,7 +77,7 @@
                             </div>
                             <div class="intro-para text-center quote">
                                 <p class="big-text">A Business of Caring</p>
-                                <p class="small-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium enim repellat sapiente quos architecto<br>Laudantium enim repellat sapiente quos architecto</p>
+                                <p class="small-text">We are a new company, but we're growing quickly.<br>We currently have over a thousand customers and climbing.</p>
                                 <a href="homeQuote.jsp"  class="btn">GET A HOME QUOTE</a>
                                 <a href="autoQuote.jsp"  class="btn">GET AN AUTO QUOTE</a>
                             </div>
@@ -147,7 +147,7 @@
                             <div class="col-md-4">
                                 <div class="heading pull-right">
                                     <h4>Auto Insurance</h4>
-                                    <p>Donec et lectus bibendum dolor dictum auctor in ac erat. Vestibulum egestas sollicitudin metus non urna in eros tincidunt convallis id id nisi in interdum.</p>
+                                    <p>Insure your vehicle to protect your livelihood in case of accidents.</p>
                                 </div>
                                 <div class="fea-img pull-left">
                                     <i class="fa fa-car"></i>
@@ -158,7 +158,7 @@
                             <div class="col-md-4">
                                 <div class="heading pull-right">
                                     <h4>Home Insurance</h4>
-                                    <p>Donec et lectus bibendum dolor dictum auctor in ac erat. Vestibulum egestas sollicitudin metus non urna in eros tincidunt convallis id id nisi in interdum.</p>
+                                    <p>Insure your Home to protect your livelihood in case of accidents.</p>
                                 </div>
                                 <div class="fea-img pull-left">
                                     <i class="fa fa-home"></i>
@@ -169,7 +169,7 @@
                             <div class="col-md-4">
                                 <div class="heading pull-right">
                                     <h4>Customer Service</h4>
-                                    <p>Donec et lectus bibendum dolor dictum auctor in ac erat. Vestibulum egestas sollicitudin metus non urna in eros tincidunt convallis id id nisi in interdum.</p>
+                                    <p>Contact us with any problems with our website or a quote; we are available 24/7!</p>
                                 </div>
                                 <div class="fea-img pull-left">
                                     <i class="fa fa-trophy"></i>
@@ -189,7 +189,7 @@
                 <div class="row">
                     <div class="header-section text-center">
                         <h2>Meet Our Team</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nesciunt vitae,<br> maiores, magni dolorum aliquam.</p>
+                        <p>We have a team of specialists that are determined to provide you the best service possible.</p>
                         <hr class="bottom-line">
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4">
@@ -203,7 +203,7 @@
                                 <p class="pm-staff-profile-name">Josh Taylor</p>
                                 <p class="pm-staff-profile-title">CEO/Owner</p>
 
-                                <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
+                                <p class="pm-staff-profile-bio">Our CEO is Josh Taylor, a new business manager who is determined to see Blackstone Consulting succeed.</p>
                             </div>     
                         </div>
                     </div>
@@ -218,7 +218,7 @@
                                 <p class="pm-staff-profile-name">Brent Furlong</p>
                                 <p class="pm-staff-profile-title">President</p>
 
-                                <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
+                                <p class="pm-staff-profile-bio">Brent Furlong is the President of Blackstone Consulting and oversees all changes the company goes through.</p>
                             </div>     
                         </div>
                     </div>
@@ -233,7 +233,7 @@
                                 <p class="pm-staff-profile-name">Tim Bonnell</p>
                                 <p class="pm-staff-profile-title">Vice President </p>
 
-                                <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
+                                <p class="pm-staff-profile-bio">Tim Bonnell keeps everything on track at Blackstone Consulting as the Vice President.</p>
                             </div>     
                         </div>
                     </div>
@@ -248,19 +248,19 @@
                 <div class="row">
                     <div class="header-section text-center">
                         <h2 class="white">See What Our Customer Are Saying?</h2>
-                        <p class="white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nesciunt vitae,<br> maiores, magni dolorum aliquam.</p>
+                        <p class="white">Check out some responses we have received from loyal customers.</p>
                         <hr class="bottom-line bg-white">
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div class="text-comment">
-                            <p class="text-par">"Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, nec sagittis sem"</p>
-                            <p class="text-name">Abraham Doe - Creative Dırector</p>
+                            <p class="text-par">"I have been very impressed by the work of Blackstone Consulting,<br>they have been both very professional and effective."</p>
+                            <p class="text-name">John Doe</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div class="text-comment">
-                            <p class="text-par">"Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, nec sagittis sem"</p>
-                            <p class="text-name">Abraham Doe - Creative Dırector</p>
+                            <p class="text-par">"Their prices are very fair and their employees are hard-working."</p>
+                            <p class="text-name">Mary Sue</p>
                         </div>
                     </div>
                 </div>
@@ -268,50 +268,7 @@
         </section>
         <!--/ Testimonial-->
 
-        <!--Contact-->
-        <section id ="contact" class="section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="header-section text-center">
-                        <h2>Contact Us</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nesciunt vitae,<br> maiores, magni dolorum aliquam.</p>
-                        <hr class="bottom-line">
-                    </div>
-                    <div id="sendmessage">Your message has been sent. Thank you!</div>
-                    <div id="errormessage"></div>
-                    <form action="" method="post" role="form" class="contactForm">
-                        <div class="col-md-6 col-sm-6 col-xs-12 left">
-                            <div class="form-group">
-                                <input type="text" name="name" class="form-control form" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                                <div class="validation"></div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-sm-6 col-xs-12 right">
-                            <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                                <div class="validation"></div>
-                            </div>
-                        </div>
-
-                        <div class="col-xs-12">
-                            <!-- Button -->
-                            <button type="submit" id="submit" name="submit" class="form contact-form-button light-form-button oswald light">SEND EMAIL</button>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
-        </section>
-        <!--/ Contact-->
+       
         <!--Footer-->
         <footer id="footer" class="footer">
             <div class="container text-center">

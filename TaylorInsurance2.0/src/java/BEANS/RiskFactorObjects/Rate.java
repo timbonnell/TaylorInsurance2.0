@@ -1,4 +1,4 @@
-package BEANS;
+package BEANS.RiskFactorObjects;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -9,7 +9,7 @@ package BEANS;
  *
  * @author SPOO
  */
-class Rate {
+public class Rate {
     private String key;
     private String value;
 

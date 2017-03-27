@@ -1,0 +1,382 @@
+Mar 24, 2017 11:37:01 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Mar 24, 2017 11:37:01 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Global resources are available
+Mar 24, 2017 11:37:01 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 11:37:01 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/TaylorInsurance'
+Mar 24, 2017 11:37:02 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/tim/AppData/Local/Temp/context6216209193953022282.xml'
+Mar 24, 2017 11:37:04 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/TaylorInsurance'
+Mar 24, 2017 11:44:12 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Mar 24, 2017 11:44:12 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Global resources are available
+Mar 24, 2017 11:44:12 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 11:44:12 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 11:44:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: stop: Stopping web application '/TaylorInsurance'
+Mar 24, 2017 11:44:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/TaylorInsurance'
+Mar 24, 2017 11:47:59 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 11:48:12 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 11:50:51 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 11:51:41 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 11:57:27 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 11:57:27 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/TaylorInsurance'
+Mar 24, 2017 11:59:47 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 11:59:47 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/TaylorInsurance'
+Mar 24, 2017 12:05:21 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:05:45 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:06:28 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:06:42 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:08:10 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:08:50 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:09:10 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:09:27 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:10:38 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:14:18 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:14:52 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:15:06 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:15:19 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:17:37 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:18:22 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:18:25 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:19:07 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:19:22 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:19:52 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:19:58 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:20:36 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:20:47 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:21:12 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:22:24 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:23:03 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:23:19 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:25:15 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:26:25 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:26:42 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:28:01 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:28:20 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:29:59 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:30:09 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:30:20 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:30:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:30:33 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:30:40 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:31:33 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:31:53 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:32:00 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:32:28 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:32:47 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:33:16 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:33:41 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:34:47 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:35:34 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:36:01 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:36:09 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:36:20 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:36:33 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:37:38 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:38:29 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:39:14 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:40:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:40:46 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:40:46 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:40:49 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: stop: Stopping web application '/TaylorInsurance'
+Mar 24, 2017 12:40:49 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/TaylorInsurance'
+Mar 24, 2017 12:43:33 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:45:15 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:45:15 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/TaylorInsurance'
+Mar 24, 2017 12:45:47 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:45:47 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:45:51 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: stop: Stopping web application '/TaylorInsurance'
+Mar 24, 2017 12:45:51 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/TaylorInsurance'
+Mar 24, 2017 12:47:09 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:47:21 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:48:15 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:49:17 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:50:08 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 12:51:03 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 1:09:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:06:51 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Mar 24, 2017 3:06:51 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Global resources are available
+Mar 24, 2017 3:06:51 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:06:51 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:06:55 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: stop: Stopping web application '/TaylorInsurance'
+Mar 24, 2017 3:06:55 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/TaylorInsurance'
+Mar 24, 2017 3:08:08 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:08:08 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: stop: Stopping web application '/TaylorInsurance'
+Mar 24, 2017 3:08:08 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/TaylorInsurance'
+Mar 24, 2017 3:08:09 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:08:09 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/TaylorInsurance'
+Mar 24, 2017 3:09:31 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:09:31 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/TaylorInsurance'
+Mar 24, 2017 3:09:47 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:09:47 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/TaylorInsurance'
+Mar 24, 2017 3:10:05 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:10:05 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/TaylorInsurance'
+Mar 24, 2017 3:10:54 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:11:29 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:11:29 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/TaylorInsurance'
+Mar 24, 2017 3:11:42 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:11:42 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/TaylorInsurance'
+Mar 24, 2017 3:11:59 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:12:10 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:12:30 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:12:30 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:12:34 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: stop: Stopping web application '/TaylorInsurance'
+Mar 24, 2017 3:12:34 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/TaylorInsurance'
+Mar 24, 2017 3:14:08 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:14:24 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:14:27 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:14:37 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:14:56 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:14:56 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:15:01 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: stop: Stopping web application '/TaylorInsurance'
+Mar 24, 2017 3:15:01 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/TaylorInsurance'
+Mar 24, 2017 3:15:48 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:17:41 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:18:01 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:18:21 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:18:32 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:18:35 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:18:56 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:20:17 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:21:05 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:21:14 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:21:22 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:21:31 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:21:40 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:21:47 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:22:14 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:22:14 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:22:19 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: stop: Stopping web application '/TaylorInsurance'
+Mar 24, 2017 3:22:19 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/TaylorInsurance'
+Mar 24, 2017 3:22:42 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:23:02 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:23:42 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:24:07 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:24:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:25:12 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:25:16 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:25:43 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:27:42 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:28:09 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:29:50 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:31:05 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:32:16 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:33:17 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:33:34 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:33:52 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:33:59 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:34:06 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:34:41 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:35:36 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:36:09 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:36:43 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:36:43 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:36:49 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: stop: Stopping web application '/TaylorInsurance'
+Mar 24, 2017 3:36:49 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/TaylorInsurance'
+Mar 24, 2017 3:38:06 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:38:54 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:39:05 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:39:19 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:39:19 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: stop: Stopping web application '/TaylorInsurance'
+Mar 24, 2017 3:39:19 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/TaylorInsurance'
+Mar 24, 2017 3:39:21 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:39:21 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/TaylorInsurance'
+Mar 24, 2017 3:40:14 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:40:32 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:40:40 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:41:01 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:41:43 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:41:43 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/TaylorInsurance'
+Mar 24, 2017 3:42:06 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:42:06 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:42:13 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: stop: Stopping web application '/TaylorInsurance'
+Mar 24, 2017 3:42:13 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/TaylorInsurance'
+Mar 24, 2017 3:44:17 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Mar 24, 2017 3:44:29 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'

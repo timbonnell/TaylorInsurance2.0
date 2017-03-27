@@ -3,7 +3,7 @@
     Created on : Mar 8, 2017, 9:44:40 PM
     Author     : tim
 --%>
-<%@page import="BEANS.Client" %>
+<%@page import="BEANS.InfoObjects.Customer" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,16 +34,17 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="userprofile.jsp">My Policies</a></li>
+          <li><a href="index.jsp">Home</a></li>
+            <li><a href="userprofile.jsp">My Policies</a></li>
           <li><a href="#team">File a Claim</a></li>
-        <li><a href="#testimonial">Get a Quote</a></li>
+        <li><a href="#testimonial">Add Policy</a></li>
           <li><a href="#contact">Contact Us</a></li>
         </ul>
         </div>
       </div>
     </nav>
   <body style="padding-top: 150px;">
-       <% Client currentClient = (Client)(session.getAttribute("currentSessionClient"));%>
+       <% Customer currentClient = (Customer)(session.getAttribute("currentSessionClient"));%>
     <!--/ Navigation bar-->
 <div class="container">
   <div class="row">
@@ -58,15 +59,27 @@
     </div>
     <div class="col-sm-4">
       <h3>Address</h3>
-      <p><%= currentClient.getMailingAddress() %></p>
+      <p><%= currentClient.getAddress() %></p>
     
     </div>
     <div class="col-sm-4">
-      <h3>Column 3</h3>        
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+     <form class="form-horizontal" action="ViewQuoteServlet"> 
+     <h3>Active Quotes</h3>        
+      <label>Quote ID:</label>
+      <select>
+      <option value="1204">1204</option>
+      </select>
+     <button class="btn btn-info" type="submit">View Quote</button>
+     </form>
     </div>
   </div>
 </div>
+    
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.easing.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="contactform/contactform.js"></script>
     </body>
+  
 </html>

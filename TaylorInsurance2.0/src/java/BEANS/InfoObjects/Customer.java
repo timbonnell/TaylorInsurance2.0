@@ -1,4 +1,4 @@
-package BEANS;
+package BEANS.InfoObjects;
 
 
 import java.time.LocalDate;
@@ -7,19 +7,32 @@ import java.time.LocalDate;
  *
  * @author 20124135
  */
-public class Customer {
+public class Customer implements CustomerInsurable{
 
     private String id;
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
-    private Address mailingAddress;
-    private Address billingAddress;
+    private Address address;
     private String email;
     private String password;
     private String phoneNumber;
     public boolean valid;
 
+    public Customer() {
+    }
+
+    public Customer(String id, String firstName, String lastName, LocalDate birthDate, Address address, String email, String password, String phoneNumber, boolean valid) {
+        setId(id);
+        setFirstName(firstName);
+        setLastName(lastName);
+        setBirthDate(birthDate);
+        setAddress(address);
+        setPassword(password);
+        setPhoneNumber(phoneNumber);
+        setEmail(email);
+        setValid(valid);
+    }
 
     public String getId() {
         return id;
@@ -60,20 +73,12 @@ public class Customer {
         this.birthDate = birthDate;
     }
 
-    public String getMailingAddress() {
-        return mailingAddress.toString();
+    public Address getAddress() {
+        return address;
     }
 
-    public void setMailingAddress(Address mailingAddress) {
-        this.mailingAddress = mailingAddress;
-    }
-
-    public Address getBillingAddress() {
-        return billingAddress;
-    }
-
-    public void setBillingAddress(Address billingAddress) {
-        this.billingAddress = billingAddress;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public String getEmail() {
@@ -98,5 +103,10 @@ public class Customer {
 
     public void setValid(boolean newValid) {
         valid = newValid;
+    }
+
+    @Override
+    public String getIdentifier() {
+        return "CUSTOMER";
     }
 }

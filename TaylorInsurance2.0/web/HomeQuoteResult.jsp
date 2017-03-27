@@ -1,9 +1,12 @@
 <%-- 
-    Document   : autoQuote
-    Created on : Mar 23, 2017, 4:58:04 PM
-    Author     : timbo
+    Document   : HomeQuoteResult
+    Created on : Mar 24, 2017, 1:10:53 PM
+    Author     : tim
 --%>
-
+<%@page import="BEANS.PolicyObjects.HouseQuote"%>
+<%@page import="BEANS.InfoObjects.Customer" %>
+<%@page import="BEANS.InfoObjects.House" %>
+<%@page import="BEANS.InfoObjects.Customer" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +14,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Auto Quote</title>
+        <title>Home Quote Results</title>
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -44,38 +47,9 @@
         </div>
     </nav>
     <!--End Nav -->
-    <!--Modal box-->
-    <div class="modal fade" id="login" role="dialog">
-        <div class="modal-dialog modal-sm">
 
-            <!-- Modal content no 1-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title text-center form-title">Login</h4>
-                </div>
-                <div class="modal-body padtrbl">
-
-                    <form class="form-signin" action="LoginServlet">
-                        <span id="reauth-email" class="reauth-email"></span>
-                        <p class="input_title">Email</p>
-                        <input type="text" name="inputEmail" id="inputEmail" class="login_box" placeholder="Email" required autofocus>
-                        <p class="input_title">Password</p>
-                        <input type="password" name="inputPassword" id="inputPassword" class="login_box" placeholder="******" required>
-
-                        <button class="btn btn-lg btn-primary" type="submit">Login</button>
-                    </form><!-- /form -->
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <!--/ Modal box-->
-
-
-    <body style="padding-top: 150px;">
-
+ <body style="padding-top: 150px;">
+     <% HouseQuote houseQuote = (HouseQuote)(session.getAttribute("currentSessionHouseQuote"));%>
         <div class="container">
             <div class="row">
 
@@ -89,8 +63,8 @@
                                 <div class="col-sm-6">
                                     <div class="form-horizontal">               
                                         <div class="form-group">
-                                            <label class="col-xs-5 control-label">First Name: </label>
-                                            <input class="form-control-static" name="firstName" type="text" required>     
+                                            <label class="col-xs-5 control-label">Monthly Premium: </label>
+                                            <p>$ <%= houseQuote.getTotalPremium() %></p>    
                                         </div>
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">Last Name: </label> 
@@ -209,5 +183,4 @@
             box-sizing: border-box;         /* Opera/IE 8+ */
         }
     </style>
-
 </html>

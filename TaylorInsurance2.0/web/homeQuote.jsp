@@ -36,126 +36,156 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="userprofile.jsp">My Policies</a></li>
-                    <li><a href="#team">File a Claim</a></li>
-                    <li><a href="#testimonial">Get a Quote</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="index.jsp">Home</a></li>
+                    <li><a href="#team">Login</a></li>
+                    <li><a href="homeQuote.jsp">Get a Home Quote</a></li>
+                    <li><a href="autoQuote.jsp">Get an Auto Quote</a></li>
+                    <li><a href="ContactUs.jsp">Contact Us</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <body style="padding-top: 50px;">
+    <body style="padding-top: 150px;">
 
         <div class="container">
-            <div class="featured-content">
-                <div class="block">        
-                    <form class="form-basic" method="post" action="#">
+            <div class="row">
 
-                        <div class="form-title-row">
-                            <h1>Home Quote</h1>
-                        </div>
-
-                        <div class="form-row">
-                            <label>
-                                <span>Year Built</span>
-                                <input type="text" name="yearBuilt">
-                            </label>
-                        </div>
-
-                        <div class="form-row">
-                            <label>
-                                <span>Building Type</span>
-                                <select name="dropdown">
-                                    <option>Bungalow</option>
-                                    <option>Attached</option>
-                                    <option>Semi-attached</option>
-                                    <option>Other</option>
-                                </select>
-                            </label>
-                        </div>
-                        <div class="form-row">
-                            <label>
-                                <span>Heating Source</span>
-                                <select name="dropdown">
-                                    <option>Electric</option>
-                                    <option>Oil</option>
-                                    <option>Wood</option>
-                                    <option>Other</option>
-                                </select>
-                            </label>
-                        </div>
-                        <div class="form-row">
-                            <label>
-                                <span>Replacement Cost</span>
-                                <input type="text" name="replacementCost">
-                            </label>
-                        </div>
-                        <div class="form-row">
-                            <label>
-                                <span>Liability limit</span>
-                                <select name="dropdown">
-                                    <option>$1,000,000</option>
-                                    <option>$2,000,000</option>
-                                </select>
-                            </label>
-                        </div>
-                        <div class="form-row">
-                            <label>
-                                <span>Liability Deductible</span>
-                                <select name="dropdown">
-                                    <option>$500</option>
-                                    <option>$1,000</option>
-                                </select>
-                            </label>
-                        </div>
-                        <div class="form-row">
-                            <label>
-                                <span>Contents limit</span>
-                                <select name="dropdown">
-                                    <option>$1,000</option>
-                                    <option>$2,000</option>
-                                </select>
-                            </label>
-                        </div>
-                        <div class="form-row">
-                            <label>
-                                <span>Contents Deductible</span>
-                                <select name="dropdown">
-                                    <option>$500</option>
-                                    <option>$1,000</option>
-                                </select>
-                            </label>
-                        </div>                                 
-                        <div class="form-row">
-                            <button type="submit" style="color:white;">Submit Form</button>
-                        </div>
-
-                    </form>
-                </div>
             </div>
-        </div>
-
-        <div class="footer-wrapper">
-            <div class="copy-rights">
-                <div class="container">
+            <form class="form-horizontal" action="HomeQuoteServlet">
+                <div class="form-group">
                     <div class="row">
+                        <fieldset class="for-panel">
+                            <legend>Home Quote</legend>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-horizontal">               
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">First Name: </label>
+                                            <input class="form-control-static" name="firstName" type="text" required>     
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Last Name: </label> 
+                                            <input class="form-control-static" name="lastName" type="text" required> 
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Email: </label>
+                                            <input class="form-control-static" name="email" type="email" required>               
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Phone Number: </label>
+                                            <input class="form-control-static" name="phone" type="tel" required>               
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Street Address: </label>
+                                            <input class="form-control-static" name="address" type="text" required> 
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">City: </label>
+                                            <input class="form-control-static" name="city" type="text" required>   
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-horizontal">               
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Province: </label>
+                                            <select class="col-xs-5 control-label" name="province" required>
+                                                <option Value="10">NL</option>
+                                            </select>   
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Country: </label>
+                                            <select class="col-xs-5 control-label" name="country" required>
+                                                <option value="CAN">Canada</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Postal Code: </label>
+                                            <input class="form-control-static" name="postal" type="text" required> 
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Year Built: </label>
+                                            <input class="form-control-static" name="yearBuilt" type="text" required>     
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Building Type: </label> 
+                                            <select class="col-xs-5 control-label" name="building" required>
+                                                <option value="21">Bungalow</option>
+                                                <option value="22">Attached</option>
+                                                <option value="23">Semi-attached</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Heating Source: </label>
+                                            <select class="col-xs-5 control-label" name="heatsource" required>
+                                                <option value="24">Electric</option>
+                                                <option value="25">Oil</option>
+                                                <option value="26">Wood</option>
+                                            </select>             
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label"></label>
+                                            <button style="float: center;" class="btn btn-primary" type="submit">Submit Home Quote</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
-
-
-
-
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.easing.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-
+        <script src="js/custom.js"></script>
+        <script src="contactform/contactform.js"></script>
 
     </body>
-
+    <style>
+body {
+   padding:10px;
+   padding-bottom:60px;   /* Height of the footer */
+}
+        footer { position:absolute; bottom:0;width:100%}
+        fieldset.for-panel {
+            background-color: #fcfcfc;
+            border: 1px solid #999;
+            border-radius: 4px;	
+            padding:15px 10px;
+            background-color: #d9edf7;
+            border-color: #bce8f1;
+            background-color: #f9fdfd;
+            margin-bottom:12px;
+        }
+        fieldset.for-panel legend {
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #4381ba;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 10px;
+            margin: inherit;
+            padding: 7px;
+            width: auto;
+            background-color: #d9edf7;
+            margin-bottom: 0;
+        }
+        input {
+            display: block; /* add this */
+            width: 250px;
+            padding: 5px;
+            -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+            -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+            box-sizing: border-box;         /* Opera/IE 8+ */
+        }
+    </style>
 </html>
 
