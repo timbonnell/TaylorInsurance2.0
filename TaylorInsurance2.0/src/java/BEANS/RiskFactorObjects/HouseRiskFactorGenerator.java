@@ -14,6 +14,8 @@ public class HouseRiskFactorGenerator extends RiskFactorGenerator {
 
     public HouseRiskFactorGenerator(CustomerInsurable customer, HouseInsurable house) {
         super(customer, house);
+        loadRates();
+        loadPremium();
     }
 
     public double getHouseAgeFactor() {

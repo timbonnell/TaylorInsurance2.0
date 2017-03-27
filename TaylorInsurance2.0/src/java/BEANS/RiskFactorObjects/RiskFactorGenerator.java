@@ -52,7 +52,7 @@ public abstract class RiskFactorGenerator {
     }
     
     public Map<Integer, Double> getRatesForGroup(String group) {
-        return rates.get(group);
+        return rates.getOrDefault(group, new HashMap());
     }
     
     abstract void loadRates();
