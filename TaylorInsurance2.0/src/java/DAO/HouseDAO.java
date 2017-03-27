@@ -5,10 +5,82 @@
  */
 package DAO;
 
+import BEANS.InfoObjects.House;
+import static DAO.CustomerDAO.connection;
+import static DAO.CustomerDAO.rs;
+import SERVLETS.ConnectionManager;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 /**
  *
  * @author timbo
  */
 public class HouseDAO {
+    static Connection connection = null;
+    static ResultSet rs = null;
+    static PreparedStatement ps;
     
-}
+    
+    public static void createHouse(House house){
+      //preparing some objects for connection 
+        Statement stmt = null;
+        // Set up house attributes
+        int houseType = house.getType();
+        int houseYear = house.getYear();
+        int houseHeating = house.getHeating();
+        String houseCity = house.getAddress().getCity();
+        //String houseProv = house.getAddress().getProvince();
+        String houseStreet = house.getAddress().getStreetAddress1();
+        String housePostal = house.getAddress().getPostalCode();
+        String houseCountry = house.getAddress().getCountry();
+        
+        String SPsql = "EXEC insertHouse ?,?,?,?,?,?,?,?";
+        
+        try {
+            connection = ConnectionManager.getConnection();
+            //stmt = connection.createStatement();
+            ps = connection.prepareStatement(SPsql);
+            ps.setEscapeProcessing(true);
+            ps.setQueryTimeout(30);
+            ps.setInt(1, houseType);
+            ps.setInt(2, houseYear);
+            
+            
+            } catch (Exception ex) {
+            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        } //Exception handling and closing
+        finally {
+            //Result Set
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                }
+                rs = null;
+            }
+            //Statement
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception e) {
+                }
+                ps = null;
+            }
+            //Connection
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (Exception e) {
+                }
+
+                connection = null;
+            }
+        }
+    }
+        
+        
+ }
+
