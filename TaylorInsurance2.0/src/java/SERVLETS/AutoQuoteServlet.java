@@ -112,12 +112,7 @@ public class AutoQuoteServlet extends HttpServlet {
         System.out.println("Number of Accidents: " + enteredAccidents); // Where does this go? TODO
         
         VehicleQuote vehicleQuote = new VehicleQuote("0", LocalDate.now(), quoteCustomer, quoteVehicle);
-        
-        
-        
-        
-        
-        
+
           //Set up sessions
           HttpSession sessionClient = request.getSession(true);
           HttpSession sessionVehicle = request.getSession(true);
@@ -127,6 +122,7 @@ public class AutoQuoteServlet extends HttpServlet {
           sessionVehicle.setAttribute("currentSessionVehicle", quoteVehicle);
           sessionVehicleQuote.setAttribute("currentSessionVehicleQuote", vehicleQuote);
         
+          System.out.println("Vehicle Premium:  $" + vehicleQuote.getTotalPremium());
        
                 
         response.sendRedirect("AutoQuoteResult.jsp"); 
