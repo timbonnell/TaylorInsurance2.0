@@ -36,8 +36,8 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="btn-trial"><a href="" data-target="#login" data-toggle="modal">Login</a></li>
                     <li><a href="index.jsp">Home</a></li>
-                    <li><a href="#team">Login</a></li>
                     <li><a href="homeQuote.jsp">Get a Home Quote</a></li>
                     <li><a href="autoQuote.jsp">Get an Auto Quote</a></li>
                     <li><a href="ContactUs.jsp">Contact Us</a></li>
@@ -45,6 +45,35 @@
             </div>
         </div>
     </nav>
+        <!--End Nav -->
+    <!--Modal box-->
+    <div class="modal fade" id="login" role="dialog">
+        <div class="modal-dialog modal-sm">
+
+            <!-- Modal content no 1-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-center form-title">Login</h4>
+                </div>
+                <div class="modal-body padtrbl">
+
+                    <form class="form-signin" action="LoginServlet">
+                        <span id="reauth-email" class="reauth-email"></span>
+                        <p class="input_title">Email</p>
+                        <input type="text" name="inputEmail" id="inputEmail" class="login_box" placeholder="Email" required autofocus>
+                        <p class="input_title">Password</p>
+                        <input type="password" name="inputPassword" id="inputPassword" class="login_box" placeholder="******" required>
+
+                        <button class="btn btn-lg btn-primary" type="submit">Login</button>
+                    </form><!-- /form -->
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--/ Modal box-->
     <body style="padding-top: 150px;">
 
         <div class="container">
