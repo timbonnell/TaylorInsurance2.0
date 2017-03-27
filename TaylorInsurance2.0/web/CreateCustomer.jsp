@@ -34,7 +34,6 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="btn-trial"><a href="" data-target="#login" data-toggle="modal">Login</a></li>
                     <li><a href="index.jsp">Home</a></li>
                     <li><a href="homeQuote.jsp">Get a Home Quote</a></li>
                     <li><a href="autoQuote.jsp">Get an Auto Quote</a></li>
