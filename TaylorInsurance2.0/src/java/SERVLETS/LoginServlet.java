@@ -8,6 +8,7 @@ package SERVLETS;
 
 import DAO.CustomerDAO;
 import BEANS.InfoObjects.Customer;
+import DAO.QuoteDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -68,8 +69,13 @@ public class LoginServlet extends HttpServlet {
 	   		    
      if (client.isValid())
      {
-	        
-          HttpSession session = request.getSession(true);	    
+	  
+        ArrayList<Integer> list = QuoteDAO.getQuoteIDbyCustomerID(client);
+   
+          HttpSession session = request.getSession(true);
+          HttpSession sessionQuoteID = request.getSession(true);
+          
+          sessionQuoteID.setAttribute("currentQuoteID",list); 
           session.setAttribute("currentSessionClient",client); 
           response.sendRedirect("userprofile.jsp"); //logged-in page      		
      }
