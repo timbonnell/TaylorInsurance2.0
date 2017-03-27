@@ -120,8 +120,8 @@ public class CustomerDAO {
     public static void createInit(Customer customer) {
         //preparing some objects for connection 
         Statement stmt = null;
-        Random rn = new Random();
-        int id = rn.nextInt(2000 - 1000 + 1) + 1000;
+
+
         String email = customer.getEmail();
         String password = customer.getPassword();
         String first_name = customer.getFirstName();
@@ -137,7 +137,7 @@ public class CustomerDAO {
         String street = customer.getAddress().getStreetAddress1();
         String country = customer.getAddress().getCountry();
         String postal = customer.getAddress().getPostalCode();
-        String birthday;
+        LocalDate birthday= customer.getBirthDate();
         String contact = customer.getPhoneNumber();
 
         String SPsql = "EXEC insertCustomer ?,?,?,?,?,?,?,?,?,?";
@@ -149,8 +149,7 @@ public class CustomerDAO {
            //  int yearInt = Integer.parseInt(splitDate[0]);
            // int monthInt = Integer.parseInt(splitDate[1]);
            // int dayInt = Integer.parseInt(splitDate[2]);
-            LocalDate localDateBirth = LocalDate.of(1900, 01, 01);
-            Date date = java.sql.Date.valueOf(localDateBirth);
+            Date date = java.sql.Date.valueOf(birthday);
             
             connection = ConnectionManager.getConnection();
             //stmt = connection.createStatement();
@@ -174,40 +173,5 @@ public class CustomerDAO {
         }
     }
 
-    public static void create(Customer customer) {
-        //preparing some objects for connection 
-        Statement stmt = null;
-        Random rn = new Random();
-        int id = rn.nextInt(2000 - 1000 + 1) + 1000;
-        String email = customer.getEmail();
-        String password = customer.getPassword();
-        String first_name = customer.getFirstName();
-        String last_name = customer.getLastName();
-
-        //Handle city for database
-        String city = customer.getAddress().getCity();
-        if (city.contains("'")) {
-            city = city.replaceAll("'", "''");
-        }
-
-        String province = customer.getAddress().getProvince();
-        String street = customer.getAddress().getStreetAddress1();
-        String country = customer.getAddress().getCountry();
-        String postal = customer.getAddress().getPostalCode();
-        String birthday;
-        String contact = customer.getPhoneNumber();
-
-        String searchQuery = ("insert into customer values('" + id + "', '" + first_name
-                + "', '" + last_name + "', '" + email + "', '" + password + "', '" + city + "', '" + province + "', '"
-                + street + "', ' 13-Aug-1993','" + contact + "', '" + postal + "', '" + country + "');");
-        System.out.println(searchQuery);
-        try {
-            connection = ConnectionManager.getConnection();
-            stmt = connection.createStatement();
-            stmt.executeQuery(searchQuery);
-        } catch (Exception ex) {
-            System.out.println("Create user has failed: " + ex);
-        }
-    }
 
 }

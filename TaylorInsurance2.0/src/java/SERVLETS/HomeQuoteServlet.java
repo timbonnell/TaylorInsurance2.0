@@ -61,6 +61,15 @@ public class HomeQuoteServlet extends HttpServlet {
         client.setLastName(request.getParameter("lastName"));
         client.setEmail(request.getParameter("email"));
         client.setPhoneNumber(request.getParameter("phone"));
+        String enteredDateOfBirth = request.getParameter("dateofbirth");
+        String[] splitDate = enteredDateOfBirth.split("-");
+
+        int yearInt = Integer.parseInt(splitDate[0]);
+        int monthInt = Integer.parseInt(splitDate[1]);
+        int dayInt = Integer.parseInt(splitDate[2]);
+        LocalDate localDateBirth = LocalDate.of(yearInt, monthInt, dayInt);
+        
+        client.setBirthDate(localDateBirth);
 
         //Set up customer Address
         Address address = new Address(request.getParameter("city"),
@@ -71,7 +80,7 @@ public class HomeQuoteServlet extends HttpServlet {
 
         client.setAddress(address);
 
-        CustomerDAO.create(client);
+        CustomerDAO.createInit(client);
 
         //Creates House Object
         House newHouse = new House();

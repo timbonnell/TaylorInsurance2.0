@@ -45,7 +45,7 @@
             </div>
         </div>
     </nav>
-        <!--End Nav -->
+    <!--End Nav -->
     <!--Modal box-->
     <div class="modal fade" id="login" role="dialog">
         <div class="modal-dialog modal-sm">
@@ -114,7 +114,10 @@
                                             <label class="col-xs-5 control-label">City: </label>
                                             <input class="form-control-static" name="city" type="text" required>   
                                         </div>
-
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Date of Birth: </label>
+                                            <input class="form-control-static" type="date" name="dateofbirth" required> 
+                                        </div>
 
                                     </div>
                                 </div>
@@ -178,10 +181,10 @@
 
     </body>
     <style>
-body {
-   padding:10px;
-   padding-bottom:60px;   /* Height of the footer */
-}
+        body {
+            padding:10px;
+            padding-bottom:60px;   /* Height of the footer */
+        }
         footer { position:absolute; bottom:0;width:100%}
         fieldset.for-panel {
             background-color: #fcfcfc;
