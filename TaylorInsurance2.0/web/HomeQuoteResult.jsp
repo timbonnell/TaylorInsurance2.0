@@ -49,59 +49,39 @@
     <!--End Nav -->
 
  <body style="padding-top: 150px;">
-     <% HouseQuote houseQuote = (HouseQuote)(session.getAttribute("currentSessionHouseQuote"));%>
+     <% HouseQuote houseQuote = (HouseQuote)(session.getAttribute("currentSessionVehicleQuote"));%>
+      <% Customer currentClient = (Customer)(session.getAttribute("currentSessionClient"));%>
+      <% House newHouse = (House) (session.getAttribute("currentSessionVehicle"));%>
         <div class="container">
             <div class="row">
 
             </div>
-            <form class="form-horizontal" action="AutoQuoteServlet">
+            <form class="form-horizontal" action="ViewQuoteServlet">
                 <div class="form-group">
                     <div class="row">
                         <fieldset class="for-panel">
-                            <legend>Auto Quote</legend>
+                            <legend>Home Quote Quote</legend>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-horizontal">               
                                         <div class="form-group">
-                                            <label class="col-xs-5 control-label">Monthly Premium: </label>
-                                            <p>$ <%= houseQuote.getTotalPremium() %></p>    
+                                            <label class="col-xs-5 control-label">First Name:</label>
+                                            <p> <%= currentClient.getFirstName() %></p>    
                                         </div>
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">Last Name: </label> 
-                                            <input class="form-control-static" name="lastName" type="text" required> 
+                                            <p> <%= currentClient.getLastName() %></p> 
                                         </div>
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">Email: </label>
-                                            <input class="form-control-static" name="email" type="email" required>               
+                                           <p> <%= currentClient.getEmail() %></p>             
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-xs-5 control-label">Street Address: </label>
-                                            <input class="form-control-static" name="address" type="text" required> 
+                                            <label class="col-xs-5 control-label">Address: </label>
+                                            <p> <%= currentClient.getAddress().toString() %></p>       
                                         </div>
 
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">City: </label>
-                                            <input class="form-control-static" name="city" type="text" required>   
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Province: </label>
-                                            <select class="col-xs-5 control-label" name="province" required>
-                                                <option>NL</option>
-                                            </select>   
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Country: </label>
-                                            <select class="col-xs-5 control-label" name="country" required>
-                                                <option>Canada</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Postal Code: </label>
-                                            <input class="form-control-static" name="postalcode" type="text" required>   
-                                        </div>
 
                                     </div>
                                 </div>
@@ -132,7 +112,7 @@
 
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label"></label>
-                                            <button style="float: center;" class="btn btn-primary" type="submit">Submit Auto Quote</button>
+                                            <button style="float: center;" class="btn btn-primary" type="submit">Create Account</button>
                                         </div>
                                     </div>
                                 </div>
