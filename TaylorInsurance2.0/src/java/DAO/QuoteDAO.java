@@ -12,10 +12,12 @@ import BEANS.PolicyObjects.HouseQuote;
 import BEANS.PolicyObjects.VehicleQuote;
 import SERVLETS.ConnectionManager;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,11 +35,50 @@ public class QuoteDAO {
     static PreparedStatement ps;
 
     public static void createHouseQuote(Customer Client, House house, HouseQuote houseQuote) {
-
+        String SPsql = "EXEC insertHomeQuote ?,?,?,?,?";
+        Date exDate = java.sql.Date.valueOf(LocalDate.now().plusDays(30));
+        Date createDate = java.sql.Date.valueOf( LocalDate.now());
+        try {
+            connection = ConnectionManager.getConnection();
+            ps = connection.prepareStatement(SPsql);
+            ps.setEscapeProcessing(true);
+            ps.setQueryTimeout(30);
+            //Set up params for stored procedure
+            ps.setInt(1, Integer.parseInt(Client.getId()));
+            ps.setInt(2, (house.getHouseID()));
+            ps.setDouble(3, houseQuote.getTotalPremium());
+            ps.setDate(4, createDate);
+            ps.setDate(5, exDate);
+            
+            //Execute Stored Procedure
+            ps.executeUpdate();
+            
+            
+        } catch (Exception ex) {
+            System.out.println("Insert House Quote Failed: An Exception has occurred! " + ex);
+        } //Exception handling and closing
+        finally {
+            //Close DB Connections
+            ConnectionManager.Dispose(connection, rs, ps);
+        }
     }
 
     public static void createVehicleQuote(Customer Client, Vehicle vehicle, VehicleQuote vehicleQuote) {
-
+        String SPsql = "EXEC insertAutoQuote ?,?,?,?,?";
+        try {
+            connection = ConnectionManager.getConnection();
+            ps = connection.prepareStatement(SPsql);
+            ps.setEscapeProcessing(true);
+            ps.setQueryTimeout(30);
+            //Set up params for stored procedure
+            ps.setInt(1, 0);
+        } catch (Exception ex) {
+            System.out.println("Insert Vehicle Quote Failed: An Exception has occurred! " + ex);
+        } //Exception handling and closing
+        finally {
+            //Close DB Connections
+            ConnectionManager.Dispose(connection, rs, ps);
+        }
     }
 
     public static Map<Integer, Integer> getQuoteIDbyCustomerID(Customer client) {
@@ -101,8 +142,8 @@ public class QuoteDAO {
         Statement stmt = null;
         String sql = "SELECT * FROM auto_quote WHERE quote_id = " + QuoteID;
         try {
-             connection = ConnectionManager.getConnection();
-             stmt = connection.createStatement();
+            connection = ConnectionManager.getConnection();
+            stmt = connection.createStatement();
             System.out.println(sql);
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
