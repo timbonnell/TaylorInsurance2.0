@@ -19,6 +19,14 @@
         <servlet-name>ViewQuoteServlet</servlet-name>
         <servlet-class>SERVLETS.ViewQuoteServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewAutoQuoteServlet</servlet-name>
+        <servlet-class>SERVLETS.ViewAutoQuoteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewHomeQuoteServlet</servlet-name>
+        <servlet-class>SERVLETS.ViewHomeQuoteServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -34,6 +42,14 @@
     <servlet-mapping>
         <servlet-name>ViewQuoteServlet</servlet-name>
         <url-pattern>/ViewQuoteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewAutoQuoteServlet</servlet-name>
+        <url-pattern>/ViewAutoQuoteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewHomeQuoteServlet</servlet-name>
+        <url-pattern>/ViewHomeQuoteServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

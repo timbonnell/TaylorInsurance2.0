@@ -48,13 +48,14 @@
     </nav>
     <body style="padding-top: 150px;">
         <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
+        <% Map<Integer, Integer> map = (Map<Integer, Integer>) (session.getAttribute("currentQuoteID"));%>
         <!--/ Navigation bar-->
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
 
                     <h3>My Policies</h3>
-                    <p>Client ID: <%= currentClient.getId()%></p>
+                    <p>Customer ID: <%= currentClient.getId()%></p>
                     <p>
                         <span>Hi, </span><span><%= currentClient.getFirstName() + " " + currentClient.getLastName()%></span>
                     </p>
@@ -66,28 +67,49 @@
 
                 </div>
                 <div class="col-sm-4">
-                    <form class="form-horizontal" action="ViewQuoteServlet"> 
-                        <h3>Active Quotes</h3>        
-                        <label>Quote ID:</label>
 
-                        <select name="quoteIds">
-                            <%
-                                Map<Integer, Integer> map = (Map<Integer, Integer>) (session.getAttribute("currentQuoteID"));
+                    <h3>Active Quotes</h3>        
 
-                                for (Entry<Integer, Integer> maps : map.entrySet()) {
-                            %>
+                    <%
 
-                            <option value="<%= maps.getKey()%>">
+                        for (Entry<Integer, Integer> maps : map.entrySet()) {
+                            if (maps.getKey() == 15) {
+                    %>
+                    <form class="form-horizontal" action="ViewHomeQuoteServlet"> 
+                        <label>Home Quote ID:</label>
+
+                        <select name="homequoteIds">
+                            <option value="<%=maps.getValue()%>_<%= maps.getKey()%>">
                                 <%= maps.getValue()%>
                             </option>
-
-                            <%
-                                }
-                            %>
                         </select>
                         <br><br>
-                        <button class="btn btn-info" type="submit">View Quote</button>
+                        <button class="btn btn-info" type="submit">View Home Quote</button>
                     </form>
+                    <%
+                            }
+                        }
+                    %>
+                    <%
+                        for (Entry<Integer, Integer> maps : map.entrySet()) {
+                            if (maps.getKey() == 14) {
+                    %>
+                    <form class="form-horizontal" action="ViewAutoQuoteServlet"> 
+                        <label>Auto Quote ID:</label>
+
+                        <select name="autoquoteIds">
+                            <option value="<%= maps.getValue()%>_<%= maps.getKey()%>">
+                                <%= maps.getValue()%>
+                            </option>
+                        </select>
+                        <br><br>
+                        <button class="btn btn-info" type="submit">View Auto Quote</button>
+                    </form>
+                    <%
+                            }
+                        }
+                    %>
+
                 </div>
             </div>
         </div>
