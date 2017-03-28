@@ -15,6 +15,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -34,9 +36,9 @@ public class QuoteDAO {
         
     }
     
-    public static ArrayList<Integer> getQuoteIDbyCustomerID(Customer client){
+    public static Map<Integer, Integer>  getQuoteIDbyCustomerID(Customer client){
        
-        ArrayList<Integer> list = new ArrayList<Integer>();
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
         int CustomerID = Integer.parseInt(client.getId());
         String SPsql = "EXEC getQuoteByCustomerId ?";
          
@@ -56,9 +58,9 @@ public class QuoteDAO {
             if (!more) {
                 System.out.println("No Quotes Found");
             }else{
-                while(rs.next()){
-                    list.add(rs.getInt("quote_id"));
-                }
+                do{
+                    map.put(rs.getInt("quote_type"), rs.getInt("quote_id"));
+                }while(rs.next());
             }
      } catch (Exception ex) {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
@@ -90,7 +92,9 @@ public class QuoteDAO {
                 connection = null;
             }
         }
-         return list;
+        boolean val=map.isEmpty();
+        System.out.println("Initial Map Empty: " + val + CustomerID);
+         return map;
     }
    
 }

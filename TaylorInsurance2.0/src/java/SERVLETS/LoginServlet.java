@@ -17,6 +17,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -69,13 +71,20 @@ public class LoginServlet extends HttpServlet {
 	   		    
      if (client.isValid())
      {
-	  
-        ArrayList<Integer> list = QuoteDAO.getQuoteIDbyCustomerID(client);
-   
+	  System.out.println("Login good");
+        Map<Integer, Integer> map = QuoteDAO.getQuoteIDbyCustomerID(client);
+         boolean val=map.isEmpty();
+        System.out.println("Map Empty: " + val);
+        
+        for (Entry<Integer, Integer> maps : map.entrySet()) {
+            System.out.println(maps.getKey());
+            System.out.println(maps.getValue());
+        }
+        
           HttpSession session = request.getSession(true);
           HttpSession sessionQuoteID = request.getSession(true);
           
-          sessionQuoteID.setAttribute("currentQuoteID",list); 
+          sessionQuoteID.setAttribute("currentQuoteID",map); 
           session.setAttribute("currentSessionClient",client); 
           response.sendRedirect("userprofile.jsp"); //logged-in page      		
      }
