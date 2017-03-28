@@ -52,10 +52,10 @@ public class HouseDAO {
             ps.setString(7, housePostal);
             ps.setString(8, houseCountry);
             
-            ps.executeQuery();
+            ps.executeUpdate();
             
             } catch (Exception ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
+            System.out.println("createHouse: An Exception has occurred! " + ex);
         } //Exception handling and closing
         finally {
             //Close DB Connections

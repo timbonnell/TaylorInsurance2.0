@@ -63,7 +63,7 @@ public class HomeQuoteServlet extends HttpServlet {
         client.setEmail(request.getParameter("email"));
         client.setPhoneNumber(request.getParameter("phone"));
         String enteredDateOfBirth = request.getParameter("dateofbirth");
-        
+
         //Puts birthdate in correct format
         String[] splitDate = enteredDateOfBirth.split("-");
 
@@ -82,10 +82,9 @@ public class HomeQuoteServlet extends HttpServlet {
                 request.getParameter("postal"));
 
         client.setAddress(address);
-        
-        //Store initial customer in database
-      //  CustomerDAO.createInit(client);
 
+        //Store initial customer in database
+        //  CustomerDAO.createInit(client);
         //Creates House Object
         House newHouse = new House();
         newHouse.setHeating(Integer.parseInt(request.getParameter("heatsource")));
@@ -93,25 +92,26 @@ public class HomeQuoteServlet extends HttpServlet {
         newHouse.setYear(Integer.parseInt(request.getParameter("yearBuilt")));
         newHouse.setAddress(address);
 
-        //Store house in Database
-      //  HouseDAO.createHouse(newHouse);
-
         //Create a House Quote
         HouseQuote houseQuote = new HouseQuote("0", LocalDate.now(), client, newHouse);
-        
+
         //Test Quote
         System.out.println("House Premium:  $" + houseQuote.getTotalPremium());
-        
+
+        //Store Objects in Database
+        //Store initial customer in database
+        Customer newClient = CustomerDAO.createInit(client);
+        HouseDAO.createHouse(newHouse);
+        QuoteDAO.createHouseQuote(newClient, newHouse, houseQuote);
+
         //Set up sessions
         HttpSession sessionClient = request.getSession(true);
         HttpSession sessionHouse = request.getSession(true);
         HttpSession sessionHouseQuote = request.getSession(true);
 
-        sessionClient.setAttribute("currentSessionClient", client);
+        sessionClient.setAttribute("currentSessionClient", newClient);
         sessionHouse.setAttribute("currentSessionHouse", newHouse);
         sessionHouseQuote.setAttribute("currentSessionHouseQuote", houseQuote);
-
-        QuoteDAO.createHouseQuote(client, newHouse, houseQuote);
 
         //Redirects to Create Customer Page
         response.sendRedirect("HomeQuoteResult.jsp");

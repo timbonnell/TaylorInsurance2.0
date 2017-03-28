@@ -94,7 +94,7 @@ public class CustomerDAO {
         return client;
     }
 
-    public static void createInit(Customer customer) {
+    public static Customer createInit(Customer customer) {
         //preparing some objects for connection 
         Statement stmt = null;
 
@@ -120,17 +120,13 @@ public class CustomerDAO {
 
         try {
 
-            // String[] splitDate = enteredDateOfBirth.split("-");
-            //  int yearInt = Integer.parseInt(splitDate[0]);
-            // int monthInt = Integer.parseInt(splitDate[1]);
-            // int dayInt = Integer.parseInt(splitDate[2]);
             Date date = java.sql.Date.valueOf(birthday);
 
             connection = ConnectionManager.getConnection();
-            //stmt = connection.createStatement();
             ps = connection.prepareStatement(SPsql);
             ps.setEscapeProcessing(true);
             ps.setQueryTimeout(30);
+            //Set up params for the Stored Procedure
             ps.setString(1, first_name);
             ps.setString(2, last_name);
             ps.setString(3, email);
@@ -143,12 +139,22 @@ public class CustomerDAO {
             ps.setDate(10, date);
 
             rs = ps.executeQuery();
-        } catch (Exception ex) {
+            boolean more = rs.next();
+            //Checks to see if user exists and will set the isValid variable to false if it does not exist
+            if (!more) {
+                System.out.println("Invalid Customer Creation");
+                //customer.setValid(false);
+            } // If username and password are correct, set client to valid and set up the client
+            else if (more) {
+                customer.setId((rs.getString(1)));
+            }
+            }catch (Exception ex) {
             System.out.println("Create user has failed: " + ex);
-        } finally {
+        }finally {
             //Close DB Connections
             ConnectionManager.Dispose(connection, rs, ps);
         }
-    }
+            return customer;
+        }
 
-}
+    }

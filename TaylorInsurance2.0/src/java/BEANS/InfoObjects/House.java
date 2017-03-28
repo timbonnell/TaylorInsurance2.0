@@ -10,6 +10,15 @@ public class House implements HouseInsurable {
     private int type;
     private int year;
     private int heating;
+    private int houseID;
+
+    public int getHouseID() {
+        return houseID;
+    }
+
+    public void setHouseID(int houseID) {
+        this.houseID = houseID;
+    }
 
     public House() {
     }
