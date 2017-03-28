@@ -55,7 +55,7 @@
             <div class="row">
 
             </div>
-            <form class="form-horizontal" action="ViewQuoteServlet">
+            <form class="form-horizontal" action="CreateCustomerServlet">
                 <div class="form-group">
                     <div class="row">
                         <fieldset class="for-panel">

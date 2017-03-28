@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="col-sm-4">
 
-                    <h3>My Policies</h3>
+                    <h3>Customer Information</h3>
                     <p>Customer ID: <%= currentClient.getId()%></p>
                     <p>
                         <span>Hi, </span><span><%= currentClient.getFirstName() + " " + currentClient.getLastName()%></span>

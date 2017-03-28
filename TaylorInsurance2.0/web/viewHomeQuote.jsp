@@ -44,7 +44,7 @@
     </nav>
     <!--End Nav -->
 
-    <body>
+    <body style="padding-top: 150px;">
 
 
         <script src="js/jquery.min.js"></script>
