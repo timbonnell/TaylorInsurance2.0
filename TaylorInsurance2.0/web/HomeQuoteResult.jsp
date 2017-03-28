@@ -59,7 +59,7 @@
                 <div class="form-group">
                     <div class="row">
                         <fieldset class="for-panel">
-                            <legend>Home Quote Quote</legend>
+                            <legend>Home Quote Results</legend>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-horizontal">               
