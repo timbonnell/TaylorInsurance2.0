@@ -47,11 +47,11 @@
 
     <body style="padding-top: 150px;">
         <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
-          <div class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-sm-4">
 
-                    <h3>My Policies</h3>
+                    <h3>Customer Information</h3>
                     <p>Customer ID: <%= currentClient.getId()%></p>
                     <p>
                         <span>Hi, </span><span><%= currentClient.getFirstName() + " " + currentClient.getLastName()%></span>
@@ -63,16 +63,21 @@
                     <p><%= currentClient.getAddress()%></p>
 
                 </div>
-                    </div>
-                    </div>
-                
+                <div class="col-sm-4">
+                    <h3>Auto Quote Information:</h3>
+                    <p><% session.getAttribute("currentsessionAutoQuote");%></p>
+
+                </div>
+            </div>
+        </div>
+
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.easing.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/custom.js"></script>
         <script src="contactform/contactform.js"></script>
     </body>
-        <style>
+    <style>
         footer { position:absolute; bottom:0;width:100%}
         fieldset.for-panel {
             background-color: #fcfcfc;
