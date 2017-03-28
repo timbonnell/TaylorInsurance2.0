@@ -23,8 +23,7 @@ public class HouseDAO {
     
     
     public static void createHouse(House house){
-      //preparing some objects for connection 
-        Statement stmt = null;
+
         // Set up house attributes
         int houseType = house.getType();
         int houseYear = house.getYear();
@@ -59,31 +58,9 @@ public class HouseDAO {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
         } //Exception handling and closing
         finally {
-            //Result Set
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception e) {
-                }
-                rs = null;
-            }
-            //Statement
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception e) {
-                }
-                ps = null;
-            }
-            //Connection
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (Exception e) {
-                }
-
-                connection = null;
-            }
+            //Close DB Connections
+            ConnectionManager.Dispose(connection, rs, ps);
+        
         }
     }
         

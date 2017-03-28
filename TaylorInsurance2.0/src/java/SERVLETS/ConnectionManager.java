@@ -37,4 +37,31 @@ public class ConnectionManager {
         return connection;
     }
 
+    public static void Dispose(Connection connection, ResultSet rs, PreparedStatement ps){
+                    //Result Set
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                }
+                rs = null;
+            }
+            //Statement
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception e) {
+                }
+                ps = null;
+            }
+            //Connection
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (Exception e) {
+                }
+
+                connection = null;
+            }
+    }
 }

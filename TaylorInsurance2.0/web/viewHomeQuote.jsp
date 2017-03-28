@@ -4,6 +4,7 @@
     Author     : tim
 --%>
 
+<%@page import="BEANS.InfoObjects.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +46,30 @@
     <!--End Nav -->
 
     <body style="padding-top: 150px;">
+        <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
 
+                    <h3>Customer Information</h3>
+                    <p>Customer ID: <%= currentClient.getId()%></p>
+                    <p>
+                        <span>Hi, </span><span><%= currentClient.getFirstName() + " " + currentClient.getLastName()%></span>
+                    </p>
+
+                </div>
+                <div class="col-sm-4">
+                    <h3>Address</h3>
+                    <p><%= currentClient.getAddress()%></p>
+
+                </div>
+                    <div class="col-sm-4">
+                        <h3>Home Quote Information:</h3>
+                        <p><% session.getAttribute("currentsessionHomeQuote"); %></p>
+                        
+                    </div>
+            </div>
+        </div>
 
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.easing.min.js"></script>
@@ -53,7 +77,7 @@
         <script src="js/custom.js"></script>
         <script src="contactform/contactform.js"></script>
     </body>
-        <style>
+    <style>
         footer { position:absolute; bottom:0;width:100%}
         fieldset.for-panel {
             background-color: #fcfcfc;

@@ -87,31 +87,8 @@ public class CustomerDAO {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
         } //Exception handling and closing
         finally {
-            //Result Set
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception e) {
-                }
-                rs = null;
-            }
-            //Statement
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception e) {
-                }
-                ps = null;
-            }
-            //Connection
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (Exception e) {
-                }
-
-                connection = null;
-            }
+            //Close DB Connections
+            ConnectionManager.Dispose(connection, rs, ps);
         }
 
         return client;
@@ -120,7 +97,6 @@ public class CustomerDAO {
     public static void createInit(Customer customer) {
         //preparing some objects for connection 
         Statement stmt = null;
-
 
         String email = customer.getEmail();
         String password = customer.getPassword();
@@ -137,20 +113,19 @@ public class CustomerDAO {
         String street = customer.getAddress().getStreetAddress1();
         String country = customer.getAddress().getCountry();
         String postal = customer.getAddress().getPostalCode();
-        LocalDate birthday= customer.getBirthDate();
+        LocalDate birthday = customer.getBirthDate();
         String contact = customer.getPhoneNumber();
 
         String SPsql = "EXEC insertCustomer ?,?,?,?,?,?,?,?,?,?";
 
         try {
 
-           // String[] splitDate = enteredDateOfBirth.split("-");
-
-           //  int yearInt = Integer.parseInt(splitDate[0]);
-           // int monthInt = Integer.parseInt(splitDate[1]);
-           // int dayInt = Integer.parseInt(splitDate[2]);
+            // String[] splitDate = enteredDateOfBirth.split("-");
+            //  int yearInt = Integer.parseInt(splitDate[0]);
+            // int monthInt = Integer.parseInt(splitDate[1]);
+            // int dayInt = Integer.parseInt(splitDate[2]);
             Date date = java.sql.Date.valueOf(birthday);
-            
+
             connection = ConnectionManager.getConnection();
             //stmt = connection.createStatement();
             ps = connection.prepareStatement(SPsql);
@@ -170,8 +145,10 @@ public class CustomerDAO {
             rs = ps.executeQuery();
         } catch (Exception ex) {
             System.out.println("Create user has failed: " + ex);
+        } finally {
+            //Close DB Connections
+            ConnectionManager.Dispose(connection, rs, ps);
         }
     }
-
 
 }
