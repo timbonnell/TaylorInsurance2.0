@@ -47,6 +47,7 @@
 
     <body style="padding-top: 150px;">
         <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
+        <% String name = (String) session.getAttribute("currentsessionHomeQuote"); %>
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
@@ -65,7 +66,7 @@
                 </div>
                     <div class="col-sm-4">
                         <h3>Home Quote Information:</h3>
-                        <p><% session.getAttribute("currentsessionHomeQuote"); %></p>
+                        <p><%=name %></p>
                         
                     </div>
             </div>

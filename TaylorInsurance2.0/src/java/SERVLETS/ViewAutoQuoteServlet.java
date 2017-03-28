@@ -45,7 +45,9 @@ public class ViewAutoQuoteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+       
         int quoteID = Integer.parseInt(request.getParameter("autoquoteIds"));
+        
         String quoteResult = QuoteDAO.getVehicleQuote(quoteID);
        
         //Set up sessions

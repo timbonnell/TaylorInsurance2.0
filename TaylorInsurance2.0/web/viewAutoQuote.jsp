@@ -47,6 +47,7 @@
 
     <body style="padding-top: 150px;">
         <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
+        <% String name = (session.getAttribute("currentsessionAutoQuote")).toString();%>
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
@@ -65,7 +66,7 @@
                 </div>
                 <div class="col-sm-4">
                     <h3>Auto Quote Information:</h3>
-                    <p><% session.getAttribute("currentsessionAutoQuote");%></p>
+                    <p><%=name%></p>
 
                 </div>
             </div>

@@ -4,6 +4,7 @@
     Author     : tim
 --%>
 
+<%@page import="BEANS.InfoObjects.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,16 +45,88 @@
     </nav>
     <!--End Nav -->
 
-    <body>
+    <body style="padding-top: 150px;">
+        <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
+        <div class="container">
+            <div class="row">
 
+            </div>
+            <form class="form-horizontal" action="CreateCustomerServlet">
+                <div class="form-group">
+                    <div class="row">
+                        <fieldset class="for-panel">
+                            <legend>Create Customer</legend>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-horizontal">               
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">First Name:</label>
+                                            <p> <%= currentClient.getFirstName()%></p>    
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Last Name: </label> 
+                                            <p> <%= currentClient.getLastName()%></p> 
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Email: </label>
+                                            <p> <%= currentClient.getEmail()%></p>             
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Address: </label>
+                                            <p> <%= currentClient.getAddress().toString()%></p>       
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-horizontal">               
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Password: </label>
+                                            <input class="form-control-static" id="password" name="password" type="password" required>     
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Confirm Password: </label>
+                                            <input class="form-control-static" id="confirm_password" name="confirm_password" type="password" required>     
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label"></label>
+                                            <button style="float: center;" class="btn btn-primary" type="submit">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </form>
+        </div>
 
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.easing.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/custom.js"></script>
         <script src="contactform/contactform.js"></script>
+        <script>
+            var password = document.getElementById("password")
+                    , confirm_password = document.getElementById("confirm_password");
+
+            function validatePassword() {
+                if (password.value != confirm_password.value) {
+                    confirm_password.setCustomValidity("Passwords Don't Match");
+                } else {
+                    confirm_password.setCustomValidity('');
+                }
+            }
+
+            password.onchange = validatePassword;
+            confirm_password.onkeyup = validatePassword;
+
+        </script>   
     </body>
-        <style>
+    <style>
         footer { position:absolute; bottom:0;width:100%}
         fieldset.for-panel {
             background-color: #fcfcfc;

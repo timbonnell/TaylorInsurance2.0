@@ -5,6 +5,7 @@
  */
 package SERVLETS;
 
+import BEANS.InfoObjects.Customer;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -44,6 +45,9 @@ public class CreateCustomerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        Customer client = (Customer) request.getSession(false).getAttribute("currentSessionClient");
+        
         response.sendRedirect("CreateCustomer.jsp");
     }
 

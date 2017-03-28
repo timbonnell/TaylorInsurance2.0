@@ -79,7 +79,7 @@
                         <label>Home Quote ID:</label>
 
                         <select name="homequoteIds">
-                            <option value="<%=maps.getValue()%>_<%= maps.getKey()%>">
+                            <option value="<%=maps.getValue()%>">
                                 <%= maps.getValue()%>
                             </option>
                         </select>
@@ -98,7 +98,7 @@
                         <label>Auto Quote ID:</label>
 
                         <select name="autoquoteIds">
-                            <option value="<%= maps.getValue()%>_<%= maps.getKey()%>">
+                            <option value="<%= maps.getValue()%>">
                                 <%= maps.getValue()%>
                             </option>
                         </select>

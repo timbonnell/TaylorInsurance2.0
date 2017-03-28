@@ -79,7 +79,7 @@ public class QuoteDAO {
     }
 
     public static String getHouseQuote(int QuoteID) {
-        String returnResult =  "";
+        String returnResult = "";
         Statement stmt = null;
         String sql = "SELECT * FROM home_quote WHERE quote_id = " + QuoteID;
         try {
@@ -89,8 +89,11 @@ public class QuoteDAO {
             }
         } catch (SQLException ex) {
             Logger.getLogger(QuoteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            //Close DB Connections
+            ConnectionManager.Dispose(connection, rs, ps);
         }
-         return returnResult;
+        return returnResult;
     }
 
     public static String getVehicleQuote(int QuoteID) {
@@ -98,12 +101,18 @@ public class QuoteDAO {
         Statement stmt = null;
         String sql = "SELECT * FROM auto_quote WHERE quote_id = " + QuoteID;
         try {
+             connection = ConnectionManager.getConnection();
+             stmt = connection.createStatement();
+            System.out.println(sql);
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 returnResult = "Quote ID: " + rs.getInt("quote_id") + "<br>" + "Premium: $" + rs.getDouble("quote_rate") + "<br>" + "Expiration Date: " + rs.getDate("date_expired");
             }
         } catch (SQLException ex) {
             Logger.getLogger(QuoteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            //Close DB Connections
+            ConnectionManager.Dispose(connection, rs, ps);
         }
         return returnResult;
     }
