@@ -39,6 +39,14 @@
         <servlet-name>CreateHomePolicyServlet</servlet-name>
         <servlet-class>SERVLETS.CreateHomePolicyServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewHomePolicyServlet</servlet-name>
+        <servlet-class>SERVLETS.ViewHomePolicyServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewAutoPolicyServlet</servlet-name>
+        <servlet-class>SERVLETS.ViewAutoPolicyServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -74,6 +82,14 @@
     <servlet-mapping>
         <servlet-name>CreateHomePolicyServlet</servlet-name>
         <url-pattern>/CreateHomePolicyServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewHomePolicyServlet</servlet-name>
+        <url-pattern>/ViewHomePolicyServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewAutoPolicyServlet</servlet-name>
+        <url-pattern>/ViewAutoPolicyServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -134,6 +134,63 @@ public static int acceptHomePolicy(int QuoteID) {
         return map;
     }
 
+    public static String getHousePolicy(int policyID) {
+                String returnResult = "";
+        String SPsql = "EXEC getHomePolicyByPolicyId ?";
+        System.out.println(policyID);
+        try {
+            connection = ConnectionManager.getConnection();
+            //stmt = connection.createStatement();
+            ps = connection.prepareStatement(SPsql);
+            ps.setEscapeProcessing(true);
+            ps.setQueryTimeout(30);
+            //Set up params for stored procedure
+            ps.setInt(1, policyID);
+            //Return sp into a result set
+            rs = ps.executeQuery();
+            while(rs.next()) {
+                returnResult = "Home Policy ID: " + rs.getInt("policy_id") + "<br>" + "Annual Premium: $" + rs.getDouble("premium") + "<br>" + "Expiration Date: " + rs.getDate("date_expired");
+            }
+        } catch (SQLException ex) {
+            System.out.println("Retreive Home Policy has failed for customer id: " + policyID + " reason: " + ex);
+            Logger.getLogger(QuoteDAO.class.getName()).log(Level.SEVERE, null, ex);
+
+        } finally {
+            //Close DB Connections
+            ConnectionManager.Dispose(connection, rs, ps);
+        }
+        System.out.println(returnResult);
+        return returnResult;
+    }
+
+        public static String getAutoPolicy(int policyID) {
+                String returnResult = "";
+        String SPsql = "EXEC getAutoPolicyByPolicyId ?";
+        System.out.println(policyID);
+        try {
+            connection = ConnectionManager.getConnection();
+            //stmt = connection.createStatement();
+            ps = connection.prepareStatement(SPsql);
+            ps.setEscapeProcessing(true);
+            ps.setQueryTimeout(30);
+            //Set up params for stored procedure
+            ps.setInt(1, policyID);
+            //Return sp into a result set
+            rs = ps.executeQuery();
+            while(rs.next()) {
+                returnResult = " Auto Policy ID: " + rs.getInt("policy_id") + "<br>" + " Annual Premium: $" + rs.getDouble("premium") + "<br>" + " Expiration Date: " + rs.getDate("date_expired");
+            }
+        } catch (SQLException ex) {
+            System.out.println("Retreive Auto Policy has failed for customer id: " + policyID + " reason: " + ex);
+            Logger.getLogger(QuoteDAO.class.getName()).log(Level.SEVERE, null, ex);
+
+        } finally {
+            //Close DB Connections
+            ConnectionManager.Dispose(connection, rs, ps);
+        }
+        System.out.println(returnResult);
+        return returnResult;
+    }
 
 
 }

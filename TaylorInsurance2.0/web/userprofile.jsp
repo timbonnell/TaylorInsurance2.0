@@ -78,7 +78,7 @@
                                 if (maps.getKey() == 15) {
                         %>
                         <h3>Active Policies</h3>  
-                        <form class="form-horizontal" action="ViewHomeQuoteServlet"> 
+                        <form class="form-horizontal" action="ViewHomePolicyServlet"> 
                             <label>Home Policy ID:</label>
 
                             <select name="homePolicyIds">
@@ -100,7 +100,7 @@
                                 if (maps2.getKey() == 14) {
                         %>
                         <h3>Active Policies</h3>  
-                        <form class="form-horizontal" action="ViewAutoQuoteServlet"> 
+                        <form class="form-horizontal" action="ViewAutoPolicyServlet"> 
                             <label>Auto Policy ID:</label>
 
                             <select name="autoPolicyIds">
