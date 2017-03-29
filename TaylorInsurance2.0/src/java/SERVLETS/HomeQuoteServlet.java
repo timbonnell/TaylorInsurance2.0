@@ -99,11 +99,13 @@ public class HomeQuoteServlet extends HttpServlet {
         System.out.println("House Premium:  $" + houseQuote.getTotalPremium());
 
         //Store Objects in Database
-        //Store initial customer in database
-        Customer newClient = CustomerDAO.createInit(client);
         HouseDAO.createHouse(newHouse);
-        QuoteDAO.createHouseQuote(newClient, newHouse, houseQuote);
 
+        Customer newClient = CustomerDAO.createInit(client);
+
+        QuoteDAO.createHouseQuote(newClient, newHouse, houseQuote);
+        
+        
         //Set up sessions
         HttpSession sessionClient = request.getSession(true);
         HttpSession sessionHouse = request.getSession(true);

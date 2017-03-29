@@ -138,8 +138,18 @@
                                             <input class="form-control-static" type="date" name="dateofbirth" required> 
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-xs-5 control-label">Make: </label>
-                                            <input class="form-control-static" name="make" type="text" required>     
+                                            <label class="col-xs-5 control-label">Vehicle Type: </label>
+                                            <select class="form-control-static" name="type" type="text" required>
+                                                <option value="16">SEDAN</option>
+                                                <option value="17">TRUCK</option>
+                                                <option value="18">SUV</option>
+                                                <option value="19">VAN</option>
+                                                <option value="20">CROSSOVER</option>
+                                            </select>    
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Make: </label> 
+                                            <input class="form-control-static" name="make" type="text" required>   
                                         </div>
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">Model: </label> 
@@ -149,7 +159,28 @@
                                             <label class="col-xs-5 control-label">Year: </label>
                                             <input class="form-control-static" name="year" type="text" required>              
                                         </div>
-
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Color: </label>
+                                            <select class="form-control-static" name="color" type="text" required>
+                                                <option value="27">White</option>
+                                                <option value="28">Silver</option>
+                                                <option value="29">Black</option>
+                                                <option value="30">Grey</option>
+                                                <option value="31">Blue</option>
+                                                <option value="32">Red</option>
+                                                <option value="33">Brown</option>
+                                                <option value="34">Green</option>
+                                                <option value="35">Other</option>
+                                            </select>    
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">VIN: </label>
+                                            <input class="form-control-static" name="vin" type="text" required>              
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label">Estimated Value: </label>
+                                            <input class="form-control-static" name="estValue" type="text" required>              
+                                        </div>
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label"><p>Number of Accidents</p> (Last 5 Years) </label>
                                             <input class="form-control-static" name="accidents" required>   

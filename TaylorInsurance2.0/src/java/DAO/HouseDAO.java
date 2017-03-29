@@ -17,12 +17,12 @@ import java.sql.Statement;
  * @author timbo
  */
 public class HouseDAO {
+
     static Connection connection = null;
     static ResultSet rs = null;
     static PreparedStatement ps;
-    
-    
-    public static void createHouse(House house){
+
+    public static House createHouse(House house) {
 
         // Set up house attributes
         int houseType = house.getType();
@@ -33,9 +33,9 @@ public class HouseDAO {
         String houseStreet = house.getAddress().getStreetAddress1();
         String housePostal = house.getAddress().getPostalCode();
         String houseCountry = house.getAddress().getCountry();
-        
+
         String SPsql = "EXEC insertHouse ?,?,?,?,?,?,?,?";
-        
+
         try {
             connection = ConnectionManager.getConnection();
             //stmt = connection.createStatement();
@@ -51,19 +51,35 @@ public class HouseDAO {
             ps.setString(6, houseStreet);
             ps.setString(7, housePostal);
             ps.setString(8, houseCountry);
-            
-            ps.executeUpdate();
-            
-            } catch (Exception ex) {
+            System.out.println("EXEC insertHouse" + houseType + "," + houseYear+ "," + houseHeating+ ","+ houseCity+ "," + 10+ ","  + houseStreet+ "," +  housePostal+ "," + houseCountry);
+           
+            //rs = ps.execute();
+            System.out.println("EXEC insertHouse" + houseType + "," + houseYear+ "," + houseHeating+ ","+ houseCity+ "," + 10+ ","  + houseStreet+ "," +  housePostal+ "," + houseCountry);
+
+            boolean more = ps.execute();
+             more = ps.getMoreResults();
+            rs = ps.getResultSet();
+            more = rs.next();
+            System.out.println(more);
+            //Checks to see if house id comes back (house was stored successfully)
+            if (!more) {
+                System.out.println(rs + "invalid");
+
+            } // If username and password are correct, set client to valid and set up the client
+            else if (more) {
+                rs = ps.getResultSet();
+                System.out.println("House ID: " + rs.getString(1));
+                house.setHouseID(Integer.parseInt(rs.getString(1)));
+            }
+        } catch (Exception ex) {
             System.out.println("createHouse: An Exception has occurred! " + ex);
         } //Exception handling and closing
         finally {
             //Close DB Connections
             ConnectionManager.Dispose(connection, rs, ps);
-        
-        }
-    }
-        
-        
- }
 
+        }
+        return house;
+    }
+
+}

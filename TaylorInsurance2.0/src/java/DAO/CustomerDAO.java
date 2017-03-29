@@ -146,6 +146,7 @@ public class CustomerDAO {
                 //customer.setValid(false);
             } // If username and password are correct, set client to valid and set up the client
             else if (more) {
+                System.out.println("Customer ID: " + rs.getInt(1));
                 customer.setId((rs.getString(1)));
             }
             }catch (Exception ex) {
