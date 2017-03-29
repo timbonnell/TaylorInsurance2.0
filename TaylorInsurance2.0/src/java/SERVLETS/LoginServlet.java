@@ -5,7 +5,7 @@ package SERVLETS;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import DAO.clientDAO;
+import DAO.CustomerDAO;
 import BEANS.InfoObjects.Customer;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -53,7 +53,7 @@ public class LoginServlet extends HttpServlet {
             client.setEmail(request.getParameter("inputEmail"));
             client.setPassword(request.getParameter("inputPassword"));
 
-            client = clientDAO.login(client);
+            client = CustomerDAO.login(client);
 
             if (client.isValid()) {
 

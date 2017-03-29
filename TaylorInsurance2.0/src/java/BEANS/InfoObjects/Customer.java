@@ -1,23 +1,22 @@
 package BEANS.InfoObjects;
 
-
 import java.time.LocalDate;
 
 /**
  *
  * @author 20124135
  */
-public class Customer implements CustomerInsurable{
+public class Customer implements CustomerInsurable {
 
-    private String id;
-    private String firstName;
-    private String lastName;
-    private LocalDate birthDate;
+    public boolean valid;
     private Address address;
+    private LocalDate birthDate;
     private String email;
+    private String firstName;
+    private String id;
+    private String lastName;
     private String password;
     private String phoneNumber;
-    public boolean valid;
 
     public Customer() {
     }
@@ -34,12 +33,28 @@ public class Customer implements CustomerInsurable{
         setValid(valid);
     }
 
-    public String getId() {
-        return id;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getFirstName() {
@@ -50,6 +65,19 @@ public class Customer implements CustomerInsurable{
         this.firstName = firstName;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public String getIdentifier() {
+        return "CUSTOMER";
+    }
+
     public String getLastName() {
         return lastName;
     }
@@ -58,35 +86,12 @@ public class Customer implements CustomerInsurable{
         this.lastName = lastName;
     }
 
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPhoneNumber() {
@@ -105,8 +110,4 @@ public class Customer implements CustomerInsurable{
         valid = newValid;
     }
 
-    @Override
-    public String getIdentifier() {
-        return "CUSTOMER";
-    }
 }

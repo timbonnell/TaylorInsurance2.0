@@ -5,23 +5,19 @@ package BEANS.InfoObjects;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author SPOO
  */
 public class Vehicle implements VehicleInsurable {
 
-    private int year;
     private String make;
     private String model;
+    private int year;
 
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
+    @Override
+    public String getIdentifier() {
+        return "AUTO";
     }
 
     public String getMake() {
@@ -40,10 +36,12 @@ public class Vehicle implements VehicleInsurable {
         this.model = model;
     }
 
-    @Override
-    public String getIdentifier() {
-        return "AUTO";
+    public int getYear() {
+        return year;
     }
-    
-    
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
 }

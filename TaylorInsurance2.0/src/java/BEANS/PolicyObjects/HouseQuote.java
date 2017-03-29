@@ -15,5 +15,5 @@ public class HouseQuote extends Quote {
         super(id, created, client, house);
         setCalculator(new HouseRiskFactorGenerator(client, house));
     }
-    
+
 }

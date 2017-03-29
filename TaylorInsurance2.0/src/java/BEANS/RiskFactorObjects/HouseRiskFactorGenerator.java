@@ -32,11 +32,12 @@ public class HouseRiskFactorGenerator extends RiskFactorGenerator {
 
         Iterator<Map.Entry> ageFactors = ageRates.entrySet().iterator();
 
-        for (Map.Entry<Integer, Double> ageFactor; ageFactors.hasNext();) {
+        for (Map.Entry<String, Double> ageFactor; ageFactors.hasNext();) {
             ageFactor = ageFactors.next();
-            if (houseAge > ageFactor.getKey() && lastCompared < ageFactor.getKey()) {
+            int ageToCompare = Integer.parseInt(ageFactor.getKey());
+            if (houseAge > ageToCompare && lastCompared < ageToCompare) {
                 factor = ageFactor.getValue();
-                lastCompared = ageFactor.getKey();
+                lastCompared = ageToCompare;
             }
         }
 
@@ -52,24 +53,15 @@ public class HouseRiskFactorGenerator extends RiskFactorGenerator {
      * @return
      */
     public double getHouseHeatingTypeFactor() {
-        Map<Integer, Double> heatingRates = getRatesForGroup("HEATING");
+        Map<String, Double> heatingRates = getRatesForGroup("HEATING");
         HouseInsurable house = (HouseInsurable) getProperty();
-
-        return heatingRates.getOrDefault(house.getHeating(), 1.0);
+        String heatingType = String.valueOf(house.getHeating());
+        return heatingRates.getOrDefault(heatingType, 1.0);
     }
 
     @Override
-    void loadRates() {
-        /**
-         * TODO Load rates from database
-         */
-        // House age rates
-        addRate("AGE", 25, 1.25);
-        addRate("AGE", 50, 1.5);
-
-        // House heating rates
-        addRate("HEATING", 1, 2.0);
-        addRate("HEATING", 2, 1.25);
+    public double getTotalRateFactor() {
+        return getHouseAgeFactor() * getHouseHeatingTypeFactor();
     }
 
     @Override
@@ -78,7 +70,17 @@ public class HouseRiskFactorGenerator extends RiskFactorGenerator {
     }
 
     @Override
-    public double getTotalRateFactor() {
-        return getHouseAgeFactor() * getHouseHeatingTypeFactor();
+    void loadRates() {
+        /**
+         * TODO Load rates from database
+         */
+        // House age rates
+        addRate("AGE", "25", 1.25);
+        addRate("AGE", "50", 1.5);
+
+        // House heating rates
+        addRate("HEATING", "1", 2.0);
+        addRate("HEATING", "2", 1.25);
     }
+
 }

@@ -7,9 +7,9 @@ package BEANS.InfoObjects;
 public class House implements HouseInsurable {
 
     private Address address;
+    private int heating;
     private int type;
     private int year;
-    private int heating;
 
     public House() {
     }
@@ -29,6 +29,19 @@ public class House implements HouseInsurable {
         this.address = address;
     }
 
+    public final int getHeating() {
+        return heating;
+    }
+
+    public final void setHeating(int heating) {
+        this.heating = heating;
+    }
+
+    @Override
+    public String getIdentifier() {
+        return "HOUSE";
+    }
+
     public final int getType() {
         return type;
     }
@@ -43,19 +56,6 @@ public class House implements HouseInsurable {
 
     public final void setYear(int year) {
         this.year = year;
-    }
-
-    public final int getHeating() {
-        return heating;
-    }
-
-    public final void setHeating(int heating) {
-        this.heating = heating;
-    }
-
-    @Override
-    public String getIdentifier() {
-        return "HOUSE";
     }
 
 }

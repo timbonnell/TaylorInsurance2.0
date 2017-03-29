@@ -1,6 +1,5 @@
 package DAO;
 
-
 import SERVLETS.ConnectionManager;
 import BEANS.InfoObjects.Address;
 import BEANS.InfoObjects.Customer;
@@ -15,7 +14,7 @@ import java.sql.*;
  *
  * @author tim
  */
-public class clientDAO {
+public class CustomerDAO {
 
     static Connection connection = null;
     static ResultSet rs = null;
@@ -77,8 +76,7 @@ public class clientDAO {
 
         } catch (SQLException ex) {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
-        } 
-        //Exception handling and closing
+        } //Exception handling and closing
         finally {
             //Result Set
             if (rs != null) {
@@ -88,7 +86,7 @@ public class clientDAO {
                 }
                 rs = null;
             }
-          //Statement
+            //Statement
             if (stmt != null) {
                 try {
                     stmt.close();
@@ -96,7 +94,7 @@ public class clientDAO {
                 }
                 stmt = null;
             }
-          //Connection
+            //Connection
             if (connection != null) {
                 try {
                     connection.close();
@@ -109,4 +107,5 @@ public class clientDAO {
 
         return customer;
     }
+
 }
