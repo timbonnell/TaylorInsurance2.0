@@ -99,11 +99,11 @@ public class HomeQuoteServlet extends HttpServlet {
         System.out.println("House Premium:  $" + houseQuote.getTotalPremium());
 
         //Store Objects in Database
-        HouseDAO.createHouse(newHouse);
+        House newQuoteHouse = HouseDAO.createHouse(newHouse);
 
         Customer newClient = CustomerDAO.createInit(client);
 
-        QuoteDAO.createHouseQuote(newClient, newHouse, houseQuote);
+        QuoteDAO.createHouseQuote(newClient, newQuoteHouse, houseQuote);
         
         
         //Set up sessions
@@ -112,7 +112,7 @@ public class HomeQuoteServlet extends HttpServlet {
         HttpSession sessionHouseQuote = request.getSession(true);
 
         sessionClient.setAttribute("currentSessionClient", newClient);
-        sessionHouse.setAttribute("currentSessionHouse", newHouse);
+        sessionHouse.setAttribute("currentSessionHouse", newQuoteHouse);
         sessionHouseQuote.setAttribute("currentSessionHouseQuote", houseQuote);
 
         //Redirects to Create Customer Page

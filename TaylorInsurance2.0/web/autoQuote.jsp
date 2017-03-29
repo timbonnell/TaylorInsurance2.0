@@ -114,14 +114,14 @@
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">Province: </label>
                                             <select class="col-xs-5 control-label" name="province" required>
-                                                <option>NL</option>
+                                                <option value="10">NL</option>
                                             </select>   
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">Country: </label>
                                             <select class="col-xs-5 control-label" name="country" required>
-                                                <option>Canada</option>
+                                                <option value="CAN">Canada</option>
                                             </select>
                                         </div>
                                         <div class="form-group">

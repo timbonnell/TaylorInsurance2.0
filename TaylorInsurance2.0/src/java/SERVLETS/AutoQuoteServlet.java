@@ -63,10 +63,9 @@ public class AutoQuoteServlet extends HttpServlet {
         //Build Address for Customer
         String enteredStreetAddress = request.getParameter("address");
         String enteredCity = request.getParameter("city");
-        String enteredProvince = request.getParameter("province");
         String enteredCountry = request.getParameter("country");
         String enteredPostalCode = request.getParameter("postalcode");
-        Address address = new Address(enteredCity, enteredProvince, enteredStreetAddress, enteredCountry, enteredPostalCode);
+        Address address = new Address(enteredCity, request.getParameter("province"), enteredStreetAddress, enteredCountry, enteredPostalCode);
         quoteCustomer.setAddress(address);
         
         //Build Birthday for Customer

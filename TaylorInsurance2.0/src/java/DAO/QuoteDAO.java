@@ -37,7 +37,7 @@ public class QuoteDAO {
     public static void createHouseQuote(Customer Client, House house, HouseQuote houseQuote) {
         String SPsql = "EXEC insertHomeQuote ?,?,?,?,?";
         Date exDate = java.sql.Date.valueOf(LocalDate.now().plusDays(30));
-        Date createDate = java.sql.Date.valueOf( LocalDate.now());
+        Date createDate = java.sql.Date.valueOf(LocalDate.now());
         try {
             connection = ConnectionManager.getConnection();
             ps = connection.prepareStatement(SPsql);
@@ -49,11 +49,10 @@ public class QuoteDAO {
             ps.setDouble(3, houseQuote.getTotalPremium());
             ps.setDate(4, createDate);
             ps.setDate(5, exDate);
-            
+
             //Execute Stored Procedure
             ps.executeUpdate();
-            
-            
+
         } catch (Exception ex) {
             System.out.println("Insert House Quote Failed: An Exception has occurred! " + ex);
         } //Exception handling and closing
@@ -63,15 +62,23 @@ public class QuoteDAO {
         }
     }
 
-    public static void createVehicleQuote(Customer Client, Vehicle vehicle, VehicleQuote vehicleQuote) {
+    public static void createVehicleQuote(Customer client, Vehicle vehicle, VehicleQuote vehicleQuote) {
         String SPsql = "EXEC insertAutoQuote ?,?,?,?,?";
+        Date exDate = java.sql.Date.valueOf(LocalDate.now().plusDays(30));
+        Date createDate = java.sql.Date.valueOf(LocalDate.now());
         try {
             connection = ConnectionManager.getConnection();
             ps = connection.prepareStatement(SPsql);
             ps.setEscapeProcessing(true);
             ps.setQueryTimeout(30);
+
             //Set up params for stored procedure
-            ps.setInt(1, 0);
+            ps.setInt(1, Integer.parseInt(client.getId()));
+            ps.setInt(2, vehicle.getVehicleID());
+            ps.setDouble(3, vehicleQuote.getTotalPremium());
+            ps.setDate(4, createDate);
+            ps.setDate(5, exDate);
+
         } catch (Exception ex) {
             System.out.println("Insert Vehicle Quote Failed: An Exception has occurred! " + ex);
         } //Exception handling and closing
