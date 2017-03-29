@@ -1,13 +1,9 @@
 package DAO;
 
-
 import SERVLETS.ConnectionManager;
-import BEANS.Address;
-import BEANS.Customer;
-import java.text.*;
-import java.util.*;
+import BEANS.InfoObjects.Address;
+import BEANS.InfoObjects.Customer;
 import java.sql.*;
-import java.time.LocalDate;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,7 +14,7 @@ import java.time.LocalDate;
  *
  * @author tim
  */
-public class clientDAO {
+public class CustomerDAO {
 
     static Connection connection = null;
     static ResultSet rs = null;
@@ -43,7 +39,7 @@ public class clientDAO {
 
         // Try to connect to database and login
         try {
-            connection = ConnectionManager.getConnection();
+            connection = ConnectionManager.getManager().getConnection();
             stmt = connection.createStatement();
             rs = stmt.executeQuery(searchQuery);
             boolean more = rs.next();
@@ -60,7 +56,7 @@ public class clientDAO {
                 String firstName = rs.getString("first_name");
                 String lastName = rs.getString("last_name");
                 //  LocalDate birthDate = rs.getDate(customer_birthdate);
-                Address mailingAddress = new Address(rs.getString("customer_city"),
+                Address address = new Address(rs.getString("customer_city"),
                         rs.getString("customer_province"),
                         rs.getString("customer_street"),
                         "Canada",
@@ -72,38 +68,37 @@ public class clientDAO {
                 customer.setId(id);
                 customer.setFirstName(firstName);
                 customer.setLastName(lastName);
-                customer.setMailingAddress(mailingAddress);
+                customer.setAddress(address);
                 customer.setPhoneNumber(phoneNumber);
                 // Set customer to valid
                 customer.setValid(true);
             }
 
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
-        } 
-        //Exception handling and closing
+        } //Exception handling and closing
         finally {
             //Result Set
             if (rs != null) {
                 try {
                     rs.close();
-                } catch (Exception e) {
+                } catch (SQLException e) {
                 }
                 rs = null;
             }
-          //Statement
+            //Statement
             if (stmt != null) {
                 try {
                     stmt.close();
-                } catch (Exception e) {
+                } catch (SQLException e) {
                 }
                 stmt = null;
             }
-          //Connection
+            //Connection
             if (connection != null) {
                 try {
                     connection.close();
-                } catch (Exception e) {
+                } catch (SQLException e) {
                 }
 
                 connection = null;
@@ -112,4 +107,5 @@ public class clientDAO {
 
         return customer;
     }
+
 }
