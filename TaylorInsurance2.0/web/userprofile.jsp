@@ -77,6 +77,7 @@
                             for (Entry<Integer, Integer> maps : map.entrySet()) {
                                 if (maps.getKey() == 15) {
                         %>
+                        <h3>Active Policies</h3>  
                         <form class="form-horizontal" action="ViewHomeQuoteServlet"> 
                             <label>Home Policy ID:</label>
 
@@ -98,6 +99,7 @@
                             for (Entry<Integer, Integer> maps2 : map.entrySet()) {
                                 if (maps2.getKey() == 14) {
                         %>
+                        <h3>Active Policies</h3>  
                         <form class="form-horizontal" action="ViewAutoQuoteServlet"> 
                             <label>Auto Policy ID:</label>
 
@@ -119,12 +121,13 @@
                 </div>
                 <div class="col-sm-4">
                     <div>
-                        <h3>Active Quotes</h3>        
+                        
 
                         <%
                             for (Entry<Integer, Integer> maps2 : map2.entrySet()) {
                                 if (maps2.getKey() == 15) {
                         %>
+                        <h3>Active Quotes</h3>  
                         <form class="form-horizontal" action="ViewHomeQuoteServlet"> 
                             <label>Home Quote ID:</label>
 
@@ -144,6 +147,7 @@
                             for (Entry<Integer, Integer> maps2 : map2.entrySet()) {
                                 if (maps2.getKey() == 14) {
                         %>
+                        <h3>Active Quotes</h3>  
                         <form class="form-horizontal" action="ViewAutoQuoteServlet"> 
                             <label>Auto Quote ID:</label>
 

@@ -5,14 +5,18 @@
  */
 package SERVLETS;
 
+import BEANS.InfoObjects.Customer;
 import BEANS.PolicyObjects.HouseQuote;
 import DAO.PolicyDAO;
+import DAO.QuoteDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -37,7 +41,7 @@ public class CreateHomePolicyServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CreateHomePolicyServlet</title>");            
+            out.println("<title>Servlet CreateHomePolicyServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet CreateHomePolicyServlet at " + request.getContextPath() + "</h1>");
@@ -58,13 +62,31 @@ public class CreateHomePolicyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-       HouseQuote houseQuote = (HouseQuote) (request.getSession(false).getAttribute("currentSessionHouseQuote"));
-       int result = PolicyDAO.acceptHomePolicy(Integer.parseInt(houseQuote.getId()));
-        
-       System.out.println(result);
-        
+
+        int houseQuoteID = (int) (request.getSession(false).getAttribute("currentsessionHomeQuoteID"));
+        int result = PolicyDAO.acceptHomePolicy((houseQuoteID));
+
+        System.out.println(result);
+        Customer client = (Customer) (request.getSession(false).getAttribute("currentSessionClient"));
+        //Quote IDS for Dropdown List
+        Map<Integer, Integer> map = QuoteDAO.getQuoteIDbyCustomerID(client);
+        Map<Integer, Integer> mapPolicy = PolicyDAO.getPolicyByCustomerId(client);
+        boolean val = map.isEmpty();
+        System.out.println("Quote Map Empty: " + val);
+        boolean valPolicy = mapPolicy.isEmpty();
+        System.out.println("Policy Map Empty: " + valPolicy);
+        //Policy IDS for Dropdown List
+
+        HttpSession session = request.getSession(true);
+        HttpSession sessionQuoteID = request.getSession(true);
+        HttpSession sessionPolicyID = request.getSession(true);
+
+        session.setAttribute("currentSessionClient", client);
+
+        sessionQuoteID.setAttribute("currentQuoteID", map);
+
+        sessionPolicyID.setAttribute("currentPolicyID", mapPolicy);
+        response.sendRedirect("userprofile.jsp"); //logged-in page  
         response.sendRedirect("userprofile.jsp"); //logged-in page  
 
     }

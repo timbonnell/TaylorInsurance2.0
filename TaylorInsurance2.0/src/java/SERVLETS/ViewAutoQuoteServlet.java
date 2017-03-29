@@ -54,6 +54,8 @@ public class ViewAutoQuoteServlet extends HttpServlet {
         HttpSession sessionAutoQuote = request.getSession(true);
         sessionAutoQuote.setAttribute("currentsessionAutoQuote", quoteResult);
         
+        HttpSession sessionAutoQuoteID = request.getSession(true);
+        sessionAutoQuoteID.setAttribute("currentsessionAutoQuoteID", quoteID);
         
         response.sendRedirect("viewAutoQuote.jsp");
     }

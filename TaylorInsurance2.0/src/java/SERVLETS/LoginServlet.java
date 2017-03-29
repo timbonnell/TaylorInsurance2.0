@@ -61,7 +61,19 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-
+            
+           Customer clientOld = (Customer) (request.getSession(false).getAttribute("currentSessionClient"));
+           if(!(clientOld.getEmail().isEmpty())){
+                clientOld = CustomerDAO.login(clientOld);
+                if (clientOld.isValid()) {
+                    response.sendRedirect("userprofile.jsp");
+                }
+                else{
+                    response.sendRedirect("index.jsp");
+                }
+           }
+            
+            
             Customer client = new Customer();
             client.setEmail(request.getParameter("inputEmail"));
             client.setPassword(request.getParameter("inputPassword"));

@@ -27,7 +27,7 @@ public class PolicyDAO {
     static PreparedStatement ps;
 
     // Create Auto Policy
-    public static int createAutoPolicy(int QuoteID) {
+    public static int acceptAutoPolicy(int QuoteID) {
         int returnResult = 0;
         String SPsql = "EXEC acceptAutoPolicy ?";
         System.out.println("Accept Policy" + QuoteID);
@@ -40,7 +40,9 @@ public class PolicyDAO {
             //Set up params for stored procedure
             ps.setInt(1, QuoteID);
             //Return sp into a result set
-            rs = ps.executeQuery();
+             boolean more = ps.execute();
+             more = ps.getMoreResults();
+             rs = ps.getResultSet();
             while (rs.next()) {
                 returnResult = rs.getInt(1);
             }
@@ -71,8 +73,12 @@ public static int acceptHomePolicy(int QuoteID) {
             //Set up params for stored procedure
             ps.setInt(1, QuoteID);
             //Return sp into a result set
-            rs = ps.executeQuery();
-            while (rs.next()) {
+             boolean more = ps.execute();
+             more = ps.getMoreResults();
+             rs = ps.getResultSet();
+            more = rs.next();
+            System.out.println(more);
+             while (rs.next()) {
                 returnResult = rs.getInt(1);
             }
         } catch (SQLException ex) {

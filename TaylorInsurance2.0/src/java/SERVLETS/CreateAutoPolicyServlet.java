@@ -5,14 +5,18 @@
  */
 package SERVLETS;
 
+import BEANS.InfoObjects.Customer;
 import BEANS.PolicyObjects.VehicleQuote;
 import DAO.PolicyDAO;
+import DAO.QuoteDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -46,11 +50,31 @@ public class CreateAutoPolicyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-               VehicleQuote autoQuote = (VehicleQuote) (request.getSession(false).getAttribute("currentSessionHouseQuote"));
-                int result = PolicyDAO.acceptHomePolicy(Integer.parseInt(autoQuote.getId()));
-        
-       System.out.println(result);
-       response.sendRedirect("userprofile.jsp"); //logged-in page  
+                int autoQuoteID = (int) (request.getSession(false).getAttribute("currentsessionAutoQuoteID"));
+                int result = PolicyDAO.acceptAutoPolicy(autoQuoteID);
+                 System.out.println(result);
+                 
+                 Customer client = (Customer) (request.getSession(false).getAttribute("currentSessionClient"));
+                //Quote IDS for Dropdown List
+                Map<Integer, Integer> map = QuoteDAO.getQuoteIDbyCustomerID(client);
+                Map<Integer, Integer> mapPolicy = PolicyDAO.getPolicyByCustomerId(client);
+                boolean val = map.isEmpty();
+                System.out.println("Quote Map Empty: " + val);
+                boolean valPolicy = mapPolicy.isEmpty();
+                System.out.println("Policy Map Empty: " + valPolicy);
+                //Policy IDS for Dropdown List
+
+
+                HttpSession session = request.getSession(true);
+                HttpSession sessionQuoteID = request.getSession(true);
+                HttpSession sessionPolicyID = request.getSession(true);
+
+                session.setAttribute("currentSessionClient", client);
+                
+                sessionQuoteID.setAttribute("currentQuoteID", map);
+               
+                sessionPolicyID.setAttribute("currentPolicyID", mapPolicy);
+                response.sendRedirect("userprofile.jsp"); //logged-in page  
     }
 
     /**
