@@ -11,6 +11,7 @@ import BEANS.InfoObjects.Vehicle;
 import BEANS.PolicyObjects.Quote;
 import BEANS.PolicyObjects.VehicleQuote;
 import DAO.CustomerDAO;
+import DAO.QuoteDAO;
 import DAO.VehicleDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -106,6 +107,8 @@ public class AutoQuoteServlet extends HttpServlet {
         //Store Objects in Database
         Customer newQuoteCustomer = CustomerDAO.createInit(quoteCustomer);
         Vehicle newQuoteVehicle = VehicleDAO.createVehicle(quoteVehicle);
+        QuoteDAO.createVehicleQuote(newQuoteCustomer, newQuoteVehicle, vehicleQuote);
+        
 
         //Set up sessions
         HttpSession sessionClient = request.getSession(true);

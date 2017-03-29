@@ -48,70 +48,74 @@
     <body style="padding-top: 150px;">
         <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
         <% String name = (session.getAttribute("currentsessionAutoQuote")).toString();%>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
+        <form class="form-horizontal" action="CreateAutoPolicyServlet">
+            <div class="form-group">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
 
-                    <h3>Customer Information</h3>
-                    <p>Customer ID: <%= currentClient.getId()%></p>
-                    <p>
-                        <span>Hi, </span><span><%= currentClient.getFirstName() + " " + currentClient.getLastName()%></span>
-                    </p>
+                            <h3>Customer Information</h3>
+                            <p>Customer ID: <%= currentClient.getId()%></p>
+                            <p>
+                                <span>Hi, </span><span><%= currentClient.getFirstName() + " " + currentClient.getLastName()%></span>
+                            </p>
 
-                </div>
-                <div class="col-sm-4">
-                    <h3>Address</h3>
-                    <p><%= currentClient.getAddress()%></p>
+                        </div>
+                        <div class="col-sm-4">
+                            <h3>Address</h3>
+                            <p><%= currentClient.getAddress()%></p>
 
-                </div>
-                <div class="col-sm-4">
-                    <h3>Auto Quote Information:</h3>
-                    <p><%=name%></p>
+                        </div>
+                        <div class="col-sm-4">
+                            <h3>Auto Quote Information:</h3>
+                            <p><%=name%></p>
 
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery.easing.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/custom.js"></script>
-        <script src="contactform/contactform.js"></script>
-    </body>
-    <style>
-        footer { position:absolute; bottom:0;width:100%}
-        fieldset.for-panel {
-            background-color: #fcfcfc;
-            border: 1px solid #999;
-            border-radius: 4px;	
-            padding:15px 10px;
-            background-color: #d9edf7;
-            border-color: #bce8f1;
-            background-color: #f9fdfd;
-            margin-bottom:12px;
-        }
-        fieldset.for-panel legend {
-            background-color: #fafafa;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            color: #4381ba;
-            font-size: 14px;
-            font-weight: bold;
-            line-height: 10px;
-            margin: inherit;
-            padding: 7px;
-            width: auto;
-            background-color: #d9edf7;
-            margin-bottom: 0;
-        }
-        input {
-            display: block; /* add this */
-            width: 250px;
-            padding: 5px;
-            -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-            -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-            box-sizing: border-box;         /* Opera/IE 8+ */
-        }
-    </style>
-</html>
+                <script src="js/jquery.min.js"></script>
+                <script src="js/jquery.easing.min.js"></script>
+                <script src="js/bootstrap.min.js"></script>
+                <script src="js/custom.js"></script>
+                <script src="contactform/contactform.js"></script>
+                </body>
+                <style>
+                    footer { position:absolute; bottom:0;width:100%}
+                    fieldset.for-panel {
+                        background-color: #fcfcfc;
+                        border: 1px solid #999;
+                        border-radius: 4px;	
+                        padding:15px 10px;
+                        background-color: #d9edf7;
+                        border-color: #bce8f1;
+                        background-color: #f9fdfd;
+                        margin-bottom:12px;
+                    }
+                    fieldset.for-panel legend {
+                        background-color: #fafafa;
+                        border: 1px solid #ddd;
+                        border-radius: 5px;
+                        color: #4381ba;
+                        font-size: 14px;
+                        font-weight: bold;
+                        line-height: 10px;
+                        margin: inherit;
+                        padding: 7px;
+                        width: auto;
+                        background-color: #d9edf7;
+                        margin-bottom: 0;
+                    }
+                    input {
+                        display: block; /* add this */
+                        width: 250px;
+                        padding: 5px;
+                        -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+                        -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+                        box-sizing: border-box;         /* Opera/IE 8+ */
+                    }
+                </style>
+                </html>
 

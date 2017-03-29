@@ -1,10 +1,9 @@
 <%-- 
-    Document   : viewHomeQuote
-    Created on : Mar 27, 2017, 10:05:45 PM
-    Author     : tim
+    Document   : autoPolicy
+    Created on : Mar 29, 2017, 11:17:26 AM
+    Author     : timbo
 --%>
 
-<%@page import="BEANS.InfoObjects.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +11,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>View Home Quote</title>
+        <title>Auto Policy</title>
+
+
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -35,6 +36,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="btn-trial"><a href="" data-target="#login" data-toggle="modal">Login</a></li>
                     <li><a href="index.jsp">Home</a></li>
                     <li><a href="homeQuote.jsp">Get a Home Quote</a></li>
                     <li><a href="autoQuote.jsp">Get an Auto Quote</a></li>
@@ -46,35 +48,6 @@
     <!--End Nav -->
 
     <body style="padding-top: 150px;">
-        <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
-        <% String name = (String) session.getAttribute("currentsessionHomeQuote");%>
-        <form class="form-horizontal" action="CreateHomePolicyServlet">
-            <div class="form-group">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-4">
-
-                            <h3>Customer Information</h3>
-                            <p>Customer ID: <%= currentClient.getId()%></p>
-                            <p>
-                                <span>Hi, </span><span><%= currentClient.getFirstName() + " " + currentClient.getLastName()%></span>
-                            </p>
-
-                        </div>
-                        <div class="col-sm-4">
-                            <h3>Address</h3>
-                            <p><%= currentClient.getAddress()%></p>
-
-                        </div>
-                        <div class="col-sm-4">
-                            <h3>Home Quote Information:</h3>
-                            <p><%=name%></p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
 
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.easing.min.js"></script>
@@ -117,4 +90,5 @@
             box-sizing: border-box;         /* Opera/IE 8+ */
         }
     </style>
+
 </html>

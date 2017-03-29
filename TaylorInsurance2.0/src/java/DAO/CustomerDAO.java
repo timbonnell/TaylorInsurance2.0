@@ -33,11 +33,6 @@ public class CustomerDAO {
         String username = client.getEmail();
         String password = client.getPassword();
 
-        //Needs to be changed to an SP
-//        String searchQuery = "SELECT * FROM customer where email = '"
-//                + username
-//                + "' AND password = '"
-//                + password + "';";
         String SPsql = "EXEC loginValidation ?,?";
 
         // Try to connect to database and login
@@ -95,11 +90,8 @@ public class CustomerDAO {
     }
 
     public static Customer createInit(Customer customer) {
-        //preparing some objects for connection 
-        Statement stmt = null;
 
         String email = customer.getEmail();
-        String password = customer.getPassword();
         String first_name = customer.getFirstName();
         String last_name = customer.getLastName();
 
@@ -149,13 +141,39 @@ public class CustomerDAO {
                 System.out.println("Customer ID: " + rs.getInt(1));
                 customer.setId((rs.getString(1)));
             }
-            }catch (Exception ex) {
+        } catch (Exception ex) {
             System.out.println("Create user has failed: " + ex);
-        }finally {
+        } finally {
             //Close DB Connections
             ConnectionManager.Dispose(connection, rs, ps);
         }
-            return customer;
-        }
-
+        return customer;
     }
+
+    public static void register(Customer customer) {
+
+        String SPsql = "EXEC updateCustomer ?,?";
+
+        try {
+            connection = ConnectionManager.getConnection();
+            ps = connection.prepareStatement(SPsql);
+            ps.setEscapeProcessing(true);
+            ps.setQueryTimeout(30);
+            
+            //Set up params for the Stored Procedure
+            ps.setInt(1, Integer.parseInt(customer.getId()));
+            ps.setString(2, customer.getPassword());
+
+
+            rs = ps.executeQuery();
+            boolean more = rs.next();
+
+        } catch (Exception ex) {
+            System.out.println("Register user has failed: " + ex);
+        } finally {
+            //Close DB Connections
+            ConnectionManager.Dispose(connection, rs, ps);
+        }
+    }
+
+}

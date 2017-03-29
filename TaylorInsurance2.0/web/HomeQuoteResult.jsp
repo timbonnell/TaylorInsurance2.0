@@ -55,7 +55,7 @@
             <div class="row">
 
             </div>
-            <form class="form-horizontal" action="CreateCustomerServlet">
+            <form class="form-horizontal" action="CreateCustomer.jsp">
                 <div class="form-group">
                     <div class="row">
                         <fieldset class="for-panel">

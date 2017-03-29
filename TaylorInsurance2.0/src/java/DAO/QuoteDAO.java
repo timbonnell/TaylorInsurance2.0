@@ -10,6 +10,7 @@ import BEANS.InfoObjects.House;
 import BEANS.InfoObjects.Vehicle;
 import BEANS.PolicyObjects.HouseQuote;
 import BEANS.PolicyObjects.VehicleQuote;
+import static DAO.QuoteDAO.connection;
 import SERVLETS.ConnectionManager;
 import java.sql.Connection;
 import java.sql.Date;
@@ -129,18 +130,30 @@ public class QuoteDAO {
     public static String getHouseQuote(int QuoteID) {
         String returnResult = "";
         Statement stmt = null;
-        String sql = "SELECT * FROM home_quote WHERE quote_id = " + QuoteID;
+        String SPsql = "EXEC getHomeQuoteByQuoteId ?";
+        System.out.println(QuoteID);
         try {
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
+            connection = ConnectionManager.getConnection();
+            //stmt = connection.createStatement();
+            ps = connection.prepareStatement(SPsql);
+            ps.setEscapeProcessing(true);
+            ps.setQueryTimeout(30);
+            //Set up params for stored procedure
+            ps.setInt(1, QuoteID);
+            //Return sp into a result set
+            rs = ps.executeQuery();
+            while(rs.next()) {
                 returnResult = "Quote ID: " + rs.getInt("quote_id") + "<br>" + "Premium: $" + rs.getDouble("quote_rate") + "<br>" + "Expiration Date: " + rs.getDate("date_expired");
             }
         } catch (SQLException ex) {
+            System.out.println("Retreive Quote has failed for customer id: " + QuoteID + " reason: " + ex);
             Logger.getLogger(QuoteDAO.class.getName()).log(Level.SEVERE, null, ex);
+
         } finally {
             //Close DB Connections
             ConnectionManager.Dispose(connection, rs, ps);
         }
+        System.out.println(returnResult);
         return returnResult;
     }
 
