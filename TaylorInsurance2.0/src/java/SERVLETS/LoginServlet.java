@@ -5,9 +5,9 @@ package SERVLETS;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import DAO.CustomerDAO;
 import BEANS.InfoObjects.Customer;
+import DAO.PolicyDAO;
 import DAO.QuoteDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-            
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -60,44 +60,46 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try
-{	    
+        try {
 
-     Customer client = new Customer();
-     client.setEmail(request.getParameter("inputEmail"));
-     client.setPassword(request.getParameter("inputPassword"));
+            Customer client = new Customer();
+            client.setEmail(request.getParameter("inputEmail"));
+            client.setPassword(request.getParameter("inputPassword"));
 
-     client = CustomerDAO.login(client);
-	   		    
-     if (client.isValid())
-     {
-	  System.out.println("Login good");
-        Map<Integer, Integer> map = QuoteDAO.getQuoteIDbyCustomerID(client);
-         boolean val=map.isEmpty();
-        System.out.println("Map Empty: " + val);
-        
-        for (Entry<Integer, Integer> maps : map.entrySet()) {
-            System.out.println(maps.getKey());
-            System.out.println(maps.getValue());
-        }
-        
-          HttpSession session = request.getSession(true);
-          HttpSession sessionQuoteID = request.getSession(true);
+            client = CustomerDAO.login(client);
+
+            if (client.isValid()) {
+                System.out.println("Login good");
+                
+                
+                //Quote IDS for Dropdown List
+                Map<Integer, Integer> map = QuoteDAO.getQuoteIDbyCustomerID(client);
+                Map<Integer, Integer> mapPolicy = PolicyDAO.getPolicyByCustomerId(client);
+                boolean val = map.isEmpty();
+                System.out.println("Quote Map Empty: " + val);
+                boolean valPolicy = mapPolicy.isEmpty();
+                System.out.println("Policy Map Empty: " + valPolicy);
+                //Policy IDS for Dropdown List
+
+
+                HttpSession session = request.getSession(true);
+                HttpSession sessionQuoteID = request.getSession(true);
+                HttpSession sessionPolicyID = request.getSession(true);
+
+                session.setAttribute("currentSessionClient", client);
+                
+                sessionQuoteID.setAttribute("currentQuoteID", map);
+               
+                sessionPolicyID.setAttribute("currentPolicyID", mapPolicy);
           
-          sessionQuoteID.setAttribute("currentQuoteID",map); 
-          session.setAttribute("currentSessionClient",client); 
-          response.sendRedirect("userprofile.jsp"); //logged-in page      		
-     }
-	        
-     else 
-          response.sendRedirect("invalidLogin.jsp"); //error page 
-} 
-		
-		
-catch (Throwable theException) 	    
-{
-     System.out.println(theException); 
-}
+          
+                response.sendRedirect("userprofile.jsp"); //logged-in page      		
+            } else {
+                response.sendRedirect("invalidLogin.jsp"); //error page 
+            }
+        } catch (Throwable theException) {
+            System.out.println(theException);
+        }
     }
 
     /**
@@ -110,8 +112,8 @@ catch (Throwable theException)
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException{
-        
+            throws ServletException, IOException {
+
     }
 
     /**
@@ -123,6 +125,5 @@ catch (Throwable theException)
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
-    
+
 }

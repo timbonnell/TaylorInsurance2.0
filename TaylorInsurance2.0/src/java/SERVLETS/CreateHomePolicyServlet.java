@@ -65,9 +65,8 @@ public class CreateHomePolicyServlet extends HttpServlet {
         
        System.out.println(result);
         
-        
-        
-        
+        response.sendRedirect("userprofile.jsp"); //logged-in page  
+
     }
 
     /**

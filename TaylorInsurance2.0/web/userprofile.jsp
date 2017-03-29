@@ -48,7 +48,11 @@
     </nav>
     <body style="padding-top: 150px;">
         <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
-        <% Map<Integer, Integer> map = (Map<Integer, Integer>) (session.getAttribute("currentQuoteID"));%>
+        <% Map<Integer, Integer> map = (Map<Integer, Integer>) (session.getAttribute("currentPolicyID"));%>
+        <% Map<Integer, Integer> map2 = (Map<Integer, Integer>) (session.getAttribute("currentQuoteID"));%>
+        
+        
+        
         <!--/ Navigation bar-->
         <div class="container">
             <div class="row">
@@ -59,66 +63,113 @@
                     <p>
                         <span>Hi, </span><span><%= currentClient.getFirstName() + " " + currentClient.getLastName()%></span>
                     </p>
-
-                </div>
-                <div class="col-sm-4">
+                    <br>
+                    <br>
                     <h3>Address</h3>
                     <p><%= currentClient.getAddress()%></p>
+                </div>
+                <div class="col-sm-4">
+                    <div>
+                             
+
+                        <%
+                            if(!(map == null)){
+                            for (Entry<Integer, Integer> maps : map.entrySet()) {
+                                if (maps.getKey() == 15) {
+                        %>
+                        <form class="form-horizontal" action="ViewHomeQuoteServlet"> 
+                            <label>Home Policy ID:</label>
+
+                            <select name="homePolicyIds">
+                                <option value="<%=maps.getValue()%>">
+                                    <%= maps.getValue()%>
+                                </option>
+                            </select>
+                            <br><br>
+                            <button class="btn btn-info" type="submit">View Home Policy</button>
+                        </form>
+                        <%
+                                }}
+                              }
+                        %>
+                        
+                        <%
+                            if(!(map == null)){
+                            for (Entry<Integer, Integer> maps2 : map.entrySet()) {
+                                if (maps2.getKey() == 14) {
+                        %>
+                        <form class="form-horizontal" action="ViewAutoQuoteServlet"> 
+                            <label>Auto Policy ID:</label>
+
+                            <select name="autoPolicyIds">
+                                <option value="<%= maps2.getValue()%>">
+                                    <%= maps2.getValue()%>
+                                </option>
+                            </select>
+                            <br><br>
+                            <button class="btn btn-info" type="submit">View Auto Policy</button>
+                        </form>
+                        <%
+                                }
+                            }
+                        }
+                        %>
+                    </div>
 
                 </div>
                 <div class="col-sm-4">
+                    <div>
+                        <h3>Active Quotes</h3>        
 
-                    <h3>Active Quotes</h3>        
+                        <%
+                            for (Entry<Integer, Integer> maps2 : map2.entrySet()) {
+                                if (maps2.getKey() == 15) {
+                        %>
+                        <form class="form-horizontal" action="ViewHomeQuoteServlet"> 
+                            <label>Home Quote ID:</label>
 
-                    <%
-
-                        for (Entry<Integer, Integer> maps : map.entrySet()) {
-                            if (maps.getKey() == 15) {
-                    %>
-                    <form class="form-horizontal" action="ViewHomeQuoteServlet"> 
-                        <label>Home Quote ID:</label>
-
-                        <select name="homequoteIds">
-                            <option value="<%=maps.getValue()%>">
-                                <%= maps.getValue()%>
-                            </option>
-                        </select>
-                        <br><br>
-                        <button class="btn btn-info" type="submit">View Home Quote</button>
-                    </form>
-                    <%
+                            <select name="homequoteIds">
+                                <option value="<%=maps2.getValue()%>">
+                                    <%= maps2.getValue()%>
+                                </option>
+                            </select>
+                            <br><br>
+                            <button class="btn btn-info" type="submit">View Home Quote</button>
+                        </form>
+                        <%
+                                }
                             }
-                        }
-                    %>
-                    <%
-                        for (Entry<Integer, Integer> maps : map.entrySet()) {
-                            if (maps.getKey() == 14) {
-                    %>
-                    <form class="form-horizontal" action="ViewAutoQuoteServlet"> 
-                        <label>Auto Quote ID:</label>
+                        %>
+                        <%
+                            for (Entry<Integer, Integer> maps2 : map2.entrySet()) {
+                                if (maps2.getKey() == 14) {
+                        %>
+                        <form class="form-horizontal" action="ViewAutoQuoteServlet"> 
+                            <label>Auto Quote ID:</label>
 
-                        <select name="autoquoteIds">
-                            <option value="<%= maps.getValue()%>">
-                                <%= maps.getValue()%>
-                            </option>
-                        </select>
-                        <br><br>
-                        <button class="btn btn-info" type="submit">View Auto Quote</button>
-                    </form>
-                    <%
+                            <select name="autoquoteIds">
+                                <option value="<%= maps2.getValue()%>">
+                                    <%= maps2.getValue()%>
+                                </option>
+                            </select>
+                            <br><br>
+                            <button class="btn btn-info" type="submit">View Auto Quote</button>
+                        </form>
+                        <%
+                                }
                             }
-                        }
-                    %>
-
+                        %>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery.easing.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/custom.js"></script>
-        <script src="contactform/contactform.js"></script>
-    </body>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="contactform/contactform.js"></script>
+</body>
 
 </html>

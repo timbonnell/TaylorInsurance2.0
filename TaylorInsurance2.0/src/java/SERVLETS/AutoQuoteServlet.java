@@ -107,7 +107,7 @@ public class AutoQuoteServlet extends HttpServlet {
         //Store Objects in Database
         Customer newQuoteCustomer = CustomerDAO.createInit(quoteCustomer);
         Vehicle newQuoteVehicle = VehicleDAO.createVehicle(quoteVehicle);
-        QuoteDAO.createVehicleQuote(newQuoteCustomer, newQuoteVehicle, vehicleQuote);
+        VehicleQuote newVehicleQuote = QuoteDAO.createVehicleQuote(newQuoteCustomer, newQuoteVehicle, vehicleQuote);
         
 
         //Set up sessions
@@ -117,7 +117,7 @@ public class AutoQuoteServlet extends HttpServlet {
 
         sessionClient.setAttribute("currentSessionClient", newQuoteCustomer);
         sessionVehicle.setAttribute("currentSessionVehicle", quoteVehicle);
-        sessionVehicleQuote.setAttribute("currentSessionVehicleQuote", vehicleQuote);
+        sessionVehicleQuote.setAttribute("currentSessionVehicleQuote", newVehicleQuote);
 
         System.out.println("Vehicle Premium:  $" + vehicleQuote.getTotalPremium());
 

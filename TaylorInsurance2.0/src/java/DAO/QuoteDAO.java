@@ -77,7 +77,7 @@ public class QuoteDAO {
         return houseQuote;
     }
 
-    public static void createVehicleQuote(Customer client, Vehicle vehicle, VehicleQuote vehicleQuote) {
+    public static VehicleQuote createVehicleQuote(Customer client, Vehicle vehicle, VehicleQuote vehicleQuote) {
         String SPsql = "EXEC insertAutoQuote ?,?,?,?,?";
         Date exDate = java.sql.Date.valueOf(LocalDate.now().plusDays(30));
         Date createDate = java.sql.Date.valueOf(LocalDate.now());
@@ -93,7 +93,22 @@ public class QuoteDAO {
             ps.setDouble(3, vehicleQuote.getTotalPremium());
             ps.setDate(4, createDate);
             ps.setDate(5, exDate);
+            
+            boolean more = ps.execute();
+            more = ps.getMoreResults();
+            rs = ps.getResultSet();
+            more = rs.next();
+            System.out.println(more);
+            //Checks to see if house id comes back (house was stored successfully)
+            if (!more) {
+                System.out.println(rs + "invalid");
 
+            } // If username and password are correct, set client to valid and set up the client
+            else if (more) {
+                rs = ps.getResultSet();
+                System.out.println("Vehicle Quote ID: " + rs.getString(1));
+                vehicleQuote.setId(rs.getString(1));
+            }
         } catch (Exception ex) {
             System.out.println("Insert Vehicle Quote Failed: An Exception has occurred! " + ex);
         } //Exception handling and closing
@@ -101,6 +116,7 @@ public class QuoteDAO {
             //Close DB Connections
             ConnectionManager.Dispose(connection, rs, ps);
         }
+        return vehicleQuote;
     }
 
     public static Map<Integer, Integer> getQuoteIDbyCustomerID(Customer client) {
@@ -137,7 +153,7 @@ public class QuoteDAO {
             ConnectionManager.Dispose(connection, rs, ps);
         }
         boolean val = map.isEmpty();
-        System.out.println("Initial Map Empty: " + val + CustomerID);
+        System.out.println("Initial Quote Map Empty: " + val + " " + CustomerID);
         return map;
     }
 
