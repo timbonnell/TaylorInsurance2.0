@@ -73,7 +73,12 @@
                             <br><br>
                             <div class="form-group">
                                 <label class="col-xs-5 control-label"></label>
-                                <button style="float: center;" class="btn btn-primary" type="submit">Accept Auto Policy</button>
+                                <button style="float: center;" class="btn btn-primary" type="submit">Add Secondary Driver</button>
+                            </div>
+                            <br><br>
+                            <div class="form-group">
+                                <label class="col-xs-5 control-label"></label>
+                                <button style="float: center;" class="btn btn-primary" type="submit">Add Another Vehicle</button>
                             </div>
                         </div>
                     </div>

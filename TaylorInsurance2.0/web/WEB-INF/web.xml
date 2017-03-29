@@ -47,6 +47,14 @@
         <servlet-name>ViewAutoPolicyServlet</servlet-name>
         <servlet-class>SERVLETS.ViewAutoPolicyServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddSecondDriverServlet</servlet-name>
+        <servlet-class>SERVLETS.AddSecondDriverServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddAnotherVehicleServlet</servlet-name>
+        <servlet-class>SERVLETS.AddAnotherVehicleServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -90,6 +98,14 @@
     <servlet-mapping>
         <servlet-name>ViewAutoPolicyServlet</servlet-name>
         <url-pattern>/ViewAutoPolicyServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddSecondDriverServlet</servlet-name>
+        <url-pattern>/AddSecondDriverServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddAnotherVehicleServlet</servlet-name>
+        <url-pattern>/AddAnotherVehicleServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

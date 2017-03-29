@@ -48,7 +48,7 @@
     <body style="padding-top: 150px;">
         <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
         <% String name = (String) session.getAttribute("currentsessionHomePolicy");%>
-        <form class="form-horizontal" action="CreateHomePolicyServlet">
+        <form class="form-horizontal" action="userprofile.jsp">
             <div class="form-group">
                 <div class="container">
                     <div class="row">
@@ -73,7 +73,7 @@
                         </div>
                         <div class="form-group">
                             <label class="col-xs-5 control-label"></label>
-                            <button style="float: center;" class="btn btn-primary" type="submit">Accept Home Policy</button>
+                            <button style="float: center;" class="btn btn-primary" type="submit">Back</button>
                         </div>
                     </div>
                 </div>
