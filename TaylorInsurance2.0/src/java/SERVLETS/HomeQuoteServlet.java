@@ -103,7 +103,7 @@ public class HomeQuoteServlet extends HttpServlet {
 
         Customer newClient = CustomerDAO.createInit(client);
 
-        QuoteDAO.createHouseQuote(newClient, newQuoteHouse, houseQuote);
+        HouseQuote newHouseQuote = QuoteDAO.createHouseQuote(newClient, newQuoteHouse, houseQuote);
         
         
         //Set up sessions
@@ -113,7 +113,7 @@ public class HomeQuoteServlet extends HttpServlet {
 
         sessionClient.setAttribute("currentSessionClient", newClient);
         sessionHouse.setAttribute("currentSessionHouse", newQuoteHouse);
-        sessionHouseQuote.setAttribute("currentSessionHouseQuote", houseQuote);
+        sessionHouseQuote.setAttribute("currentSessionHouseQuote", newHouseQuote);
 
         //Redirects to Create Customer Page
         response.sendRedirect("HomeQuoteResult.jsp");

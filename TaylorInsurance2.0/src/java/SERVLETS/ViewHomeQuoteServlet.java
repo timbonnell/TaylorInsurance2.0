@@ -56,7 +56,8 @@ public class ViewHomeQuoteServlet extends HttpServlet {
         HttpSession sessionHomeQuote = request.getSession(true);
         sessionHomeQuote.setAttribute("currentsessionHomeQuote", quoteResult);
         
-        
+        HttpSession sessionHomeQuoteID = request.getSession(true);
+        sessionHomeQuoteID.setAttribute("currentsessionHomeQuoteID", quoteID);
         
         response.sendRedirect("viewHomeQuote.jsp");
     }

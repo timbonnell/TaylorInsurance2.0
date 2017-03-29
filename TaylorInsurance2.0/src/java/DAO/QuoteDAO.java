@@ -35,7 +35,7 @@ public class QuoteDAO {
     static ResultSet rs = null;
     static PreparedStatement ps;
 
-    public static void createHouseQuote(Customer Client, House house, HouseQuote houseQuote) {
+    public static HouseQuote createHouseQuote(Customer Client, House house, HouseQuote houseQuote) {
         String SPsql = "EXEC insertHomeQuote ?,?,?,?,?";
         Date exDate = java.sql.Date.valueOf(LocalDate.now().plusDays(30));
         Date createDate = java.sql.Date.valueOf(LocalDate.now());
@@ -51,8 +51,21 @@ public class QuoteDAO {
             ps.setDate(4, createDate);
             ps.setDate(5, exDate);
 
-            //Execute Stored Procedure
-            ps.executeUpdate();
+             boolean more = ps.execute();
+             more = ps.getMoreResults();
+            rs = ps.getResultSet();
+            more = rs.next();
+            System.out.println(more);
+            //Checks to see if house id comes back (house was stored successfully)
+            if (!more) {
+                System.out.println(rs + "invalid");
+
+            } // If username and password are correct, set client to valid and set up the client
+            else if (more) {
+                rs = ps.getResultSet();
+                System.out.println("House Quote ID: " + rs.getString(1));
+                houseQuote.setId(rs.getString(1));
+            }
 
         } catch (Exception ex) {
             System.out.println("Insert House Quote Failed: An Exception has occurred! " + ex);
@@ -61,6 +74,7 @@ public class QuoteDAO {
             //Close DB Connections
             ConnectionManager.Dispose(connection, rs, ps);
         }
+        return houseQuote;
     }
 
     public static void createVehicleQuote(Customer client, Vehicle vehicle, VehicleQuote vehicleQuote) {
@@ -129,7 +143,6 @@ public class QuoteDAO {
 
     public static String getHouseQuote(int QuoteID) {
         String returnResult = "";
-        Statement stmt = null;
         String SPsql = "EXEC getHomeQuoteByQuoteId ?";
         System.out.println(QuoteID);
         try {
@@ -171,6 +184,7 @@ public class QuoteDAO {
             }
         } catch (SQLException ex) {
             Logger.getLogger(QuoteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Retreive Quote has failed for customer id: " + QuoteID + " reason: " + ex);
         } finally {
             //Close DB Connections
             ConnectionManager.Dispose(connection, rs, ps);

@@ -71,9 +71,14 @@
                             <p><%=name%></p>
 
                         </div>
+                        <div class="form-group">
+                            <label class="col-xs-5 control-label"></label>
+                            <button style="float: center;" class="btn btn-primary" type="submit">Accept Home Policy</button>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </form>
 
         <script src="js/jquery.min.js"></script>

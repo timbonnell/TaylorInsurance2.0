@@ -5,6 +5,8 @@
  */
 package SERVLETS;
 
+import BEANS.PolicyObjects.HouseQuote;
+import DAO.PolicyDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -56,7 +58,16 @@ public class CreateHomePolicyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        
+       HouseQuote houseQuote = (HouseQuote) (request.getSession(false).getAttribute("currentSessionHouseQuote"));
+       int result = PolicyDAO.acceptHomePolicy(Integer.parseInt(houseQuote.getId()));
+        
+       System.out.println(result);
+        
+        
+        
+        
     }
 
     /**
