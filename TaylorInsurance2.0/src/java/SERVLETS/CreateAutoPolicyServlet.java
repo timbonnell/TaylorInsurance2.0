@@ -52,7 +52,7 @@ public class CreateAutoPolicyServlet extends HttpServlet {
             throws ServletException, IOException {
                 int autoQuoteID = (int) (request.getSession(false).getAttribute("currentsessionAutoQuoteID"));
                 int result = PolicyDAO.acceptAutoPolicy(autoQuoteID);
-                 System.out.println(result);
+                 System.out.println("Customer ID for Auto Policy Post" + result);
                  
                  Customer client = (Customer) (request.getSession(false).getAttribute("currentSessionClient"));
                 //Quote IDS for Dropdown List
