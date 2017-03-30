@@ -76,11 +76,12 @@ public static int acceptHomePolicy(int QuoteID) {
              boolean more = ps.execute();
              more = ps.getMoreResults();
              rs = ps.getResultSet();
-            more = rs.next();
-            System.out.println(more);
+             if(rs.next()){
+            // more = rs.next();
+            //System.out.println(more);
              while (rs.next()) {
                 returnResult = rs.getInt(1);
-            }
+            }}
         } catch (SQLException ex) {
             System.out.println("Retreive Quote has failed for customer id: " + QuoteID + " reason: " + ex);
             Logger

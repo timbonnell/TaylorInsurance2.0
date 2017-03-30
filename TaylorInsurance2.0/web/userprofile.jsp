@@ -38,9 +38,9 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="index.jsp">Home</a></li>
-                    <li><a href="userprofile.jsp">My Policies</a></li>
-                    <li><a href="#team">File a Claim</a></li>
-                    <li><a href="#testimonial">Add Policy</a></li>
+                    <li><a href="userprofile.jsp">Add Home Quote</a></li>
+                    <li><a href="#team">Add Auto Quote</a></li>
+                    <li><a href="#testimonial">File a Claim</a></li>
                     <li><a href="#contact">Contact Us</a></li>
                 </ul>
             </div>

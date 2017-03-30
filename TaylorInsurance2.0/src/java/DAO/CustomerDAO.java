@@ -44,7 +44,9 @@ public class CustomerDAO {
             ps.setQueryTimeout(30);
             ps.setString(1, username);
             ps.setString(2, password);
-
+            
+            System.out.println("Im Heere DAvid");
+            
             rs = ps.executeQuery();
             boolean more = rs.next();
 
