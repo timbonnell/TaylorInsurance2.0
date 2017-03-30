@@ -40,12 +40,11 @@ public class PolicyDAO {
             //Set up params for stored procedure
             ps.setInt(1, QuoteID);
             //Return sp into a result set
-             boolean more = ps.execute();
-             more = ps.getMoreResults();
-             rs = ps.getResultSet();
+             rs = ps.executeQuery();
+             if(rs.next()){
             while (rs.next()) {
                 returnResult = rs.getInt(1);
-            }
+            }}
         } catch (SQLException ex) {
             System.out.println("Retreive Quote has failed for customer id: " + QuoteID + " reason: " + ex);
             Logger.getLogger(QuoteDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -73,12 +72,10 @@ public static int acceptHomePolicy(int QuoteID) {
             //Set up params for stored procedure
             ps.setInt(1, QuoteID);
             //Return sp into a result set
-             boolean more = ps.execute();
-             more = ps.getMoreResults();
-             rs = ps.getResultSet();
+             //boolean more = ps.execute();
+             //more = ps.getMoreResults();
+             rs = ps.executeQuery();
              if(rs.next()){
-            // more = rs.next();
-            //System.out.println(more);
              while (rs.next()) {
                 returnResult = rs.getInt(1);
             }}
@@ -93,7 +90,7 @@ public static int acceptHomePolicy(int QuoteID) {
             //Close DB Connections
             ConnectionManager.Dispose(connection, rs, ps);
         }
-        System.out.println(returnResult);
+        System.out.println("REturn Results" + returnResult);
         return returnResult;
     }
 

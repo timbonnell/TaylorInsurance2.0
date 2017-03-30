@@ -86,7 +86,9 @@ public class QuoteDAO {
             ps = connection.prepareStatement(SPsql);
             ps.setEscapeProcessing(true);
             ps.setQueryTimeout(30);
-
+            
+            System.out.println("Create VEhicle QUote" + vehicle.getVehicleID());
+            
             //Set up params for stored procedure
             ps.setInt(1, Integer.parseInt(client.getId()));
             ps.setInt(2, vehicle.getVehicleID());

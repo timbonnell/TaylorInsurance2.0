@@ -124,6 +124,7 @@
                         
 
                         <%
+                            if(!(map2 == null)){
                             for (Entry<Integer, Integer> maps2 : map2.entrySet()) {
                                 if (maps2.getKey() == 15) {
                         %>
@@ -162,6 +163,7 @@
                         <%
                                 }
                             }
+                        }
                         %>
                     </div>
                 </div>

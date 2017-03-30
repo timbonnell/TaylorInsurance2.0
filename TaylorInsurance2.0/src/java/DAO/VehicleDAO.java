@@ -43,6 +43,8 @@ public class VehicleDAO {
             ps.setInt(6, vehicle.getColor());
             ps.setDouble(7, vehicle.getEstimated_value());
             
+            System.out.println(vehicle.toString());
+            
             boolean more = ps.execute();
              more = ps.getMoreResults();
             rs = ps.getResultSet();

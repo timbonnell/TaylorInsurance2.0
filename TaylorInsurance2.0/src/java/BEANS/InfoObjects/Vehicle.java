@@ -13,6 +13,11 @@ public class Vehicle implements VehicleInsurable {
 
     private int year;
     private int type;
+
+    @Override
+    public String toString() {
+        return "Vehicle{" + "year=" + year + ", type=" + type + ", make=" + make + ", model=" + model + ", vin=" + vin + ", vehicleID=" + vehicleID + ", color=" + color + ", numAccidents=" + numAccidents + ", estimated_value=" + estimated_value + '}';
+    }
     private String make;
     private String model;
     private String vin;
