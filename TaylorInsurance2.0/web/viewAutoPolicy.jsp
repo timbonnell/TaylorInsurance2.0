@@ -71,10 +71,7 @@
                             <p><%=name%></p>
 
                             <br><br>
-                            <div class="form-group">
-                                <label class="col-xs-5 control-label"></label>
-                                <button style="float: center;" class="btn btn-primary" type="submit">Add Secondary Driver</button>
-                            </div>
+
                         </div>
                     </div>
                 </div>
