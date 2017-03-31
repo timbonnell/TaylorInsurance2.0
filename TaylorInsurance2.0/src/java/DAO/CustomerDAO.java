@@ -3,13 +3,8 @@ package DAO;
 import SERVLETS.ConnectionManager;
 import BEANS.InfoObjects.Address;
 import BEANS.InfoObjects.Customer;
-import static java.lang.Math.random;
-import java.text.*;
 import java.sql.*;
 import java.time.LocalDate;
-import java.time.ZoneId;
-import static java.time.temporal.TemporalQueries.localDate;
-import java.util.Random;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,10 +17,6 @@ import java.util.Random;
  */
 public class CustomerDAO {
 
-    static Connection connection = null;
-    static ResultSet rs = null;
-    static PreparedStatement ps;
-
     public static Customer login(Customer client) {
         //preparing some objects for connection 
         Statement stmt = null;
@@ -36,10 +27,9 @@ public class CustomerDAO {
         String SPsql = "EXEC loginValidation ?,?";
 
         // Try to connect to database and login
-        try {
-            connection = ConnectionManager.getConnection();
+        try  (Connection con = ConnectionManager.getConnection();
+                PreparedStatement ps = con.prepareStatement(SPsql)){
             //stmt = connection.createStatement();
-            ps = connection.prepareStatement(SPsql);
             ps.setEscapeProcessing(true);
             ps.setQueryTimeout(30);
             ps.setString(1, username);
@@ -47,15 +37,13 @@ public class CustomerDAO {
             
             System.out.println("Im Heere DAvid");
             
-            rs = ps.executeQuery();
-            boolean more = rs.next();
-
+            ResultSet rs = ps.executeQuery();
             //Checks to see if user exists and will set the isValid variable to false if it does not exist
-            if (!more) {
+            if (!rs.next()) {
                 System.out.println("Invalid Username or Password");
                 client.setValid(false);
             } // If username and password are correct, set client to valid and set up the client
-            else if (more) {
+            else {
 
                 // All of the gets
                 String id = rs.getString("id");
@@ -80,12 +68,8 @@ public class CustomerDAO {
                 client.setValid(true);
             }
 
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
-        } //Exception handling and closing
-        finally {
-            //Close DB Connections
-            ConnectionManager.Dispose(connection, rs, ps);
         }
 
         return client;
@@ -112,12 +96,11 @@ public class CustomerDAO {
 
         String SPsql = "EXEC insertCustomer ?,?,?,?,?,?,?,?,?,?";
 
-        try {
+        try (Connection con = ConnectionManager.getConnection();
+                PreparedStatement ps = con.prepareStatement(SPsql)) {
 
             Date date = java.sql.Date.valueOf(birthday);
 
-            connection = ConnectionManager.getConnection();
-            ps = connection.prepareStatement(SPsql);
             ps.setEscapeProcessing(true);
             ps.setQueryTimeout(30);
             //Set up params for the Stored Procedure
@@ -132,23 +115,20 @@ public class CustomerDAO {
             ps.setString(9, contact);
             ps.setDate(10, date);
 
-            rs = ps.executeQuery();
-            boolean more = rs.next();
+            ResultSet rs = ps.executeQuery();
             //Checks to see if user exists and will set the isValid variable to false if it does not exist
-            if (!more) {
+            if (!rs.next()) {
                 System.out.println("Invalid Customer Creation");
                 //customer.setValid(false);
             } // If username and password are correct, set client to valid and set up the client
-            else if (more) {
+            else{
                 System.out.println("Customer ID: " + rs.getInt(1));
                 customer.setId((rs.getString(1)));
             }
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             System.out.println("Create user has failed: " + ex);
-        } finally {
-            //Close DB Connections
-            ConnectionManager.Dispose(connection, rs, ps);
         }
+        
         return customer;
     }
 
@@ -156,25 +136,18 @@ public class CustomerDAO {
 
         String SPsql = "EXEC updateCustomer ?,?";
 
-        try {
-            connection = ConnectionManager.getConnection();
-            ps = connection.prepareStatement(SPsql);
+        try (Connection con = ConnectionManager.getConnection();
+                PreparedStatement ps = con.prepareStatement(SPsql)){
             ps.setEscapeProcessing(true);
             ps.setQueryTimeout(30);
             
             //Set up params for the Stored Procedure
             ps.setInt(1, Integer.parseInt(customer.getId()));
             ps.setString(2, customer.getPassword());
+            ps.execute();
 
-
-            rs = ps.executeQuery();
-            boolean more = rs.next();
-
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             System.out.println("Register user has failed: " + ex);
-        } finally {
-            //Close DB Connections
-            ConnectionManager.Dispose(connection, rs, ps);
         }
     }
 
