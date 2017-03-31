@@ -23,9 +23,6 @@
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
                     </button>
                     <img src="img/logo.png" alt="" HEIGHT="70" WIDTH="70" BORDER="0"/><a class="navbar-brand" href="index.jsp">Taylor<span>Insurance</span></a>
                 </div>
@@ -59,7 +56,7 @@
                             <input type="text" name="inputEmail" id="inputEmail" class="login_box" placeholder="Email" required autofocus>
                             <p class="input_title">Password</p>
                             <input type="password" name="inputPassword" id="inputPassword" class="login_box" placeholder="******" required>
-  
+
                             <button class="btn btn-lg btn-primary" type="submit">Login</button>
                         </form><!-- /form -->
 
@@ -81,7 +78,8 @@
                             <div class="intro-para text-center quote">
                                 <p class="big-text">A Business of Caring</p>
                                 <p class="small-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium enim repellat sapiente quos architecto<br>Laudantium enim repellat sapiente quos architecto</p>
-                                <a href="" data-target="#quote" data-toggle="modal" class="btn">GET A QUOTE</a>
+                                <a href="homeQuote.jsp"  class="btn">GET A HOME QUOTE</a>
+                                <a href="autoQuote.jsp"  class="btn">GET AN AUTO QUOTE</a>
                             </div>
                         </div>
                     </div>
@@ -97,24 +95,33 @@
                 <!-- Modal content no 2-->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title text-center form-title">Get a Quote</h4>
+                        <button type="button" href="homeQuote.jsp">&times;</button>
+                        <h4 class="modal-title text-center form-title">Get a Home Quote</h4>
+                    </div>
+                    <div class="modal-header">
+                        <button type="button" href="autoQuote.jsp">&times;</button>
+                        <h4 class="modal-title text-center form-title">Get an Auto Quote</h4>
                     </div>
                     <div class="modal-body padtrbl">
 
-                        <form class="form-signin" action="login" method="POST">
+
+
+                        <!--
+                        <form class="form-signin" action="" method="POST">
                             <span id="reauth-email" class="reauth-email"></span>
                             <p class="input_title">Email</p>
                             <input type="text" name="inputEmail" id="inputEmail" class="login_box" placeholder="Email" required autofocus>
                             <p class="input_title">Password</p>
-                            <input type="password" name="inputPassword" id="inputPassword" class="login_box" placeholder="******" required>
+                            <input type="password" name="inputPassword" id="password" class="login_box" placeholder="******" required>
+                            <p class="input_title">Confirm Password</p>
+                            <input type="password" name="inputPassword" id="confirm_password" class="login_box" placeholder="******" required>
                             <div id="remember" class="checkbox">
                                 <label>
 
                                 </label>
                             </div>
                             <button class="btn btn-lg btn-primary" type="submit">Submit</button>
-                        </form><!-- /form -->
+                        </form> /form -->
 
 
                     </div>
@@ -327,6 +334,20 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/custom.js"></script>
         <script src="contactform/contactform.js"></script>
+        <script>
+            var password = document.getElementById("password")
+                    , confirm_password = document.getElementById("confirm_password");
 
+            function validatePassword() {
+                if (password.value != confirm_password.value) {
+                    confirm_password.setCustomValidity("Passwords Don't Match");
+                } else {
+                    confirm_password.setCustomValidity('');
+                }
+            }
+
+            password.onchange = validatePassword;
+            confirm_password.onkeyup = validatePassword;
+        </script>
     </body>
 </html>
