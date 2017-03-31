@@ -21,6 +21,7 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -121,12 +122,12 @@ public class QuoteDAO {
         return vehicleQuote;
     }
 
-    public static Map<Integer, Integer> getQuoteIDbyCustomerID(Customer client) {
-
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+    public static List<Integer> getHomeQuoteIDbyCustomerID(Customer client) {
+      
+        List<Integer> QuoteIDS = new ArrayList<Integer>();
         int CustomerID = Integer.parseInt(client.getId());
         String SPsql = "EXEC getQuoteByCustomerId ?";
-
+        
         try {
             connection = ConnectionManager.getConnection();
             //stmt = connection.createStatement();
@@ -135,29 +136,64 @@ public class QuoteDAO {
             ps.setQueryTimeout(30);
             //Set up params for stored procedure
             ps.setInt(1, CustomerID);
-
             //Return sp into a result set
             rs = ps.executeQuery();
-            boolean more = rs.next();
             //If the customer doesnt have any quotes 
-            if (!more) {
+            if (! rs.next()) {
                 System.out.println("No Quotes Found");
             } else {
-                do {
-                    map.put(rs.getInt("quote_type"), rs.getInt("quote_id"));
-                } while (rs.next());
+                do{
+                    if(rs.getInt("quote_type") == 15){
+                        QuoteIDS.add(rs.getInt("quote_id"));
+                    }
+                }while (rs.next()); 
             }
         } catch (Exception ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
+            System.out.println("An Exception has occurred! " + ex);
         } //Exception handling and closing
         finally {
             //Close DB Connections
             ConnectionManager.Dispose(connection, rs, ps);
         }
-        boolean val = map.isEmpty();
-        System.out.println("Initial Quote Map Empty: " + val + " " + CustomerID);
-        return map;
+        System.out.println("HomeQuote IDS:" + QuoteIDS);
+        return QuoteIDS;
     }
+    
+    public static List<Integer> getAutoQuoteIDbyCustomerID(Customer client) {
+
+        List<Integer> QuoteIDS = new ArrayList<Integer>();
+        int CustomerID = Integer.parseInt(client.getId());
+        String SPsql = "EXEC getQuoteByCustomerId ?";
+
+        try {
+            connection = ConnectionManager.getConnection();
+            ps = connection.prepareStatement(SPsql);
+            ps.setEscapeProcessing(true);
+            ps.setQueryTimeout(30);
+            ps.setInt(1, CustomerID);
+            //Return sp into a result set
+            rs = ps.executeQuery();
+            //If the customer doesnt have any quotes 
+            if (! rs.next()) {
+                System.out.println("No Quotes Found");
+            } else {
+                do{
+                    if(rs.getInt("quote_type") == 14){
+                        QuoteIDS.add(rs.getInt("quote_id"));
+                    }
+                }while (rs.next()); 
+            }
+        } catch (Exception ex) {
+            System.out.println("An Exception has occurred! " + ex);
+        } //Exception handling and closing
+        finally {
+            //Close DB Connections
+            ConnectionManager.Dispose(connection, rs, ps);
+        }
+        System.out.println("AutoQuote IDS:" + QuoteIDS);
+        return QuoteIDS;
+    }
+    
 
     public static String getHouseQuote(int QuoteID) {
         String returnResult = "";

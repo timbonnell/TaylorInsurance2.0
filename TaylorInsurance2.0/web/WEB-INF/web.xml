@@ -55,6 +55,14 @@
         <servlet-name>AddAnotherVehicleServlet</servlet-name>
         <servlet-class>SERVLETS.AddAnotherVehicleServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExistingAutoQuoteServlet</servlet-name>
+        <servlet-class>SERVLETS.ExistingAutoQuoteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExistingHomeQuoteServlet</servlet-name>
+        <servlet-class>SERVLETS.ExistingHomeQuoteServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -106,6 +114,14 @@
     <servlet-mapping>
         <servlet-name>AddAnotherVehicleServlet</servlet-name>
         <url-pattern>/AddAnotherVehicleServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExistingAutoQuoteServlet</servlet-name>
+        <url-pattern>/ExistingAutoQuoteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExistingHomeQuoteServlet</servlet-name>
+        <url-pattern>/ExistingHomeQuoteServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -48,7 +48,7 @@ public class ViewHomeQuoteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        int quoteID = Integer.parseInt(request.getParameter("homequoteIds"));
+        int quoteID = Integer.parseInt(request.getParameter("homeQuotes"));
         String quoteResult = QuoteDAO.getHouseQuote(quoteID);
         
         

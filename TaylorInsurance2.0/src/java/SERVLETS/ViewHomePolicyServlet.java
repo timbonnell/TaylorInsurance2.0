@@ -46,7 +46,7 @@ public class ViewHomePolicyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int policyID = Integer.parseInt(request.getParameter("homePolicyIds"));
+        int policyID = Integer.parseInt(request.getParameter("homePolicies"));
         String homePolicyResult = PolicyDAO.getHousePolicy(policyID);
         
                 //Set up sessions

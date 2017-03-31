@@ -34,24 +34,23 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="btn-trial"><a href="" data-target="#login" data-toggle="modal">Login</a></li>
-                    <li><a href="index.jsp">Home</a></li>
-                    <li><a href="homeQuote.jsp">Get a Home Quote</a></li>
-                    <li><a href="autoQuote.jsp">Get an Auto Quote</a></li>
+                    <li><a href="userprofile.jsp">Home</a></li>
+                    <li><a href="homeQuoteExisting.jsp">Add Home Quote</a></li>
+                    <li><a href="autoQuoteExisting.jsp">Add Auto Quote</a></li>
                     <li><a href="ContactUs.jsp">Contact Us</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <!--End Nav -->
-    
-     <body style="padding-top: 150px;">
+
+    <body style="padding-top: 150px;">
 
         <div class="container">
             <div class="row">
 
             </div>
-            <form class="form-horizontal" action="AutoQuoteServlet">
+            <form class="form-horizontal" action="ExistingAutoQuoteServlet">
                 <div class="form-group">
                     <div class="row">
                         <fieldset class="for-panel">
@@ -60,53 +59,16 @@
                                 <div class="col-sm-6">
                                     <div class="form-horizontal">               
                                         <div class="form-group">
-                                            <label class="col-xs-5 control-label">First Name: </label>
-                                            <input class="form-control-static" name="firstName" type="text" required>     
+                                            <label class="col-xs-5 control-label">Make: </label> 
+                                            <input class="form-control-static" name="make" type="text" required>   
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-xs-5 control-label">Last Name: </label> 
-                                            <input class="form-control-static" name="lastName" type="text" required> 
+                                            <label class="col-xs-5 control-label">Model: </label> 
+                                            <input class="form-control-static" name="model" type="text" required>   
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-xs-5 control-label">Email: </label>
-                                            <input class="form-control-static" name="email" type="email" required>               
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Street Address: </label>
-                                            <input class="form-control-static" name="address" type="text" required> 
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">City: </label>
-                                            <input class="form-control-static" name="city" type="text" required>   
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Province: </label>
-                                            <select class="col-xs-5 control-label" name="province" required>
-                                                <option value="10">NL</option>
-                                            </select>   
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Country: </label>
-                                            <select class="col-xs-5 control-label" name="country" required>
-                                                <option value="CAN">Canada</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Postal Code: </label>
-                                            <input class="form-control-static" name="postalcode" type="text" required>   
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-horizontal">               
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Date of Birth: </label>
-                                            <input class="form-control-static" type="date" name="dateofbirth" required> 
+                                            <label class="col-xs-5 control-label">Year: </label>
+                                            <input class="form-control-static" name="year" type="text" required>              
                                         </div>
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">Vehicle Type: </label>
@@ -119,16 +81,8 @@
                                             </select>    
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-xs-5 control-label">Make: </label> 
-                                            <input class="form-control-static" name="make" type="text" required>   
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Model: </label> 
-                                            <input class="form-control-static" name="model" type="text" required>   
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Year: </label>
-                                            <input class="form-control-static" name="year" type="text" required>              
+                                            <label class="col-xs-5 control-label">Date of Birth: </label>
+                                            <input class="form-control-static" type="date" name="dateofbirth" required> 
                                         </div>
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">Color: </label>
@@ -144,6 +98,10 @@
                                                 <option value="35">Other</option>
                                             </select>    
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-horizontal">               
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">VIN: </label>
                                             <input class="form-control-static" name="vin" type="text" required>              
@@ -157,7 +115,7 @@
                                             <input class="form-control-static" name="accidents" required>   
                                         </div>
 
-
+                                        <br><br><br>
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label"></label>
                                             <button style="float: center;" class="btn btn-primary" type="submit">Submit Auto Quote</button>
@@ -213,6 +171,6 @@
     </style>
 
 </html>
-    
-    
-    
+
+
+

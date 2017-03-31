@@ -11,6 +11,8 @@ import DAO.PolicyDAO;
 import DAO.QuoteDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -49,30 +51,37 @@ public class CreateHomePolicyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        List<Integer> HomeQuoteIDS = new ArrayList<Integer>();
+        List<Integer> AutoQuoteIDS = new ArrayList<Integer>();
+        List<Integer> HomePolicyIDS = new ArrayList<Integer>();
+        List<Integer> AutoPolicyIDS = new ArrayList<Integer>();
         int houseQuoteID = (int) (request.getSession(false).getAttribute("currentsessionHomeQuoteID"));
         int result = PolicyDAO.acceptHomePolicy((houseQuoteID));
 
         System.out.println(result);
         Customer client = (Customer) (request.getSession(false).getAttribute("currentSessionClient"));
         //Quote IDS for Dropdown List
-        Map<Integer, Integer> map = QuoteDAO.getQuoteIDbyCustomerID(client);
-        Map<Integer, Integer> mapPolicy = PolicyDAO.getPolicyByCustomerId(client);
-        boolean val = map.isEmpty();
-        System.out.println("Quote Map Empty: " + val);
-        boolean valPolicy = mapPolicy.isEmpty();
-        System.out.println("Policy Map Empty: " + valPolicy);
-        //Policy IDS for Dropdown List
+        HomeQuoteIDS = QuoteDAO.getHomeQuoteIDbyCustomerID(client);
+        AutoQuoteIDS = QuoteDAO.getAutoQuoteIDbyCustomerID(client);
 
+        HomePolicyIDS = PolicyDAO.getHomePolicyByCustomerId(client);
+        AutoPolicyIDS = PolicyDAO.getAutoPolicyByCustomerId(client);
+
+        //Policy IDS for Dropdown List
         HttpSession session = request.getSession(true);
-        HttpSession sessionQuoteID = request.getSession(true);
-        HttpSession sessionPolicyID = request.getSession(true);
+        HttpSession sessionHomeQuoteID = request.getSession(true);
+        HttpSession sessionAutoQuoteID = request.getSession(true);
+
+        HttpSession sessionAutoPolicyID = request.getSession(true);
+        HttpSession sessionHomePolicyID = request.getSession(true);
 
         session.setAttribute("currentSessionClient", client);
 
-        sessionQuoteID.setAttribute("currentQuoteID", map);
+        sessionHomeQuoteID.setAttribute("currentHomeQuoteID", HomeQuoteIDS);
+        sessionAutoQuoteID.setAttribute("currentAutoQuoteID", AutoQuoteIDS);
 
-        sessionPolicyID.setAttribute("currentPolicyID", mapPolicy);
+        sessionHomePolicyID.setAttribute("currentHomePolicyID", HomePolicyIDS);
+        sessionAutoPolicyID.setAttribute("currentAutoPolicyID", AutoPolicyIDS);;
         response.sendRedirect("userprofile.jsp"); //logged-in page  
 
     }

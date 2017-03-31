@@ -10,6 +10,8 @@ import DAO.CustomerDAO;
 import DAO.QuoteDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import javax.servlet.ServletException;
@@ -50,7 +52,9 @@ public class CreateCustomerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        List<Integer> HomeQuoteIDS = new ArrayList<Integer>();
+        List<Integer> AutoQuoteIDS = new ArrayList<Integer>();
+        
         Customer client = (Customer) request.getSession(false).getAttribute("currentSessionClient");
         client.setPassword(request.getParameter("password"));
 
@@ -60,19 +64,15 @@ public class CreateCustomerServlet extends HttpServlet {
 
         if (client.isValid()) {
             System.out.println("Login good");
-            Map<Integer, Integer> map = QuoteDAO.getQuoteIDbyCustomerID(client);
-            boolean val = map.isEmpty();
-            System.out.println("Map Empty: " + val);
-
-            for (Entry<Integer, Integer> maps : map.entrySet()) {
-                System.out.println(maps.getKey());
-                System.out.println(maps.getValue());
-            }
-
+            HomeQuoteIDS = QuoteDAO.getHomeQuoteIDbyCustomerID(client);
+            AutoQuoteIDS = QuoteDAO.getAutoQuoteIDbyCustomerID(client);
+            
+            
             HttpSession session = request.getSession(true);
-            HttpSession sessionQuoteID = request.getSession(true);
-
-            sessionQuoteID.setAttribute("currentQuoteID", map);
+            HttpSession sessionHomeQuoteID = request.getSession(true);
+            HttpSession sessionAutoQuoteID = request.getSession(true);
+             sessionHomeQuoteID.setAttribute("currentHomeQuoteID", HomeQuoteIDS);
+            sessionAutoQuoteID.setAttribute("currentAutoQuoteID", AutoQuoteIDS);
             session.setAttribute("currentSessionClient", client);
             response.sendRedirect("userprofile.jsp"); //logged-in page      		
         } else {

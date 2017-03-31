@@ -11,7 +11,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -94,44 +96,72 @@ public static int acceptHomePolicy(int QuoteID) {
         return returnResult;
     }
 
-    public static Map<Integer, Integer> getPolicyByCustomerId(Customer client) {
-        System.out.println("Policy id map started");
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+    public static List<Integer> getAutoPolicyByCustomerId(Customer client) {
+
+        List<Integer> PolicyIDS = new ArrayList<Integer>();
         int CustomerID = Integer.parseInt(client.getId());
         String SPsql = "EXEC getPolicyByCustomerId ?";
-
         try {
             connection = ConnectionManager.getConnection();
             ps = connection.prepareStatement(SPsql);
             ps.setEscapeProcessing(true);
             ps.setQueryTimeout(30);
-            //Set up params for stored procedure
             ps.setInt(1, CustomerID);
-
             //Return sp into a result set
             rs = ps.executeQuery();
             boolean more = rs.next();
             //If the customer doesnt have any quotes 
             if (!more) {
                 System.out.println("No policies Found");
-                map.put(1, 1);
             } else {
                 do {
-                    map.put(rs.getInt("policy_type"), rs.getInt("policy_id"));
+                    if(rs.getInt("policy_type") == 14){
+                    PolicyIDS.add(rs.getInt("policy_id"));
+                    }
                 } while (rs.next());
             }
         } catch (Exception ex) {
-            System.out.println("getPolicyByCustomerId has failed " + ex);
+            System.out.println("getAutoPolicyByCustomerId has failed " + ex);
         } //Exception handling and closing
         finally {
-            //Close DB Connections
             ConnectionManager.Dispose(connection, rs, ps);
         }
-        boolean val = map.isEmpty();
-        System.out.println("Initial Policy Map Empty: " + val + "   " + CustomerID);
-        return map;
+        return PolicyIDS;
     }
 
+        public static List<Integer> getHomePolicyByCustomerId(Customer client) {
+
+        List<Integer> PolicyIDS = new ArrayList<Integer>();
+        int CustomerID = Integer.parseInt(client.getId());
+        String SPsql = "EXEC getPolicyByCustomerId ?";
+        try {
+            connection = ConnectionManager.getConnection();
+            ps = connection.prepareStatement(SPsql);
+            ps.setEscapeProcessing(true);
+            ps.setQueryTimeout(30);
+            ps.setInt(1, CustomerID);
+            //Return sp into a result set
+            rs = ps.executeQuery();
+            boolean more = rs.next();
+            //If the customer doesnt have any quotes 
+            if (!more) {
+                System.out.println("No policies Found");
+            } else {
+                do {
+                    if(rs.getInt("policy_type") == 15){
+                    PolicyIDS.add(rs.getInt("policy_id"));
+                    }
+                } while (rs.next());
+            }
+        } catch (Exception ex) {
+            System.out.println("getHomePolicyByCustomerId has failed " + ex);
+        } //Exception handling and closing
+        finally {
+            ConnectionManager.Dispose(connection, rs, ps);
+        }
+        return PolicyIDS;
+    }
+        
     public static String getHousePolicy(int policyID) {
                 String returnResult = "";
         String SPsql = "EXEC getHomePolicyByPolicyId ?";

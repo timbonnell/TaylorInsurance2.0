@@ -7,6 +7,7 @@
 <%@page import="java.util.Map"%>
 <%@page import="BEANS.InfoObjects.Customer" %>
 <%@page import="java.util.ArrayList" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +16,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>User Profile</title>
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
@@ -38,8 +39,8 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="index.jsp">Home</a></li>
-                    <li><a href="autoQuoteExisting.jsp">Add Home Quote</a></li>
-                    <li><a href="homeQuoteExisting.jsp">Add Auto Quote</a></li>
+                    <li><a href="homeQuoteExisting.jsp">Add Home Quote</a></li>
+                    <li><a href="autoQuoteExisting.jsp">Add Auto Quote</a></li>
                     <li><a href="#testimonial">File a Claim</a></li>
                     <li><a href="ContactUs.jsp">Contact Us</a></li>
                 </ul>
@@ -48,11 +49,7 @@
     </nav>
     <body style="padding-top: 150px;">
         <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
-        <% Map<Integer, Integer> map = (Map<Integer, Integer>) (session.getAttribute("currentPolicyID"));%>
-        <% Map<Integer, Integer> map2 = (Map<Integer, Integer>) (session.getAttribute("currentQuoteID"));%>
-        
-        
-        
+
         <!--/ Navigation bar-->
         <div class="container">
             <div class="row">
@@ -68,109 +65,100 @@
                     <h3>Address</h3>
                     <p><%= currentClient.getAddress()%></p>
                 </div>
+
                 <div class="col-sm-4">
                     <div>
+
+                        <div id="homePolicyID">
+                     
+                                <h3>Active Home Policies</h3>  
+                                <form class="form-horizontal" action="ViewHomePolicyServlet"> 
+                                    <select id="homePolicies" name="homePolicies">
+                                        <c:forEach items="${currentHomePolicyID}" var="homepolicy">
+                                            <option value="${homepolicy}">${homepolicy}</option>
+                                        </c:forEach>
+                                    </select>
+                                    <br><br>
+                                    <button class="btn btn-info" type="submit">View Policy</button>
                              
-
-                        <%
-                            if(!(map == null)){
-                            for (Entry<Integer, Integer> maps : map.entrySet()) {
-                                if (maps.getKey() == 15) {
-                        %>
-                        <h3>Active Policies</h3>  
-                        <form class="form-horizontal" action="ViewHomePolicyServlet"> 
-                            <label>Home Policy ID:</label>
-
-                            <select name="homePolicyIds">
-                                <option value="<%=maps.getValue()%>">
-                                    <%= maps.getValue()%>
-                                </option>
-                            </select>
-                            <br><br>
-                            <button class="btn btn-info" type="submit">View Home Policy</button>
-                        </form>
-                        <%
-                                }}
-                              }
-                        %>
+                        </div>
+                        <div id="AutoPolicySection">
+                          
+                                <h3>Active Auto Policies</h3>  
+                                <form class="form-horizontal" action="ViewHomePolicyServlet"> 
+                                    <select id="autoPolicies" name="autoPolicyIds">
+                                        <c:forEach items="${currentAutoPolicyID}" var="autopolicy">
+                                            <option value="${autopolicy}">${autopolicy}</option>
+                                        </c:forEach>
+                                    </select>
+                                    <br><br>
+                                    <button class="btn btn-info" type="submit">View Policy</button>
+                                </form>
                         
-                        <%
-                            if(!(map == null)){
-                            for (Entry<Integer, Integer> maps2 : map.entrySet()) {
-                                if (maps2.getKey() == 14) {
-                        %>
-                        <h3>Active Policies</h3>  
-                        <form class="form-horizontal" action="ViewAutoPolicyServlet"> 
-                            <label>Auto Policy ID:</label>
-
-                            <select name="autoPolicyIds">
-                                <option value="<%= maps2.getValue()%>">
-                                    <%= maps2.getValue()%>
-                                </option>
-                            </select>
-                            <br><br>
-                            <button class="btn btn-info" type="submit">View Auto Policy</button>
-                        </form>
-                        <%
-                                }
-                            }
-                        }
-                        %>
+                        </div>
                     </div>
-
                 </div>
                 <div class="col-sm-4">
                     <div>
+                        <div id="homeQuoteSection">
+                           
+                                <h3>Active Home Quotes</h3>  
+                                <form class="form-horizontal" action="ViewHomeQuoteServlet"> 
+                                    <select id="homeQuotes" name="homeQuotes">
+                                        <c:forEach items="${currentHomeQuoteID}" var="quotes">
+                                            
+                                                <option value="${quotes}">${quotes}</option>
+                                           
+                                        </c:forEach>
+                                    </select>
+                                    <br><br>
+                                    <button class="btn btn-info" type="submit">View Home Quote</button>
+                                </form>
                         
+                        </div>
 
-                        <%
-                            if(!(map2 == null)){
-                            for (Entry<Integer, Integer> maps2 : map2.entrySet()) {
-                                if (maps2.getKey() == 15) {
-                        %>
-                        <h3>Active Quotes</h3>  
-                        <form class="form-horizontal" action="ViewHomeQuoteServlet"> 
-                            <label>Home Quote ID:</label>
+                        <div id="autoQuoteSection">
+                           
+                                <h3>Active Auto Quotes</h3>  
+                                <form class="form-horizontal" action="ViewAutoQuoteServlet"> 
+                                    <select id="autoQuotes" name="autoquotes">
+                                        <c:forEach items="${currentAutoQuoteID}" var="quotes">
 
-                            <select name="homequoteIds">
-                                <option value="<%=maps2.getValue()%>">
-                                    <%= maps2.getValue()%>
-                                </option>
-                            </select>
-                            <br><br>
-                            <button class="btn btn-info" type="submit">View Home Quote</button>
-                        </form>
-                        <%
-                                }
-                            }
-                        %>
-                        <%
-                            for (Entry<Integer, Integer> maps2 : map2.entrySet()) {
-                                if (maps2.getKey() == 14) {
-                        %>
-                        <h3>Active Quotes</h3>  
-                        <form class="form-horizontal" action="ViewAutoQuoteServlet"> 
-                            <label>Auto Quote ID:</label>
-
-                            <select name="autoquoteIds">
-                                <option value="<%= maps2.getValue()%>">
-                                    <%= maps2.getValue()%>
-                                </option>
-                            </select>
-                            <br><br>
-                            <button class="btn btn-info" type="submit">View Auto Quote</button>
-                        </form>
-                        <%
-                                }
-                            }
-                        }
-                        %>
+                                                <option value="${quotes}">${quotes}</option>
+                                   
+                                        </c:forEach>
+                                    </select>
+                                    <br><br>
+                                    <button class="btn btn-info" type="submit">View Auto Quote</button>
+                                </form>
+                           
+                        </div>     
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            if (!$('#homePolicies').val()) {
+                $('#homePolicyID').hide();
+            }
 
+            if (!$('#autoPolicies').val()) {
+                $('#AutoPolicySection').hide();
+            }
+
+            if (!$('#autoQuotes').val()) {
+                $('#autoQuoteSection').hide();
+            }
+
+            if (!$('#homeQuotes').val()) {
+                $('#homeQuoteSection').hide();
+            }
+
+        });
+
+    </script>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
