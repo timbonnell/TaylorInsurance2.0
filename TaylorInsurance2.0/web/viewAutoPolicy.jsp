@@ -48,7 +48,7 @@
     <body style="padding-top: 150px;">
         <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
         <% String name = (session.getAttribute("currentsessionAutoPolicy")).toString();%>
-        <form class="form-horizontal" action="CreateAutoPolicyServlet">
+        <form class="form-horizontal" action="AddSecondDriverServlet">
             <div class="form-group">
                 <div class="container">
                     <div class="row">
@@ -74,11 +74,6 @@
                             <div class="form-group">
                                 <label class="col-xs-5 control-label"></label>
                                 <button style="float: center;" class="btn btn-primary" type="submit">Add Secondary Driver</button>
-                            </div>
-                            <br><br>
-                            <div class="form-group">
-                                <label class="col-xs-5 control-label"></label>
-                                <button style="float: center;" class="btn btn-primary" type="submit">Add Another Vehicle</button>
                             </div>
                         </div>
                     </div>

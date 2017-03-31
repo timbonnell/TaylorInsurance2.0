@@ -80,12 +80,12 @@
                                     </select>
                                     <br><br>
                                     <button class="btn btn-info" type="submit">View Policy</button>
-                             
+                              </form>
                         </div>
                         <div id="AutoPolicySection">
                           
                                 <h3>Active Auto Policies</h3>  
-                                <form class="form-horizontal" action="ViewHomePolicyServlet"> 
+                                <form class="form-horizontal" action="ViewAutoPolicyServlet"> 
                                     <select id="autoPolicies" name="autoPolicyIds">
                                         <c:forEach items="${currentAutoPolicyID}" var="autopolicy">
                                             <option value="${autopolicy}">${autopolicy}</option>

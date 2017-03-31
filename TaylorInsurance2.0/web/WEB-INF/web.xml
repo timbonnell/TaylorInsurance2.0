@@ -52,10 +52,6 @@
         <servlet-class>SERVLETS.AddSecondDriverServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AddAnotherVehicleServlet</servlet-name>
-        <servlet-class>SERVLETS.AddAnotherVehicleServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ExistingAutoQuoteServlet</servlet-name>
         <servlet-class>SERVLETS.ExistingAutoQuoteServlet</servlet-class>
     </servlet>
@@ -110,10 +106,6 @@
     <servlet-mapping>
         <servlet-name>AddSecondDriverServlet</servlet-name>
         <url-pattern>/AddSecondDriverServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddAnotherVehicleServlet</servlet-name>
-        <url-pattern>/AddAnotherVehicleServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ExistingAutoQuoteServlet</servlet-name>

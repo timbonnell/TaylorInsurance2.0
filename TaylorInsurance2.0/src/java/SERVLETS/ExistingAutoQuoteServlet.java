@@ -8,11 +8,14 @@ package SERVLETS;
 import BEANS.InfoObjects.Customer;
 import BEANS.InfoObjects.Vehicle;
 import BEANS.PolicyObjects.VehicleQuote;
+import DAO.PolicyDAO;
 import DAO.QuoteDAO;
 import DAO.VehicleDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -52,6 +55,11 @@ public class ExistingAutoQuoteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        List<Integer> HomeQuoteIDS = new ArrayList<Integer>();
+        List<Integer> AutoQuoteIDS = new ArrayList<Integer>();
+        List<Integer> HomePolicyIDS = new ArrayList<Integer>();
+        List<Integer> AutoPolicyIDS = new ArrayList<Integer>();
+
         Customer newCustomer = (Customer) (request.getSession(false).getAttribute("currentSessionClient"));
 
         //Retreive Vehicle Attributes
@@ -89,15 +97,30 @@ public class ExistingAutoQuoteServlet extends HttpServlet {
         //Store Objects in Database
         Vehicle newQuoteVehicle = VehicleDAO.createVehicle(quoteVehicle);
         VehicleQuote newVehicleQuote = QuoteDAO.createVehicleQuote(newCustomer, newQuoteVehicle, vehicleQuote);
+        
+        HomeQuoteIDS = QuoteDAO.getHomeQuoteIDbyCustomerID(newCustomer);
+        AutoQuoteIDS = QuoteDAO.getAutoQuoteIDbyCustomerID(newCustomer);
+
+        HomePolicyIDS = PolicyDAO.getHomePolicyByCustomerId(newCustomer);
+        AutoPolicyIDS = PolicyDAO.getAutoPolicyByCustomerId(newCustomer);
 
         //Set up sessions
         HttpSession sessionClient = request.getSession(true);
         HttpSession sessionVehicle = request.getSession(true);
         HttpSession sessionVehicleQuote = request.getSession(true);
+        HttpSession sessionHomeQuoteID = request.getSession(true);
+        HttpSession sessionAutoQuoteID = request.getSession(true);
+        HttpSession sessionAutoPolicyID = request.getSession(true);
+        HttpSession sessionHomePolicyID = request.getSession(true);
 
         sessionClient.setAttribute("currentSessionClient", newCustomer);
         sessionVehicle.setAttribute("currentSessionVehicle", quoteVehicle);
         sessionVehicleQuote.setAttribute("currentSessionVehicleQuote", newVehicleQuote);
+        sessionHomeQuoteID.setAttribute("currentHomeQuoteID", HomeQuoteIDS);
+        sessionAutoQuoteID.setAttribute("currentAutoQuoteID", AutoQuoteIDS);
+
+        sessionHomePolicyID.setAttribute("currentHomePolicyID", HomePolicyIDS);
+        sessionAutoPolicyID.setAttribute("currentAutoPolicyID", AutoPolicyIDS);
 
         System.out.println("Vehicle Premium:  $" + vehicleQuote.getTotalPremium());
 
