@@ -11,19 +11,15 @@ package BEANS.InfoObjects;
  */
 public class Vehicle implements VehicleInsurable {
 
-    private int year;
-    private int type;
-
-    @Override
-    public String toString() {
-        return "Vehicle{" + "year=" + year + ", type=" + type + ", make=" + make + ", model=" + model + ", vin=" + vin + ", vehicleID=" + vehicleID + ", color=" + color + ", numAccidents=" + numAccidents + ", estimated_value=" + estimated_value + '}';
-    }
     private String make;
     private String model;
+    private int year;
+    private int type;
     private String vin;
     private int vehicleID;
     private int color;
     private int numAccidents;
+    private double estimated_value;
 
     public double getEstimated_value() {
         return estimated_value;
@@ -32,7 +28,6 @@ public class Vehicle implements VehicleInsurable {
     public void setEstimated_value(double estimated_value) {
         this.estimated_value = estimated_value;
     }
-    private double estimated_value;
 
     public int getType() {
         return type;
@@ -42,23 +37,12 @@ public class Vehicle implements VehicleInsurable {
         this.type = type;
     }
 
-    public int getNumAccidents() {
-        return numAccidents;
-    }
-
-    public void setNumAccidents(int numAccidents) {
-        this.numAccidents = numAccidents;
-    }
-    public int getColor() {
-        return color;
-    }
-
-    public void setColor(int color) {
-        this.color = color;
-    }
-
     public String getVin() {
         return vin;
+    }
+
+    public void setVin(String vin) {
+        this.vin = vin;
     }
 
     public int getVehicleID() {
@@ -69,16 +53,25 @@ public class Vehicle implements VehicleInsurable {
         this.vehicleID = vehicleID;
     }
 
-    public void setVin(String vin) {
-        this.vin = vin;
+    public int getColor() {
+        return color;
     }
 
-    public int getYear() {
-        return year;
+    public void setColor(int color) {
+        this.color = color;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public int getNumAccidents() {
+        return numAccidents;
+    }
+
+    public void setNumAccidents(int numAccidents) {
+        this.numAccidents = numAccidents;
+    }
+
+    @Override
+    public String getIdentifier() {
+        return "AUTO";
     }
 
     public String getMake() {
@@ -97,9 +90,17 @@ public class Vehicle implements VehicleInsurable {
         this.model = model;
     }
 
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
     @Override
-    public String getIdentifier() {
-        return "AUTO";
+    public String toString() {
+        return "Vehicle{" + "make=" + make + ", model=" + model + ", year=" + year + ", type=" + type + ", vin=" + vin + ", vehicleID=" + vehicleID + ", color=" + color + ", numAccidents=" + numAccidents + '}';
     }
 
 }

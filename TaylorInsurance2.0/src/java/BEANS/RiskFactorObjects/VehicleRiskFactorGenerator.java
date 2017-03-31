@@ -18,25 +18,24 @@ public class VehicleRiskFactorGenerator extends RiskFactorGenerator {
         loadPremium();
     }
 
-    public double getVehicleAgeFactor() {
-        Map ageRates = getRatesForGroup("VEHICLE_AGE");
-        VehicleInsurable vehicle = (VehicleInsurable) getProperty();
+    public double getDriverAccidentsFactor() {
+        Map accidentRates = getRatesForGroup("VEHICLE_AGE");
 
-        // House age is calculated from current date
-        int vehicleAge = LocalDate.now().getYear() - vehicle.getYear();
+        int accidents = getNumberOfDriverAccidents();
 
         // Store current applicable factor while looping through the rates.
-        // Because the Map may be in an arbitrary order, also check to make sure only the largest applicable age is given.
+        // Because the Map may be in an arbitrary order, also check to make sure only the largest applicable rate is given.
         double factor = 1.0;
         int lastCompared = 0;
 
-        Iterator<Map.Entry> ageFactors = ageRates.entrySet().iterator();
+        Iterator<Map.Entry> accidentFactors = accidentRates.entrySet().iterator();
 
-        for (Map.Entry<Integer, Double> ageFactor; ageFactors.hasNext();) {
-            ageFactor = ageFactors.next();
-            if (vehicleAge > ageFactor.getKey() && lastCompared < ageFactor.getKey()) {
-                factor = ageFactor.getValue();
-                lastCompared = ageFactor.getKey();
+        for (Map.Entry<String, Double> accidentFactor; accidentFactors.hasNext();) {
+            accidentFactor = accidentFactors.next();
+            int numAccidents = Integer.parseInt(accidentFactor.getKey());
+            if (accidents > numAccidents && lastCompared < numAccidents) {
+                factor = accidentFactor.getValue();
+                lastCompared = numAccidents;
             }
         }
 
@@ -57,58 +56,47 @@ public class VehicleRiskFactorGenerator extends RiskFactorGenerator {
 
         Iterator<Map.Entry> ageFactors = ageRates.entrySet().iterator();
 
-        for (Map.Entry<Integer, Double> ageFactor; ageFactors.hasNext();) {
+        for (Map.Entry<String, Double> ageFactor; ageFactors.hasNext();) {
             ageFactor = ageFactors.next();
-            if (driverAge > ageFactor.getKey() && lastCompared < ageFactor.getKey()) {
+            int ageToCompare = Integer.parseInt(ageFactor.getKey());
+            if (driverAge > ageToCompare && lastCompared < ageToCompare) {
                 factor = ageFactor.getValue();
-                lastCompared = ageFactor.getKey();
+                lastCompared = ageToCompare;
             }
         }
 
         return factor;
     }
 
-    public double getDriverAccidentsFactor() {
-        Map accidentRates = getRatesForGroup("VEHICLE_AGE");
-        CustomerInsurable driver = getCustomer();
+    @Override
+    public double getTotalRateFactor() {
+        return getDriverAgeFactor() * getDriverAccidentsFactor() * getVehicleAgeFactor();
+    }
 
-        int accidents = getNumberOfDriverAccidents();
+    public double getVehicleAgeFactor() {
+        Map ageRates = getRatesForGroup("VEHICLE_AGE");
+        VehicleInsurable vehicle = (VehicleInsurable) getProperty();
+
+        // House age is calculated from current date
+        int vehicleAge = LocalDate.now().getYear() - vehicle.getYear();
 
         // Store current applicable factor while looping through the rates.
-        // Because the Map may be in an arbitrary order, also check to make sure only the largest applicable rate is given.
+        // Because the Map may be in an arbitrary order, also check to make sure only the largest applicable age is given.
         double factor = 1.0;
         int lastCompared = 0;
 
-        Iterator<Map.Entry> accidentFactors = accidentRates.entrySet().iterator();
+        Iterator<Map.Entry> ageFactors = ageRates.entrySet().iterator();
 
-        for (Map.Entry<Integer, Double> accidentFactor; accidentFactors.hasNext();) {
-            accidentFactor = accidentFactors.next();
-            if (accidents > accidentFactor.getKey() && lastCompared < accidentFactor.getKey()) {
-                factor = accidentFactor.getValue();
-                lastCompared = accidentFactor.getKey();
+        for (Map.Entry<String, Double> ageFactor; ageFactors.hasNext();) {
+            ageFactor = ageFactors.next();
+            int ageToCompare = Integer.parseInt(ageFactor.getKey());
+            if (vehicleAge > ageToCompare && lastCompared < ageToCompare) {
+                factor = ageFactor.getValue();
+                lastCompared = ageToCompare;
             }
         }
 
         return factor;
-    }
-
-    @Override
-    void loadRates() {
-        /**
-         * TODO Load rates from database
-         */
-        addRate("DRIVER_AGE", 25, 2);
-
-        addRate("NUM_ACCIDENTS", 2, 2.5);
-        addRate("NUM_ACCIDENTS", 1, 1.25);
-
-        addRate("VEHICLE_AGE", 10, 2);
-        addRate("VEHICLE_AGE", 5, 1.5);
-    }
-
-    @Override
-    void loadPremium() {
-        setBasePremium(750);
     }
 
     /**
@@ -119,7 +107,22 @@ public class VehicleRiskFactorGenerator extends RiskFactorGenerator {
     }
 
     @Override
-    public double getTotalRateFactor() {
-        return getDriverAgeFactor() * getDriverAccidentsFactor() * getVehicleAgeFactor();
+    void loadPremium() {
+        setBasePremium(750);
     }
+
+    @Override
+    void loadRates() {
+        /**
+         * TODO Load rates from database
+         */
+        addRate("DRIVER_AGE", "25", 2);
+
+        addRate("NUM_ACCIDENTS", "2", 2.5);
+        addRate("NUM_ACCIDENTS", "1", 1.25);
+
+        addRate("VEHICLE_AGE", "10", 2);
+        addRate("VEHICLE_AGE", "5", 1.5);
+    }
+
 }
