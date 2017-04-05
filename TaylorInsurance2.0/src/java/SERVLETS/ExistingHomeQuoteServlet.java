@@ -5,6 +5,7 @@
  */
 package SERVLETS;
 
+import BEANS.BusinessProcessObjects.BusinessProcessManager;
 import BEANS.InfoObjects.Address;
 import BEANS.InfoObjects.Customer;
 import BEANS.InfoObjects.House;
@@ -29,10 +30,6 @@ import javax.servlet.http.HttpSession;
  */
 public class ExistingHomeQuoteServlet extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-    }
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -45,12 +42,9 @@ public class ExistingHomeQuoteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Integer> HomeQuoteIDS = new ArrayList<Integer>();
-        List<Integer> AutoQuoteIDS = new ArrayList<Integer>();
-        List<Integer> HomePolicyIDS = new ArrayList<Integer>();
-        List<Integer> AutoPolicyIDS = new ArrayList<Integer>();
+                BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (request.getSession(false).getAttribute("BusinessProcessManager"));
 
-        Customer newCustomer = (Customer) (request.getSession(false).getAttribute("currentSessionClient"));
+      
         //Set up customer Address
         Address address = new Address(request.getParameter("city"),
                 request.getParameter("province"),
@@ -66,33 +60,12 @@ public class ExistingHomeQuoteServlet extends HttpServlet {
         newHouse.setAddress(address);
 
         //Create a House Quote
-        HouseQuote houseQuote = new HouseQuote("0", LocalDate.now(), newCustomer, newHouse);
+        House newQuoteHouse = newBusinessProcessManager.createNewHouse(newHouse);
+        HouseQuote houseQuote = newBusinessProcessManager.createNewHouseQuote(newQuoteHouse.getHouseId());
 
-        //Test Quote
-        System.out.println("House Premium:  $" + houseQuote.getTotalPremium());
-
-        //Store Objects in Database
-        House newQuoteHouse = HouseDAO.createHouse(newHouse);
-
-        HouseQuote newHouseQuote = QuoteDAO.createHouseQuote(newCustomer, newQuoteHouse, houseQuote);
-
-        HomeQuoteIDS = QuoteDAO.getHomeQuoteIDbyCustomerID(newCustomer);
-        AutoQuoteIDS = QuoteDAO.getAutoQuoteIDbyCustomerID(newCustomer);
-
-        HomePolicyIDS = PolicyDAO.getHomePolicyByCustomerId(newCustomer);
-        AutoPolicyIDS = PolicyDAO.getAutoPolicyByCustomerId(newCustomer);
         //Set up sessions
         HttpSession session = request.getSession(true);
-
-
-        session.setAttribute("currentSessionClient", newCustomer);
-        session.setAttribute("currentSessionHouse", newQuoteHouse);
-        session.setAttribute("currentSessionHouseQuote", newHouseQuote);
-        session.setAttribute("currentHomeQuoteID", HomeQuoteIDS);
-        session.setAttribute("currentAutoQuoteID", AutoQuoteIDS);
-        session.setAttribute("currentHomePolicyID", HomePolicyIDS);
-        session.setAttribute("currentAutoPolicyID", AutoPolicyIDS);
-
+        session.setAttribute("BusinessProcessManager", newBusinessProcessManager);
         response.sendRedirect("existingHomeQuoteResult.jsp"); //logged-in page
 
     }

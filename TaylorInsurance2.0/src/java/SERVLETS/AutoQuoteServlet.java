@@ -56,6 +56,8 @@ public class AutoQuoteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        BusinessProcessManager newBusinessProcessManager = new BusinessProcessManager();
+        
         // Build a Customer object
         Customer quoteCustomer = new Customer();
         quoteCustomer.setFirstName(request.getParameter("firstName"));
@@ -99,15 +101,15 @@ public class AutoQuoteServlet extends HttpServlet {
         quoteVehicle.setVin(vehicleVIN);
         quoteVehicle.setNumAccidents(vehicleAccidents);
         quoteVehicle.setEstimated_value(estimatedValue);
-        Vehicle newQuoteVehicle = VehicleDAO.createVehicle(quoteVehicle);
+        Vehicle newQuoteVehicle = newBusinessProcessManager.createNewVehicle(quoteVehicle);
 
-        Customer newQuoteCustomer = BusinessProcessManager.getInstance().createNewCustomer(quoteCustomer);
-        VehicleQuote vehicleQuote = BusinessProcessManager.getInstance().createNewVehicleQuote(newQuoteVehicle.getVehicleId());
-        VehicleQuote newVehicleQuote = QuoteDAO.createVehicleQuote(vehicleQuote);
+        newBusinessProcessManager.createNewCustomer(quoteCustomer);
+        newBusinessProcessManager.createNewVehicleQuote(newQuoteVehicle.getVehicleId());
+
 
         //Set up sessions
         HttpSession session = request.getSession(true);
-        session.setAttribute("BusinessProcessManager", BusinessProcessManager.getInstance());
+        session.setAttribute("BusinessProcessManager", newBusinessProcessManager);
         response.sendRedirect("AutoQuoteResult.jsp");
     }
 

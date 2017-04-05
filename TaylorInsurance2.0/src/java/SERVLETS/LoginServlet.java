@@ -47,11 +47,9 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         try {
-            List<Integer> HomeQuoteIDS = new ArrayList<Integer>();
-            List<Integer> AutoQuoteIDS = new ArrayList<Integer>();
-            List<Integer> HomePolicyIDS = new ArrayList<Integer>();
-            List<Integer> AutoPolicyIDS = new ArrayList<Integer>();
+
             
             Customer client = new Customer();
             client.setEmail(request.getParameter("inputEmail"));
@@ -61,26 +59,10 @@ public class LoginServlet extends HttpServlet {
 
             if (client.isValid()) {
                 System.out.println("Login good");
-                
-                
-                //Quote IDS for Dropdown List
-                HomeQuoteIDS = QuoteDAO.getHomeQuoteIDbyCustomerID(client);
-                AutoQuoteIDS = QuoteDAO.getAutoQuoteIDbyCustomerID(client);
-                
-                HomePolicyIDS = PolicyDAO.getHomePolicyByCustomerId(client);
-                AutoPolicyIDS = PolicyDAO.getAutoPolicyByCustomerId(client);
-                //Policy IDS for Dropdown List
-                
-                System.out.println("Home Quote IDS servlet: " + HomeQuoteIDS);
-                System.out.println("Auto Quote IDS servlet: " + AutoQuoteIDS);
 
                 HttpSession session = request.getSession(true);
 
                 session.setAttribute("currentSessionClient", client);
-                session.setAttribute("currentHomeQuoteID", HomeQuoteIDS);
-                session.setAttribute("currentAutoQuoteID", AutoQuoteIDS);
-                session.setAttribute("currentHomePolicyID", HomePolicyIDS);
-                session.setAttribute("currentAutoPolicyID", AutoPolicyIDS);
           
           
                 response.sendRedirect("userprofile.jsp"); //logged-in page      		

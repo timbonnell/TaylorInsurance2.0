@@ -56,7 +56,8 @@ public class HomeQuoteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        BusinessProcessManager newBusinessProcessManager = new BusinessProcessManager();
+        
         // Set up customer information
         Customer client = new Customer();
         client.setFirstName(request.getParameter("firstName"));
@@ -95,14 +96,15 @@ public class HomeQuoteServlet extends HttpServlet {
         
         //Create a House Quote
         //HouseQuote houseQuote = new HouseQuote("0", LocalDate.now(), client, newHouse);
-        HouseQuote houseQuote = BusinessProcessManager.getInstance().createNewHouseQuote(newQuoteHouse.getHouseId());
-        Customer newClient = BusinessProcessManager.getInstance().createNewCustomer(client);
+        newBusinessProcessManager.createNewCustomer(client);
+        newBusinessProcessManager.createNewHouseQuote(newQuoteHouse.getHouseId());
+       
         
 
         //Set up sessions
         HttpSession session = request.getSession(true);
 
-        session.setAttribute("BusinessProcessManager", BusinessProcessManager.getInstance());
+        session.setAttribute("BusinessProcessManager", newBusinessProcessManager);
         //Redirects to Create Customer Page
         response.sendRedirect("HomeQuoteResult.jsp");
 
