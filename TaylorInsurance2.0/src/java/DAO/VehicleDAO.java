@@ -17,16 +17,23 @@ import java.sql.ResultSet;
  */
 public class VehicleDAO {
 
+    static Connection connection = null;
+    static ResultSet rs = null;
+    static PreparedStatement ps;
+
     public static Vehicle createVehicle(Vehicle vehicle) {
-        // Set up Vehicle attributes
+         // Set up Vehicle attributes
+
 
         String SPsql = "EXEC insertVehicle ?,?,?,?,?,?,?";
 
-        try (Connection con = ConnectionManager.getConnection();
-                PreparedStatement ps = con.prepareStatement(SPsql)) {
+        try {
+            connection = ConnectionManager.getConnection();
+            //stmt = connection.createStatement();
+            ps = connection.prepareStatement(SPsql);
             ps.setEscapeProcessing(true);
             ps.setQueryTimeout(30);
-
+           
             //Set up params for stored procedure
             ps.setString(1, vehicle.getVin());
             ps.setInt(2, vehicle.getType());
@@ -35,13 +42,13 @@ public class VehicleDAO {
             ps.setInt(5, vehicle.getYear());
             ps.setInt(6, vehicle.getColor());
             ps.setDouble(7, vehicle.getEstimated_value());
-
+            
             System.out.println(vehicle.toString());
-
-            ps.execute();
-            ps.getMoreResults();
-            ResultSet rs = ps.getResultSet();
-            boolean more = rs.next();
+            
+            boolean more = ps.execute();
+             more = ps.getMoreResults();
+            rs = ps.getResultSet();
+            more = rs.next();
             System.out.println(more);
             //Checks to see if house id comes back (house was stored successfully)
             if (!more) {
@@ -55,9 +62,15 @@ public class VehicleDAO {
             }
         } catch (Exception ex) {
             System.out.println("createVehicle: An Exception has occurred! " + ex);
-        }
+        } //Exception handling and closing
+        finally {
+            //Close DB Connections
+            ConnectionManager.Dispose(connection, rs, ps);
 
+        }
+        
+        
+        
         return vehicle;
     }
-
 }

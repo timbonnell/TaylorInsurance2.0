@@ -10,12 +10,17 @@ import SERVLETS.ConnectionManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  *
  * @author timbo
  */
 public class HouseDAO {
+
+    static Connection connection = null;
+    static ResultSet rs = null;
+    static PreparedStatement ps;
 
     public static House createHouse(House house) {
 
@@ -31,8 +36,10 @@ public class HouseDAO {
 
         String SPsql = "EXEC insertHouse ?,?,?,?,?,?,?,?";
 
-        try (Connection con = ConnectionManager.getConnection();
-                PreparedStatement ps = con.prepareStatement(SPsql)) {
+        try {
+            connection = ConnectionManager.getConnection();
+            //stmt = connection.createStatement();
+            ps = connection.prepareStatement(SPsql);
             ps.setEscapeProcessing(true);
             ps.setQueryTimeout(30);
             //Set up params for stored procedure
@@ -44,14 +51,15 @@ public class HouseDAO {
             ps.setString(6, houseStreet);
             ps.setString(7, housePostal);
             ps.setString(8, houseCountry);
-            System.out.println("EXEC insertHouse" + houseType + "," + houseYear + "," + houseHeating + "," + houseCity + "," + 10 + "," + houseStreet + "," + housePostal + "," + houseCountry);
-
+            System.out.println("EXEC insertHouse" + houseType + "," + houseYear+ "," + houseHeating+ ","+ houseCity+ "," + 10+ ","  + houseStreet+ "," +  housePostal+ "," + houseCountry);
+           
             //rs = ps.execute();
-            System.out.println("EXEC insertHouse" + houseType + "," + houseYear + "," + houseHeating + "," + houseCity + "," + 10 + "," + houseStreet + "," + housePostal + "," + houseCountry);
+            System.out.println("EXEC insertHouse" + houseType + "," + houseYear+ "," + houseHeating+ ","+ houseCity+ "," + 10+ ","  + houseStreet+ "," +  housePostal+ "," + houseCountry);
 
-            ps.execute();
-            ResultSet rs = ps.getResultSet();
-            boolean more = rs.next();
+            boolean more = ps.execute();
+             more = ps.getMoreResults();
+            rs = ps.getResultSet();
+            more = rs.next();
             System.out.println(more);
             //Checks to see if house id comes back (house was stored successfully)
             if (!more) {
@@ -66,7 +74,11 @@ public class HouseDAO {
         } catch (Exception ex) {
             System.out.println("createHouse: An Exception has occurred! " + ex);
         } //Exception handling and closing
+        finally {
+            //Close DB Connections
+            ConnectionManager.Dispose(connection, rs, ps);
 
+        }
         return house;
     }
 
