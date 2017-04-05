@@ -6,8 +6,8 @@ package BEANS.InfoObjects;
  */
 public interface HouseInsurable extends Insurable {
 
+    public String getHouseId();
     public int getHeating();
-
     public int getYear();
 
 }

@@ -12,30 +12,24 @@ import java.time.LocalDate;
  *
  * @author 20124135
  */
-public abstract class Policy {
+public class Policy {
 
     public final double TAX_RATE = 0.15;
 
-    private CustomerInsurable associatedCustomer;
     private Quote associatedQuote;
-    private LocalDate endDate;
+    private LocalDate creationDate;
+    private LocalDate expiryDate;
     private String id;
-    private LocalDate startDate;
 
-    public Policy(String id, CustomerInsurable associatedCustomer, Quote associatedQuote, LocalDate startDate, LocalDate endDate) {
-        this.id = id;
-        this.associatedCustomer = associatedCustomer;
+    public Policy(String id, Quote associatedQuote, LocalDate creationDate, LocalDate expiryDate) {
         this.associatedQuote = associatedQuote;
-        this.startDate = startDate;
-        this.endDate = endDate;
+        this.creationDate = creationDate;
+        this.expiryDate = expiryDate;
+        this.id = id;
     }
 
-    public CustomerInsurable getAssociatedCustomer() {
-        return associatedCustomer;
-    }
-
-    public void setAssociatedCustomer(CustomerInsurable associatedCustomer) {
-        this.associatedCustomer = associatedCustomer;
+    public CustomerInsurable getClient() {
+        return associatedQuote.getClient();
     }
 
     public Quote getAssociatedQuote() {
@@ -46,12 +40,20 @@ public abstract class Policy {
         this.associatedQuote = associatedQuote;
     }
 
-    public LocalDate getEndDate() {
-        return endDate;
+    public LocalDate getCreationDate() {
+        return creationDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public LocalDate getExpiryDate() {
+        return expiryDate;
+    }
+
+    public void setExpiryDate(LocalDate expiryDate) {
+        this.expiryDate = expiryDate;
     }
 
     public String getId() {
@@ -68,14 +70,6 @@ public abstract class Policy {
 
     public double getPremiumPlusTax() {
         return getPremium() * TAX_RATE;
-    }
-
-    public LocalDate getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
     }
 
 }

@@ -143,7 +143,7 @@ public class CustomerDAO {
                 System.out.println("Customer ID: " + rs.getInt(1));
                 customer.setId((rs.getString(1)));
             }
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             System.out.println("Create user has failed: " + ex);
         } finally {
             //Close DB Connections
@@ -152,7 +152,7 @@ public class CustomerDAO {
         return customer;
     }
 
-    public static void register(Customer customer) {
+    public static boolean register(Customer customer) {
 
         String SPsql = "EXEC updateCustomer ?,?";
 
@@ -168,14 +168,19 @@ public class CustomerDAO {
 
 
             rs = ps.executeQuery();
-            boolean more = rs.next();
+            if (rs.next()) {
+                return rs.getBoolean(1);
+            }
 
-        } catch (Exception ex) {
+        } catch (NumberFormatException | SQLException ex) {
             System.out.println("Register user has failed: " + ex);
+            return false;
         } finally {
             //Close DB Connections
             ConnectionManager.Dispose(connection, rs, ps);
         }
+        
+        return false;
     }
 
 }

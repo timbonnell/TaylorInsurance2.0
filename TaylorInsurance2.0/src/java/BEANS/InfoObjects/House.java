@@ -10,16 +10,17 @@ public class House implements HouseInsurable {
     private int heating;
     private int type;
     private int year;
-    private int houseID;
+    private String houseID;
 
     public House() {
     }
 
-    public int getHouseID() {
+    @Override
+    public String getHouseId() {
         return houseID;
     }
 
-    public void setHouseID(int houseID) {
+    public void setHouseID(String houseID) {
         this.houseID = houseID;
     }
 

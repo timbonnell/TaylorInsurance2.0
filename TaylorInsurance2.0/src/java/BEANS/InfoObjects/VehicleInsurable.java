@@ -6,5 +6,6 @@ package BEANS.InfoObjects;
  */
 public interface VehicleInsurable extends Insurable {
     
+    public String getVehicleId();
     public int getYear();
 }

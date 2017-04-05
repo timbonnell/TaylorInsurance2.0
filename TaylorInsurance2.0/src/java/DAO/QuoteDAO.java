@@ -36,7 +36,7 @@ public class QuoteDAO {
     static ResultSet rs = null;
     static PreparedStatement ps;
 
-    public static HouseQuote createHouseQuote(Customer Client, House house, HouseQuote houseQuote) {
+    public static HouseQuote createHouseQuote(HouseQuote houseQuote) {
         String SPsql = "EXEC insertHomeQuote ?,?,?,?,?";
         Date exDate = java.sql.Date.valueOf(LocalDate.now().plusDays(30));
         Date createDate = java.sql.Date.valueOf(LocalDate.now());
@@ -46,14 +46,14 @@ public class QuoteDAO {
             ps.setEscapeProcessing(true);
             ps.setQueryTimeout(30);
             //Set up params for stored procedure
-            ps.setInt(1, Integer.parseInt(Client.getId()));
-            ps.setInt(2, (house.getHouseID()));
+            ps.setInt(1, Integer.parseInt(houseQuote.getClient().getId()));
+            ps.setInt(2, Integer.parseInt(houseQuote.getProperty().getHouseId()));
             ps.setDouble(3, houseQuote.getTotalPremium());
             ps.setDate(4, createDate);
             ps.setDate(5, exDate);
 
-             boolean more = ps.execute();
-             more = ps.getMoreResults();
+            boolean more = ps.execute();
+            more = ps.getMoreResults();
             rs = ps.getResultSet();
             more = rs.next();
             System.out.println(more);
@@ -68,7 +68,7 @@ public class QuoteDAO {
                 houseQuote.setId(rs.getString(1));
             }
 
-        } catch (Exception ex) {
+        } catch (NumberFormatException | SQLException ex) {
             System.out.println("Insert House Quote Failed: An Exception has occurred! " + ex);
         } //Exception handling and closing
         finally {
@@ -78,7 +78,7 @@ public class QuoteDAO {
         return houseQuote;
     }
 
-    public static VehicleQuote createVehicleQuote(Customer client, Vehicle vehicle, VehicleQuote vehicleQuote) {
+    public static VehicleQuote createVehicleQuote(VehicleQuote vehicleQuote) {
         String SPsql = "EXEC insertAutoQuote ?,?,?,?,?";
         Date exDate = java.sql.Date.valueOf(LocalDate.now().plusDays(30));
         Date createDate = java.sql.Date.valueOf(LocalDate.now());
@@ -87,16 +87,16 @@ public class QuoteDAO {
             ps = connection.prepareStatement(SPsql);
             ps.setEscapeProcessing(true);
             ps.setQueryTimeout(30);
-            
-            System.out.println("Create VEhicle QUote" + vehicle.getVehicleID());
-            
+
+            System.out.println("Create VEhicle QUote" + vehicleQuote.getProperty().getVehicleId());
+
             //Set up params for stored procedure
-            ps.setInt(1, Integer.parseInt(client.getId()));
-            ps.setInt(2, vehicle.getVehicleID());
+            ps.setInt(1, Integer.parseInt(vehicleQuote.getClient().getId()));
+            ps.setString(2, vehicleQuote.getProperty().getVehicleId());
             ps.setDouble(3, vehicleQuote.getTotalPremium());
             ps.setDate(4, createDate);
             ps.setDate(5, exDate);
-            
+
             boolean more = ps.execute();
             more = ps.getMoreResults();
             rs = ps.getResultSet();
@@ -123,11 +123,11 @@ public class QuoteDAO {
     }
 
     public static List<Integer> getHomeQuoteIDbyCustomerID(Customer client) {
-      
+
         List<Integer> QuoteIDS = new ArrayList<Integer>();
         int CustomerID = Integer.parseInt(client.getId());
         String SPsql = "EXEC getQuoteByCustomerId ?";
-        
+
         try {
             connection = ConnectionManager.getConnection();
             //stmt = connection.createStatement();
@@ -139,14 +139,14 @@ public class QuoteDAO {
             //Return sp into a result set
             rs = ps.executeQuery();
             //If the customer doesnt have any quotes 
-            if (! rs.next()) {
+            if (!rs.next()) {
                 System.out.println("No Quotes Found");
             } else {
-                do{
-                    if(rs.getInt("quote_type") == 15){
+                do {
+                    if (rs.getInt("quote_type") == 15) {
                         QuoteIDS.add(rs.getInt("quote_id"));
                     }
-                }while (rs.next()); 
+                } while (rs.next());
             }
         } catch (Exception ex) {
             System.out.println("An Exception has occurred! " + ex);
@@ -158,7 +158,7 @@ public class QuoteDAO {
         System.out.println("HomeQuote IDS:" + QuoteIDS);
         return QuoteIDS;
     }
-    
+
     public static List<Integer> getAutoQuoteIDbyCustomerID(Customer client) {
 
         List<Integer> QuoteIDS = new ArrayList<Integer>();
@@ -174,14 +174,14 @@ public class QuoteDAO {
             //Return sp into a result set
             rs = ps.executeQuery();
             //If the customer doesnt have any quotes 
-            if (! rs.next()) {
+            if (!rs.next()) {
                 System.out.println("No Quotes Found");
             } else {
-                do{
-                    if(rs.getInt("quote_type") == 14){
+                do {
+                    if (rs.getInt("quote_type") == 14) {
                         QuoteIDS.add(rs.getInt("quote_id"));
                     }
-                }while (rs.next()); 
+                } while (rs.next());
             }
         } catch (Exception ex) {
             System.out.println("An Exception has occurred! " + ex);
@@ -193,7 +193,6 @@ public class QuoteDAO {
         System.out.println("AutoQuote IDS:" + QuoteIDS);
         return QuoteIDS;
     }
-    
 
     public static String getHouseQuote(int QuoteID) {
         String returnResult = "";
@@ -209,7 +208,7 @@ public class QuoteDAO {
             ps.setInt(1, QuoteID);
             //Return sp into a result set
             rs = ps.executeQuery();
-            while(rs.next()) {
+            while (rs.next()) {
                 returnResult = "Quote ID: " + rs.getInt("quote_id") + "<br>" + "Premium: $" + rs.getDouble("quote_rate") + "<br>" + "Expiration Date: " + rs.getDate("date_expired");
             }
         } catch (SQLException ex) {
@@ -245,4 +244,5 @@ public class QuoteDAO {
         }
         return returnResult;
     }
+
 }

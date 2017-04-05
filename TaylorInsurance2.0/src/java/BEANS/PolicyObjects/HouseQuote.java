@@ -2,6 +2,7 @@ package BEANS.PolicyObjects;
 
 import BEANS.InfoObjects.CustomerInsurable;
 import BEANS.InfoObjects.HouseInsurable;
+import BEANS.InfoObjects.Insurable;
 import BEANS.RiskFactorObjects.HouseRiskFactorGenerator;
 import java.time.LocalDate;
 
@@ -11,9 +12,13 @@ import java.time.LocalDate;
  */
 public class HouseQuote extends Quote {
 
-    public HouseQuote(String id, LocalDate created, CustomerInsurable client, HouseInsurable house) {
-        super(id, created, client, house);
-        setCalculator(new HouseRiskFactorGenerator(client, house));
+    public HouseQuote(String id, LocalDate creationDate, LocalDate expiryDate, CustomerInsurable client, Insurable property) {
+        super(id, creationDate, expiryDate, client, property);
+    }
+
+    @Override
+    public HouseInsurable getProperty() {
+        return (HouseInsurable) super.getProperty();
     }
 
 }

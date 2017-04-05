@@ -16,7 +16,7 @@ public class Vehicle implements VehicleInsurable {
     private int year;
     private int type;
     private String vin;
-    private int vehicleID;
+    private String vehicleID;
     private int color;
     private int numAccidents;
     private double estimated_value;
@@ -45,11 +45,12 @@ public class Vehicle implements VehicleInsurable {
         this.vin = vin;
     }
 
-    public int getVehicleID() {
+    @Override
+    public String getVehicleId() {
         return vehicleID;
     }
 
-    public void setVehicleID(int vehicleID) {
+    public void setVehicleID(String vehicleID) {
         this.vehicleID = vehicleID;
     }
 

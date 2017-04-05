@@ -7,11 +7,9 @@ package BEANS.TestObjects;
 
 
 
-import BEANS.PolicyObjects.Quote;
 import BEANS.InfoObjects.Customer;
 import BEANS.InfoObjects.Vehicle;
 import BEANS.InfoObjects.Address;
-import BEANS.PolicyObjects.VehicleQuote;
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -22,8 +20,6 @@ import java.time.Month;
 public class Tester {
     
     public static void main(String args[]) {
-        VehicleQuote testQuote = getTestVehicleQuote();
-        System.out.println(testQuote.getTotalPremium());
     }
     
     public static Customer getTestClient() {
@@ -47,7 +43,4 @@ public class Tester {
         return vehicle;
     }
     
-    public static VehicleQuote getTestVehicleQuote() {
-        return new VehicleQuote("2000", LocalDate.of(2010, 8, 8), getTestClient(), getTestVehicle());
-    }
 }

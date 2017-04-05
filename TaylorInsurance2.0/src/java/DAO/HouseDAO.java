@@ -7,10 +7,15 @@ package DAO;
 
 import BEANS.InfoObjects.House;
 import SERVLETS.ConnectionManager;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -69,17 +74,50 @@ public class HouseDAO {
             else if (more) {
                 rs = ps.getResultSet();
                 System.out.println("House ID: " + rs.getString(1));
-                house.setHouseID(Integer.parseInt(rs.getString(1)));
+                house.setHouseID(rs.getString(1));
             }
-        } catch (Exception ex) {
+        } catch (NumberFormatException | SQLException ex) {
             System.out.println("createHouse: An Exception has occurred! " + ex);
         } //Exception handling and closing
         finally {
             //Close DB Connections
             ConnectionManager.Dispose(connection, rs, ps);
-
         }
         return house;
     }
 
+      /**
+     * Creates a list of houses
+     * 
+     * Stored procedure getHousesByCustomerId:
+     * 
+     * Parameter: 
+     * INTEGER customerId
+     * 
+     * Return:
+     * INTEGER houseId
+     * INTEGER heating;
+     * INTEGER year;
+     * INTEGER type;
+     * 
+     * @param customerId
+     * @return 
+     */
+    public static List<House> getHousesForCustomer(String customerId) {
+        String sql = "{call getHousesByCustomerId (?)}";
+        List<House> list = new ArrayList();
+        try (
+                Connection con = ConnectionManager.getConnection();
+                CallableStatement stm = con.prepareCall(sql)) {
+
+            stm.setInt(1, Integer.parseInt(customerId));
+            ResultSet results = stm.executeQuery();
+            while (results.next()) {
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(HouseDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
 }

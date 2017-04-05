@@ -29,10 +29,10 @@ public class PolicyDAO {
     static PreparedStatement ps;
 
     // Create Auto Policy
-    public static int acceptAutoPolicy(int QuoteID) {
-        int returnResult = 0;
+    public static String acceptAutoPolicy(String quoteId) {
+        String policyId = "";
         String SPsql = "EXEC acceptAutoPolicy ?";
-        System.out.println("Accept Policy" + QuoteID);
+        System.out.println("Accept Policy" + quoteId);
         try {
             connection = ConnectionManager.getConnection();
             //stmt = connection.createStatement();
@@ -40,31 +40,27 @@ public class PolicyDAO {
             ps.setEscapeProcessing(true);
             ps.setQueryTimeout(30);
             //Set up params for stored procedure
-            ps.setInt(1, QuoteID);
+            ps.setInt(1, Integer.parseInt(quoteId));
             //Return sp into a result set
-             rs = ps.executeQuery();
-             if(rs.next()){
-            while (rs.next()) {
-                returnResult = rs.getInt(1);
-            }}
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                policyId = rs.getString(1);
+            }
         } catch (SQLException ex) {
-            System.out.println("Retreive Quote has failed for customer id: " + QuoteID + " reason: " + ex);
+            System.out.println("Retreive Quote has failed for customer id: " + quoteId + " reason: " + ex);
             Logger.getLogger(QuoteDAO.class.getName()).log(Level.SEVERE, null, ex);
-
         } finally {
             //Close DB Connections
             ConnectionManager.Dispose(connection, rs, ps);
         }
-        System.out.println(returnResult);
-        return returnResult;
+        return policyId;
     }
 
-
 //Create Home Policy
-public static int acceptHomePolicy(int QuoteID) {
-        int returnResult = 0;
+    public static String acceptHomePolicy(String quoteId) {
+        String returnResult = "";
         String SPsql = "EXEC acceptHomePolicy ?";
-        System.out.println("Accept Policy" + QuoteID);
+        System.out.println("Accept Policy" + quoteId);
         try {
             connection = ConnectionManager.getConnection();
             //stmt = connection.createStatement();
@@ -72,21 +68,17 @@ public static int acceptHomePolicy(int QuoteID) {
             ps.setEscapeProcessing(true);
             ps.setQueryTimeout(30);
             //Set up params for stored procedure
-            ps.setInt(1, QuoteID);
+            ps.setInt(1, Integer.parseInt(quoteId));
             //Return sp into a result set
-             //boolean more = ps.execute();
-             //more = ps.getMoreResults();
-             rs = ps.executeQuery();
-             if(rs.next()){
-             while (rs.next()) {
-                returnResult = rs.getInt(1);
-            }}
+            //boolean more = ps.execute();
+            //more = ps.getMoreResults();
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                returnResult = rs.getString(1);
+            }
         } catch (SQLException ex) {
-            System.out.println("Retreive Quote has failed for customer id: " + QuoteID + " reason: " + ex);
-            Logger
-
-.getLogger(QuoteDAO.class
-.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Retreive Quote has failed for customer id: " + quoteId + " reason: " + ex);
+            Logger.getLogger(QuoteDAO.class.getName()).log(Level.SEVERE, null, ex);
 
         } finally {
             //Close DB Connections
@@ -98,7 +90,7 @@ public static int acceptHomePolicy(int QuoteID) {
 
     public static List<Integer> getAutoPolicyByCustomerId(Customer client) {
 
-        List<Integer> PolicyIDS = new ArrayList<Integer>();
+        List<Integer> PolicyIDS = new ArrayList<>();
         int CustomerID = Integer.parseInt(client.getId());
         String SPsql = "EXEC getPolicyByCustomerId ?";
         try {
@@ -115,12 +107,12 @@ public static int acceptHomePolicy(int QuoteID) {
                 System.out.println("No policies Found");
             } else {
                 do {
-                    if(rs.getInt("policy_type") == 14){
-                    PolicyIDS.add(rs.getInt("policy_id"));
+                    if (rs.getInt("policy_type") == 14) {
+                        PolicyIDS.add(rs.getInt("policy_id"));
                     }
                 } while (rs.next());
             }
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             System.out.println("getAutoPolicyByCustomerId has failed " + ex);
         } //Exception handling and closing
         finally {
@@ -129,9 +121,9 @@ public static int acceptHomePolicy(int QuoteID) {
         return PolicyIDS;
     }
 
-        public static List<Integer> getHomePolicyByCustomerId(Customer client) {
+    public static List<Integer> getHomePolicyByCustomerId(Customer client) {
 
-        List<Integer> PolicyIDS = new ArrayList<Integer>();
+        List<Integer> PolicyIDS = new ArrayList<>();
         int CustomerID = Integer.parseInt(client.getId());
         String SPsql = "EXEC getPolicyByCustomerId ?";
         try {
@@ -148,12 +140,12 @@ public static int acceptHomePolicy(int QuoteID) {
                 System.out.println("No policies Found");
             } else {
                 do {
-                    if(rs.getInt("policy_type") == 15){
-                    PolicyIDS.add(rs.getInt("policy_id"));
+                    if (rs.getInt("policy_type") == 15) {
+                        PolicyIDS.add(rs.getInt("policy_id"));
                     }
                 } while (rs.next());
             }
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             System.out.println("getHomePolicyByCustomerId has failed " + ex);
         } //Exception handling and closing
         finally {
@@ -161,11 +153,11 @@ public static int acceptHomePolicy(int QuoteID) {
         }
         return PolicyIDS;
     }
-        
-    public static String getHousePolicy(int policyID) {
-                String returnResult = "";
+
+    public static String getHousePolicy(String policyId) {
+        String returnResult = "";
         String SPsql = "EXEC getHomePolicyByPolicyId ?";
-        System.out.println(policyID);
+        System.out.println(policyId);
         try {
             connection = ConnectionManager.getConnection();
             //stmt = connection.createStatement();
@@ -173,14 +165,14 @@ public static int acceptHomePolicy(int QuoteID) {
             ps.setEscapeProcessing(true);
             ps.setQueryTimeout(30);
             //Set up params for stored procedure
-            ps.setInt(1, policyID);
+            ps.setInt(1, Integer.parseInt(policyId));
             //Return sp into a result set
             rs = ps.executeQuery();
-            while(rs.next()) {
+            while (rs.next()) {
                 returnResult = "Home Policy ID: " + rs.getInt("policy_id") + "<br>" + "Annual Premium: $" + rs.getDouble("premium") + "<br>" + "Expiration Date: " + rs.getDate("date_expired");
             }
         } catch (SQLException ex) {
-            System.out.println("Retreive Home Policy has failed for customer id: " + policyID + " reason: " + ex);
+            System.out.println("Retreive Home Policy has failed for customer id: " + policyId + " reason: " + ex);
             Logger.getLogger(QuoteDAO.class.getName()).log(Level.SEVERE, null, ex);
 
         } finally {
@@ -191,10 +183,10 @@ public static int acceptHomePolicy(int QuoteID) {
         return returnResult;
     }
 
-        public static String getAutoPolicy(int policyID) {
-                String returnResult = "";
+    public static String getAutoPolicy(String policyId) {
+        String returnResult = "";
         String SPsql = "EXEC getAutoPolicyByPolicyId ?";
-        System.out.println(policyID);
+        System.out.println(policyId);
         try {
             connection = ConnectionManager.getConnection();
             //stmt = connection.createStatement();
@@ -202,14 +194,14 @@ public static int acceptHomePolicy(int QuoteID) {
             ps.setEscapeProcessing(true);
             ps.setQueryTimeout(30);
             //Set up params for stored procedure
-            ps.setInt(1, policyID);
+            ps.setInt(1, Integer.parseInt(policyId));
             //Return sp into a result set
             rs = ps.executeQuery();
-            while(rs.next()) {
+            while (rs.next()) {
                 returnResult = " Auto Policy ID: " + rs.getInt("policy_id") + "<br>" + " Annual Premium: $" + rs.getDouble("premium") + "<br>" + " Expiration Date: " + rs.getDate("date_expired");
             }
         } catch (SQLException ex) {
-            System.out.println("Retreive Auto Policy has failed for customer id: " + policyID + " reason: " + ex);
+            System.out.println("Retreive Auto Policy has failed for customer id: " + policyId + " reason: " + ex);
             Logger.getLogger(QuoteDAO.class.getName()).log(Level.SEVERE, null, ex);
 
         } finally {
@@ -219,6 +211,5 @@ public static int acceptHomePolicy(int QuoteID) {
         System.out.println(returnResult);
         return returnResult;
     }
-
 
 }

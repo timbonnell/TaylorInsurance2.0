@@ -18,9 +18,10 @@ public abstract class Quote {
     private String id;
     private Insurable property;
 
-    public Quote(String id, LocalDate creationDate, CustomerInsurable client, Insurable property) {
+    public Quote(String id, LocalDate creationDate, LocalDate expiryDate, CustomerInsurable client, Insurable property) {
         this.id = id;
         this.creationDate = creationDate;
+        this.expiryDate = expiryDate;
         this.client = client;
         this.property = property;
     }
