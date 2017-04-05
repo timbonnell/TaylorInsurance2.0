@@ -78,7 +78,7 @@
 
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">Address: </label>
-                                            <p> <%= currentClient.getAddress().toString() %></p>       
+                                            <p> <%= newHouse.getAddress().toString() %></p>       
                                         </div>
 
 
