@@ -5,7 +5,9 @@
  */
 package SERVLETS;
 
+import BEANS.BusinessProcessObjects.BusinessProcessManager;
 import BEANS.InfoObjects.Customer;
+import BEANS.PolicyObjects.Policy;
 import BEANS.PolicyObjects.VehicleQuote;
 import DAO.PolicyDAO;
 import DAO.QuoteDAO;
@@ -26,15 +28,6 @@ import javax.servlet.http.HttpSession;
  */
 public class CreateAutoPolicyServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -57,9 +50,11 @@ public class CreateAutoPolicyServlet extends HttpServlet {
         List<Integer> HomePolicyIDS = new ArrayList<Integer>();
         List<Integer> AutoPolicyIDS = new ArrayList<Integer>();
 
-        int autoQuoteID = (int) (request.getSession(false).getAttribute("currentsessionAutoQuoteID"));
-        int result = PolicyDAO.acceptAutoPolicy(autoQuoteID);
-        System.out.println("Customer ID for Auto Policy Post" + result);
+        String autoQuoteID = (String) (request.getSession(false).getAttribute("currentsessionAutoQuoteID"));
+        
+        Policy vehiclePolicy = BusinessProcessManager.getInstance().createNewVehiclePolicy(autoQuoteID);
+        
+
 
         Customer client = (Customer) (request.getSession(false).getAttribute("currentSessionClient"));
         //Quote IDS for Dropdown List
@@ -70,6 +65,7 @@ public class CreateAutoPolicyServlet extends HttpServlet {
         AutoPolicyIDS = PolicyDAO.getAutoPolicyByCustomerId(client);
 
         HttpSession session = request.getSession(true);
+        session.setAttribute("BusinessProcessManager", BusinessProcessManager.getInstance());
         session.setAttribute("currentSessionClient", client);
         session.setAttribute("currentHomeQuoteID", HomeQuoteIDS);
         session.setAttribute("currentAutoQuoteID", AutoQuoteIDS);

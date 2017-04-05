@@ -5,6 +5,7 @@
  */
 package SERVLETS;
 
+import BEANS.BusinessProcessObjects.BusinessProcessManager;
 import BEANS.InfoObjects.House;
 import BEANS.InfoObjects.Address;
 import BEANS.InfoObjects.Customer;
@@ -84,35 +85,24 @@ public class HomeQuoteServlet extends HttpServlet {
         client.setAddress(address);
 
         //Store initial customer in database
-        //  CustomerDAO.createInit(client);
         //Creates House Object
         House newHouse = new House();
         newHouse.setHeating(Integer.parseInt(request.getParameter("heatsource")));
         newHouse.setType(Integer.parseInt(request.getParameter("building")));
         newHouse.setYear(Integer.parseInt(request.getParameter("yearBuilt")));
         newHouse.setAddress(address);
-
+         House newQuoteHouse = HouseDAO.createHouse(newHouse);
+        
         //Create a House Quote
-        HouseQuote houseQuote = new HouseQuote("0", LocalDate.now(), client, newHouse);
-
-        //Test Quote
-        System.out.println("House Premium:  $" + houseQuote.getTotalPremium());
-
-        //Store Objects in Database
-        House newQuoteHouse = HouseDAO.createHouse(newHouse);
-
-        Customer newClient = CustomerDAO.createInit(client);
-
-        HouseQuote newHouseQuote = QuoteDAO.createHouseQuote(newClient, newQuoteHouse, houseQuote);
+        //HouseQuote houseQuote = new HouseQuote("0", LocalDate.now(), client, newHouse);
+        HouseQuote houseQuote = BusinessProcessManager.getInstance().createNewHouseQuote(newQuoteHouse.getHouseId());
+        Customer newClient = BusinessProcessManager.getInstance().createNewCustomer(client);
         
-        
+
         //Set up sessions
         HttpSession session = request.getSession(true);
 
-        session.setAttribute("currentSessionClient", newClient);
-        session.setAttribute("currentSessionHouse", newQuoteHouse);
-        session.setAttribute("currentSessionHouseQuote", newHouseQuote);
-
+        session.setAttribute("BusinessProcessManager", BusinessProcessManager.getInstance());
         //Redirects to Create Customer Page
         response.sendRedirect("HomeQuoteResult.jsp");
 

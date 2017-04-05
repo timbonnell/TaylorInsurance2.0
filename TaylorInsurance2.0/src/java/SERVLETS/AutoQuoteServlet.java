@@ -5,6 +5,7 @@
  */
 package SERVLETS;
 
+import BEANS.BusinessProcessObjects.BusinessProcessManager;
 import BEANS.InfoObjects.Address;
 import BEANS.InfoObjects.Customer;
 import BEANS.InfoObjects.Vehicle;
@@ -68,7 +69,7 @@ public class AutoQuoteServlet extends HttpServlet {
         String enteredPostalCode = request.getParameter("postalcode");
         Address address = new Address(enteredCity, request.getParameter("province"), enteredStreetAddress, enteredCountry, enteredPostalCode);
         quoteCustomer.setAddress(address);
-        
+
         //Build Birthday for Customer
         String enteredDateOfBirth = request.getParameter("dateofbirth");
         String[] splitDate = enteredDateOfBirth.split("-");
@@ -87,62 +88,27 @@ public class AutoQuoteServlet extends HttpServlet {
         String vehicleVIN = request.getParameter("vin");
         int vehicleAccidents = Integer.parseInt(request.getParameter("accidents"));
         double estimatedValue = Double.parseDouble(request.getParameter("estValue"));
-        
-        //Build Vehicle Object
-          Vehicle quoteVehicle = new Vehicle();
-          quoteVehicle.setType(vehicleType);
-          quoteVehicle.setMake(vehicleMake);
-          quoteVehicle.setModel(vehicleModel);
-          quoteVehicle.setYear(vehicleYear);
-          quoteVehicle.setColor(vehicleColor);
-          quoteVehicle.setVin(vehicleVIN);
-          quoteVehicle.setNumAccidents(vehicleAccidents);
-          quoteVehicle.setEstimated_value(estimatedValue);
-        
 
-        VehicleQuote vehicleQuote = new VehicleQuote("0", LocalDate.now(), quoteCustomer, quoteVehicle);
-        
-        
-        
-        //Store Objects in Database
-        Customer newQuoteCustomer = CustomerDAO.createInit(quoteCustomer);
+        //Build Vehicle Object
+        Vehicle quoteVehicle = new Vehicle();
+        quoteVehicle.setType(vehicleType);
+        quoteVehicle.setMake(vehicleMake);
+        quoteVehicle.setModel(vehicleModel);
+        quoteVehicle.setYear(vehicleYear);
+        quoteVehicle.setColor(vehicleColor);
+        quoteVehicle.setVin(vehicleVIN);
+        quoteVehicle.setNumAccidents(vehicleAccidents);
+        quoteVehicle.setEstimated_value(estimatedValue);
         Vehicle newQuoteVehicle = VehicleDAO.createVehicle(quoteVehicle);
-        VehicleQuote newVehicleQuote = QuoteDAO.createVehicleQuote(newQuoteCustomer, newQuoteVehicle, vehicleQuote);
-        
+
+        Customer newQuoteCustomer = BusinessProcessManager.getInstance().createNewCustomer(quoteCustomer);
+        VehicleQuote vehicleQuote = BusinessProcessManager.getInstance().createNewVehicleQuote(newQuoteVehicle.getVehicleId());
+        VehicleQuote newVehicleQuote = QuoteDAO.createVehicleQuote(vehicleQuote);
 
         //Set up sessions
         HttpSession session = request.getSession(true);
-        session.setAttribute("currentSessionClient", newQuoteCustomer);
-        session.setAttribute("currentSessionVehicle", quoteVehicle);
-        session.setAttribute("currentSessionVehicleQuote", newVehicleQuote);
-
-        System.out.println("Vehicle Premium:  $" + vehicleQuote.getTotalPremium());
-
+        session.setAttribute("BusinessProcessManager", BusinessProcessManager.getInstance());
         response.sendRedirect("AutoQuoteResult.jsp");
     }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }
