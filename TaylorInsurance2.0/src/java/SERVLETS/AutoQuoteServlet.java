@@ -111,13 +111,10 @@ public class AutoQuoteServlet extends HttpServlet {
         
 
         //Set up sessions
-        HttpSession sessionClient = request.getSession(true);
-        HttpSession sessionVehicle = request.getSession(true);
-        HttpSession sessionVehicleQuote = request.getSession(true);
-
-        sessionClient.setAttribute("currentSessionClient", newQuoteCustomer);
-        sessionVehicle.setAttribute("currentSessionVehicle", quoteVehicle);
-        sessionVehicleQuote.setAttribute("currentSessionVehicleQuote", newVehicleQuote);
+        HttpSession session = request.getSession(true);
+        session.setAttribute("currentSessionClient", newQuoteCustomer);
+        session.setAttribute("currentSessionVehicle", quoteVehicle);
+        session.setAttribute("currentSessionVehicleQuote", newVehicleQuote);
 
         System.out.println("Vehicle Premium:  $" + vehicleQuote.getTotalPremium());
 

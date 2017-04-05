@@ -52,11 +52,9 @@ public class ViewHomePolicyServlet extends HttpServlet {
         String homePolicyResult = PolicyDAO.getHousePolicy(policyID);
         
                 //Set up sessions
-        HttpSession sessionHomePolicy = request.getSession(true);
-        sessionHomePolicy.setAttribute("currentsessionHomePolicy", homePolicyResult);
-        
-        HttpSession sessionHomePolicyID = request.getSession(true);
-        sessionHomePolicyID.setAttribute("currentsessionHomePolicyID", policyID);
+        HttpSession session= request.getSession(true);
+        session.setAttribute("currentsessionHomePolicy", homePolicyResult);
+        session.setAttribute("currentsessionHomePolicyID", policyID);
         
         response.sendRedirect("viewHomePolicy.jsp");
     }

@@ -49,11 +49,9 @@ public class ViewAutoPolicyServlet extends HttpServlet {
         String autoPolicyResult = PolicyDAO.getAutoPolicy(policyID);
 
         //Set up sessions
-        HttpSession sessionHomePolicy = request.getSession(true);
-        sessionHomePolicy.setAttribute("currentsessionAutoPolicy", autoPolicyResult);
-
-        HttpSession sessionHomePolicyID = request.getSession(true);
-        sessionHomePolicyID.setAttribute("currentsessionAutoPolicyID", policyID);
+        HttpSession session = request.getSession(true);
+        session.setAttribute("currentsessionAutoPolicy", autoPolicyResult);
+        session.setAttribute("currentsessionAutoPolicyID", policyID);
 
         response.sendRedirect("viewAutoPolicy.jsp");
     }

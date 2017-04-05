@@ -91,10 +91,8 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = request.getSession(true);
 
                 session.setAttribute("currentSessionClient", client);
-                
                 session.setAttribute("currentHomeQuoteID", HomeQuoteIDS);
                 session.setAttribute("currentAutoQuoteID", AutoQuoteIDS);
-               
                 session.setAttribute("currentHomePolicyID", HomePolicyIDS);
                 session.setAttribute("currentAutoPolicyID", AutoPolicyIDS);
           

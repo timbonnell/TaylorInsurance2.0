@@ -82,22 +82,16 @@ public class ExistingHomeQuoteServlet extends HttpServlet {
         HomePolicyIDS = PolicyDAO.getHomePolicyByCustomerId(newCustomer);
         AutoPolicyIDS = PolicyDAO.getAutoPolicyByCustomerId(newCustomer);
         //Set up sessions
-        HttpSession sessionClient = request.getSession(true);
-        HttpSession sessionHouse = request.getSession(true);
-        HttpSession sessionHouseQuote = request.getSession(true);
-        HttpSession sessionHomeQuoteID = request.getSession(true);
-        HttpSession sessionAutoQuoteID = request.getSession(true);
-        HttpSession sessionAutoPolicyID = request.getSession(true);
-        HttpSession sessionHomePolicyID = request.getSession(true);
+        HttpSession session = request.getSession(true);
 
-        sessionClient.setAttribute("currentSessionClient", newCustomer);
-        sessionHouse.setAttribute("currentSessionHouse", newQuoteHouse);
-        sessionHouseQuote.setAttribute("currentSessionHouseQuote", newHouseQuote);
-        sessionHomeQuoteID.setAttribute("currentHomeQuoteID", HomeQuoteIDS);
-        sessionAutoQuoteID.setAttribute("currentAutoQuoteID", AutoQuoteIDS);
 
-        sessionHomePolicyID.setAttribute("currentHomePolicyID", HomePolicyIDS);
-        sessionAutoPolicyID.setAttribute("currentAutoPolicyID", AutoPolicyIDS);
+        session.setAttribute("currentSessionClient", newCustomer);
+        session.setAttribute("currentSessionHouse", newQuoteHouse);
+        session.setAttribute("currentSessionHouseQuote", newHouseQuote);
+        session.setAttribute("currentHomeQuoteID", HomeQuoteIDS);
+        session.setAttribute("currentAutoQuoteID", AutoQuoteIDS);
+        session.setAttribute("currentHomePolicyID", HomePolicyIDS);
+        session.setAttribute("currentAutoPolicyID", AutoPolicyIDS);
 
         response.sendRedirect("existingHomeQuoteResult.jsp"); //logged-in page
 

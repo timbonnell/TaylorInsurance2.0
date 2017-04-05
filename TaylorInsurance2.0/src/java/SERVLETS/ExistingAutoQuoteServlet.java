@@ -105,22 +105,14 @@ public class ExistingAutoQuoteServlet extends HttpServlet {
         AutoPolicyIDS = PolicyDAO.getAutoPolicyByCustomerId(newCustomer);
 
         //Set up sessions
-        HttpSession sessionClient = request.getSession(true);
-        HttpSession sessionVehicle = request.getSession(true);
-        HttpSession sessionVehicleQuote = request.getSession(true);
-        HttpSession sessionHomeQuoteID = request.getSession(true);
-        HttpSession sessionAutoQuoteID = request.getSession(true);
-        HttpSession sessionAutoPolicyID = request.getSession(true);
-        HttpSession sessionHomePolicyID = request.getSession(true);
-
-        sessionClient.setAttribute("currentSessionClient", newCustomer);
-        sessionVehicle.setAttribute("currentSessionVehicle", quoteVehicle);
-        sessionVehicleQuote.setAttribute("currentSessionVehicleQuote", newVehicleQuote);
-        sessionHomeQuoteID.setAttribute("currentHomeQuoteID", HomeQuoteIDS);
-        sessionAutoQuoteID.setAttribute("currentAutoQuoteID", AutoQuoteIDS);
-
-        sessionHomePolicyID.setAttribute("currentHomePolicyID", HomePolicyIDS);
-        sessionAutoPolicyID.setAttribute("currentAutoPolicyID", AutoPolicyIDS);
+        HttpSession session = request.getSession(true);
+        session.setAttribute("currentSessionClient", newCustomer);
+        session.setAttribute("currentSessionVehicle", quoteVehicle);
+        session.setAttribute("currentSessionVehicleQuote", newVehicleQuote);
+        session.setAttribute("currentHomeQuoteID", HomeQuoteIDS);
+        session.setAttribute("currentAutoQuoteID", AutoQuoteIDS);
+        session.setAttribute("currentHomePolicyID", HomePolicyIDS);
+        session.setAttribute("currentAutoPolicyID", AutoPolicyIDS);
 
         System.out.println("Vehicle Premium:  $" + vehicleQuote.getTotalPremium());
 

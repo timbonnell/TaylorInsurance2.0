@@ -107,41 +107,14 @@ public class HomeQuoteServlet extends HttpServlet {
         
         
         //Set up sessions
-        HttpSession sessionClient = request.getSession(true);
-        HttpSession sessionHouse = request.getSession(true);
-        HttpSession sessionHouseQuote = request.getSession(true);
+        HttpSession session = request.getSession(true);
 
-        sessionClient.setAttribute("currentSessionClient", newClient);
-        sessionHouse.setAttribute("currentSessionHouse", newQuoteHouse);
-        sessionHouseQuote.setAttribute("currentSessionHouseQuote", newHouseQuote);
+        session.setAttribute("currentSessionClient", newClient);
+        session.setAttribute("currentSessionHouse", newQuoteHouse);
+        session.setAttribute("currentSessionHouseQuote", newHouseQuote);
 
         //Redirects to Create Customer Page
         response.sendRedirect("HomeQuoteResult.jsp");
 
     }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }
