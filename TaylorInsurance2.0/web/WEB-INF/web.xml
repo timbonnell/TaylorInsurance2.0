@@ -55,6 +55,10 @@
         <servlet-name>ExistingHomeQuoteServlet</servlet-name>
         <servlet-class>SERVLETS.ExistingHomeQuoteServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>SERVLETS.LogoutServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -106,6 +110,10 @@
     <servlet-mapping>
         <servlet-name>ExistingHomeQuoteServlet</servlet-name>
         <url-pattern>/ExistingHomeQuoteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
