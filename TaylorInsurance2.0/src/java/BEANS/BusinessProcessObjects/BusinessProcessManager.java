@@ -23,11 +23,6 @@ import java.util.Map;
  */
 public class BusinessProcessManager {
 
-    private static BusinessProcessManager BPM = new BusinessProcessManager();
-
-    public static BusinessProcessManager getInstance() {
-        return BPM;
-    }
     private Customer customer;
 
     private final Map<String, House> houseList = new HashMap();
@@ -38,9 +33,6 @@ public class BusinessProcessManager {
 
     private final Map<String, VehiclePolicy> vehiclePolicyList = new HashMap();
     private final Map<String, VehicleQuote> vehicleQuoteList = new HashMap();
-
-    private BusinessProcessManager() {
-    }
 
     public void addExistingHouse(House house) {
         houseList.put(house.getHouseId(), house);
