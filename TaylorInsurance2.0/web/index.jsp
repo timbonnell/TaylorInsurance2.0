@@ -203,7 +203,7 @@
                                 <p class="pm-staff-profile-name">Josh Taylor</p>
                                 <p class="pm-staff-profile-title">CEO/Owner</p>
 
-                                <p class="pm-staff-profile-bio">Our CEO is Josh Taylor, a new business manager who is determined to see Blackstone Consulting succeed.</p>
+                                <p class="pm-staff-profile-bio">Our CEO is Josh Taylor, a new business manager who is determined to see Taylor Insurance succeed.</p>
                             </div>     
                         </div>
                     </div>
@@ -218,7 +218,7 @@
                                 <p class="pm-staff-profile-name">Brent Furlong</p>
                                 <p class="pm-staff-profile-title">President</p>
 
-                                <p class="pm-staff-profile-bio">Brent Furlong is the President of Blackstone Consulting and oversees all changes the company goes through.</p>
+                                <p class="pm-staff-profile-bio">Brent Furlong is the President of Taylor Insurance and oversees all changes the company goes through.</p>
                             </div>     
                         </div>
                     </div>
@@ -233,7 +233,7 @@
                                 <p class="pm-staff-profile-name">Tim Bonnell</p>
                                 <p class="pm-staff-profile-title">Vice President </p>
 
-                                <p class="pm-staff-profile-bio">Tim Bonnell keeps everything on track at Blackstone Consulting as the Vice President.</p>
+                                <p class="pm-staff-profile-bio">Tim Bonnell keeps everything on track at Taylor Insurance as the Vice President.</p>
                             </div>     
                         </div>
                     </div>
@@ -253,7 +253,7 @@
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div class="text-comment">
-                            <p class="text-par">"I have been very impressed by the work of Blackstone Consulting,<br>they have been both very professional and effective."</p>
+                            <p class="text-par">"I have been very impressed by the work of Taylor Insurance,<br>they have been both very professional and effective."</p>
                             <p class="text-name">John Doe</p>
                         </div>
                     </div>

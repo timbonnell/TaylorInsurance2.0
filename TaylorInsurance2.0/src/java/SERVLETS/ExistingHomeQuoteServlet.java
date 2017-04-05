@@ -99,7 +99,7 @@ public class ExistingHomeQuoteServlet extends HttpServlet {
         sessionHomePolicyID.setAttribute("currentHomePolicyID", HomePolicyIDS);
         sessionAutoPolicyID.setAttribute("currentAutoPolicyID", AutoPolicyIDS);
 
-        response.sendRedirect("userprofile.jsp"); //logged-in page
+        response.sendRedirect("existingHomeQuoteResult.jsp"); //logged-in page
 
     }
 

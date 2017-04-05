@@ -89,18 +89,14 @@ public class LoginServlet extends HttpServlet {
                 System.out.println("Auto Quote IDS servlet: " + AutoQuoteIDS);
 
                 HttpSession session = request.getSession(true);
-                HttpSession sessionAutoQuoteID = request.getSession(true);
-                HttpSession sessionHomeQuoteID = request.getSession(true);
-                HttpSession sessionAutoPolicyID = request.getSession(true);
-                HttpSession sessionHomePolicyID = request.getSession(true);
 
                 session.setAttribute("currentSessionClient", client);
                 
-                sessionHomeQuoteID.setAttribute("currentHomeQuoteID", HomeQuoteIDS);
-                sessionAutoQuoteID.setAttribute("currentAutoQuoteID", AutoQuoteIDS);
+                session.setAttribute("currentHomeQuoteID", HomeQuoteIDS);
+                session.setAttribute("currentAutoQuoteID", AutoQuoteIDS);
                
-                sessionHomePolicyID.setAttribute("currentHomePolicyID", HomePolicyIDS);
-                sessionAutoPolicyID.setAttribute("currentAutoPolicyID", AutoPolicyIDS);
+                session.setAttribute("currentHomePolicyID", HomePolicyIDS);
+                session.setAttribute("currentAutoPolicyID", AutoPolicyIDS);
           
           
                 response.sendRedirect("userprofile.jsp"); //logged-in page      		

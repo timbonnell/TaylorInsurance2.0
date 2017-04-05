@@ -38,6 +38,11 @@
                     <li><a href="homeQuoteExisting.jsp">Add Home Quote</a></li>
                     <li><a href="autoQuoteExisting.jsp">Add Auto Quote</a></li>
                     <li><a href="ContactUs.jsp">Contact Us</a></li>
+                    <li>
+                        <form class="form-horizontal" action="LogoutServlet"> 
+                            <button class="btn btn-info" type="submit">Logout</button>
+                        </form>
+                    </li>
                 </ul>
             </div>
         </div>

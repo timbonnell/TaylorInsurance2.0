@@ -124,7 +124,7 @@ public class ExistingAutoQuoteServlet extends HttpServlet {
 
         System.out.println("Vehicle Premium:  $" + vehicleQuote.getTotalPremium());
 
-        response.sendRedirect("userprofile.jsp");
+        response.sendRedirect("existingAutoQuoteResult.jsp");
 
     }
 
