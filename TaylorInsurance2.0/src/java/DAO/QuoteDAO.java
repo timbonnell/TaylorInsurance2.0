@@ -79,7 +79,7 @@ public class QuoteDAO {
     }
 
     public static VehicleQuote createVehicleQuote(VehicleQuote vehicleQuote, int accidents) {
-        String SPsql = "EXEC insertAutoQuote ?,?,?,?,?";
+        String SPsql = "EXEC insertAutoQuote ?,?,?,?,?,?";
         Date exDate = java.sql.Date.valueOf(LocalDate.now().plusDays(30));
         Date createDate = java.sql.Date.valueOf(LocalDate.now());
         try {
@@ -96,6 +96,7 @@ public class QuoteDAO {
             ps.setDouble(3, vehicleQuote.getTotalPremium());
             ps.setDate(4, createDate);
             ps.setDate(5, exDate);
+            ps.setInt(6, accidents);
 
             boolean more = ps.execute();
             more = ps.getMoreResults();
