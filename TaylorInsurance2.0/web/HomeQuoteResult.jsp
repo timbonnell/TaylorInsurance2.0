@@ -3,10 +3,7 @@
     Created on : Mar 24, 2017, 1:10:53 PM
     Author     : tim
 --%>
-<%@page import="BEANS.PolicyObjects.HouseQuote"%>
-<%@page import="BEANS.PolicyObjects.Quote"%>
-<%@page import="BEANS.InfoObjects.Customer" %>
-<%@page import="BEANS.InfoObjects.House" %>
+<%@page import="BEANS.BusinessProcessObjects.BusinessProcessManager"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,10 +46,10 @@
     <!--End Nav -->
 
  <body style="padding-top: 150px;">
-     <% HouseQuote houseQuote = (HouseQuote)(session.getAttribute("currentSessionHouseQuote"));%>
-      <% Customer currentClient = (Customer)(session.getAttribute("currentSessionClient"));%>
-      <% House newHouse = (House) (session.getAttribute("currentSessionHouse"));%>
-        <div class="container">
+     <% BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager)(session.getAttribute("BusinessProcessManager"));%>
+     <% String HouseID = (String)(session.getAttribute("HouseID"));%> 
+     <% String HouseQuoteID = (String)(session.getAttribute("HouseQuoteID"));%> 
+     <div class="container">
             <div class="row">
 
             </div>
@@ -66,20 +63,20 @@
                                     <div class="form-horizontal">               
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">First Name:</label>
-                                            <p> <%= currentClient.getFirstName() %></p>    
+                                            <p> <%= newBusinessProcessManager.getCustomer().getFirstName() %></p>    
                                         </div>
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">Last Name: </label> 
-                                            <p> <%= currentClient.getLastName() %></p> 
+                                            <p> <%= newBusinessProcessManager.getCustomer().getLastName()  %></p> 
                                         </div>
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">Email: </label>
-                                           <p> <%= currentClient.getEmail() %></p>             
+                                           <p> <%= newBusinessProcessManager.getCustomer().getEmail() %></p>             
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">Address: </label>
-                                            <p> <%= newHouse.getAddress().toString() %></p>       
+                                            <p> <%= newBusinessProcessManager.getHouse(HouseID).getAddress().toString() %></p>       
                                         </div>
 
 
@@ -89,7 +86,7 @@
                                     <div class="form-horizontal">               
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">Total Premium: </label>
-                                            <p>$ <%= houseQuote.getTotalPremium() %></p>     
+                                            <p>$ <%= newBusinessProcessManager.getHouseQuote(HouseQuoteID).getTotalPremium() %></p>     
                                         </div>
 
                                         <div class="form-group">

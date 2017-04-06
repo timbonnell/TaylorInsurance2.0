@@ -5,6 +5,7 @@
  */
 package SERVLETS;
 
+import BEANS.BusinessProcessObjects.BusinessProcessManager;
 import BEANS.InfoObjects.Customer;
 import BEANS.InfoObjects.Vehicle;
 import BEANS.PolicyObjects.VehicleQuote;
@@ -28,20 +29,6 @@ import javax.servlet.http.HttpSession;
  */
 public class ExistingAutoQuoteServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-    }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -55,13 +42,9 @@ public class ExistingAutoQuoteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        List<Integer> HomeQuoteIDS = new ArrayList<Integer>();
-        List<Integer> AutoQuoteIDS = new ArrayList<Integer>();
-        List<Integer> HomePolicyIDS = new ArrayList<Integer>();
-        List<Integer> AutoPolicyIDS = new ArrayList<Integer>();
-
-        Customer newCustomer = (Customer) (request.getSession(false).getAttribute("currentSessionClient"));
-
+        BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (request.getSession(false).getAttribute("BusinessProcessManager"));
+        Customer newCustomer = newBusinessProcessManager.getCustomer();
+        
         //Retreive Vehicle Attributes
         int vehicleType = Integer.parseInt(request.getParameter("type"));
         String vehicleMake = request.getParameter("make");
@@ -91,31 +74,15 @@ public class ExistingAutoQuoteServlet extends HttpServlet {
         quoteVehicle.setVin(vehicleVIN);
         quoteVehicle.setNumAccidents(vehicleAccidents);
         quoteVehicle.setEstimated_value(estimatedValue);
-
-        VehicleQuote vehicleQuote = new VehicleQuote("0", LocalDate.now(), newCustomer, quoteVehicle);
-
-        //Store Objects in Database
-        Vehicle newQuoteVehicle = VehicleDAO.createVehicle(quoteVehicle);
-        VehicleQuote newVehicleQuote = QuoteDAO.createVehicleQuote(newCustomer, newQuoteVehicle, vehicleQuote);
         
-        HomeQuoteIDS = QuoteDAO.getHomeQuoteIDbyCustomerID(newCustomer);
-        AutoQuoteIDS = QuoteDAO.getAutoQuoteIDbyCustomerID(newCustomer);
-
-        HomePolicyIDS = PolicyDAO.getHomePolicyByCustomerId(newCustomer);
-        AutoPolicyIDS = PolicyDAO.getAutoPolicyByCustomerId(newCustomer);
+        //Store Objects in Database
+        Vehicle newQuoteVehicle = newBusinessProcessManager.createNewVehicle(quoteVehicle);
+        VehicleQuote vehicleQuote = newBusinessProcessManager.createNewVehicleQuote(newQuoteVehicle.getVehicleId());
+       
 
         //Set up sessions
         HttpSession session = request.getSession(true);
-        session.setAttribute("currentSessionClient", newCustomer);
-        session.setAttribute("currentSessionVehicle", quoteVehicle);
-        session.setAttribute("currentSessionVehicleQuote", newVehicleQuote);
-        session.setAttribute("currentHomeQuoteID", HomeQuoteIDS);
-        session.setAttribute("currentAutoQuoteID", AutoQuoteIDS);
-        session.setAttribute("currentHomePolicyID", HomePolicyIDS);
-        session.setAttribute("currentAutoPolicyID", AutoPolicyIDS);
-
-        System.out.println("Vehicle Premium:  $" + vehicleQuote.getTotalPremium());
-
+        session.setAttribute("BusinessProcessManager", newBusinessProcessManager);
         response.sendRedirect("existingAutoQuoteResult.jsp");
 
     }

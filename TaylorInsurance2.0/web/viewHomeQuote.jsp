@@ -4,7 +4,7 @@
     Author     : tim
 --%>
 
-<%@page import="BEANS.InfoObjects.Customer"%>
+<%@page import="BEANS.BusinessProcessObjects.BusinessProcessManager"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +52,7 @@
     <!--End Nav -->
 
     <body style="padding-top: 150px;">
-        <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
+  
         <% String name = (String) session.getAttribute("currentsessionHomeQuote");%>
         <form class="form-horizontal" action="CreateHomePolicyServlet">
             <div class="form-group">

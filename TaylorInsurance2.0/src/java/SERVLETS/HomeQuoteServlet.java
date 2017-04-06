@@ -5,6 +5,7 @@
  */
 package SERVLETS;
 
+import BEANS.BusinessProcessObjects.BusinessProcessManager;
 import BEANS.InfoObjects.House;
 import BEANS.InfoObjects.Address;
 import BEANS.InfoObjects.Customer;
@@ -55,7 +56,8 @@ public class HomeQuoteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        BusinessProcessManager newBusinessProcessManager = new BusinessProcessManager();
+        
         // Set up customer information
         Customer client = new Customer();
         client.setFirstName(request.getParameter("firstName"));
@@ -84,35 +86,25 @@ public class HomeQuoteServlet extends HttpServlet {
         client.setAddress(address);
 
         //Store initial customer in database
-        //  CustomerDAO.createInit(client);
         //Creates House Object
         House newHouse = new House();
         newHouse.setHeating(Integer.parseInt(request.getParameter("heatsource")));
         newHouse.setType(Integer.parseInt(request.getParameter("building")));
         newHouse.setYear(Integer.parseInt(request.getParameter("yearBuilt")));
         newHouse.setAddress(address);
-
+         
         //Create a House Quote
-        HouseQuote houseQuote = new HouseQuote("0", LocalDate.now(), client, newHouse);
+        //HouseQuote houseQuote = new HouseQuote("0", LocalDate.now(), client, newHouse);
+        newBusinessProcessManager.createNewCustomer(client);
+        newHouse = newBusinessProcessManager.createNewHouse(newHouse);
+        HouseQuote newHouseQuote = newBusinessProcessManager.createNewHouseQuote(newHouse.getHouseId());
 
-        //Test Quote
-        System.out.println("House Premium:  $" + houseQuote.getTotalPremium());
-
-        //Store Objects in Database
-        House newQuoteHouse = HouseDAO.createHouse(newHouse);
-
-        Customer newClient = CustomerDAO.createInit(client);
-
-        HouseQuote newHouseQuote = QuoteDAO.createHouseQuote(newClient, newQuoteHouse, houseQuote);
-        
-        
+       
         //Set up sessions
         HttpSession session = request.getSession(true);
-
-        session.setAttribute("currentSessionClient", newClient);
-        session.setAttribute("currentSessionHouse", newQuoteHouse);
-        session.setAttribute("currentSessionHouseQuote", newHouseQuote);
-
+        session.setAttribute("HouseID", newHouse.getHouseId());
+        session.setAttribute("HouseQuoteID", newHouseQuote.getId());
+        session.setAttribute("BusinessProcessManager", newBusinessProcessManager);
         //Redirects to Create Customer Page
         response.sendRedirect("HomeQuoteResult.jsp");
 

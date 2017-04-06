@@ -4,7 +4,7 @@
     Author     : tim
 --%>
 
-<%@page import="BEANS.InfoObjects.Customer"%>
+<%@page import="BEANS.BusinessProcessObjects.BusinessProcessManager"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +47,7 @@
     <!--End Nav -->
 
     <body style="padding-top: 150px;">
-        <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
+          <% BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager)(session.getAttribute("BusinessProcessManager"));%>
         <div class="container">
             <div class="row">
 
@@ -62,20 +62,20 @@
                                     <div class="form-horizontal">               
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">First Name:</label>
-                                            <p> <%= currentClient.getFirstName()%></p>    
+                                            <p> <%= newBusinessProcessManager.getCustomer().getFirstName()%></p>    
                                         </div>
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">Last Name: </label> 
-                                            <p> <%= currentClient.getLastName()%></p> 
+                                            <p> <%= newBusinessProcessManager.getCustomer().getLastName()%></p> 
                                         </div>
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">Email: </label>
-                                            <p> <%= currentClient.getEmail()%></p>             
+                                            <p> <%= newBusinessProcessManager.getCustomer().getEmail()%></p>             
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">Address: </label>
-                                            <p> <%= currentClient.getAddress().toString()%></p>       
+                                            <p> <%= newBusinessProcessManager.getCustomer().getAddress().toString()%></p>       
                                         </div>
 
 

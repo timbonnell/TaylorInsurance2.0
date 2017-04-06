@@ -101,16 +101,30 @@ public class VehicleDAO {
      * @return 
      */
     public static List<Vehicle> getVehiclesForCustomer(String customerId) {
-        String sql = "{call getVehiclesByCustomerId (?)}";
+        String sql = "{call getAllVehiclesByCustomerId (?)}";
         List<Vehicle> list = new ArrayList();
         try (
                 Connection con = ConnectionManager.getConnection();
-                CallableStatement stm = con.prepareCall(sql)) {
+                CallableStatement stm = con.prepareCall(sql)
+                ) {
 
             stm.setInt(1, Integer.parseInt(customerId));
             ResultSet results = stm.executeQuery();
             while (results.next()) {
                 // populate vehicle list
+                //Build vehicle object
+                Vehicle aVehicle = new Vehicle();
+                aVehicle.setVehicleID(results.getString("vehicle_id"));
+                aVehicle.setMake(results.getString("make"));
+                aVehicle.setModel(results.getString("model"));
+                aVehicle.setYear(results.getInt("year"));
+                aVehicle.setType(results.getInt("type"));
+                aVehicle.setVin(results.getString("vin"));
+                aVehicle.setColor(results.getInt("color"));
+                //Do not set Accidents for this object TODO- Remove this section when relevant
+                /**aVehicle.setNumAccidents(results.getString());*/
+                aVehicle.setEstimated_value(results.getDouble("estimated_value"));
+                list.add(aVehicle);
             }
         } catch (SQLException ex) {
             Logger.getLogger(VehicleDAO.class.getName()).log(Level.SEVERE, null, ex);

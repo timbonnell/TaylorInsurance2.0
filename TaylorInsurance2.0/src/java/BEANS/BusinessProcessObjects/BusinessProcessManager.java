@@ -43,9 +43,17 @@ public class BusinessProcessManager {
         housePolicyList.put(policyId, policy);
     }
 
+    public void addExistingHousePolicy(HousePolicy policy) {
+        housePolicyList.put(policy.getId(), policy);
+    }
+
     public void addExistingHouseQuote(String houseId, String quoteId, LocalDate creationDate, LocalDate expiryDate) {
         HouseQuote quote = new HouseQuote(quoteId, creationDate, expiryDate, customer, getHouse(houseId));
         houseQuoteList.put(quoteId, quote);
+    }
+
+    public void addExistingHouseQuote(HouseQuote quote) {
+        houseQuoteList.put(quote.getId(), quote);
     }
 
     public void addExistingVehicle(Vehicle vehicle) {
@@ -57,9 +65,17 @@ public class BusinessProcessManager {
         vehiclePolicyList.put(policyId, policy);
     }
 
+    public void addExistingVehiclePolicy(VehiclePolicy policy) {
+        vehiclePolicyList.put(policy.getId(), policy);
+    }
+
     public void addExistingVehicleQuote(String vehicleId, String quoteId, LocalDate creationDate, LocalDate expiryDate) {
         VehicleQuote quote = new VehicleQuote(quoteId, creationDate, expiryDate, customer, getVehicle(vehicleId));
         vehicleQuoteList.put(quoteId, quote);
+    }
+
+    public void addExistingVehicleQuote(VehicleQuote quote) {
+        vehicleQuoteList.put(quote.getId(), quote);
     }
 
     public Customer createNewCustomer(Customer customer) {
@@ -79,8 +95,7 @@ public class BusinessProcessManager {
         if (quote == null) {
             throw new IndexOutOfBoundsException("Bad house quote ID: " + quoteId);
         } else {
-            HousePolicy policy = new HousePolicy("0", quote, LocalDate.now(), LocalDate.now().plusYears(1));
-            policy.setId(PolicyDAO.acceptHomePolicy(quoteId));
+            HousePolicy policy = PolicyDAO.acceptHomePolicy(quote);
             housePolicyList.put(policy.getId(), policy);
             return policy;
         }
@@ -91,8 +106,7 @@ public class BusinessProcessManager {
         if (house == null) {
             throw new IndexOutOfBoundsException("Bad house ID: " + houseID);
         } else {
-            HouseQuote quote = new HouseQuote("0", LocalDate.now(), LocalDate.now().plusDays(30), customer, house);
-            QuoteDAO.createHouseQuote(quote);
+            HouseQuote quote = QuoteDAO.createHouseQuote(customer, house);
             houseQuoteList.put(quote.getId(), quote);
             return quote;
         }
@@ -110,8 +124,7 @@ public class BusinessProcessManager {
         if (quote == null) {
             throw new IndexOutOfBoundsException("Bad vehicle quote ID: " + quoteId);
         } else {
-            VehiclePolicy policy = new VehiclePolicy("0", quote, LocalDate.now(), LocalDate.now().plusYears(1));
-            policy.setId(PolicyDAO.acceptAutoPolicy(quoteId));
+            VehiclePolicy policy = PolicyDAO.acceptAutoPolicy(quote);
             vehiclePolicyList.put(policy.getId(), policy);
             return policy;
         }
@@ -123,8 +136,7 @@ public class BusinessProcessManager {
         if (vehicle == null) {
             throw new IndexOutOfBoundsException("Bad vehicle ID: " + vehicleID);
         } else {
-            VehicleQuote quote = new VehicleQuote("0", LocalDate.now(), LocalDate.now().plusDays(30), customer, vehicle);
-            QuoteDAO.createVehicleQuote(quote);
+            VehicleQuote quote = QuoteDAO.createVehicleQuote(customer, vehicle);
             vehicleQuoteList.put(quote.getId(), quote);
             return quote;
         }
@@ -190,9 +202,25 @@ public class BusinessProcessManager {
      * Convenience function that uses the stored customer to load all the
      * objects from the database.
      *
+     * @return
      */
-    public void loadAllCustomerInformation() {
-        CustomerDAO.login(customer);
+    public String loadAllCustomerInformation() {
+        if (!customer.isValid()) {
+            if (customer.getPassword().isEmpty()) {
+                return "Customer has not been created, please register customer with a password.";
+            } else if (!CustomerDAO.login(customer).isValid()) {
+                return "Error with login for customer " + customer.getId();
+            }
+        }
+
+        HouseDAO.getHousesForCustomer(customer.getId()).forEach(this::addExistingHouse);
+        VehicleDAO.getVehiclesForCustomer(customer.getId()).forEach(this::addExistingVehicle);
+        QuoteDAO.getHouseQuotesByCustomerId(customer, houseList).forEach(this::addExistingHouseQuote);
+        QuoteDAO.getVehicleQuotesByCustomerId(customer, vehicleList).forEach(this::addExistingVehicleQuote);
+        PolicyDAO.getHomePoliciesByCustomerId(customer, houseQuoteList).forEach(this::addExistingHousePolicy);
+        PolicyDAO.getVehiclePoliciesByCustomerId(customer, vehicleQuoteList).forEach(this::addExistingVehiclePolicy);
+        
+        return "All loads successful.";
     }
 
     public boolean registerCustomer(String password) {

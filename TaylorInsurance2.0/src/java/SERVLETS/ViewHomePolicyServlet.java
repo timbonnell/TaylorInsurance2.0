@@ -5,6 +5,7 @@
  */
 package SERVLETS;
 
+import BEANS.BusinessProcessObjects.BusinessProcessManager;
 import DAO.PolicyDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,20 +21,6 @@ import javax.servlet.http.HttpSession;
  */
 public class ViewHomePolicyServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-    }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -46,15 +33,13 @@ public class ViewHomePolicyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("Susan" + request.getParameter("homePolicies"));
-        int policyID = Integer.parseInt(request.getParameter("homePolicies"));
+        BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (request.getSession(false).getAttribute("BusinessProcessManager"));
         
-        String homePolicyResult = PolicyDAO.getHousePolicy(policyID);
+      //  String homePolicyResult = PolicyDAO.getHousePolicy(policyID);
         
-                //Set up sessions
+        //Set up sessions
         HttpSession session= request.getSession(true);
-        session.setAttribute("currentsessionHomePolicy", homePolicyResult);
-        session.setAttribute("currentsessionHomePolicyID", policyID);
+        session.setAttribute("newBusinessProcessManager", newBusinessProcessManager );
         
         response.sendRedirect("viewHomePolicy.jsp");
     }

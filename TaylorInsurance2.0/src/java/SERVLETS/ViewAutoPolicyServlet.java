@@ -5,6 +5,7 @@
  */
 package SERVLETS;
 
+import BEANS.BusinessProcessObjects.BusinessProcessManager;
 import DAO.PolicyDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -45,13 +46,13 @@ public class ViewAutoPolicyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int policyID = Integer.parseInt(request.getParameter("autoPolicyIds"));
-        String autoPolicyResult = PolicyDAO.getAutoPolicy(policyID);
-
+        //int policyID = Integer.parseInt(request.getParameter("autoPolicyIds"));
+        //String autoPolicyResult = PolicyDAO.getAutoPolicy(policyID);
+        BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (request.getSession(false).getAttribute("BusinessProcessManager"));
         //Set up sessions
         HttpSession session = request.getSession(true);
-        session.setAttribute("currentsessionAutoPolicy", autoPolicyResult);
-        session.setAttribute("currentsessionAutoPolicyID", policyID);
+        session.setAttribute("BusinessProcessManager", newBusinessProcessManager);
+
 
         response.sendRedirect("viewAutoPolicy.jsp");
     }

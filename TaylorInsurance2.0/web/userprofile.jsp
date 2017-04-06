@@ -3,9 +3,9 @@
     Created on : Mar 8, 2017, 9:44:40 PM
     Author     : tim
 --%>
+<%@page import="BEANS.BusinessProcessObjects.BusinessProcessManager"%>
 <%@page import="java.util.Map.Entry"%>
 <%@page import="java.util.Map"%>
-<%@page import="BEANS.InfoObjects.Customer" %>
 <%@page import="java.util.ArrayList" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -56,7 +56,7 @@
         </div>
     </nav>
     <body style="padding-top: 150px;">
-        <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
+        <% BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager)(session.getAttribute("BusinessProcessManager"));%>
 
         <!--/ Navigation bar-->
         <div class="container">
@@ -64,14 +64,14 @@
                 <div class="col-sm-4">
 
                     <h3>Customer Information</h3>
-                    <p>Customer ID: <%= currentClient.getId()%></p>
+                    <p>Customer ID: <%= newBusinessProcessManager.getCustomer().getId()%></p>
                     <p>
-                        <span>Hi, </span><span><%= currentClient.getFirstName() + " " + currentClient.getLastName()%></span>
+                        <span>Hi, </span><span><%= newBusinessProcessManager.getCustomer().getFirstName() + " " + newBusinessProcessManager.getCustomer().getLastName()%></span>
                     </p>
                     <br>
                     <br>
                     <h3>Address</h3>
-                    <p><%= currentClient.getAddress()%></p>
+                    <p><%= newBusinessProcessManager.getCustomer().getAddress()%></p>
                 </div>
 
                 <div class="col-sm-4">
@@ -82,8 +82,8 @@
                                 <h3>Active Home Policies</h3>  
                                 <form class="form-horizontal" action="ViewHomePolicyServlet"> 
                                     <select id="homePolicies" name="homePolicies">
-                                        <c:forEach items="${currentHomePolicyID}" var="homepolicy">
-                                            <option value="${homepolicy}">${homepolicy}</option>
+                                        <c:forEach items="${BusinessProcessManager.getHousePolicyList()}" var="homepolicy">
+                                            <option value="${homepolicy.key}">${homepolicy.key}</option>
                                         </c:forEach>
                                     </select>
                                     <br><br>
@@ -95,8 +95,8 @@
                                 <h3>Active Auto Policies</h3>  
                                 <form class="form-horizontal" action="ViewAutoPolicyServlet"> 
                                     <select id="autoPolicies" name="autoPolicyIds">
-                                        <c:forEach items="${currentAutoPolicyID}" var="autopolicy">
-                                            <option value="${autopolicy}">${autopolicy}</option>
+                                        <c:forEach items="${BusinessProcessManager.getVehiclePolicyList()}" var="autopolicy">
+                                            <option value="${autopolicy.key}">${autopolicy.key}</option>
                                         </c:forEach>
                                     </select>
                                     <br><br>
@@ -113,9 +113,9 @@
                                 <h3>Active Home Quotes</h3>  
                                 <form class="form-horizontal" action="ViewHomeQuoteServlet"> 
                                     <select id="homeQuotes" name="homeQuotes">
-                                        <c:forEach items="${currentHomeQuoteID}" var="quotes">
+                                        <c:forEach items="${BusinessProcessManager.getHouseQuoteList()}" var="homequotes">
                                             
-                                                <option value="${quotes}">${quotes}</option>
+                                                <option value="${homequotes.key}">${homequotes.key}</option>
                                            
                                         </c:forEach>
                                     </select>
@@ -130,10 +130,8 @@
                                 <h3>Active Auto Quotes</h3>  
                                 <form class="form-horizontal" action="ViewAutoQuoteServlet"> 
                                     <select id="autoQuotes" name="autoquotes">
-                                        <c:forEach items="${currentAutoQuoteID}" var="quotes">
-
-                                                <option value="${quotes}">${quotes}</option>
-                                   
+                                        <c:forEach items="${BusinessProcessManager.getVehicleQuoteList()}" var="autoquotes">
+                                                <option value="${autoquotes.key}">${autoquotes.key}</option>
                                         </c:forEach>
                                     </select>
                                     <br><br>

@@ -5,6 +5,7 @@ package SERVLETS;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import BEANS.BusinessProcessObjects.BusinessProcessManager;
 import DAO.CustomerDAO;
 import BEANS.InfoObjects.Customer;
 import DAO.PolicyDAO;
@@ -34,20 +35,6 @@ import javax.servlet.http.HttpSession;
  */
 public class LoginServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-
-    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -61,42 +48,18 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        BusinessProcessManager newBusinessProcessManager = new BusinessProcessManager();
         try {
-            List<Integer> HomeQuoteIDS = new ArrayList<Integer>();
-            List<Integer> AutoQuoteIDS = new ArrayList<Integer>();
-            List<Integer> HomePolicyIDS = new ArrayList<Integer>();
-            List<Integer> AutoPolicyIDS = new ArrayList<Integer>();
-            
             Customer client = new Customer();
             client.setEmail(request.getParameter("inputEmail"));
             client.setPassword(request.getParameter("inputPassword"));
-
             client = CustomerDAO.login(client);
-
+            newBusinessProcessManager.setCustomer(client);
+            
             if (client.isValid()) {
                 System.out.println("Login good");
-                
-                
-                //Quote IDS for Dropdown List
-                HomeQuoteIDS = QuoteDAO.getHomeQuoteIDbyCustomerID(client);
-                AutoQuoteIDS = QuoteDAO.getAutoQuoteIDbyCustomerID(client);
-                
-                HomePolicyIDS = PolicyDAO.getHomePolicyByCustomerId(client);
-                AutoPolicyIDS = PolicyDAO.getAutoPolicyByCustomerId(client);
-                //Policy IDS for Dropdown List
-                
-                System.out.println("Home Quote IDS servlet: " + HomeQuoteIDS);
-                System.out.println("Auto Quote IDS servlet: " + AutoQuoteIDS);
-
                 HttpSession session = request.getSession(true);
-
-                session.setAttribute("currentSessionClient", client);
-                session.setAttribute("currentHomeQuoteID", HomeQuoteIDS);
-                session.setAttribute("currentAutoQuoteID", AutoQuoteIDS);
-                session.setAttribute("currentHomePolicyID", HomePolicyIDS);
-                session.setAttribute("currentAutoPolicyID", AutoPolicyIDS);
-          
-          
+                session.setAttribute("BusinessProcessManager", newBusinessProcessManager);
                 response.sendRedirect("userprofile.jsp"); //logged-in page      		
             } else {
                 response.sendRedirect("invalidLogin.jsp"); //error page 
