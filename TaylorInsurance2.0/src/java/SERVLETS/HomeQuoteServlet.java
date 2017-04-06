@@ -96,12 +96,13 @@ public class HomeQuoteServlet extends HttpServlet {
         //Create a House Quote
         //HouseQuote houseQuote = new HouseQuote("0", LocalDate.now(), client, newHouse);
         newBusinessProcessManager.createNewCustomer(client);
-        House newQuoteHouse = newBusinessProcessManager.createNewHouse(newHouse);
-        HouseQuote newHouseQuote = newBusinessProcessManager.createNewHouseQuote(newQuoteHouse.getHouseId());
+        newHouse = newBusinessProcessManager.createNewHouse(newHouse);
+        HouseQuote newHouseQuote = newBusinessProcessManager.createNewHouseQuote(newHouse.getHouseId());
 
        
         //Set up sessions
         HttpSession session = request.getSession(true);
+        session.setAttribute("HouseID", newHouse.getHouseId());
         session.setAttribute("HouseQuoteID", newHouseQuote.getId());
         session.setAttribute("BusinessProcessManager", newBusinessProcessManager);
         //Redirects to Create Customer Page
