@@ -50,14 +50,16 @@ public class QuoteDAO {
             //Checks to see if house id comes back (house was stored successfully)
 
             boolean hasMoreResultSets = stm.execute();
-
-            while (hasMoreResultSets) {
+            hasMoreResultSets = stm.getMoreResults();
+            System.out.println(hasMoreResultSets);
+             if(hasMoreResultSets) {
                 ResultSet rs = stm.getResultSet();
                 System.out.println("Got here");
+                rs.next();
                 quote.setId(rs.getString("quote_id"));
-                quote.setCreationDate(rs.getDate("creation_date").toLocalDate());
-                quote.setExpiryDate(rs.getDate("expiration_date").toLocalDate());
-            } // while has more rs
+                quote.setCreationDate(rs.getDate("date_created").toLocalDate());
+                quote.setExpiryDate(rs.getDate("date_expired").toLocalDate());
+            } 
 
         } catch (NumberFormatException | SQLException ex) {
             System.out.println("Insert House Quote Failed: An Exception has occurred! " + ex);
@@ -82,16 +84,18 @@ public class QuoteDAO {
             stm.setString(2, vehicle.getVehicleId());
             stm.setDouble(3, quote.getTotalPremium());
 
-            ResultSet rs = stm.executeQuery();
+            boolean hasMoreResultSets = stm.execute();
+            hasMoreResultSets = stm.getMoreResults();
+            System.out.println(hasMoreResultSets);
             //Checks to see if house id comes back (house was stored successfully)
-            if (!rs.next()) {
-                throw new SQLException("Vehicle quote not created.");
-            } // If username and password are correct, set client to valid and set up the client
-            else {
+             if(hasMoreResultSets) {
+                ResultSet rs = stm.getResultSet();
+                System.out.println("Got here");
+                rs.next();
                 quote.setId(rs.getString("quote_id"));
-                quote.setCreationDate(rs.getDate("creation_date").toLocalDate());
-                quote.setExpiryDate(rs.getDate("expiry_date").toLocalDate());
-            }
+                quote.setCreationDate(rs.getDate("date_created").toLocalDate());
+                quote.setExpiryDate(rs.getDate("date_expired").toLocalDate());
+            } 
 
         } catch (NumberFormatException | SQLException ex) {
             System.out.println("Insert Vehicle Quote Failed: An Exception has occurred! " + ex);
