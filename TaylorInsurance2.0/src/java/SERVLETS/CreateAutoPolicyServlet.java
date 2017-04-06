@@ -45,32 +45,12 @@ public class CreateAutoPolicyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Integer> HomeQuoteIDS = new ArrayList<Integer>();
-        List<Integer> AutoQuoteIDS = new ArrayList<Integer>();
-        List<Integer> HomePolicyIDS = new ArrayList<Integer>();
-        List<Integer> AutoPolicyIDS = new ArrayList<Integer>();
 
-        String autoQuoteID = (String) (request.getSession(false).getAttribute("currentsessionAutoQuoteID"));
-        
-        Policy vehiclePolicy = BusinessProcessManager.getInstance().createNewVehiclePolicy(autoQuoteID);
-        
-
-
-        Customer client = (Customer) (request.getSession(false).getAttribute("currentSessionClient"));
-        //Quote IDS for Dropdown List
-        HomeQuoteIDS = QuoteDAO.getHomeQuoteIDbyCustomerID(client);
-        AutoQuoteIDS = QuoteDAO.getAutoQuoteIDbyCustomerID(client);
-
-        HomePolicyIDS = PolicyDAO.getHomePolicyByCustomerId(client);
-        AutoPolicyIDS = PolicyDAO.getAutoPolicyByCustomerId(client);
-
+        BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (request.getSession(false).getAttribute("BusinessProcessManager"));
+        String AutoQuoteID = (String) (request.getSession(false).getAttribute("AutoQuoteID"));
+        newBusinessProcessManager.createNewHousePolicy(AutoQuoteID);
         HttpSession session = request.getSession(true);
-        session.setAttribute("BusinessProcessManager", BusinessProcessManager.getInstance());
-        session.setAttribute("currentSessionClient", client);
-        session.setAttribute("currentHomeQuoteID", HomeQuoteIDS);
-        session.setAttribute("currentAutoQuoteID", AutoQuoteIDS);
-        session.setAttribute("currentHomePolicyID", HomePolicyIDS);
-        session.setAttribute("currentAutoPolicyID", AutoPolicyIDS);
+        session.setAttribute("BusinessProcessManager", newBusinessProcessManager);
         response.sendRedirect("userprofile.jsp"); //logged-in page  
     }
 }

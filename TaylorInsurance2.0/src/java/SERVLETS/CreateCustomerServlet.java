@@ -5,6 +5,7 @@
  */
 package SERVLETS;
 
+import BEANS.BusinessProcessObjects.BusinessProcessManager;
 import BEANS.InfoObjects.Customer;
 import DAO.CustomerDAO;
 import DAO.QuoteDAO;
@@ -25,21 +26,6 @@ import javax.servlet.http.HttpSession;
  * @author tim
  */
 public class CreateCustomerServlet extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-    }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -52,26 +38,16 @@ public class CreateCustomerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Integer> HomeQuoteIDS = new ArrayList<Integer>();
-        List<Integer> AutoQuoteIDS = new ArrayList<Integer>();
+       BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (request.getSession(false).getAttribute("BusinessProcessManager"));
         
-        Customer client = (Customer) request.getSession(false).getAttribute("currentSessionClient");
-        client.setPassword(request.getParameter("password"));
-
-        CustomerDAO.register(client);
-
-        client = CustomerDAO.login(client);
+        newBusinessProcessManager.registerCustomer(request.getParameter("password"));
+         
+        Customer client = CustomerDAO.login(newBusinessProcessManager.getCustomer());
 
         if (client.isValid()) {
             System.out.println("Login good");
-            HomeQuoteIDS = QuoteDAO.getHomeQuoteIDbyCustomerID(client);
-            AutoQuoteIDS = QuoteDAO.getAutoQuoteIDbyCustomerID(client);
-            
-            
             HttpSession session = request.getSession(true);
-            session.setAttribute("currentHomeQuoteID", HomeQuoteIDS);
-            session.setAttribute("currentAutoQuoteID", AutoQuoteIDS);
-            session.setAttribute("currentSessionClient", client);
+            session.setAttribute("BusinessProcessManager", newBusinessProcessManager);
             response.sendRedirect("userprofile.jsp"); //logged-in page      		
         } else {
             response.sendRedirect("invalidLogin.jsp"); //error page 

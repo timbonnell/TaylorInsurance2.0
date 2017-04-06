@@ -5,6 +5,7 @@ package SERVLETS;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import BEANS.BusinessProcessObjects.BusinessProcessManager;
 import DAO.CustomerDAO;
 import BEANS.InfoObjects.Customer;
 import DAO.PolicyDAO;
@@ -47,24 +48,18 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        BusinessProcessManager newBusinessProcessManager = new BusinessProcessManager();
         try {
-
-            
             Customer client = new Customer();
             client.setEmail(request.getParameter("inputEmail"));
             client.setPassword(request.getParameter("inputPassword"));
-
             client = CustomerDAO.login(client);
-
+            newBusinessProcessManager.setCustomer(client);
+            
             if (client.isValid()) {
                 System.out.println("Login good");
-
                 HttpSession session = request.getSession(true);
-
-                session.setAttribute("currentSessionClient", client);
-          
-          
+                session.setAttribute("BusinessProcessManager", newBusinessProcessManager);
                 response.sendRedirect("userprofile.jsp"); //logged-in page      		
             } else {
                 response.sendRedirect("invalidLogin.jsp"); //error page 

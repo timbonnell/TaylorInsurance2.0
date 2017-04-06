@@ -5,6 +5,7 @@
  */
 package SERVLETS;
 
+import BEANS.BusinessProcessObjects.BusinessProcessManager;
 import BEANS.InfoObjects.Customer;
 import BEANS.PolicyObjects.HouseQuote;
 import DAO.PolicyDAO;
@@ -25,20 +26,6 @@ import javax.servlet.http.HttpSession;
  * @author timbo
  */
 public class CreateHomePolicyServlet extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -51,29 +38,13 @@ public class CreateHomePolicyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Integer> HomeQuoteIDS = new ArrayList<Integer>();
-        List<Integer> AutoQuoteIDS = new ArrayList<Integer>();
-        List<Integer> HomePolicyIDS = new ArrayList<Integer>();
-        List<Integer> AutoPolicyIDS = new ArrayList<Integer>();
-        int houseQuoteID = (int) (request.getSession(false).getAttribute("currentsessionHomeQuoteID"));
-        int result = PolicyDAO.acceptHomePolicy((houseQuoteID));
-
-        System.out.println(result);
-        Customer client = (Customer) (request.getSession(false).getAttribute("currentSessionClient"));
-        //Quote IDS for Dropdown List
-        HomeQuoteIDS = QuoteDAO.getHomeQuoteIDbyCustomerID(client);
-        AutoQuoteIDS = QuoteDAO.getAutoQuoteIDbyCustomerID(client);
-
-        HomePolicyIDS = PolicyDAO.getHomePolicyByCustomerId(client);
-        AutoPolicyIDS = PolicyDAO.getAutoPolicyByCustomerId(client);
-
+        String HouseQuoteID = (String) (request.getSession(false).getAttribute("HouseQuoteID"));
+        BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (request.getSession(false).getAttribute("BusinessProcessManager"));
+        newBusinessProcessManager.createNewHousePolicy(HouseQuoteID);
+        
         //Policy IDS for Dropdown List
         HttpSession session = request.getSession(true);
-        session.setAttribute("currentSessionClient", client);
-        session.setAttribute("currentHomeQuoteID", HomeQuoteIDS);
-        session.setAttribute("currentAutoQuoteID", AutoQuoteIDS);
-        session.setAttribute("currentHomePolicyID", HomePolicyIDS);
-        session.setAttribute("currentAutoPolicyID", AutoPolicyIDS);;
+        session.setAttribute("BusinessProcessManager", newBusinessProcessManager);
         response.sendRedirect("userprofile.jsp"); //logged-in page  
 
     }
