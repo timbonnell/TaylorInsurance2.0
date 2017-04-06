@@ -34,7 +34,7 @@ public class ViewAutoQuoteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (request.getSession(false).getAttribute("BusinessProcessManager"));
-        int quoteID = Integer.parseInt(request.getParameter("autoquotes"));
+        String quoteID = (request.getParameter("autoquotes"));
         
 
        

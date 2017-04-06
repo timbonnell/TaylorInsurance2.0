@@ -4,7 +4,7 @@
     Author     : tim
 --%>
 
-<%@page import="BEANS.InfoObjects.Customer"%>
+<%@page import="BEANS.BusinessProcessObjects.BusinessProcessManager"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,8 +52,8 @@
     <!--End Nav -->
 
     <body style="padding-top: 150px;">
-        <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
-        <% String name = (session.getAttribute("currentsessionAutoQuote")).toString();%>
+        <% BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager)(session.getAttribute("BusinessProcessManager"));%>
+        <% String autoQuoteID = (String) session.getAttribute("currentsessionAutoQuoteID");%>
         <form class="form-horizontal" action="CreateAutoPolicyServlet">
             <div class="form-group">
                 <div class="container">
@@ -61,20 +61,20 @@
                         <div class="col-sm-4">
 
                             <h3>Customer Information</h3>
-                            <p>Customer ID: <%= currentClient.getId()%></p>
+                            <p>Customer ID: <%= newBusinessProcessManager.getCustomer().getId()%></p>
                             <p>
-                                <span>Hi, </span><span><%= currentClient.getFirstName() + " " + currentClient.getLastName()%></span>
+                                <span>Hi, </span><span><%= newBusinessProcessManager.getCustomer().getFirstName() + " " + newBusinessProcessManager.getCustomer().getLastName()%></span>
                             </p>
 
                         </div>
                         <div class="col-sm-4">
                             <h3>Address</h3>
-                            <p><%= currentClient.getAddress()%></p>
+                            <p><%= newBusinessProcessManager.getCustomer().getAddress()%></p>
 
                         </div>
                         <div class="col-sm-4">
                             <h3>Auto Quote Information:</h3>
-                            <p><%=name%></p>
+                            <p>Yearly Premium: <%= newBusinessProcessManager.getVehicleQuote(autoQuoteID).getTotalPremium() %></p>
 
                             <br><br>
                             <div class="form-group">

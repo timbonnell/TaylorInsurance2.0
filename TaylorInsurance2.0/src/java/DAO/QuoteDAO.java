@@ -69,7 +69,7 @@ public class QuoteDAO {
     }
 
     public static VehicleQuote createVehicleQuote(Customer customer, Vehicle vehicle) {
-        String sql = "{call insertAutoQuote(?,?,?)}";
+        String sql = "{call insertAutoQuote(?,?,?,?)}";
         VehicleQuote quote = new VehicleQuote(null, null, null, customer, vehicle);
         try (
                 Connection con = ConnectionManager.getConnection();
@@ -83,6 +83,7 @@ public class QuoteDAO {
             stm.setInt(1, Integer.parseInt(customer.getId()));
             stm.setString(2, vehicle.getVehicleId());
             stm.setDouble(3, quote.getTotalPremium());
+            stm.setInt(4, vehicle.getNumAccidents());
 
             boolean hasMoreResultSets = stm.execute();
             hasMoreResultSets = stm.getMoreResults();
