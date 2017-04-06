@@ -79,7 +79,7 @@ public class ExistingAutoQuoteServlet extends HttpServlet {
         
         //Store Objects in Database
         Vehicle newQuoteVehicle = newBusinessProcessManager.createNewVehicle(quoteVehicle);
-        VehicleQuote vehicleQuote = newBusinessProcessManager.createNewVehicleQuote(newQuoteVehicle.getVehicleId());
+        VehicleQuote vehicleQuote = newBusinessProcessManager.createNewVehicleQuote(newQuoteVehicle.getVehicleId(), vehicleAccidents);
        
 
         //Set up sessions
