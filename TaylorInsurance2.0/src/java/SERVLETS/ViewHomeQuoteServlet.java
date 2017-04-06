@@ -5,6 +5,7 @@
  */
 package SERVLETS;
 
+import BEANS.BusinessProcessObjects.BusinessProcessManager;
 import DAO.QuoteDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,20 +21,6 @@ import javax.servlet.http.HttpSession;
  */
 public class ViewHomeQuoteServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-
-    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -47,14 +34,12 @@ public class ViewHomeQuoteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (request.getSession(false).getAttribute("BusinessProcessManager"));
         int quoteID = Integer.parseInt(request.getParameter("homeQuotes"));
-        String quoteResult = QuoteDAO.getHouseQuote(quoteID);
-        
         
         //Set up sessions
         HttpSession session= request.getSession(true);
-        session.setAttribute("currentsessionHomeQuote", quoteResult);
+        session.setAttribute("BusinessProcessManager", newBusinessProcessManager);
         session.setAttribute("currentsessionHomeQuoteID", quoteID);
         
         response.sendRedirect("viewHomeQuote.jsp");

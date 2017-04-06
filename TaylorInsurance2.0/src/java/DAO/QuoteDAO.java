@@ -37,9 +37,7 @@ public class QuoteDAO {
     static PreparedStatement ps;
 
     public static HouseQuote createHouseQuote(HouseQuote houseQuote) {
-        String SPsql = "EXEC insertHomeQuote ?,?,?,?,?";
-        Date exDate = java.sql.Date.valueOf(LocalDate.now().plusDays(30));
-        Date createDate = java.sql.Date.valueOf(LocalDate.now());
+        String SPsql = "EXEC insertHomeQuote ?,?,?,";
         try {
             connection = ConnectionManager.getConnection();
             ps = connection.prepareStatement(SPsql);
@@ -49,9 +47,8 @@ public class QuoteDAO {
             ps.setInt(1, Integer.parseInt(houseQuote.getClient().getId()));
             ps.setInt(2, Integer.parseInt(houseQuote.getProperty().getHouseId()));
             ps.setDouble(3, houseQuote.getTotalPremium());
-            ps.setDate(4, createDate);
-            ps.setDate(5, exDate);
 
+            System.out.println("ps set up");
             boolean more = ps.execute();
             more = ps.getMoreResults();
             rs = ps.getResultSet();
@@ -79,9 +76,7 @@ public class QuoteDAO {
     }
 
     public static VehicleQuote createVehicleQuote(VehicleQuote vehicleQuote) {
-        String SPsql = "EXEC insertAutoQuote ?,?,?,?,?,?";
-        Date exDate = java.sql.Date.valueOf(LocalDate.now().plusDays(30));
-        Date createDate = java.sql.Date.valueOf(LocalDate.now());
+        String SPsql = "EXEC insertAutoQuote ?,?,?,?";
         try {
             connection = ConnectionManager.getConnection();
             ps = connection.prepareStatement(SPsql);
@@ -94,9 +89,7 @@ public class QuoteDAO {
             ps.setInt(1, Integer.parseInt(vehicleQuote.getClient().getId()));
             ps.setString(2, vehicleQuote.getProperty().getVehicleId());
             ps.setDouble(3, vehicleQuote.getTotalPremium());
-            ps.setDate(4, createDate);
-            ps.setDate(5, exDate);
-            ps.setInt(6, vehicleQuote.getProperty().getNumAccidents());
+            ps.setInt(4, vehicleQuote.getProperty().getNumAccidents());
 
             boolean more = ps.execute();
             more = ps.getMoreResults();

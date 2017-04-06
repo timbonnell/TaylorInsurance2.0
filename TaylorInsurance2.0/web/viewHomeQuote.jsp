@@ -52,8 +52,8 @@
     <!--End Nav -->
 
     <body style="padding-top: 150px;">
-  
-        <% String name = (String) session.getAttribute("currentsessionHomeQuote");%>
+        <% BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager)(session.getAttribute("BusinessProcessManager"));%>
+        <% String homeQuoteID = (String) session.getAttribute("currentsessionHomeQuoteID");%>
         <form class="form-horizontal" action="CreateHomePolicyServlet">
             <div class="form-group">
                 <div class="container">
@@ -61,20 +61,20 @@
                         <div class="col-sm-4">
 
                             <h3>Customer Information</h3>
-                            <p>Customer ID: <%= currentClient.getId()%></p>
+                            <p>Customer ID: <%= newBusinessProcessManager.getCustomer().getId() %></p>
                             <p>
-                                <span>Hi, </span><span><%= currentClient.getFirstName() + " " + currentClient.getLastName()%></span>
+                                <span>Hi, </span><span><%= newBusinessProcessManager.getCustomer().getFirstName() + " " + newBusinessProcessManager.getCustomer().getLastName()%></span>
                             </p>
 
                         </div>
                         <div class="col-sm-4">
                             <h3>Address</h3>
-                            <p><%= currentClient.getAddress()%></p>
+                            <p><%= newBusinessProcessManager.getHouse(newBusinessProcessManager.getHouseQuote(homeQuoteID).getProperty().getHouseId()).getAddress().toString() %></p>
 
                         </div>
                         <div class="col-sm-4">
                             <h3>Home Quote Information:</h3>
-                            <p><%=name%></p>
+                            <p>Yearly Premium: <%= newBusinessProcessManager.getHouseQuote(homeQuoteID).getTotalPremium() %></p>
 
                         </div>
                         <div class="form-group">
