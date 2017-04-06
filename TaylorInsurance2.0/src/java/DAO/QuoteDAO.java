@@ -37,7 +37,7 @@ public class QuoteDAO {
     static PreparedStatement ps;
 
     public static HouseQuote createHouseQuote(HouseQuote houseQuote) {
-        String SPsql = "EXEC insertHomeQuote ?,?,?,";
+        String SPsql = "EXEC insertHomeQuote ?,?,?";
         try {
             connection = ConnectionManager.getConnection();
             ps = connection.prepareStatement(SPsql);
