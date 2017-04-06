@@ -117,14 +117,14 @@ public class BusinessProcessManager {
         }
     }
 
-    public VehicleQuote createNewVehicleQuote(String vehicleID, int accidents) {
+    public VehicleQuote createNewVehicleQuote(String vehicleID) {
 
         Vehicle vehicle = vehicleList.get(vehicleID);
         if (vehicle == null) {
             throw new IndexOutOfBoundsException("Bad vehicle ID: " + vehicleID);
         } else {
             VehicleQuote quote = new VehicleQuote("0", LocalDate.now(), LocalDate.now().plusDays(30), customer, vehicle);
-            QuoteDAO.createVehicleQuote(quote, accidents);
+            QuoteDAO.createVehicleQuote(quote);
             vehicleQuoteList.put(quote.getId(), quote);
             return quote;
         }

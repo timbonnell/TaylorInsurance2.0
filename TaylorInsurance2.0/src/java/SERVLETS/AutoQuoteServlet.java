@@ -90,7 +90,7 @@ public class AutoQuoteServlet extends HttpServlet {
         Vehicle newQuoteVehicle = newBusinessProcessManager.createNewVehicle(quoteVehicle);
 
         newBusinessProcessManager.createNewCustomer(quoteCustomer);
-        VehicleQuote newAutoQuote = newBusinessProcessManager.createNewVehicleQuote(newQuoteVehicle.getVehicleId(), vehicleAccidents );
+        VehicleQuote newAutoQuote = newBusinessProcessManager.createNewVehicleQuote(newQuoteVehicle.getVehicleId());
 
 
         //Set up sessions
