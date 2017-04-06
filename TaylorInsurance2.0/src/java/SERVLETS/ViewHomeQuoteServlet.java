@@ -35,7 +35,7 @@ public class ViewHomeQuoteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (request.getSession(false).getAttribute("BusinessProcessManager"));
-        int quoteID = Integer.parseInt(request.getParameter("homeQuotes"));
+        String quoteID = (request.getParameter("homeQuotes"));
         
         //Set up sessions
         HttpSession session= request.getSession(true);
