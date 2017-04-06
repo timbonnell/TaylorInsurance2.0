@@ -42,8 +42,6 @@ public class ExistingAutoQuoteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-
-
         BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (request.getSession(false).getAttribute("BusinessProcessManager"));
         Customer newCustomer = newBusinessProcessManager.getCustomer();
         

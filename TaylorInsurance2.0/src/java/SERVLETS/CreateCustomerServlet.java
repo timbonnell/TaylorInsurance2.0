@@ -40,8 +40,8 @@ public class CreateCustomerServlet extends HttpServlet {
             throws ServletException, IOException {
        BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (request.getSession(false).getAttribute("BusinessProcessManager"));
         
-        newBusinessProcessManager.registerCustomer(request.getParameter("password"));
-         
+
+        newBusinessProcessManager.registerCustomer(request.getParameter("password")); 
         Customer client = CustomerDAO.login(newBusinessProcessManager.getCustomer());
 
         if (client.isValid()) {

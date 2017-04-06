@@ -52,8 +52,7 @@
     <!--End Nav -->
 
     <body style="padding-top: 150px;">
-        <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
-        <% String name = (session.getAttribute("currentsessionAutoQuote")).toString();%>
+
         <form class="form-horizontal" action="CreateAutoPolicyServlet">
             <div class="form-group">
                 <div class="container">
