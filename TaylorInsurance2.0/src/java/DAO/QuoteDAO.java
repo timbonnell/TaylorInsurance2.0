@@ -10,8 +10,8 @@ import BEANS.InfoObjects.House;
 import BEANS.InfoObjects.Vehicle;
 import BEANS.PolicyObjects.HouseQuote;
 import BEANS.PolicyObjects.VehicleQuote;
-import static DAO.QuoteDAO.connection;
 import SERVLETS.ConnectionManager;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -32,211 +32,121 @@ import java.util.logging.Logger;
  */
 public class QuoteDAO {
 
-    static Connection connection = null;
-    static ResultSet rs = null;
-    static PreparedStatement ps;
+    public static HouseQuote createHouseQuote(Customer customer, House house) {
+        String sql = "{call insertHomeQuote (?,?,?)";
+        HouseQuote quote = new HouseQuote(null, null, null, customer, house);
+        try (
+                Connection con = ConnectionManager.getConnection();
+                CallableStatement stm = con.prepareCall(sql)) {
 
-    public static HouseQuote createHouseQuote(HouseQuote houseQuote) {
-        String SPsql = "EXEC insertHomeQuote ?,?,?";
-        try {
-            connection = ConnectionManager.getConnection();
-            ps = connection.prepareStatement(SPsql);
-            ps.setEscapeProcessing(true);
-            ps.setQueryTimeout(30);
+            stm.setQueryTimeout(30);
+
             //Set up params for stored procedure
-            ps.setInt(1, Integer.parseInt(houseQuote.getClient().getId()));
-            ps.setInt(2, Integer.parseInt(houseQuote.getProperty().getHouseId()));
-            ps.setDouble(3, houseQuote.getTotalPremium());
+            stm.setInt(1, Integer.parseInt(customer.getId()));
+            stm.setInt(2, Integer.parseInt(house.getHouseId()));
+            stm.setDouble(3, quote.getTotalPremium());
 
-            System.out.println("ps set up");
-            boolean more = ps.execute();
-            more = ps.getMoreResults();
-            rs = ps.getResultSet();
-            more = rs.next();
-            System.out.println(more);
+            ResultSet rs = stm.executeQuery();
             //Checks to see if house id comes back (house was stored successfully)
-            if (!more) {
-                System.out.println(rs + "invalid");
-
+            if (!rs.next()) {
+                throw new SQLException("No quote was created.");
             } // If username and password are correct, set client to valid and set up the client
-            else if (more) {
-                rs = ps.getResultSet();
+            else {
                 System.out.println("House Quote ID: " + rs.getString(1));
-                houseQuote.setId(rs.getString(1));
+                quote.setId(rs.getString("policy_id"));
+                quote.setCreationDate(rs.getDate("creation_date").toLocalDate());
+                quote.setExpiryDate(rs.getDate("expiration_date").toLocalDate());
             }
 
         } catch (NumberFormatException | SQLException ex) {
             System.out.println("Insert House Quote Failed: An Exception has occurred! " + ex);
-        } //Exception handling and closing
-        finally {
-            //Close DB Connections
-            ConnectionManager.Dispose(connection, rs, ps);
+            quote = null;
         }
-        return houseQuote;
+        return quote;
     }
 
-    public static VehicleQuote createVehicleQuote(VehicleQuote vehicleQuote) {
-        String SPsql = "EXEC insertAutoQuote ?,?,?,?";
-        try {
-            connection = ConnectionManager.getConnection();
-            ps = connection.prepareStatement(SPsql);
-            ps.setEscapeProcessing(true);
-            ps.setQueryTimeout(30);
+    public static VehicleQuote createVehicleQuote(Customer customer, Vehicle vehicle) {
+        String sql = "{call insertAutoQuote(?,?,?)";
+        VehicleQuote quote = new VehicleQuote(null, null, null, customer, vehicle);
+        try (
+                Connection con = ConnectionManager.getConnection();
+                CallableStatement stm = con.prepareCall(sql)) {
 
-            System.out.println("Create VEhicle QUote" + vehicleQuote.getProperty().getVehicleId());
+            stm.setQueryTimeout(30);
+
+            System.out.println("Create Vehicle Quote" + vehicle.getVehicleId());
 
             //Set up params for stored procedure
-            ps.setInt(1, Integer.parseInt(vehicleQuote.getClient().getId()));
-            ps.setString(2, vehicleQuote.getProperty().getVehicleId());
-            ps.setDouble(3, vehicleQuote.getTotalPremium());
-            ps.setInt(4, vehicleQuote.getProperty().getNumAccidents());
-
-            boolean more = ps.execute();
-            more = ps.getMoreResults();
-            rs = ps.getResultSet();
-            more = rs.next();
-            System.out.println(more);
+            stm.setInt(1, Integer.parseInt(customer.getId()));
+            stm.setString(2, vehicle.getVehicleId());
+            stm.setDouble(3, quote.getTotalPremium());
+            
+            ResultSet rs = stm.executeQuery();
             //Checks to see if house id comes back (house was stored successfully)
-            if (!more) {
-                System.out.println(rs + "invalid");
-
+            if (!rs.next()) {
+                throw new SQLException("Vehicle quote not created.");
             } // If username and password are correct, set client to valid and set up the client
-            else if (more) {
-                rs = ps.getResultSet();
+            else {
                 System.out.println("Vehicle Quote ID: " + rs.getString(1));
-                vehicleQuote.setId(rs.getString(1));
+                quote.setId(rs.getString("policy_id"));
+                quote.setCreationDate(rs.getDate("creation_date").toLocalDate());
+                quote.setExpiryDate(rs.getDate("expiry_date").toLocalDate());
             }
-        } catch (Exception ex) {
+            
+        } catch (NumberFormatException | SQLException ex) {
             System.out.println("Insert Vehicle Quote Failed: An Exception has occurred! " + ex);
-        } //Exception handling and closing
-        finally {
-            //Close DB Connections
-            ConnectionManager.Dispose(connection, rs, ps);
+            quote = null;
         }
-        return vehicleQuote;
+        return quote;
     }
 
-    public static List<Integer> getHomeQuoteIDbyCustomerID(Customer client) {
-
-        List<Integer> QuoteIDS = new ArrayList<Integer>();
-        int CustomerID = Integer.parseInt(client.getId());
-        String SPsql = "EXEC getQuoteByCustomerId ?";
-
-        try {
-            connection = ConnectionManager.getConnection();
-            //stmt = connection.createStatement();
-            ps = connection.prepareStatement(SPsql);
-            ps.setEscapeProcessing(true);
-            ps.setQueryTimeout(30);
-            //Set up params for stored procedure
-            ps.setInt(1, CustomerID);
-            //Return sp into a result set
-            rs = ps.executeQuery();
-            //If the customer doesnt have any quotes 
-            if (!rs.next()) {
-                System.out.println("No Quotes Found");
-            } else {
-                do {
-                    if (rs.getInt("quote_type") == 15) {
-                        QuoteIDS.add(rs.getInt("quote_id"));
-                    }
-                } while (rs.next());
-            }
-        } catch (Exception ex) {
-            System.out.println("An Exception has occurred! " + ex);
-        } //Exception handling and closing
-        finally {
-            //Close DB Connections
-            ConnectionManager.Dispose(connection, rs, ps);
-        }
-        System.out.println("HomeQuote IDS:" + QuoteIDS);
-        return QuoteIDS;
-    }
-
-    public static List<Integer> getAutoQuoteIDbyCustomerID(Customer client) {
-
-        List<Integer> QuoteIDS = new ArrayList<Integer>();
-        int CustomerID = Integer.parseInt(client.getId());
-        String SPsql = "EXEC getQuoteByCustomerId ?";
-
-        try {
-            connection = ConnectionManager.getConnection();
-            ps = connection.prepareStatement(SPsql);
-            ps.setEscapeProcessing(true);
-            ps.setQueryTimeout(30);
-            ps.setInt(1, CustomerID);
-            //Return sp into a result set
-            rs = ps.executeQuery();
-            //If the customer doesnt have any quotes 
-            if (!rs.next()) {
-                System.out.println("No Quotes Found");
-            } else {
-                do {
-                    if (rs.getInt("quote_type") == 14) {
-                        QuoteIDS.add(rs.getInt("quote_id"));
-                    }
-                } while (rs.next());
-            }
-        } catch (Exception ex) {
-            System.out.println("An Exception has occurred! " + ex);
-        } //Exception handling and closing
-        finally {
-            //Close DB Connections
-            ConnectionManager.Dispose(connection, rs, ps);
-        }
-        System.out.println("AutoQuote IDS:" + QuoteIDS);
-        return QuoteIDS;
-    }
-
-    public static String getHouseQuote(int QuoteID) {
-        String returnResult = "";
-        String SPsql = "EXEC getHomeQuoteByQuoteId ?";
-        System.out.println(QuoteID);
-        try {
-            connection = ConnectionManager.getConnection();
-            //stmt = connection.createStatement();
-            ps = connection.prepareStatement(SPsql);
-            ps.setEscapeProcessing(true);
-            ps.setQueryTimeout(30);
-            //Set up params for stored procedure
-            ps.setInt(1, QuoteID);
-            //Return sp into a result set
-            rs = ps.executeQuery();
+    public static List<HouseQuote> getHouseQuotesByCustomerId(Customer customer, Map<String, House> houseList) {
+        String sql = "{call getHouseQuotesByCustomerId(?)}";
+        List<HouseQuote> quoteList = new ArrayList<>();
+        try (
+                Connection con = ConnectionManager.getConnection();
+                CallableStatement stm = con.prepareCall(sql)) {
+            
+            stm.setInt(1, Integer.parseInt(customer.getId()));
+            ResultSet rs = stm.executeQuery();
+            
             while (rs.next()) {
-                returnResult = "Quote ID: " + rs.getInt("quote_id") + "<br>" + "Premium: $" + rs.getDouble("quote_rate") + "<br>" + "Expiration Date: " + rs.getDate("date_expired");
+                House house = houseList.get(rs.getString("house_id"));
+                if (house == null) {
+                    throw new IndexOutOfBoundsException("Bad house ID: " + rs.getString("house_id"));
+                }
+                quoteList.add(new HouseQuote(rs.getString("quote_id"), rs.getDate("creation_date").toLocalDate(), rs.getDate("expiry_date").toLocalDate(), customer, house));
             }
-        } catch (SQLException ex) {
-            System.out.println("Retreive Quote has failed for customer id: " + QuoteID + " reason: " + ex);
-            Logger.getLogger(QuoteDAO.class.getName()).log(Level.SEVERE, null, ex);
-
-        } finally {
-            //Close DB Connections
-            ConnectionManager.Dispose(connection, rs, ps);
-        }
-        System.out.println(returnResult);
-        return returnResult;
-    }
-
-    public static String getVehicleQuote(int QuoteID) {
-        String returnResult = "";
-        Statement stmt = null;
-        String sql = "SELECT * FROM auto_quote WHERE quote_id = " + QuoteID;
-        try {
-            connection = ConnectionManager.getConnection();
-            stmt = connection.createStatement();
-            System.out.println(sql);
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                returnResult = "Quote ID: " + rs.getInt("quote_id") + "<br>" + "Premium: $" + rs.getDouble("quote_rate") + "<br>" + "Expiration Date: " + rs.getDate("date_expired");
-            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(QuoteDAO.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Retreive Quote has failed for customer id: " + QuoteID + " reason: " + ex);
-        } finally {
-            //Close DB Connections
-            ConnectionManager.Dispose(connection, rs, ps);
         }
-        return returnResult;
+        
+        return quoteList;
     }
-
+    
+    public static List<VehicleQuote> getVehicleQuotesByCustomerId(Customer customer, Map<String, Vehicle> vehicleList) {
+        String sql = "{call getVehicleQuotesByCustomerId(?)}";
+        List<VehicleQuote> quoteList = new ArrayList<>();
+        try (
+                Connection con = ConnectionManager.getConnection();
+                CallableStatement stm = con.prepareCall(sql)) {
+            
+            stm.setInt(1, Integer.parseInt(customer.getId()));
+            ResultSet rs = stm.executeQuery();
+            
+            while (rs.next()) {
+                Vehicle vehicle = vehicleList.get(rs.getString("house_id"));
+                if (vehicle == null) {
+                    throw new IndexOutOfBoundsException("Bad house ID: " + rs.getString("house_id"));
+                }
+                quoteList.add(new VehicleQuote(rs.getString("quote_id"), rs.getDate("creation_date").toLocalDate(), rs.getDate("expiry_date").toLocalDate(), customer, vehicle));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(QuoteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return quoteList;
+    }
 }

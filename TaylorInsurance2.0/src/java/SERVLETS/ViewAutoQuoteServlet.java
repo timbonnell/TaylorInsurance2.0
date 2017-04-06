@@ -36,7 +36,7 @@ public class ViewAutoQuoteServlet extends HttpServlet {
        BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (request.getSession(false).getAttribute("BusinessProcessManager"));
         int quoteID = Integer.parseInt(request.getParameter("autoquotes"));
         
-        String quoteResult = QuoteDAO.getVehicleQuote(quoteID);
+
        
         //Set up sessions
         HttpSession session = request.getSession(true);
