@@ -103,7 +103,8 @@ public class VehicleRiskFactorGenerator extends RiskFactorGenerator {
      * TODO: retrieve number of accidents from database
      */
     private int getNumberOfDriverAccidents() {
-        return 0;
+        VehicleInsurable vehicle = (VehicleInsurable) getProperty();
+        return vehicle.getNumAccidents();
     }
 
     @Override
