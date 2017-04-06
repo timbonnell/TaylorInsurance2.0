@@ -3,7 +3,7 @@
     Created on : Mar 22, 2017, 7:47:17 PM
     Author     : tim
 --%>
-
+<%session.invalidate();%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
