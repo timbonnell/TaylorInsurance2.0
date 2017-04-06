@@ -92,12 +92,13 @@ public class HomeQuoteServlet extends HttpServlet {
         newHouse.setType(Integer.parseInt(request.getParameter("building")));
         newHouse.setYear(Integer.parseInt(request.getParameter("yearBuilt")));
         newHouse.setAddress(address);
-         House newQuoteHouse = HouseDAO.createHouse(newHouse);
-        
+         
         //Create a House Quote
         //HouseQuote houseQuote = new HouseQuote("0", LocalDate.now(), client, newHouse);
         newBusinessProcessManager.createNewCustomer(client);
+        House newQuoteHouse = newBusinessProcessManager.createNewHouse(newHouse);
         HouseQuote newHouseQuote = newBusinessProcessManager.createNewHouseQuote(newQuoteHouse.getHouseId());
+
        
         //Set up sessions
         HttpSession session = request.getSession(true);
