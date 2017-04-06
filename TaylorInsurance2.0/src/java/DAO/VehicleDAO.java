@@ -103,10 +103,10 @@ public class VehicleDAO {
     public static List<Vehicle> getVehiclesForCustomer(String customerId) {
         String sql = "{call getAllVehiclesByCustomerId (?)}";
         List<Vehicle> list = new ArrayList();
-        try (
+        try {
                 Connection con = ConnectionManager.getConnection();
-                CallableStatement stm = con.prepareCall(sql)
-                ) {
+                CallableStatement stm = con.prepareCall(sql);
+                
 
             stm.setInt(1, Integer.parseInt(customerId));
             ResultSet results = stm.executeQuery();
@@ -118,18 +118,22 @@ public class VehicleDAO {
                 aVehicle.setMake(results.getString("make"));
                 aVehicle.setModel(results.getString("model"));
                 aVehicle.setYear(results.getInt("year"));
-                aVehicle.setType(results.getInt("type"));
+                aVehicle.setType(results.getInt("vehicle_type"));
                 aVehicle.setVin(results.getString("vin"));
                 aVehicle.setColor(results.getInt("color"));
                 //Do not set Accidents for this object TODO- Remove this section when relevant
                 /**aVehicle.setNumAccidents(results.getString());*/
                 aVehicle.setEstimated_value(results.getDouble("estimated_value"));
                 list.add(aVehicle);
+                System.out.println("Test Vehicle INIT" + aVehicle.toString());
             }
         } catch (SQLException ex) {
             Logger.getLogger(VehicleDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Get All Vehicles Error");
         }
+        System.out.println("List Length" + list.size());
         return list;
+        
     }
 
 }

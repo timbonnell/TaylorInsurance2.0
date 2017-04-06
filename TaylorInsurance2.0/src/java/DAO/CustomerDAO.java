@@ -69,6 +69,8 @@ public class CustomerDAO {
                         rs.getString("postalcode"));
                 //Address billingAddress;               
                 String phoneNumber = rs.getString("contact");
+                
+                LocalDate birthdate = (rs.getDate("birthdate")).toLocalDate();
 
                 // All of the sets
                 client.setId(id);
@@ -76,6 +78,7 @@ public class CustomerDAO {
                 client.setLastName(lastName);
                 client.setAddress(mailingAddress);
                 client.setPhoneNumber(phoneNumber);
+                client.setBirthDate(birthdate);
                 // Set client to valid
                 client.setValid(true);
             }

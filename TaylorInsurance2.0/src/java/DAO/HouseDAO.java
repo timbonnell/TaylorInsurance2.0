@@ -104,7 +104,7 @@ public class HouseDAO {
      * @return 
      */
     public static List<House> getHousesForCustomer(String customerId) {
-        String sql = "{call getHousesByCustomerId (?)}";
+        String sql = "{call getAllHousesByCustomerId (?)}";
         List<House> list = new ArrayList();
         try (
                 Connection con = ConnectionManager.getConnection();

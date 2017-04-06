@@ -106,7 +106,7 @@ public class QuoteDAO {
     }
 
     public static List<HouseQuote> getHouseQuotesByCustomerId(Customer customer, Map<String, House> houseList) {
-        String sql = "{call getHouseQuotesByCustomerId(?)}";
+        String sql = "{call getAllHomeQuotesByCustomerId(?)}";
         List<HouseQuote> quoteList = new ArrayList<>();
         try (
                 Connection con = ConnectionManager.getConnection();
@@ -131,7 +131,7 @@ public class QuoteDAO {
     }
 
     public static List<VehicleQuote> getVehicleQuotesByCustomerId(Customer customer, Map<String, Vehicle> vehicleList) {
-        String sql = "{call getVehicleQuotesByCustomerId(?)}";
+        String sql = "{call getAutoQuotesByCustomerId(?)}";
         List<VehicleQuote> quoteList = new ArrayList<>();
         try (
                 Connection con = ConnectionManager.getConnection();
@@ -141,11 +141,11 @@ public class QuoteDAO {
             ResultSet rs = stm.executeQuery();
 
             while (rs.next()) {
-                Vehicle vehicle = vehicleList.get(rs.getString("house_id"));
+                Vehicle vehicle = vehicleList.get(rs.getString("vehicle_id"));
                 if (vehicle == null) {
-                    throw new IndexOutOfBoundsException("Bad house ID: " + rs.getString("house_id"));
+                    throw new IndexOutOfBoundsException("Bad vehicle ID(Quote): " + rs.getString("vehicle_id"));
                 }
-                quoteList.add(new VehicleQuote(rs.getString("quote_id"), rs.getDate("creation_date").toLocalDate(), rs.getDate("expiry_date").toLocalDate(), customer, vehicle));
+                quoteList.add(new VehicleQuote(rs.getString("quote_id"), rs.getDate("date_created").toLocalDate(), rs.getDate("date_expired").toLocalDate(), customer, vehicle));
             }
 
         } catch (SQLException ex) {

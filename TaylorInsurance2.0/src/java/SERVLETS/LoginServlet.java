@@ -57,6 +57,7 @@ public class LoginServlet extends HttpServlet {
             newBusinessProcessManager.setCustomer(client);
             
             if (client.isValid()) {
+                newBusinessProcessManager.loadAllCustomerInformation();
                 System.out.println("Login good");
                 HttpSession session = request.getSession(true);
                 session.setAttribute("BusinessProcessManager", newBusinessProcessManager);

@@ -215,6 +215,8 @@ public class BusinessProcessManager {
 
         HouseDAO.getHousesForCustomer(customer.getId()).forEach(this::addExistingHouse);
         VehicleDAO.getVehiclesForCustomer(customer.getId()).forEach(this::addExistingVehicle);
+        System.out.println("House List:" + houseList.size());
+        System.out.println("Vehcile List:" + vehicleList.size());
         QuoteDAO.getHouseQuotesByCustomerId(customer, houseList).forEach(this::addExistingHouseQuote);
         QuoteDAO.getVehicleQuotesByCustomerId(customer, vehicleList).forEach(this::addExistingVehicleQuote);
         PolicyDAO.getHomePoliciesByCustomerId(customer, houseQuoteList).forEach(this::addExistingHousePolicy);

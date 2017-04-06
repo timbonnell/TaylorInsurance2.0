@@ -98,7 +98,7 @@ public class PolicyDAO {
     }
     
     public static List<VehiclePolicy> getVehiclePoliciesByCustomerId(Customer customer, Map<String, VehicleQuote> quoteList) {
-        String sql = "{call getVehiclePoliciesByCustomerId(?)}";
+        String sql = "{call getAutoPoliciesByCustomerId(?)}";
         List<VehiclePolicy> policyList = new ArrayList();
         try (
                 Connection con = ConnectionManager.getConnection();
