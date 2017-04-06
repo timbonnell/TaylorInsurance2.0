@@ -12,8 +12,9 @@ import java.time.LocalDate;
  */
 public class VehicleQuote extends Quote {
 
-    public VehicleQuote(String id, LocalDate creationDate, LocalDate expiryDate, CustomerInsurable client, Insurable property) {
+    public VehicleQuote(String id, LocalDate creationDate, LocalDate expiryDate, CustomerInsurable client, VehicleInsurable property) {
         super(id, creationDate, expiryDate, client, property);
+        setCalculator(new VehicleRiskFactorGenerator(client, property));
     }
 
     @Override
