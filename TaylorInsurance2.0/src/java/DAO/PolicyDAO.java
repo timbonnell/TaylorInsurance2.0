@@ -42,7 +42,7 @@ public class PolicyDAO {
             if (!rs.next()) {
                 throw new SQLException("No policy has been created.");
             } else {
-                return new VehiclePolicy(rs.getString("policy_id"), quote, rs.getDate("creation_date").toLocalDate(), rs.getDate("expiry_date").toLocalDate());
+                return new VehiclePolicy(rs.getString("policy_id"), quote, rs.getDate("date_created").toLocalDate(), rs.getDate("date_created").toLocalDate());
             }
         } catch (SQLException ex) {
             System.out.println("Retreive Quote has failed for customer id: " + quote + " reason: " + ex);
@@ -66,16 +66,18 @@ public class PolicyDAO {
             if (!rs.next()) {
                 throw new SQLException("No policy has been created.");
             } else {
-                return new HousePolicy(rs.getString("policy_id"), quote, rs.getDate("creation_date").toLocalDate(), rs.getDate("expiry_date").toLocalDate());
+                return new HousePolicy(rs.getString("policy_id"), quote, rs.getDate("date_created").toLocalDate(), rs.getDate("date_expired").toLocalDate());
+                
             }
         } catch (SQLException ex) {
             Logger.getLogger(QuoteDAO.class.getName()).log(Level.SEVERE, null, ex);
+             return null;
         }
-        return null;
+ 
     }
 
     public static List<HousePolicy> getHomePoliciesByCustomerId(Customer customer, Map<String, HouseQuote> quoteList) {
-        String sql = "{call getHomePoliciesByCustomerId(?)}";
+        String sql = "{call getAllHomePoliciesByCustomerId(?)}";
         List<HousePolicy> policyList = new ArrayList();
         try (
                 Connection con = ConnectionManager.getConnection();
