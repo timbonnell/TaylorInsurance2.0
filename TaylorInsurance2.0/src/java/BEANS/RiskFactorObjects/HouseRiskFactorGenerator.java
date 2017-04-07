@@ -79,8 +79,8 @@ public class HouseRiskFactorGenerator extends RiskFactorGenerator {
         addRate("AGE", "50", 1.5);
 
         // House heating rates
-        addRate("HEATING", "1", 2.0);
-        addRate("HEATING", "2", 1.25);
+        addRate("HEATING", "25", 2.0);
+        addRate("HEATING", "26", 1.25);
     }
 
 }
