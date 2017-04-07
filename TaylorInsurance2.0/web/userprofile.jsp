@@ -46,7 +46,7 @@
                     <li><a href="#testimonial">File a Claim</a></li>
                     <li><a href="ContactUs.jsp">Contact Us</a></li>
                     <li>
-                        <form class="form-horizontal" action="LogoutServlet"> 
+                        <form style="padding-top: 10px;" class="form-horizontal" action="LogoutServlet"> 
                              <button class="btn btn-info" type="submit">Logout</button>
                         </form>
                     </li>
@@ -83,7 +83,7 @@
                                 <form class="form-horizontal" action="ViewHomePolicyServlet"> 
                                     <select id="homePolicies" name="homePolicies">
                                         <c:forEach items="${BusinessProcessManager.getHousePolicyList()}" var="homepolicy">
-                                            <option value="${homepolicy.key}">${homepolicy.key}</option>
+                                            <option value="${homepolicy.key}">ID: ${homepolicy.key} Cost: $ ${homepolicy.value.getPremium()}</option>
                                         </c:forEach>
                                     </select>
                                     <br><br>
@@ -96,7 +96,7 @@
                                 <form class="form-horizontal" action="ViewAutoPolicyServlet"> 
                                     <select id="autoPolicies" name="autoPolicies">
                                         <c:forEach items="${BusinessProcessManager.getVehiclePolicyList()}" var="autopolicy">
-                                            <option value="${autopolicy.key}">${autopolicy.key}</option>
+                                            <option value="${autopolicy.key}">ID: ${autopolicy.key} Cost: $ ${autopolicy.value.getPremium()}</option>
                                         </c:forEach>
                                     </select>
                                     <br><br>
@@ -115,7 +115,7 @@
                                     <select id="homeQuotes" name="homeQuotes">
                                         <c:forEach items="${BusinessProcessManager.getHouseQuoteList()}" var="homequotes">
                                             
-                                                <option value="${homequotes.key}">${homequotes.key}</option>
+                                                <option value="${homequotes.key}">ID: ${homequotes.key} Cost: $ ${homequotes.value.getTotalPremium()}</option>
                                            
                                         </c:forEach>
                                     </select>
@@ -131,7 +131,7 @@
                                 <form class="form-horizontal" action="ViewAutoQuoteServlet"> 
                                     <select id="autoQuotes" name="autoquotes">
                                         <c:forEach items="${BusinessProcessManager.getVehicleQuoteList()}" var="autoquotes">
-                                                <option value="${autoquotes.key}">${autoquotes.key}</option>
+                                                <option value="${autoquotes.key}">ID: ${autoquotes.key} Cost: $ ${autoquotes.value.getTotalPremium()}</option>
                                         </c:forEach>
                                     </select>
                                     <br><br>

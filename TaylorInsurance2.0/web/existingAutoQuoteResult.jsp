@@ -42,7 +42,7 @@
                     <li><a href="autoQuote.jsp">Get an Auto Quote</a></li>
                     <li><a href="ContactUs.jsp">Contact Us</a></li>
                     <li>
-                        <form class="form-horizontal" action="LogoutServlet"> 
+                        <form style="padding-top: 10px;" class="form-horizontal" action="LogoutServlet"> 
                             <button class="btn btn-info" type="submit">Logout</button>
                         </form>
                     </li>
