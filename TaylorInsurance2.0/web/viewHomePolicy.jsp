@@ -4,6 +4,7 @@
     Author     : tim
 --%>
 
+<%@page import="BEANS.BusinessProcessObjects.BusinessProcessManager"%>
 <%@page import="BEANS.InfoObjects.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -52,8 +53,8 @@
     <!--End Nav -->
 
     <body style="padding-top: 150px;">
-        <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
-        <% String name = (String) session.getAttribute("currentsessionHomePolicy");%>
+        <% BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager)(session.getAttribute("BusinessProcessManager"));%>
+        <% String homePolicyID = (String) session.getAttribute("currentsessionHomePolicyID");%>
         <form class="form-horizontal" action="userprofile.jsp">
             <div class="form-group">
                 <div class="container">
@@ -61,20 +62,20 @@
                         <div class="col-sm-4">
 
                             <h3>Customer Information</h3>
-                            <p>Customer ID: <%= currentClient.getId()%></p>
+                            <p>Customer ID: <%= newBusinessProcessManager.getCustomer().getId()%></p>
                             <p>
-                                <span>Hi, </span><span><%= currentClient.getFirstName() + " " + currentClient.getLastName()%></span>
+                                <span>Hi, </span><span><%= newBusinessProcessManager.getCustomer().getFirstName() + " " + newBusinessProcessManager.getCustomer().getLastName()%></span>
                             </p>
 
                         </div>
                         <div class="col-sm-4">
                             <h3>Address</h3>
-                            <p><%= currentClient.getAddress()%></p>
+                            <p><%= newBusinessProcessManager.getHouse(newBusinessProcessManager.getHousePolicy(homePolicyID).getAssociatedQuote().getProperty().getHouseId()).getAddress().toString() %></p>
 
                         </div>
                         <div class="col-sm-4">
                             <h3>Home Policy Information:</h3>
-                            <p><%=name%></p>
+                            <p> Yearly Premium: <%= newBusinessProcessManager.getHousePolicy(homePolicyID).getPremium() %> </p>
 
                         </div>
                         <div class="form-group">

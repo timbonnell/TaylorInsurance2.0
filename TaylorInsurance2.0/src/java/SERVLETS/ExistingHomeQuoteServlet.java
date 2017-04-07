@@ -60,12 +60,15 @@ public class ExistingHomeQuoteServlet extends HttpServlet {
         newHouse.setAddress(address);
 
         //Create a House Quote
-        House newQuoteHouse = newBusinessProcessManager.createNewHouse(newHouse);
-        HouseQuote houseQuote = newBusinessProcessManager.createNewHouseQuote(newQuoteHouse.getHouseId());
+        newHouse = newBusinessProcessManager.createNewHouse(newHouse);
+        HouseQuote houseQuote = newBusinessProcessManager.createNewHouseQuote(newHouse.getHouseId());
 
         //Set up sessions
         HttpSession session = request.getSession(true);
+        session.setAttribute("HouseID", newHouse.getHouseId());
+        session.setAttribute("HouseQuoteID", houseQuote.getId());
         session.setAttribute("BusinessProcessManager", newBusinessProcessManager);
+       
         response.sendRedirect("existingHomeQuoteResult.jsp"); //logged-in page
 
     }

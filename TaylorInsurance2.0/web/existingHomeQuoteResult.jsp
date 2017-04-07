@@ -4,6 +4,7 @@
     Author     : tim
 --%>
 
+<%@page import="BEANS.BusinessProcessObjects.BusinessProcessManager"%>
 <%@page import="BEANS.InfoObjects.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -52,35 +53,36 @@
     <!--End Nav -->
 
     <body style="padding-top: 150px;">
-        <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
-        <% String name = (String) session.getAttribute("currentsessionHomeQuote");%>
-        <form class="form-horizontal" action="CreateHomePolicyServlet">
+     <% BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager)(session.getAttribute("BusinessProcessManager"));%>
+     <% String HouseID = (String)(session.getAttribute("HouseID"));%> 
+     <% String HouseQuoteID = (String)(session.getAttribute("HouseQuoteID"));%> 
+        <form class="form-horizontal" action="AdditionalQuoteServlet">
             <div class="form-group">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4">
 
                             <h3>Customer Information</h3>
-                            <p>Customer ID: <%= currentClient.getId()%></p>
+                            <p>Customer ID: <%= newBusinessProcessManager.getCustomer().getId()%></p>
                             <p>
-                                <span>Hi, </span><span><%= currentClient.getFirstName() + " " + currentClient.getLastName()%></span>
+                                <span>Hi, </span><span><%= newBusinessProcessManager.getCustomer().getFirstName() + " " + newBusinessProcessManager.getCustomer().getLastName()%></span>
                             </p>
 
                         </div>
                         <div class="col-sm-4">
                             <h3>Address</h3>
-                            <p><%= currentClient.getAddress()%></p>
+                            <p><%= newBusinessProcessManager.getHouse(HouseID).getAddress().toString()%></p>
 
                         </div>
                         <div class="col-sm-4">
                             <h3>Home Quote Information:</h3>
-                            <p><%=name%></p>
+                            <p><%=newBusinessProcessManager.getHouseQuote(HouseQuoteID).getTotalPremium()%></p>
 
                         </div>
-                        <div class="form-group">
-                            <label class="col-xs-5 control-label"></label>
-                            <button style="float: center;" class="btn btn-primary" type="submit">Accept Home Policy</button>
-                        </div>
+                            <div class="form-group">
+                                <label class="col-xs-5 control-label"></label>
+                                <button style="float: center;" class="btn btn-primary" type="submit">Back to My Profile</button>
+                            </div>
                     </div>
                 </div>
             </div>

@@ -94,7 +94,7 @@
                           
                                 <h3>Active Auto Policies</h3>  
                                 <form class="form-horizontal" action="ViewAutoPolicyServlet"> 
-                                    <select id="autoPolicies" name="autoPolicyIds">
+                                    <select id="autoPolicies" name="autoPolicies">
                                         <c:forEach items="${BusinessProcessManager.getVehiclePolicyList()}" var="autopolicy">
                                             <option value="${autopolicy.key}">${autopolicy.key}</option>
                                         </c:forEach>

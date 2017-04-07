@@ -82,6 +82,7 @@ public class ExistingAutoQuoteServlet extends HttpServlet {
 
         //Set up sessions
         HttpSession session = request.getSession(true);
+        session.setAttribute("AutoQuoteID", vehicleQuote.getId());
         session.setAttribute("BusinessProcessManager", newBusinessProcessManager);
         response.sendRedirect("existingAutoQuoteResult.jsp");
 

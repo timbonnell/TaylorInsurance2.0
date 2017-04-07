@@ -34,12 +34,12 @@ public class ViewHomePolicyServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (request.getSession(false).getAttribute("BusinessProcessManager"));
-        
-      //  String homePolicyResult = PolicyDAO.getHousePolicy(policyID);
+        String policyID = (request.getParameter("homePolicies"));
         
         //Set up sessions
         HttpSession session= request.getSession(true);
         session.setAttribute("newBusinessProcessManager", newBusinessProcessManager );
+        session.setAttribute("currentsessionHomePolicyID", policyID);
         
         response.sendRedirect("viewHomePolicy.jsp");
     }

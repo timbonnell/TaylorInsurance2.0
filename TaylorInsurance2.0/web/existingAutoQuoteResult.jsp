@@ -4,6 +4,7 @@
     Author     : tim
 --%>
 
+<%@page import="BEANS.BusinessProcessObjects.BusinessProcessManager"%>
 <%@page import="BEANS.InfoObjects.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -52,33 +53,34 @@
     <!--End Nav -->
 
     <body style="padding-top: 150px;">
-
-        <form class="form-horizontal" action="CreateAutoPolicyServlet">
+     <% BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager)(session.getAttribute("BusinessProcessManager"));%>
+      <% String AutoQuoteID = (String)(session.getAttribute("AutoQuoteID"));%> 
+        <form class="form-horizontal" action="AdditionalQuoteServlet">
             <div class="form-group">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4">
 
                             <h3>Customer Information</h3>
-                            <p>Customer ID: <%= currentClient.getId()%></p>
+                            <p>Customer ID: <%= newBusinessProcessManager.getCustomer().getId()%></p>
                             <p>
-                                <span>Hi, </span><span><%= currentClient.getFirstName() + " " + currentClient.getLastName()%></span>
+                                <span>Hi, </span><span><%= newBusinessProcessManager.getCustomer().getFirstName() + " " + newBusinessProcessManager.getCustomer().getLastName()%></span>
                             </p>
 
                         </div>
                         <div class="col-sm-4">
                             <h3>Address</h3>
-                            <p><%= currentClient.getAddress()%></p>
+                            <p><%= newBusinessProcessManager.getCustomer().getAddress().toString()%></p>
 
                         </div>
                         <div class="col-sm-4">
                             <h3>Auto Quote Information:</h3>
-                            <p><%=name%></p>
+                            <p>$ <%= newBusinessProcessManager.getVehicleQuote(AutoQuoteID).getTotalPremium() %></p>
 
                             <br><br>
                             <div class="form-group">
                                 <label class="col-xs-5 control-label"></label>
-                                <button style="float: center;" class="btn btn-primary" type="submit">Accept Auto Policy</button>
+                                <button style="float: center;" class="btn btn-primary" type="submit">Back to My Profile</button>
                             </div>
                         </div>
                     </div>

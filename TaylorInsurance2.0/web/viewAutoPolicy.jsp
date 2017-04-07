@@ -4,6 +4,7 @@
     Author     : tim
 --%>
 
+<%@page import="BEANS.BusinessProcessObjects.BusinessProcessManager"%>
 <%@page import="BEANS.InfoObjects.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,7 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <META HTTP-EQUIV="refresh" CONTENT="<%= session.getMaxInactiveInterval() %>; URL= index.jsp" />
+        <META HTTP-EQUIV="refresh" CONTENT="<%= session.getMaxInactiveInterval()%>; URL= index.jsp" />
         <title>View Auto Policy</title>
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
@@ -52,32 +53,35 @@
     <!--End Nav -->
 
     <body style="padding-top: 150px;">
-        <% Customer currentClient = (Customer) (session.getAttribute("currentSessionClient"));%>
-        <% String name = (session.getAttribute("currentsessionAutoPolicy")).toString();%>
-        <form class="form-horizontal" action="AddSecondDriverServlet">
+        <% BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (session.getAttribute("BusinessProcessManager"));%>
+        <% String autoPolicyID = (String) session.getAttribute("currentsessionAutoPolicyID");%>
+        <form class="form-horizontal" action="userprofile.jsp">
             <div class="form-group">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4">
 
                             <h3>Customer Information</h3>
-                            <p>Customer ID: <%= currentClient.getId()%></p>
+                            <p>Customer ID: <%= newBusinessProcessManager.getCustomer().getId()%></p>
                             <p>
-                                <span>Hi, </span><span><%= currentClient.getFirstName() + " " + currentClient.getLastName()%></span>
+                                <span>Hi, </span><span><%= newBusinessProcessManager.getCustomer().getFirstName() + " " + newBusinessProcessManager.getCustomer().getLastName()%></span>
                             </p>
 
                         </div>
                         <div class="col-sm-4">
                             <h3>Address</h3>
-                            <p><%= currentClient.getAddress()%></p>
+                            <p><%= newBusinessProcessManager.getCustomer().getAddress()%></p>
 
                         </div>
                         <div class="col-sm-4">
                             <h3>Auto Policy Information:</h3>
-                            <p><%=name%></p>
+                            <p> Yearly Premium: <%= newBusinessProcessManager.getVehiclePolicy(autoPolicyID).getPremium() %></p>
 
                             <br><br>
-
+                            <div class="form-group">
+                                <label class="col-xs-5 control-label"></label>
+                                <button style="float: center;" class="btn btn-primary" type="submit">Back</button>
+                            </div>
                         </div>
                     </div>
                 </div>

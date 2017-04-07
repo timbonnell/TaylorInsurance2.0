@@ -6,35 +6,22 @@
 package SERVLETS;
 
 import BEANS.BusinessProcessObjects.BusinessProcessManager;
-import DAO.PolicyDAO;
+import DAO.CustomerDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author tim
  */
-public class ViewAutoPolicyServlet extends HttpServlet {
+public class AdditionalQuoteServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
 
-    }
-
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -47,14 +34,10 @@ public class ViewAutoPolicyServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (request.getSession(false).getAttribute("BusinessProcessManager"));
-        String policyID = (request.getParameter("autoPolicies"));
-        //Set up sessions
-        HttpSession session = request.getSession(true);
-        session.setAttribute("BusinessProcessManager", newBusinessProcessManager);
-        session.setAttribute("currentsessionAutoPolicyID", policyID);
-
-
-        response.sendRedirect("viewAutoPolicy.jsp");
+        CustomerDAO.login(newBusinessProcessManager.getCustomer());
+        response.sendRedirect("userprofile.jsp"); //logged-in page 
+        
+        
     }
 
 }
