@@ -41,9 +41,8 @@ public class PolicyDAO {
             boolean hasResultSets = stm.execute();
             boolean hasMoreResultSets = stm.getMoreResults();
             System.out.println(hasMoreResultSets + " " + hasResultSets);
-            if (true) {
-                ResultSet rs = stm.getResultSet();
-                rs.next();
+            ResultSet rs = stm.getResultSet();
+            if (rs.next()) {        
                 return new VehiclePolicy(rs.getString("policy_id"), quote, rs.getDate("date_created").toLocalDate(), rs.getDate("date_expired").toLocalDate());
             } else {
                 throw new SQLException("No policy has been created.");
