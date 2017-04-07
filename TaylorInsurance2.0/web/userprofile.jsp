@@ -66,86 +66,135 @@
             <div class="row">
                 <div class="col-sm-4">
 
-                    <h3>Customer Information</h3>
-                    <p>Customer ID: <%= newBusinessProcessManager.getCustomer().getId()%></p>
-                    <p>
-                        <span>Hi, </span><span><%= newBusinessProcessManager.getCustomer().getFirstName() + " " + newBusinessProcessManager.getCustomer().getLastName()%></span>
-                    </p>
-                    <br>
-                    <br>
-                    <h3>Address</h3>
-                    <p><%= newBusinessProcessManager.getCustomer().getAddress()%></p>
+                    <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                        <div class="mdl-card__title_info mdl-card--expand">
+                            <h2 class="mdl-card__title_home-text">Customer Information</h2>
+                        </div>
+
+                        <div style="padding: 20px;">
+                        <p>Customer ID: <%= newBusinessProcessManager.getCustomer().getId()%></p>
+                        <p>
+                            <span>Hi, </span><span><%= newBusinessProcessManager.getCustomer().getFirstName() + " " + newBusinessProcessManager.getCustomer().getLastName()%></span>
+                        </p>
+                        <p><%= newBusinessProcessManager.getCustomer().getAddress()%></p>
+                        </div>
+                    </div>
+
+                    <div style="padding-top: 60px;">
+                        <div  class="demo-card-square mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title_info mdl-card--expand">
+                                <h2 class="mdl-card__title_home-text">Payment Information</h2>
+                            </div>
+
+                             <div style="padding: 20px;">
+                            <p>Payment Type: Visa</p>
+                            <p>
+                               Card Number: **** **** **** 4556
+                            </p>
+                            <p>Policy Payment Type: Fixed Yearly</p>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
 
                 <div class="col-sm-4">
-                    <div>
+                    <div id="homePolicyID">
 
-                        <div id="homePolicyID">
-
-                            <h3>Active Home Policies</h3>  
-                            <form class="form-horizontal" action="ViewHomePolicyServlet"> 
-                                <select id="homePolicies" name="homePolicies">
-                                    <c:forEach items="${BusinessProcessManager.getHousePolicyList()}" var="homepolicy">
-                                        <option value="${homepolicy.key}">ID: ${homepolicy.key} Cost: $ ${homepolicy.value.getPremium()}</option>
-                                    </c:forEach>
-                                </select>
-                                <br><br>
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">View Policy</button>
+                        <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title_home mdl-card--expand">
+                                <h2 class="mdl-card__title_home-text"></h2>
+                            </div>
+                            <div style="padding: 20px;" class=""> 
+                                <form class="form-horizontal" action="ViewHomePolicyServlet"> 
+                                    <select id="homePolicies" name="homePolicies">
+                                        <c:forEach items="${BusinessProcessManager.getHousePolicyList()}" var="homepolicy">
+                                            <option value="${homepolicy.key}">ID: ${homepolicy.key} Cost: $ ${homepolicy.value.getPremium()}</option>
+                                        </c:forEach>
+                                    </select>
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">View Home Policy</button> 
+                            </div>
                             </form>
-                        </div>
-                        <div id="AutoPolicySection">
-
-                            <h3>Active Auto Policies</h3>  
-                            <form class="form-horizontal" action="ViewAutoPolicyServlet"> 
-                                <select id="autoPolicies" name="autoPolicies">
-                                    <c:forEach items="${BusinessProcessManager.getVehiclePolicyList()}" var="autopolicy">
-                                        <option value="${autopolicy.key}">ID: ${autopolicy.key} Cost: $ ${autopolicy.value.getPremium()}</option>
-                                    </c:forEach>
-                                </select>
-                                <br><br>
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">View Policy</button>
-                            </form>
-
-                        </div>
+                        </div>  
                     </div>
+
+
+                    <div style="padding-top: 60px;" id="AutoPolicySection">
+
+                        <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title_auto mdl-card--expand">
+                                <h2 class="mdl-card__title_auto-text"></h2>
+                            </div>
+                            <div style="padding: 20px;" class="">
+                                <form class="form-horizontal" action="ViewAutoPolicyServlet"> 
+                                    <select id="autoPolicies" name="autoPolicies">
+                                        <c:forEach items="${BusinessProcessManager.getVehiclePolicyList()}" var="autopolicy">
+                                            <option value="${autopolicy.key}">ID: ${autopolicy.key} Cost: $ ${autopolicy.value.getPremium()}</option>
+                                        </c:forEach>
+                                    </select>
+
+
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">View Auto Policy</button> 
+                            </div>
+                            </form>
+                        </div>    
+
+                    </div>
+
+
+
+
                 </div>
+
                 <div class="col-sm-4">
                     <div>
                         <div id="homeQuoteSection">
 
-                            <h3>Active Home Quotes</h3>  
-                            <form class="form-horizontal" action="ViewHomeQuoteServlet"> 
-                                <select id="homeQuotes" name="homeQuotes">
-                                    <c:forEach items="${BusinessProcessManager.getHouseQuoteList()}" var="homequotes">
-                                        <c:if test="${(BusinessProcessManager.checkExpiry(homequotes.value))}">
-                                            <option value="${homequotes.key}">ID: ${homequotes.key} Cost: $ ${homequotes.value.getTotalPremium()} </option>
-                                        </c:if>
-                                    </c:forEach>                                   
-                                </select>
-                                <br><br>
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">View Home Quote</button>
-                            </form>
+                            <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title_home mdl-card--expand">
+                                    <h2 class="mdl-card__title_home-text"></h2>
+                                </div>
+                                <div style="padding: 20px;" class="">
+                                    <form class="form-horizontal" action="ViewHomeQuoteServlet"> 
+                                        <select id="homeQuotes" name="homeQuotes">
+                                            <c:forEach items="${BusinessProcessManager.getHouseQuoteList()}" var="homequotes">
+                                                <c:if test="${(BusinessProcessManager.checkExpiry(homequotes.value))}">
+                                                    <option value="${homequotes.key}">ID: ${homequotes.key} Cost: $ ${homequotes.value.getTotalPremium()} </option>
+                                                </c:if>
+                                            </c:forEach>                                   
+                                        </select>
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">View Home Quote</button> 
+                                </div>
+                                </form>
+                            </div>     
 
                         </div>
 
-                        <div id="autoQuoteSection">
+                        <div style="padding-top: 60px;" id="autoQuoteSection">
 
                             <div class="demo-card-square mdl-card mdl-shadow--2dp">
-                                <div class="mdl-card__title mdl-card--expand">
-                                    <h2 class="mdl-card__title-text"></h2>
+                                <div class="mdl-card__title_auto mdl-card--expand">
+                                    <h2 class="mdl-card__title_auto-text"></h2>
                                 </div>
-                                <div class="mdl-card__supporting-text">
-                                <form class="form-horizontal" action="ViewAutoQuoteServlet"> 
-                                    <select id="autoQuotes" name="autoquotes">
-                                        <c:forEach items="${BusinessProcessManager.getVehicleQuoteList()}" var="autoquotes">
-                                            <c:if test="${(BusinessProcessManager.checkExpiry(autoquotes.value))}">
-                                                <option value="${autoquotes.key}">ID: ${autoquotes.key} Cost: $ ${autoquotes.value.getTotalPremium()}</option>
-                                            </c:if>
-                                        </c:forEach>
-                                    </select>
-                                  
-                                
-                               </div>
+                                <div style="padding: 20px;" class="">
+                                    <form class="form-horizontal" action="ViewAutoQuoteServlet"> 
+                                        <select id="autoQuotes" name="autoquotes">
+                                            <c:forEach items="${BusinessProcessManager.getVehicleQuoteList()}" var="autoquotes">
+                                                <c:if test="${(BusinessProcessManager.checkExpiry(autoquotes.value))}">
+                                                    <option value="${autoquotes.key}">ID: ${autoquotes.key} Cost: $ ${autoquotes.value.getTotalPremium()}</option>
+                                                </c:if>
+                                            </c:forEach>
+                                        </select>
+
+
+                                </div>
                                 <div class="mdl-card__actions mdl-card--border">
                                     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">View Auto Quote</button> 
                                 </div>
@@ -183,17 +232,28 @@
         <script src="js/custom.js"></script>
         <script src="contactform/contactform.js"></script>
         <!-- Square card -->
-<style>
-.demo-card-square.mdl-card {
-  width: 320px;
-  height: 270px;
-}
-.demo-card-square > .mdl-card__title {
-  color: #fff;
-  background:
-    url('https://img.clipartfest.com/e93053963be276dec149592341d14d87_car-back-red-icon-back-of-car-clipart-png_256-256.png') center no-repeat #46B6AC;
-}
-</style>
+        <style>
+            .demo-card-square.mdl-card {
+                width: 320px;
+                height: 270px;
+            }
+            .demo-card-square > .mdl-card__title_auto {
+                color: #fff;
+                background:
+                    url('https://img.clipartfest.com/e93053963be276dec149592341d14d87_car-back-red-icon-back-of-car-clipart-png_256-256.png') center no-repeat #2196F3;
+            }
+            .demo-card-square > .mdl-card__title_home {
+                color: #fff;
+                background:
+                    url('http://findicons.com/files/icons/776/chakram_2/128/home.png') center no-repeat #2196F3;
+            }
+            .demo-card-square > .mdl-card__title_info {
+                color: #fff;
+                text-align: center;
+                background:
+                     center no-repeat #2196F3;
+            }
+        </style>
 
     </body>
 
