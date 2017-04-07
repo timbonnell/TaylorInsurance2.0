@@ -25,7 +25,10 @@ public class Address {
         setCountry(country);
         setPostalCode(postalCode);
     }
-
+    
+    public Address(){
+        
+    }
     public String getCity() {
         return city;
     }

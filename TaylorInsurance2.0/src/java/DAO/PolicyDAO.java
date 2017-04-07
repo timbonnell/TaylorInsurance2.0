@@ -30,7 +30,7 @@ public class PolicyDAO {
     // Create Auto Policy
     public static VehiclePolicy acceptAutoPolicy(VehicleQuote quote) {
         String sql = "{call acceptAutoPolicy (?)}";
-        System.out.println("Accept Policy" + quote);
+        System.out.println("Accept Policy" + quote.getId());
         try (
                 Connection con = ConnectionManager.getConnection();
                 CallableStatement stm = con.prepareCall(sql)) {
@@ -38,14 +38,18 @@ public class PolicyDAO {
             //Set up params for stored procedure
             stm.setInt(1, Integer.parseInt(quote.getId()));
             //Return sp into a result set
-            ResultSet rs = stm.executeQuery();
-            if (!rs.next()) {
-                throw new SQLException("No policy has been created.");
+            boolean hasResultSets = stm.execute();
+            boolean hasMoreResultSets = stm.getMoreResults();
+            System.out.println(hasMoreResultSets + " " + hasResultSets);
+            if (true) {
+                ResultSet rs = stm.getResultSet();
+                rs.next();
+                return new VehiclePolicy(rs.getString("policy_id"), quote, rs.getDate("date_created").toLocalDate(), rs.getDate("date_expired").toLocalDate());
             } else {
-                return new VehiclePolicy(rs.getString("policy_id"), quote, rs.getDate("date_created").toLocalDate(), rs.getDate("date_created").toLocalDate());
+                throw new SQLException("No policy has been created.");
             }
         } catch (SQLException ex) {
-            System.out.println("Retreive Quote has failed for customer id: " + quote + " reason: " + ex);
+            System.out.println("Retreive Quote has failed for quote id: " + quote.getId() + " reason: " + ex);
             Logger.getLogger(QuoteDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
@@ -62,7 +66,10 @@ public class PolicyDAO {
             stm.setQueryTimeout(30);
             //Set up params for stored procedure
             stm.setInt(1, Integer.parseInt(quote.getId()));
-            ResultSet rs = stm.executeQuery();
+            boolean hasResultSets = stm.execute();
+            boolean hasMoreResultSets = stm.getMoreResults();
+            System.out.println(hasMoreResultSets + " " + hasResultSets);
+            ResultSet rs = stm.getResultSet();
             if (!rs.next()) {
                 throw new SQLException("No policy has been created.");
             } else {
@@ -90,7 +97,7 @@ public class PolicyDAO {
                 if (quote == null) {
                     throw new IndexOutOfBoundsException("Bad quote ID: " + rs.getString("quote_id"));
                 }
-                policyList.add(new HousePolicy(rs.getString("policy_id"), quote, rs.getDate("creation_date").toLocalDate(), rs.getDate("expiry_date").toLocalDate()));
+                policyList.add(new HousePolicy(rs.getString("policy_id"), quote, rs.getDate("date_created").toLocalDate(), rs.getDate("date_expired").toLocalDate()));
             }
             
         } catch (SQLException ex) {
@@ -100,7 +107,7 @@ public class PolicyDAO {
     }
     
     public static List<VehiclePolicy> getVehiclePoliciesByCustomerId(Customer customer, Map<String, VehicleQuote> quoteList) {
-        String sql = "{call getAutoPoliciesByCustomerId(?)}";
+        String sql = "{call getAllAutoPoliciesByCustomerId(?)}";
         List<VehiclePolicy> policyList = new ArrayList();
         try (
                 Connection con = ConnectionManager.getConnection();
@@ -113,7 +120,7 @@ public class PolicyDAO {
                 if (quote == null) {
                     throw new IndexOutOfBoundsException("Bad quote ID: " + rs.getString("quote_id"));
                 }
-                policyList.add(new VehiclePolicy(rs.getString("policy_id"), quote, rs.getDate("creation_date").toLocalDate(), rs.getDate("expiry_date").toLocalDate()));
+                policyList.add(new VehiclePolicy(rs.getString("policy_id"), quote, rs.getDate("date_created").toLocalDate(), rs.getDate("date_expired").toLocalDate()));
             }
             
         } catch (SQLException ex) {

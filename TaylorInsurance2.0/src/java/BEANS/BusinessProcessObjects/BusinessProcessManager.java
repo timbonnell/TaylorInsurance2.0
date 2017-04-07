@@ -121,10 +121,12 @@ public class BusinessProcessManager {
     public VehiclePolicy createNewVehiclePolicy(String quoteId) {
 
         VehicleQuote quote = vehicleQuoteList.get(quoteId);
+        System.out.println("createNewVehiclePolicySize: " + vehicleQuoteList.size());
         if (quote == null) {
             throw new IndexOutOfBoundsException("Bad vehicle quote ID: " + quoteId);
         } else {
             VehiclePolicy policy = PolicyDAO.acceptAutoPolicy(quote);
+            System.out.println("BPM create Policy ID: " + policy.getId());
             vehiclePolicyList.put(policy.getId(), policy);
             return policy;
         }

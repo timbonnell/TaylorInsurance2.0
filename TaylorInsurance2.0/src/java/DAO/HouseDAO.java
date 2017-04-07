@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import BEANS.InfoObjects.Address;
 import BEANS.InfoObjects.House;
 import SERVLETS.ConnectionManager;
 import java.sql.CallableStatement;
@@ -56,13 +57,13 @@ public class HouseDAO {
             ps.setString(6, houseStreet);
             ps.setString(7, housePostal);
             ps.setString(8, houseCountry);
-            System.out.println("EXEC insertHouse" + houseType + "," + houseYear+ "," + houseHeating+ ","+ houseCity+ "," + 10+ ","  + houseStreet+ "," +  housePostal+ "," + houseCountry);
-           
+            System.out.println("EXEC insertHouse" + houseType + "," + houseYear + "," + houseHeating + "," + houseCity + "," + 10 + "," + houseStreet + "," + housePostal + "," + houseCountry);
+
             //rs = ps.execute();
-            System.out.println("EXEC insertHouse" + houseType + "," + houseYear+ "," + houseHeating+ ","+ houseCity+ "," + 10+ ","  + houseStreet+ "," +  housePostal+ "," + houseCountry);
+            System.out.println("EXEC insertHouse" + houseType + "," + houseYear + "," + houseHeating + "," + houseCity + "," + 10 + "," + houseStreet + "," + housePostal + "," + houseCountry);
 
             boolean more = ps.execute();
-             more = ps.getMoreResults();
+            more = ps.getMoreResults();
             rs = ps.getResultSet();
             more = rs.next();
             System.out.println(more);
@@ -86,37 +87,51 @@ public class HouseDAO {
         return house;
     }
 
-      /**
+    /**
      * Creates a list of houses
-     * 
+     *
      * Stored procedure getHousesByCustomerId:
-     * 
-     * Parameter: 
-     * INTEGER customerId
-     * 
-     * Return:
-     * INTEGER houseId
-     * INTEGER heating;
-     * INTEGER year;
-     * INTEGER type;
-     * 
+     *
+     * Parameter: INTEGER customerId
+     *
+     * Return: INTEGER houseId INTEGER heating; INTEGER year; INTEGER type;
+     *
      * @param customerId
-     * @return 
+     * @return
      */
     public static List<House> getHousesForCustomer(String customerId) {
         String sql = "{call getAllHousesByCustomerId (?)}";
         List<House> list = new ArrayList();
-        try (
-                Connection con = ConnectionManager.getConnection();
-                CallableStatement stm = con.prepareCall(sql)) {
+        try {
+            Connection con = ConnectionManager.getConnection();
+            CallableStatement stm = con.prepareCall(sql);
 
             stm.setInt(1, Integer.parseInt(customerId));
             ResultSet results = stm.executeQuery();
             while (results.next()) {
-                
+                House aHouse = new House();
+                Address houseAddress = new Address();
+                aHouse.setHouseID(results.getString("house_id"));
+                aHouse.setType(results.getInt("house_type"));
+                aHouse.setYear(results.getInt("year_built"));
+                aHouse.setHeating(results.getInt("heating_type"));
+
+                houseAddress.setCity(results.getString("city"));
+                houseAddress.setProvince(DatasetDAO.resolveDatasetLabel(results.getInt("province")));
+                houseAddress.setStreetAddress1(results.getString("streetaddress"));
+                houseAddress.setPostalCode(results.getString("postal"));
+                houseAddress.setCountry(results.getString("country"));
+
+                aHouse.setAddress(houseAddress);
+
+                list.add(aHouse);
             }
         } catch (SQLException ex) {
             Logger.getLogger(HouseDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Get All Houses Error: " + ex);
+        } finally {
+            //Close DB Connections
+            ConnectionManager.Dispose(connection, rs, ps);
         }
         return list;
     }

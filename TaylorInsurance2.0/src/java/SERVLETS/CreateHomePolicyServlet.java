@@ -38,7 +38,7 @@ public class CreateHomePolicyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String HouseQuoteID = (String) (request.getSession(false).getAttribute("HouseQuoteID"));
+        String HouseQuoteID = (String) (request.getSession(false).getAttribute("currentsessionHomeQuoteID"));
         BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (request.getSession(false).getAttribute("BusinessProcessManager"));
         newBusinessProcessManager.createNewHousePolicy(HouseQuoteID);
         

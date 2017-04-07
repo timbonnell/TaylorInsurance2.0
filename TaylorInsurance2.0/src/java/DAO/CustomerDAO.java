@@ -63,7 +63,7 @@ public class CustomerDAO {
                 String lastName = rs.getString("last_name");
                 //  LocalDate birthDate = rs.getDate(customer_birthdate);
                 Address mailingAddress = new Address(rs.getString("city"),
-                        rs.getString("province"),
+                        (rs.getString("province")),
                         rs.getString("street"),
                         rs.getString("country"),
                         rs.getString("postalcode"));

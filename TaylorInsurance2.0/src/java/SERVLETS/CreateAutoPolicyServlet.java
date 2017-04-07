@@ -47,8 +47,10 @@ public class CreateAutoPolicyServlet extends HttpServlet {
             throws ServletException, IOException {
 
         BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (request.getSession(false).getAttribute("BusinessProcessManager"));
-        String AutoQuoteID = (String) (request.getSession(false).getAttribute("AutoQuoteID"));
-        newBusinessProcessManager.createNewHousePolicy(AutoQuoteID);
+        String AutoQuoteID = (String) (request.getSession(false).getAttribute("currentsessionAutoQuoteID"));
+       System.out.println("CreateAutoPolicyServlet QuoteID: " + AutoQuoteID);
+        newBusinessProcessManager.createNewVehiclePolicy(AutoQuoteID);
+        
         HttpSession session = request.getSession(true);
         session.setAttribute("BusinessProcessManager", newBusinessProcessManager);
         response.sendRedirect("userprofile.jsp"); //logged-in page  

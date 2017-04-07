@@ -118,20 +118,20 @@ public class QuoteDAO {
             while (rs.next()) {
                 House house = houseList.get(rs.getString("house_id"));
                 if (house == null) {
-                    throw new IndexOutOfBoundsException("Bad house ID: " + rs.getString("house_id"));
+                    throw new IndexOutOfBoundsException("Bad house ID: (Quote) " + rs.getString("house_id"));
                 }
-                quoteList.add(new HouseQuote(rs.getString("quote_id"), rs.getDate("creation_date").toLocalDate(), rs.getDate("expiry_date").toLocalDate(), customer, house));
+                quoteList.add(new HouseQuote(rs.getString("quote_id"), rs.getDate("date_created").toLocalDate(), rs.getDate("date_expired").toLocalDate(), customer, house));
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(QuoteDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        System.out.println("Home Quote List" + quoteList.size());
         return quoteList;
     }
 
     public static List<VehicleQuote> getVehicleQuotesByCustomerId(Customer customer, Map<String, Vehicle> vehicleList) {
-        String sql = "{call getAutoQuotesByCustomerId(?)}";
+        String sql = "{call getAllAutoQuotesByCustomerId(?)}";
         List<VehicleQuote> quoteList = new ArrayList<>();
         try (
                 Connection con = ConnectionManager.getConnection();
@@ -151,7 +151,7 @@ public class QuoteDAO {
         } catch (SQLException ex) {
             Logger.getLogger(QuoteDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        System.out.println("Vehicle Quote List: " + quoteList.size());
         return quoteList;
     }
 }

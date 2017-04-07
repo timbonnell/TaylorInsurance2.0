@@ -121,19 +121,21 @@ public class VehicleDAO {
                 aVehicle.setType(results.getInt("vehicle_type"));
                 aVehicle.setVin(results.getString("vin"));
                 aVehicle.setColor(results.getInt("color"));
-                //Do not set Accidents for this object TODO- Remove this section when relevant
-                /**aVehicle.setNumAccidents(results.getString());*/
                 aVehicle.setEstimated_value(results.getDouble("estimated_value"));
                 list.add(aVehicle);
                 System.out.println("Test Vehicle INIT" + aVehicle.toString());
             }
         } catch (SQLException ex) {
             Logger.getLogger(VehicleDAO.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Get All Vehicles Error");
+            System.out.println("Get All Vehicles Error: " + ex);
         }
-        System.out.println("List Length" + list.size());
+       finally {
+            //Close DB Connections
+            ConnectionManager.Dispose(connection, rs, ps);
+            System.out.println("List Length" + list.size());
         return list;
-        
+        }
+       
     }
 
 }
