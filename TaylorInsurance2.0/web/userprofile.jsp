@@ -19,6 +19,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>User Profile</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.green-light_green.min.css" />
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
@@ -87,7 +90,7 @@
                                     </c:forEach>
                                 </select>
                                 <br><br>
-                                <button class="btn btn-info" type="submit">View Policy</button>
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">View Policy</button>
                             </form>
                         </div>
                         <div id="AutoPolicySection">
@@ -100,7 +103,7 @@
                                     </c:forEach>
                                 </select>
                                 <br><br>
-                                <button class="btn btn-info" type="submit">View Policy</button>
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">View Policy</button>
                             </form>
 
                         </div>
@@ -113,65 +116,85 @@
                             <h3>Active Home Quotes</h3>  
                             <form class="form-horizontal" action="ViewHomeQuoteServlet"> 
                                 <select id="homeQuotes" name="homeQuotes">
-                                        <c:forEach items="${BusinessProcessManager.getHouseQuoteList()}" var="homequotes">
-                                            <c:if test="${(BusinessProcessManager.checkExpiry(homequotes.value))}">
+                                    <c:forEach items="${BusinessProcessManager.getHouseQuoteList()}" var="homequotes">
+                                        <c:if test="${(BusinessProcessManager.checkExpiry(homequotes.value))}">
                                             <option value="${homequotes.key}">ID: ${homequotes.key} Cost: $ ${homequotes.value.getTotalPremium()} </option>
-                                            </c:if>
-                                        </c:forEach>                                   
+                                        </c:if>
+                                    </c:forEach>                                   
                                 </select>
                                 <br><br>
-                                <button class="btn btn-info" type="submit">View Home Quote</button>
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">View Home Quote</button>
                             </form>
 
                         </div>
 
                         <div id="autoQuoteSection">
 
-                            <h3>Active Auto Quotes</h3>  
-                            <form class="form-horizontal" action="ViewAutoQuoteServlet"> 
-                                <select id="autoQuotes" name="autoquotes">
+                            <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand">
+                                    <h2 class="mdl-card__title-text"></h2>
+                                </div>
+                                <div class="mdl-card__supporting-text">
+                                <form class="form-horizontal" action="ViewAutoQuoteServlet"> 
+                                    <select id="autoQuotes" name="autoquotes">
                                         <c:forEach items="${BusinessProcessManager.getVehicleQuoteList()}" var="autoquotes">
                                             <c:if test="${(BusinessProcessManager.checkExpiry(autoquotes.value))}">
-                                            <option value="${autoquotes.key}">ID: ${autoquotes.key} Cost: $ ${autoquotes.value.getTotalPremium()}</option>
-                                             </c:if>
+                                                <option value="${autoquotes.key}">ID: ${autoquotes.key} Cost: $ ${autoquotes.value.getTotalPremium()}</option>
+                                            </c:if>
                                         </c:forEach>
-                                </select>
-                                <br><br>
-                                <button class="btn btn-info" type="submit">View Auto Quote</button>
-                            </form>
-
-                        </div>     
+                                    </select>
+                                  
+                                
+                               </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">View Auto Quote</button> 
+                                </div>
+                                </form>
+                            </div>     
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script>
-        $(document).ready(function () {
-            if (!$('#homePolicies').val()) {
-                $('#homePolicyID').hide();
-            }
+        <script>
+            $(document).ready(function () {
+                if (!$('#homePolicies').val()) {
+                    $('#homePolicyID').hide();
+                }
 
-            if (!$('#autoPolicies').val()) {
-                $('#AutoPolicySection').hide();
-            }
+                if (!$('#autoPolicies').val()) {
+                    $('#AutoPolicySection').hide();
+                }
 
-            if (!$('#autoQuotes').val()) {
-                $('#autoQuoteSection').hide();
-            }
+                if (!$('#autoQuotes').val()) {
+                    $('#autoQuoteSection').hide();
+                }
 
-            if (!$('#homeQuotes').val()) {
-                $('#homeQuoteSection').hide();
-            }
+                if (!$('#homeQuotes').val()) {
+                    $('#homeQuoteSection').hide();
+                }
 
-        });
+            });
 
-    </script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="contactform/contactform.js"></script>
-</body>
+        </script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.easing.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="contactform/contactform.js"></script>
+        <!-- Square card -->
+<style>
+.demo-card-square.mdl-card {
+  width: 320px;
+  height: 270px;
+}
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  background:
+    url('https://img.clipartfest.com/e93053963be276dec149592341d14d87_car-back-red-icon-back-of-car-clipart-png_256-256.png') center no-repeat #46B6AC;
+}
+</style>
+
+    </body>
 
 </html>

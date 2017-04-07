@@ -63,7 +63,8 @@ public class ExistingAutoQuoteServlet extends HttpServlet {
         int dayInt = Integer.parseInt(splitDate[2]);
         LocalDate localDateBirth = LocalDate.of(yearInt, monthInt, dayInt);
         newCustomer.setBirthDate(localDateBirth);
-
+        newBusinessProcessManager.setCustomer(newCustomer);
+        
         //Build Vehicle Object
         Vehicle quoteVehicle = new Vehicle();
         quoteVehicle.setType(vehicleType);
