@@ -41,7 +41,8 @@ public class CreateHomePolicyServlet extends HttpServlet {
         String HouseQuoteID = (String) (request.getSession(false).getAttribute("currentsessionHomeQuoteID"));
         BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (request.getSession(false).getAttribute("BusinessProcessManager"));
         newBusinessProcessManager.createNewHousePolicy(HouseQuoteID);
-        
+        newBusinessProcessManager.resetMaps();
+        newBusinessProcessManager.loadAllCustomerInformation();
         //Policy IDS for Dropdown List
         HttpSession session = request.getSession(true);
         session.setAttribute("BusinessProcessManager", newBusinessProcessManager);

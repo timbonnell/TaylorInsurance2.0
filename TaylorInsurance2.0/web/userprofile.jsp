@@ -113,11 +113,11 @@
                             <h3>Active Home Quotes</h3>  
                             <form class="form-horizontal" action="ViewHomeQuoteServlet"> 
                                 <select id="homeQuotes" name="homeQuotes">
-                                    <c:if test="${!(BusinessProcessManager.checkExpiry(homequotes.value))}">
                                         <c:forEach items="${BusinessProcessManager.getHouseQuoteList()}" var="homequotes">
+                                            <c:if test="${(BusinessProcessManager.checkExpiry(homequotes.value))}">
                                             <option value="${homequotes.key}">ID: ${homequotes.key} Cost: $ ${homequotes.value.getTotalPremium()} </option>
-                                        </c:forEach>
-                                    </c:if>
+                                            </c:if>
+                                        </c:forEach>                                   
                                 </select>
                                 <br><br>
                                 <button class="btn btn-info" type="submit">View Home Quote</button>
@@ -130,11 +130,11 @@
                             <h3>Active Auto Quotes</h3>  
                             <form class="form-horizontal" action="ViewAutoQuoteServlet"> 
                                 <select id="autoQuotes" name="autoquotes">
-                                    <c:if test="${!(BusinessProcessManager.checkExpiry(autoquotes.value))}">
                                         <c:forEach items="${BusinessProcessManager.getVehicleQuoteList()}" var="autoquotes">
+                                            <c:if test="${(BusinessProcessManager.checkExpiry(autoquotes.value))}">
                                             <option value="${autoquotes.key}">ID: ${autoquotes.key} Cost: $ ${autoquotes.value.getTotalPremium()}</option>
+                                             </c:if>
                                         </c:forEach>
-                                    </c:if>
                                 </select>
                                 <br><br>
                                 <button class="btn btn-info" type="submit">View Auto Quote</button>

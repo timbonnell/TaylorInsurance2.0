@@ -233,12 +233,23 @@ public class BusinessProcessManager {
     }
     
     public boolean checkExpiry(Quote quote){
-        boolean result = false;
+        boolean result = true;
+        System.out.println(quote.getId());
         LocalDate expirationDate = quote.getExpiryDate();
-        if((expirationDate.isEqual(LocalDate.now())) || (expirationDate.isAfter(LocalDate.now()))){
-            result = true;
+        if((expirationDate.isEqual(LocalDate.now())) || (expirationDate.isBefore(LocalDate.now()))){
+            System.out.println("Check Expiry");
+            result = false;
         }
         return result;
+    }
+    
+    public void resetMaps(){
+    houseList.clear();
+    housePolicyList.clear();
+    houseQuoteList.clear();
+    vehicleList.clear();
+    vehiclePolicyList.clear();
+    vehicleQuoteList.clear();
     }
 
 }
