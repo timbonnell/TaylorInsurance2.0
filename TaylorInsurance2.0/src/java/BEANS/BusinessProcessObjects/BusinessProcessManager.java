@@ -231,5 +231,14 @@ public class BusinessProcessManager {
         this.customer.setPassword(password);
         return CustomerDAO.register(customer);
     }
+    
+    public boolean checkExpiry(Quote quote){
+        boolean result = false;
+        LocalDate expirationDate = quote.getExpiryDate();
+        if((expirationDate.isEqual(LocalDate.now())) || (expirationDate.isAfter(LocalDate.now()))){
+            result = true;
+        }
+        return result;
+    }
 
 }

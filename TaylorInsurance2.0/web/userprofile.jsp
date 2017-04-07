@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <META HTTP-EQUIV="refresh" CONTENT="<%= session.getMaxInactiveInterval() %>; URL= index.jsp" />
+        <META HTTP-EQUIV="refresh" CONTENT="<%= session.getMaxInactiveInterval()%>; URL= index.jsp" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,16 +47,16 @@
                     <li><a href="ContactUs.jsp">Contact Us</a></li>
                     <li>
                         <form style="padding-top: 10px;" class="form-horizontal" action="LogoutServlet"> 
-                             <button class="btn btn-info" type="submit">Logout</button>
+                            <button class="btn btn-info" type="submit">Logout</button>
                         </form>
                     </li>
-                    
+
                 </ul>
             </div>
         </div>
     </nav>
     <body style="padding-top: 150px;">
-        <% BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager)(session.getAttribute("BusinessProcessManager"));%>
+        <% BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (session.getAttribute("BusinessProcessManager"));%>
 
         <!--/ Navigation bar-->
         <div class="container">
@@ -78,66 +78,68 @@
                     <div>
 
                         <div id="homePolicyID">
-                     
-                                <h3>Active Home Policies</h3>  
-                                <form class="form-horizontal" action="ViewHomePolicyServlet"> 
-                                    <select id="homePolicies" name="homePolicies">
-                                        <c:forEach items="${BusinessProcessManager.getHousePolicyList()}" var="homepolicy">
-                                            <option value="${homepolicy.key}">ID: ${homepolicy.key} Cost: $ ${homepolicy.value.getPremium()}</option>
-                                        </c:forEach>
-                                    </select>
-                                    <br><br>
-                                    <button class="btn btn-info" type="submit">View Policy</button>
-                              </form>
+
+                            <h3>Active Home Policies</h3>  
+                            <form class="form-horizontal" action="ViewHomePolicyServlet"> 
+                                <select id="homePolicies" name="homePolicies">
+                                    <c:forEach items="${BusinessProcessManager.getHousePolicyList()}" var="homepolicy">
+                                        <option value="${homepolicy.key}">ID: ${homepolicy.key} Cost: $ ${homepolicy.value.getPremium()}</option>
+                                    </c:forEach>
+                                </select>
+                                <br><br>
+                                <button class="btn btn-info" type="submit">View Policy</button>
+                            </form>
                         </div>
                         <div id="AutoPolicySection">
-                          
-                                <h3>Active Auto Policies</h3>  
-                                <form class="form-horizontal" action="ViewAutoPolicyServlet"> 
-                                    <select id="autoPolicies" name="autoPolicies">
-                                        <c:forEach items="${BusinessProcessManager.getVehiclePolicyList()}" var="autopolicy">
-                                            <option value="${autopolicy.key}">ID: ${autopolicy.key} Cost: $ ${autopolicy.value.getPremium()}</option>
-                                        </c:forEach>
-                                    </select>
-                                    <br><br>
-                                    <button class="btn btn-info" type="submit">View Policy</button>
-                                </form>
-                        
+
+                            <h3>Active Auto Policies</h3>  
+                            <form class="form-horizontal" action="ViewAutoPolicyServlet"> 
+                                <select id="autoPolicies" name="autoPolicies">
+                                    <c:forEach items="${BusinessProcessManager.getVehiclePolicyList()}" var="autopolicy">
+                                        <option value="${autopolicy.key}">ID: ${autopolicy.key} Cost: $ ${autopolicy.value.getPremium()}</option>
+                                    </c:forEach>
+                                </select>
+                                <br><br>
+                                <button class="btn btn-info" type="submit">View Policy</button>
+                            </form>
+
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div>
                         <div id="homeQuoteSection">
-                           
-                                <h3>Active Home Quotes</h3>  
-                                <form class="form-horizontal" action="ViewHomeQuoteServlet"> 
-                                    <select id="homeQuotes" name="homeQuotes">
+
+                            <h3>Active Home Quotes</h3>  
+                            <form class="form-horizontal" action="ViewHomeQuoteServlet"> 
+                                <select id="homeQuotes" name="homeQuotes">
+                                    <c:if test="${!(BusinessProcessManager.checkExpiry(homequotes.value))}">
                                         <c:forEach items="${BusinessProcessManager.getHouseQuoteList()}" var="homequotes">
-                                            
-                                                <option value="${homequotes.key}">ID: ${homequotes.key} Cost: $ ${homequotes.value.getTotalPremium()}</option>
-                                           
+                                            <option value="${homequotes.key}">ID: ${homequotes.key} Cost: $ ${homequotes.value.getTotalPremium()} </option>
                                         </c:forEach>
-                                    </select>
-                                    <br><br>
-                                    <button class="btn btn-info" type="submit">View Home Quote</button>
-                                </form>
-                        
+                                    </c:if>
+                                </select>
+                                <br><br>
+                                <button class="btn btn-info" type="submit">View Home Quote</button>
+                            </form>
+
                         </div>
 
                         <div id="autoQuoteSection">
-                           
-                                <h3>Active Auto Quotes</h3>  
-                                <form class="form-horizontal" action="ViewAutoQuoteServlet"> 
-                                    <select id="autoQuotes" name="autoquotes">
+
+                            <h3>Active Auto Quotes</h3>  
+                            <form class="form-horizontal" action="ViewAutoQuoteServlet"> 
+                                <select id="autoQuotes" name="autoquotes">
+                                    <c:if test="${!(BusinessProcessManager.checkExpiry(autoquotes.value))}">
                                         <c:forEach items="${BusinessProcessManager.getVehicleQuoteList()}" var="autoquotes">
-                                                <option value="${autoquotes.key}">ID: ${autoquotes.key} Cost: $ ${autoquotes.value.getTotalPremium()}</option>
+                                            <option value="${autoquotes.key}">ID: ${autoquotes.key} Cost: $ ${autoquotes.value.getTotalPremium()}</option>
                                         </c:forEach>
-                                    </select>
-                                    <br><br>
-                                    <button class="btn btn-info" type="submit">View Auto Quote</button>
-                                </form>
-                           
+                                    </c:if>
+                                </select>
+                                <br><br>
+                                <button class="btn btn-info" type="submit">View Auto Quote</button>
+                            </form>
+
                         </div>     
                     </div>
                 </div>
