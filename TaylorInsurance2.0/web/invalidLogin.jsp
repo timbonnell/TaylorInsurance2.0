@@ -19,9 +19,13 @@
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/imagehover.min.css">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">       
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.green-light_green.min.css" />
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        
     </head>
-    <body>
+    
         <!--Navigation bar-->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -44,6 +48,13 @@
             </div>
         </nav>
         <!--/ Navigation bar-->
-        <h1>Invalid Login</h1>
+    <body style="padding-top: 150px;">
+       <div style="text-align: center;">
+        <h1 style="text-align: center;">Invalid Login</h1>
+        <p style="text-align: center;">If you are having issues logging in please contact us at</p>
+        <p style="text-align: center;">(709) 867-5309</p>
+        <a style="margin: 0 auto;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="index.jsp">Home</a>
+       </div>
+          
     </body>
 </html>
