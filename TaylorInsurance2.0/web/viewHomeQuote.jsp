@@ -96,24 +96,24 @@
 
                 </div>
 
-                <div class="col-sm-4">
+                            <div class="col-sm-4">
 
-                    <div class="demo-card-square mdl-card mdl-shadow--2dp">
-                        <div class="mdl-card__title_info mdl-card--expand">
-                            <h3 class="mdl-card__title_home-text">Home Quote Information</h3>
-                        </div>
-                        <br><br>
-                        <b style="padding: 10px;">Yearly Premium: <%=newBusinessProcessManager.getHouseQuote(homeQuoteID).getTotalPremium()%></b>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <form class="form-horizontal" action="CreateHomePolicyServlet">
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">Create Home Policy</button>
-                            </form>
-                        </div>
+                                <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title_info mdl-card--expand">
+                                        <h3 class="mdl-card__title_home-text">Home Quote Information</h3>
+                                    </div>
+                                    <br><br>
+                                    <b style="padding: 10px;">Yearly Premium: <%=newBusinessProcessManager.getHouseQuote(homeQuoteID).getTotalPremium()%></b>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <form class="form-horizontal" action="CreateHomePolicyServlet">
+                                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">Create Home Policy</button>
+                                        </form>
+                                    </div>
 
 
-                    </div>
+                                </div>
 
-                </div>
+                            </div>
             </div>
         </div>
     </div>
