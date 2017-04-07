@@ -19,7 +19,7 @@ public class VehicleRiskFactorGenerator extends RiskFactorGenerator {
     }
 
     public double getDriverAccidentsFactor() {
-        Map accidentRates = getRatesForGroup("VEHICLE_AGE");
+        Map accidentRates = getRatesForGroup("NUM_ACCIDENTS");
 
         int accidents = getNumberOfDriverAccidents();
 
@@ -70,6 +70,9 @@ public class VehicleRiskFactorGenerator extends RiskFactorGenerator {
 
     @Override
     public double getTotalRateFactor() {
+        //System.out.println("The driver age factor is: " + getDriverAgeFactor());
+        //System.out.println("The accidents factor is: " + getDriverAccidentsFactor());
+        //System.out.println("The vehicle age factor is: " + getVehicleAgeFactor());
         return getDriverAgeFactor() * getDriverAccidentsFactor() * getVehicleAgeFactor();
     }
 
@@ -109,6 +112,7 @@ public class VehicleRiskFactorGenerator extends RiskFactorGenerator {
 
     @Override
     void loadPremium() {
+        //System.out.println("Load Premium method fired in VehicleRiskFactorGenerator. Trying to set base premium to 750");
         setBasePremium(750);
     }
 
@@ -117,7 +121,8 @@ public class VehicleRiskFactorGenerator extends RiskFactorGenerator {
         /**
          * TODO Load rates from database
          */
-        addRate("DRIVER_AGE", "25", 2);
+        addRate("DRIVER_AGE", "1", 2); // Edited in for fix to age
+        addRate("DRIVER_AGE", "25", 1);
 
         addRate("NUM_ACCIDENTS", "2", 2.5);
         addRate("NUM_ACCIDENTS", "1", 1.25);
