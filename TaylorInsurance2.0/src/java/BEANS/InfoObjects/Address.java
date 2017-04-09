@@ -79,7 +79,7 @@ public class Address {
 
     @Override
     public String toString() {
-        return streetAddress1 + "<br>" + city + ", " + province + ", " + country + "<br>" + postalCode;
+        return streetAddress1 + "<br>" + city + ", " + "NL" + ", " + country + " " + postalCode;
     }
 
 }
