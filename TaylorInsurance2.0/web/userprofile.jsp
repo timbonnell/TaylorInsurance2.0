@@ -100,7 +100,7 @@
                 </div>
 
                 <div class="col-sm-4">
-                    <div id="homePolicyID">
+                    <div style="padding-bottom: 60px;"   id="homePolicyID">
 
                         <div class="demo-card-square mdl-card mdl-shadow--2dp">
                             <div class="mdl-card__title_home mdl-card--expand">
@@ -122,7 +122,7 @@
                     </div>
 
 
-                    <div style="padding-top: 60px;" id="AutoPolicySection">
+                    <div id="AutoPolicySection">
 
                         <div class="demo-card-square mdl-card mdl-shadow--2dp">
                             <div class="mdl-card__title_auto mdl-card--expand">
