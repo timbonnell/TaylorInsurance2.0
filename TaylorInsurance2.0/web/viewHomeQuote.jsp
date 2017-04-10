@@ -41,9 +41,9 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="index.jsp">Home</a></li>
+                    <li><a href="userprofile.jsp">My Profile</a></li>
                     <li><a href="homeQuoteExisting.jsp">Add Home Quote</a></li>
                     <li><a href="autoQuoteExisting.jsp">Add Auto Quote</a></li>
-                    <li><a href="#testimonial">File a Claim</a></li>
                     <li><a href="ContactUs.jsp">Contact Us</a></li>
                     <li>
                         <form style="padding-top: 10px;" class="form-horizontal" action="LogoutServlet"> 
@@ -102,9 +102,9 @@
                                     <div class="mdl-card__title_info mdl-card--expand">
                                         <h3 class="mdl-card__title_home-text">Home Quote Information</h3>
                                     </div>
-                                    <br><br>
-                                    <b style="padding: 10px;">Yearly Premium: <%=newBusinessProcessManager.getHouseQuote(homeQuoteID).getTotalPremium()%></b>
-                                    <b style="padding: 10px;">Yearly Premium: <%=newBusinessProcessManager.getHouseQuote(homeQuoteID).getExpiryDate() %></b>
+                                
+                                    <b style="padding: 5px;">Yearly Premium: $<%=newBusinessProcessManager.getHouseQuote(homeQuoteID).getTotalPremium()%></b>
+                                    <b style="padding: 5px;">Expiry Date: <%=newBusinessProcessManager.getHouseQuote(homeQuoteID).getExpiryDate() %></b>
                                     <div class="mdl-card__actions mdl-card--border">
                                         <form class="form-horizontal" action="CreateHomePolicyServlet">
                                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">Create Home Policy</button>

@@ -41,6 +41,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="index.jsp">Home</a></li>
+                    <li><a href="userprofile.jsp">My Profile</a></li>
                     <li><a href="homeQuote.jsp">Get a Home Quote</a></li>
                     <li><a href="autoQuote.jsp">Get an Auto Quote</a></li>
                     <li><a href="ContactUs.jsp">Contact Us</a></li>

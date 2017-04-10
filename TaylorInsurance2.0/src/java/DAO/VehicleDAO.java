@@ -31,7 +31,7 @@ public class VehicleDAO {
     public static Vehicle createVehicle(Vehicle vehicle) {
         // Set up Vehicle attributes
 
-        String SPsql = "EXEC insertVehicle ?,?,?,?,?,?,?";
+        String SPsql = "EXEC insertVehicle ?,?,?,?,?,?,?,?";
 
         try {
             connection = ConnectionManager.getConnection();
@@ -47,7 +47,8 @@ public class VehicleDAO {
             ps.setString(4, vehicle.getModel());
             ps.setInt(5, vehicle.getYear());
             ps.setInt(6, vehicle.getColor());
-            ps.setDouble(7, vehicle.getEstimated_value());
+            ps.setInt(7, vehicle.getNumAccidents());
+            ps.setDouble(8, vehicle.getEstimated_value());
 
             System.out.println(vehicle.toString());
 
@@ -121,7 +122,9 @@ public class VehicleDAO {
                 aVehicle.setType(results.getInt("vehicle_type"));
                 aVehicle.setVin(results.getString("vin"));
                 aVehicle.setColor(results.getInt("color"));
+                aVehicle.setNumAccidents(results.getInt("accidents"));
                 aVehicle.setEstimated_value(results.getDouble("estimated_value"));
+                
                 list.add(aVehicle);
                 System.out.println("Test Vehicle INIT" + aVehicle.toString());
             }

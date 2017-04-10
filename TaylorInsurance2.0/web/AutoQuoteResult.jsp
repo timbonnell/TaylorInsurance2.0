@@ -101,7 +101,7 @@
                                                 <br><br>
                                                 <b style="padding: 10px;">Yearly Premium: <%= newBusinessProcessManager.getVehicleQuote(AutoQuoteID).getTotalPremium()%></b>
                                                 <div class="mdl-card__actions mdl-card--border">
-                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">Create Auto Policy</button> 
+                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">Create Account</button> 
                                                 </div>
                                                 </form>
 

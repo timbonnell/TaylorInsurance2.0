@@ -33,7 +33,7 @@ public class VehicleRiskFactorGenerator extends RiskFactorGenerator {
         for (Map.Entry<String, Double> accidentFactor; accidentFactors.hasNext();) {
             accidentFactor = accidentFactors.next();
             int numAccidents = Integer.parseInt(accidentFactor.getKey());
-            if (accidents > numAccidents && lastCompared < numAccidents) {
+            if (accidents >= numAccidents && lastCompared < numAccidents) {
                 factor = accidentFactor.getValue();
                 lastCompared = numAccidents;
             }
@@ -70,9 +70,9 @@ public class VehicleRiskFactorGenerator extends RiskFactorGenerator {
 
     @Override
     public double getTotalRateFactor() {
-        //System.out.println("The driver age factor is: " + getDriverAgeFactor());
-        //System.out.println("The accidents factor is: " + getDriverAccidentsFactor());
-        //System.out.println("The vehicle age factor is: " + getVehicleAgeFactor());
+        System.out.println("The driver age factor is: " + getDriverAgeFactor());
+        System.out.println("The accidents factor is: " + getDriverAccidentsFactor());
+        System.out.println("The vehicle age factor is: " + getVehicleAgeFactor());
         return getDriverAgeFactor() * getDriverAccidentsFactor() * getVehicleAgeFactor();
     }
 
