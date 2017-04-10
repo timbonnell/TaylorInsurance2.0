@@ -76,6 +76,7 @@
                         <p>
                             <span>Hi, </span><span><%= newBusinessProcessManager.getCustomer().getFirstName() + " " + newBusinessProcessManager.getCustomer().getLastName()%></span>
                         </p>
+                        <p><%= newBusinessProcessManager.getCustomer().getEmail() %></p>
                         <p><%= newBusinessProcessManager.getCustomer().getAddress()%></p>
                         </div>
                     </div>
@@ -153,7 +154,7 @@
 
                 <div class="col-sm-4">
                     <div>
-                        <div id="homeQuoteSection">
+                        <div style="padding-bottom: 60px;" id="homeQuoteSection">
 
                             <div class="demo-card-square mdl-card mdl-shadow--2dp">
                                 <div class="mdl-card__title_home mdl-card--expand">
@@ -177,7 +178,7 @@
 
                         </div>
 
-                        <div style="padding-top: 60px;" id="autoQuoteSection">
+                        <div id="autoQuoteSection">
 
                             <div class="demo-card-square mdl-card mdl-shadow--2dp">
                                 <div class="mdl-card__title_auto mdl-card--expand">

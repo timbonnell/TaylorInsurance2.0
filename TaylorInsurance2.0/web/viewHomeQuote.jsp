@@ -104,6 +104,7 @@
                                     </div>
                                     <br><br>
                                     <b style="padding: 10px;">Yearly Premium: <%=newBusinessProcessManager.getHouseQuote(homeQuoteID).getTotalPremium()%></b>
+                                    <b style="padding: 10px;">Yearly Premium: <%=newBusinessProcessManager.getHouseQuote(homeQuoteID).getExpiryDate() %></b>
                                     <div class="mdl-card__actions mdl-card--border">
                                         <form class="form-horizontal" action="CreateHomePolicyServlet">
                                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">Create Home Policy</button>

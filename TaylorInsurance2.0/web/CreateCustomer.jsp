@@ -12,14 +12,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <META HTTP-EQUIV="refresh" CONTENT="<%= session.getMaxInactiveInterval() %>; URL= index.jsp" />
-        <title>Auto Quote</title>
+        <META HTTP-EQUIV="refresh" CONTENT="<%= session.getMaxInactiveInterval()%>; URL= index.jsp" />
+        <title>Create Account</title>
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/imagehover.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" href="css/form-basic.css"> 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.green-light_green.min.css" />
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
     </head>
 
@@ -47,7 +50,7 @@
     <!--End Nav -->
 
     <body style="padding-top: 150px;">
-          <% BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager)(session.getAttribute("BusinessProcessManager"));%>
+        <% BusinessProcessManager newBusinessProcessManager = (BusinessProcessManager) (session.getAttribute("BusinessProcessManager"));%>
         <div class="container">
             <div class="row">
 
@@ -56,32 +59,28 @@
                 <div class="form-group">
                     <div class="row">
                         <fieldset class="for-panel">
-                            <legend>Create Customer</legend>
+                            <legend>Create Account</legend>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-horizontal">               
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">First Name:</label>
-                                            <p> <%= newBusinessProcessManager.getCustomer().getFirstName()%></p>    
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Last Name: </label> 
-                                            <p> <%= newBusinessProcessManager.getCustomer().getLastName()%></p> 
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Email: </label>
-                                            <p> <%= newBusinessProcessManager.getCustomer().getEmail()%></p>             
-                                        </div>
+                                        <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                                            <div class="mdl-card__title_info mdl-card--expand">
+                                                <h3 class="mdl-card__title_home-text">Customer Information</h3>
+                                            </div>
 
-                                        <div class="form-group">
-                                            <label class="col-xs-5 control-label">Address: </label>
-                                            <p> <%= newBusinessProcessManager.getCustomer().getAddress().toString()%></p>       
+                                            <div style="padding: 20px;"  mdl-card--expand>
+                                                <p>Customer ID: <%= newBusinessProcessManager.getCustomer().getId()%>
+                                                    <br>
+                                                    <span><%= newBusinessProcessManager.getCustomer().getFirstName() + " " + newBusinessProcessManager.getCustomer().getLastName()%></span>
+                                                    <br>
+                                                    <%= newBusinessProcessManager.getCustomer().getAddress()%></p>
+                                            </div>
                                         </div>
-
 
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div style="padding-right: 60px;" class="col-sm-6">
+                                    <h3>Enter Password to Create Account</h3>
                                     <div class="form-horizontal">               
                                         <div class="form-group">
                                             <label class="col-xs-5 control-label">Password: </label>
@@ -162,4 +161,27 @@
             box-sizing: border-box;         /* Opera/IE 8+ */
         }
     </style>
+    <!-- Square card -->
+<style>
+    .demo-card-square.mdl-card {
+        width: 320px;
+        height: 270px;
+    }
+    .demo-card-square > .mdl-card__title_auto {
+        color: #fff;
+        background:
+            url('https://img.clipartfest.com/e93053963be276dec149592341d14d87_car-back-red-icon-back-of-car-clipart-png_256-256.png') center no-repeat #42A5F5;
+    }
+    .demo-card-square > .mdl-card__title_home {
+        color: #fff;
+        background:
+            url('http://findicons.com/files/icons/776/chakram_2/128/home.png') center no-repeat #42A5F5;
+    }
+    .demo-card-square > .mdl-card__title_info {
+        color: #fff;
+        text-align: center;
+        background:
+            center no-repeat #42A5F5;
+    }
+</style>
 </html>
