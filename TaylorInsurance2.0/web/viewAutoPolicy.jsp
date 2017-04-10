@@ -97,7 +97,7 @@
 
                     <div class="demo-card-square mdl-card mdl-shadow--2dp">
                         <div class="mdl-card__title_info mdl-card--expand">
-                            <h3 class="mdl-card__title_home-text">Home Policy Information</h3>
+                            <h3 class="mdl-card__title_home-text">Auto Policy Information</h3>
                         </div>
                         <br>
                         <b style="padding-left: 10px;">Yearly Premium: <%= newBusinessProcessManager.getVehiclePolicy(autoPolicyID).getPremium()%></b>
